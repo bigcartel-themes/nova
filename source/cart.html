@@ -1,0 +1,99 @@
+<header id="content_header">
+  <h1>Cart</h1>
+</header>
+
+{% if cart.items != blank %}
+<form id="cart-form" {% unless cart.shipping.enabled or cart.discount.enabled %}class="no_options"{% endunless %} method="post" action="/cart">
+
+  <section id="cart_items">
+    <header>
+      <h4 id="item">Item</h4>
+      <h4 id="qty"><abbr title="Quantity">Qty</abbr></h4>
+      <h4 id="price">Price</h4>
+    </header>
+    <ul>
+      {% for item in cart.items %}
+      <li id="item-{{ item.id }}" {% unless item.product.has_default_option %}class="with_option"{% endunless %}>
+        <div class="item_thumb"><img src="{{ item.product.image | product_image_url size:"thumb" }}" alt="Photo of {{ item.name }}" /></div>
+        <div class="item_name">
+          <h3><a href="{{ store.url }}#product_{{ item.product.id }}" title="{{ item.product.name }} details">{{ item.product.name }}</a></h3>
+          {% unless item.product.has_default_option %}<span>{{ item.option.name }}</span>{% endunless %}
+        </div>
+        <div class="quantity_input">{{ item | item_quantity_input }}</div>
+        <h3 class="item_price">{{ item.price | money_with_sign }}</h3>
+  
+        <a href="#" class="remove_item" title="Remove item from cart">Remove</a>    
+      </li>
+      {% endfor %}      
+    </ul>
+  </section>
+  
+  {% if cart.shipping.enabled or cart.discount.enabled %}
+  <section id="cart_options">
+    <ul>
+      {% if cart.shipping.enabled %}
+        {% if cart.shipping.strict %}
+        <li id="cart-shipping-tax">
+          <label for="country">Shipping</label>
+          {{ store.country | country_select }}
+          {% if cart.shipping.pending %}
+            <h3>$0</h3>
+            <button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Apply</span></button>                      
+          {% else %}
+            <h3>{{ cart.shipping.amount | money_with_sign }}</h3>
+          {% endif %}
+        </li>
+        {% endif %}
+      {% else %}
+      <li id="cart-shipping-tax" class="not_set">
+        <label>Shipping</label>
+        <p>Applicable fees apply</p>
+      </li>        
+      {% endif %}
+      
+      {% if cart.discount.enabled %}
+      <li id="discount_option">
+        {% if cart.discount.pending %}
+          <label id="cart_discount_label" for="cart_discount_code">Discount</label>
+          {{ cart.discount | discount_code_input }}
+          <h3>{{ store.currency.sign }}0</h3>
+          <button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Apply</span></button>    
+        {% elsif cart.discount.free_shipping %}
+          <label for="cart_discount_code">Discount</label>        
+          <p>{{ cart.discount.name }}</p>         
+        {% else %}
+          <label for="cart_discount_code">Discount</label>        
+          <p>{{ cart.discount.name }}</p>
+          <h3>-{{ cart.discount.amount | money_with_sign }}</h3>
+        {% endif %}
+      </li>
+      {% endif %}
+    </ul>   
+  </section>
+  {% endif %}
+  
+  <section id="cart_total">
+    <p>Applicable shipping and tax apply</p>
+    <div id="total">
+      {% if cart.shipping.enabled and cart.shipping.pending %}
+      <h3>Subtotal</h3>
+      <h2>{{ cart.subtotal | money_with_sign }}</h2>
+      <button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Update</span></button>      
+      {% else %}
+      <h3>Total</h3>
+      <h2>{{ cart.total | money_with_sign }}</h2>
+      <button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Update</span></button>            
+      {% endif %}
+    </div>
+  </section>
+  
+  <button id="checkout_submit" class="button" type="submit" title="Checkout" onclick="Store.checkout(); return false">Checkout</button>    
+</form>
+
+{% else %}
+
+<div id="cart_empty" class="message">
+  <p>Your cart is empty. <a href="/">Start shopping</a></p>
+</div>
+
+{% endif %}

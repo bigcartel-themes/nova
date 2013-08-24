@@ -1,0 +1,111 @@
+{
+  "name": "Nova",
+  "version": "0.0.1",
+  "images": [
+    {
+      "variable": "image",
+      "label": "Header image",
+      "description": "Transparent background recommended"
+    },
+    {
+      "variable": "background_image",
+      "label": "Background Image",
+      "description": "Adds a repeating background image"
+    }
+  ],
+  "fonts": [
+    {
+      "variable": "header_font",
+      "label": "Header Font",
+      "default": "Inconsolata"
+    },
+    {
+      "variable": "text_font",
+      "label": "Text Font",
+      "default": "Inconsolata"
+    }
+  ],
+  "colors": [
+    {
+      "variable": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "variable": "background_secondary_color",
+      "label": "Background Secondary",
+      "default": "#efeff4"
+    },    
+    {
+      "variable": "text_color",
+      "label": "Text",
+      "default": "#111111"
+    },
+    {
+      "variable": "text_secondary_color",
+      "label": "Text Secondary",
+      "default": "#8e8e93"
+    },    
+    {
+      "variable": "link_color",
+      "label": "Links",
+      "default": "#4bc0ba"
+    }, 
+    {
+      "variable": "hover_color",
+      "label": "Link's Hover",
+      "default": "#288d88"
+    },
+    {
+      "variable": "error_color",
+      "label": "Errors",
+      "default": "#e36aa6"
+    },    
+    {
+      "variable": "border_color",
+      "label": "Borders",
+      "default": "#dcdce0"
+    }            
+  ],
+  "options": [
+    {
+      "variable": "featured_products",
+      "label": "Featured products",
+      "type": "select",
+      "options": "1..100",
+      "default": 3,
+      "description": "The number of products shown on the Home page"
+    },
+    {
+      "variable": "featured_order",
+      "label": "Featured products order",
+      "type": "select",
+      "options": "product_orders",
+      "default": "newest",
+      "description": "The order of products on the Home page"
+    },
+    {
+      "variable": "products_per_page",
+      "label": "Products per page",
+      "type": "select",
+      "options": "1..100",
+      "default": 6,
+      "description": "The number of products shown at a time on the Products page"
+    },
+    {
+      "variable": "show_inventory_bars",
+      "label": "Show inventory bars",
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a product's inventory amounts (when using inventory tracking)",
+      "requires": "inventory"
+    },
+    {
+      "variable": "show_search",
+      "label": "Show search",
+      "type": "boolean",
+      "default": false,
+      "description": "Shows the product search area"
+    }
+  ]
+}

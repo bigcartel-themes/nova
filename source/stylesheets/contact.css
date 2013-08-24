@@ -1,0 +1,60 @@
+/* -------------------------------------------------------------- 
+  Contact
+-------------------------------------------------------------- */
+
+#contact_form {
+	text-align: center;
+  }
+
+#contact_form li {
+  padding:  0;
+  }
+
+#contact_form li label {
+  width: 100px;
+  margin-top: 28px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid {{ theme.border_color }};
+  }
+
+#contact_form li#contact_message label {
+	padding-bottom: 141px;
+	}
+
+#contact_form li input {
+  width: 404px;
+  padding: 28px 8px 10px;
+  border: none;
+  border-bottom: 1px solid {{ theme.border_color }};
+  }
+  
+#contact_form li textarea {
+  width: 404px;
+  height: 150px;
+  border: none;
+  padding: 28px 8px 10px;  
+  border-bottom: 1px solid {{ theme.border_color }};
+  }
+
+#contact_form button {
+  margin: 30px auto;
+  }
+
+#contact_form #captcha_img {
+  overflow: hidden;
+  }
+
+ #contact_form #captcha_img img {
+  float: left;
+  height: 34px;
+  margin-top: 15px;
+  padding-bottom: 8px;
+  margin-right: 0;
+  border-bottom: 1px solid {{ theme.border_color }};
+  }
+
+#contact_form #captcha_img input {
+  float: left;
+  width: 319px;
+  margin-left: 0;
+  }

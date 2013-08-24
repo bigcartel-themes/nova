@@ -1,0 +1,71 @@
+/* -------------------------------------------------------------- 
+  Custom / Success
+-------------------------------------------------------------- */
+
+.custom #page_body,
+#success #page_body,
+#contact #page_body {
+  width: 550px;
+  max-width: 550px;
+  min-width: 550px;
+  margin: 0 auto;
+  }
+
+#page_body * {
+  line-height: 1.5em;
+  }
+  
+#success #page_body {
+  text-align: center;
+  }  
+
+.product_overview h3:first-child {
+  font-size: 18px !important;
+  text-decoration: none;
+  }
+
+.product_overview h2,
+.product_overview h3,
+.product_overview h4 {
+  color: {{ theme.background_color }} !important;
+  }
+
+.custom #page_body h2,
+.product_overview h2 {
+  margin-top: 1.6em;
+  margin-bottom: .8em;  
+  font-size: 15px;
+  color: {{ theme.text_secondary_color }};
+  }
+
+.custom #page_body h3,
+.product_overview h3 {
+  margin-top: 1.6em;  
+  margin-bottom: .5em;  
+  font-size: 14px;
+  color: {{ theme.text_secondary_color }};
+  }
+
+.custom #page_body h4,
+.product_overview h4 {
+  margin-top: 1.6em;
+  margin-bottom: .5em;
+  color: {{ theme.text_secondary_color }};
+  }
+
+.custom #page_body ul,
+.custom #page_body ol,
+.product_overview ul,
+.product_overview ol {
+  list-style-position: inside;
+  }
+
+.custom #page_body ul,
+.product_overview ul {
+  list-style-type: disc;
+  } 
+
+.custom #page_body ol,
+.product_overview ol {
+  list-style-type: decimal;
+  }
