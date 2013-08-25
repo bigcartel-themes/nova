@@ -1,0 +1,244 @@
+/* -------------------------------------------------------------- 
+  Cart
+-------------------------------------------------------------- */
+
+#cart #site_content {
+  width: 92%;
+  max-width: 710px;
+  }
+  
+#cart_items {
+  margin-top: -15px;
+  }  
+
+#cart_items header {
+  overflow: hidden;
+  font-size: 11px;
+  }
+
+#cart_items header h4 {
+  float: left;
+  margin: 0 0 5px 0;
+  color: {{ theme.border_color }};
+  }
+
+#cart_items header #item {
+  margin-left: 22.2%;
+  }
+  
+#cart_items header #qty {
+  margin-left: 38.5%;
+  }  
+  
+#cart_items header #price {
+  margin-left: 35px;
+  }
+  
+#cart_items ul {
+	margin-bottom: 0;
+  border-top: 1px solid {{ theme.border_color }};
+  }    
+    
+#cart_items li {
+  overflow: hidden;
+  padding: 10px 0 10px;
+  border-bottom: 1px solid {{ theme.border_color }};  
+  }     
+    
+.item_thumb {
+  float: left;
+  width: 75px;
+  min-height: 55px;
+  max-height: 55px;
+  margin: 0 0 0 6%;
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;  
+  }    
+    
+.item_thumb img {
+  margin: 0;
+  max-height: 55px;
+  line-height: 0;
+  }    
+    
+.item_name {
+  float: left;
+  width: 37%;
+  padding: 0 3% 0 0;
+  margin: 19px 0 0 6%;
+  }   
+  
+.item_name h3,
+.item_name span {
+  margin-bottom: 0;
+  }  
+  
+#cart_items li input {
+  float: left;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  margin:  11px 0 0 0;
+  font-size: 13px;
+  color: {{ theme.border_color }};
+  width: 20px;
+  text-align: center;
+  border-color: transparent;
+  }   
+  
+#cart_items li:hover input {
+	color: {{ theme.text_color }};
+  background: {{ theme.background_secondary_color }};
+  }     
+  
+#cart_items li:hover input:focus {
+	background: {{ theme.link_color }};
+	box-shadow: none;
+	color: {{ theme.background_color }};
+  }  
+  
+.item_price {
+  float: left;
+  margin: 19px 0 0 27px;
+  color: {{ theme.text_color }};
+  }  
+  
+.with_option .item_name {
+  margin-top: 10px;
+  }  
+  
+a.remove_item {
+  float: right;
+  margin: 20px 25px 0 0;
+  font-size: 11px;
+  color: {{ theme.border_color }};
+  } 
+  
+a.remove_item:hover {
+  color: {{ theme.text_color }};
+  }    
+  
+#cart_options {
+  margin: 0 0 0 110px;
+  padding: 15px 0;
+  }  
+  
+#cart_options li {
+  overflow: hidden;
+  }  
+
+#cart_options li:first-child {
+  margin-bottom: 15px;
+  }
+  
+#cart_options input,
+#cart_options select {
+  float: left;
+  width: 150px;
+  }
+  
+#cart_options input {
+  padding: 12px 8px;
+  font-size: 13px;
+  }  
+  
+#cart_options select {
+  width: 168px;
+  margin-top: 10px;
+  }    
+  
+#cart_options h3 {
+  margin: 10px 0 0 27px;
+  float: left;
+  color: {{ theme.text_secondary_color }};
+  }
+
+#cart_options p {
+  float: left;
+  margin-top: 10px;
+  width: 161px;
+  }
+
+#cart_options #cart-shipping-tax.not_set {
+  margin-bottom: 0;
+  }
+
+#cart-shipping-tax.not_set h3 {
+  margin-left: 0;
+  } 
+
+#discount_option {
+  padding-top: 2px;
+  margin-bottom: 20px;
+  }
+
+#discount_option input {
+  margin-top: -2px;
+  }
+
+.update-btn {
+  float: right;
+  font-size: 11px;
+  padding: 0;
+  margin: 13px 31px 0 0;
+  font-family: {{ theme.header_font }}, "Andale Mono", AndaleMono, "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace; monospace;
+  color: {{ theme.link_color }};
+  border: none;
+  background: none;
+  cursor: pointer;
+  }  
+  
+.update-btn:hover {
+  color: {{ theme.hover_color }};
+  }
+  
+#cart_total {
+  overflow: hidden;
+  min-height: 70px;
+  background: {{ theme.background_secondary_color }};
+  }  
+  
+#cart_total p {
+  float: left;
+  width: 49%;
+  margin: 28px 0 0 6%;
+  font-size: 11px;
+  color: {{ theme.text_secondary_color }};
+  }  
+  
+#cart_total #total {
+  float: left;
+  width: 44%;  
+  margin: 20px 0 0 5px;
+  }  
+
+#cart_total #total h3 {
+  float: left;
+  margin: 8px 15px 0;
+  width: 75px;
+  font-size: 11px;  
+  color: {{ theme.text_secondary_color }};  
+  text-align: right;
+  }
+  
+#cart_total #total h2 {
+  float: left;
+  margin: 0;
+  font-size: 22px;
+  color: {{ theme.text_color }};
+  }  
+
+#cart_total .update-btn {
+  margin-top: 10px;
+  margin-right: 25px;
+  }
+
+#checkout_submit {
+  padding: 11px 40px;
+  margin: 40px 0 0 63%;
+  }  
+	
+#cart_empty a {
+	display: block;
+  }
