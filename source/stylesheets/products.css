@@ -168,7 +168,13 @@
   
 .options_menu li a {
 	display: block;
-	}  
+	} 
+
+.options_menu li span.currency_sign:before {
+  content: "/";
+  color: {{ theme.text_secondary_color }} !important;
+  padding-right: 6px;
+  }			 
 
 .options_menu li:last-child {
   border-top: 1px solid {{ theme.border_color }};
@@ -229,7 +235,7 @@ a#mobile_info {
 .product_overview .product_description {
 	clear: both;
   width: 50%;
-  margin: 50px 0;
+  margin: 50px auto;
   }
   
 .product_overview .product_description h3 {

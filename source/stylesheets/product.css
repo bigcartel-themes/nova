@@ -39,13 +39,13 @@ body#product .product_price h3.price:before {
   position: relative;
   display: inline-block;
   }  
-  
+/*  
 .option_select span {
   cursor: pointer;
   text-decoration: underline;
   color: {{ theme.text_secondary_color }};
   }
-  
+*/  
 #product .coming-soon .product_price h3,
 #product .sold-out .product_price h3 {
   padding: 0;

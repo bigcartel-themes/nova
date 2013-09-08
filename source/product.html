@@ -5,13 +5,7 @@
 <section class="product_images galy">
   <div>
     <ul class="slides">
-<!--
       {% for image in product.images %}
-      {% if image.first %}
-        {% assign image_height = image.height %}
-      {% endif %}
-      {{ image_height }}
--->
       <li id="image_{{ forloop.index }}">
         <img src="{{ image | product_image_url size:"fullsize" }}" class="fade_in" alt="Image of {{ product.name | escape }}" />
       </li>

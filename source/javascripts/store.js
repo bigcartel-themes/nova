@@ -60,7 +60,7 @@ var Store = {
       });
     }	  
 		
-		if(page == 'home' || 'products') {
+		if(page == 'home' || 'products' || 'product') {
 	
 		  // Clicking on more info displays product overview
 		  
@@ -98,7 +98,7 @@ var Store = {
 		    $('.options_menu').hide();
 		  });
 		    
-		  $('#products .options_menu li').click(function(){
+		  $('#products .options_menu li, #product .options_menu li').click(function(){
 		    var option    = $(this).text();
 		    var option_id = $(this).attr('id');
 		  

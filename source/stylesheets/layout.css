@@ -14,7 +14,7 @@ body {
   -webkit-font-smoothing: antialiased;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  background-color: {{ theme.background }};
+  background-color: {{ theme.background_color }};
 {% if theme.background_image != blank %}
   background-image: url({{ theme.background_image.url }});
   background-repeat: repeat;
@@ -343,7 +343,6 @@ ul#error li {
   
 #site_footer ul:hover li a:hover {
   color: {{ theme.text_secondary_color }};
-
   }
 
 #socialcons {
@@ -381,6 +380,30 @@ ul#error li {
 #socialcons li#social_svpply a {
   background-position: 100% 0;
   }
+  
+/* Big Cartel Badge
+------------------------------------------------------------*/
+
+#badge {
+  width: 100%;
+  margin: 18px 0 20px;  
+  }
+
+#website + #badge {
+  margin-top: 35px;
+  }
+
+#badge a {
+  display: block;
+  margin: 0 auto;
+  width: 79px;
+  height: 23px;
+  border: none;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  background: url({{ 'bc_badge.png' | theme_image_url }}) no-repeat;
+  }  
   
   
 /* -------------------------------------------------------------- 

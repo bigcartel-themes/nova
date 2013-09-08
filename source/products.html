@@ -51,7 +51,7 @@
 		              <span class="button" id="button_header" style="display:none">Select an Option</span>
 		              <ul class="options_menu">      
 		              {% for option in product.options_in_stock %}
-		                <li id="{{ option.id }}" {% if theme.show_inventory_bars %} style="background: -webkit-gradient(linear, left top, right top, color-stop({{ option.inventory }}%, {{ theme.background_secondary_color }}), color-stop({{ option.inventory }}%, {{ theme.background_color }}), color-stop(0%, {{ theme.background_secondary_color }}));;"{% endif %}>{{ option.name }}</li>
+		                <li id="{{ option.id }}" {% if theme.show_inventory_bars %} style="background: -webkit-gradient(linear, left top, right top, color-stop({{ option.inventory }}%, {{ theme.background_secondary_color }}), color-stop({{ option.inventory }}%, {{ theme.background_color }}), color-stop(0%, {{ theme.background_secondary_color }}));;"{% endif %}>{{ option.name }} {% if option.has_custom_price %}{{ option.price | money_with_sign }}{% endif %}</li>
 		              {% endfor %}
 		              </ul>
 		            </div>
