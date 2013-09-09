@@ -15,7 +15,7 @@
 #contact_form li label {
 	float: left;
   width: 100px;
-  margin-top: 14px;
+  margin-top: 12px;
   padding-bottom: 10px;
   color: {{ theme.text_secondary_color }};  
   }
@@ -27,7 +27,7 @@
 #contact_form li input {
 	float: left;
   width: 404px;
-  padding: 14px 8px 20px;
+  padding: 12px 8px 24px;
   border: none;
   }
   
@@ -35,7 +35,7 @@
   width: 404px;
   height: 150px;
   border: none;
-  padding: 14px 8px 20px;
+  padding: 12px 8px 24px;
   }
 
 #contact_form button {

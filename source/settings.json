@@ -69,6 +69,12 @@
   ],
   "options": [
     {
+      "variable": "welcome_text",
+      "label": "Welcome text",
+      "type": "text",
+      "description": "Welcome text on the Home page"
+    },  
+    {
       "variable": "featured_products",
       "label": "Featured products",
       "type": "select",
@@ -106,6 +112,45 @@
       "type": "boolean",
       "default": false,
       "description": "Shows the product search area"
-    }
+    },
+  	{
+      "variable": "show_facebook",
+      "label": "Show Facebook's Like button",
+      "type": "boolean",
+      "default": true,
+      "description": "Adds a Like button to the Product page"
+    },
+    {
+      "variable": "show_twitter",
+      "label": "Show Twitter's Tweet button",
+      "type": "boolean",
+      "default": true,
+      "description": "Adds a Tweet button to the Product page"
+    },
+    {
+      "variable": "show_pinterest",
+      "label": "Show Pinterest's Pin It button",
+      "type": "boolean",
+      "default": true,
+      "description": "Adds a Pin It button to the Product page"
+    },
+    {
+      "variable": "twitter_link",
+      "label": "Twitter Link",
+      "type": "text",
+      "description": "Ex: http://twitter.com/bigcartel"
+    },
+    {
+      "variable": "facebook_link",
+      "label": "Facebook Link",
+      "type": "text",
+      "description": "Ex: http://twitter.com/bigcartel"
+    },
+    {
+      "variable": "tumblr_link",
+      "label": "Tumblr Link",
+      "type": "text",
+      "description": "Ex: http://tumblr.com/bigcartel"
+    }    
   ]
 }

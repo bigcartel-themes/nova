@@ -154,11 +154,9 @@ ul#error li {
   
 .message {
 	max-width: 500px;
- 	margin: 130px auto 0;
+ 	margin: 110px auto 0;
  	padding: 25px 25px;
   text-align: center;
-  border-top: 1px solid {{ theme.border_color }};
-  background: {{ theme.background_secondary_color }};
   }  
   
 .message p {
@@ -285,7 +283,8 @@ ul#error li {
   }  
 
 #home #intro .keyline,
-#nav_primary .keyline {
+#nav_primary .keyline,
+#site_footer .keyline {
   clear: both;
   display: block;
   margin: 50px auto 0;
@@ -298,11 +297,6 @@ ul#error li {
 /* -------------------------------------------------------------- 
   Site Footer
 -------------------------------------------------------------- */  
-
-#frivolous {
-  display: block;
-  padding-bottom: 165px;
-  }  
   
 #site_footer {
   width: 100%;
@@ -310,15 +304,9 @@ ul#error li {
   overflow: hidden;
   position: absolute;
   width: 100%;
-  bottom: 0;
-  padding: 0 0 3px;
-  margin: 0 auto;     
+  margin: 135px auto 0;
   }
 
-#site_footer:hover {
-  opacity: 1;
-  }
-  
 #site_footer p {
   color: {{ theme.text_secondary_color }};
   }
@@ -344,42 +332,27 @@ ul#error li {
 #site_footer ul:hover li a:hover {
   color: {{ theme.text_secondary_color }};
   }
+  
+#site_footer .keyline {
+  margin: 0 auto;
+  height: 1px;
+	width: 100%;
+  max-width: 550px;
+  }  
 
-#socialcons {
-  display: none;
-  margin: 10px 0 27px;
+#social_links {
+  margin: 15px 0 40px;
   }
 
-#socialcons li a {
-  display: block;
-  opacity: .5;  
-  padding: 0;
-  margin: 0 3px;
-  text-indent: -9999px;
-  width: 29px;
-  height: 29px;
-  background: transparent url(http://singlenaut.com/themes/nova/resources/images/socialcons.svg) no-repeat 0 0;
+#social_links li a {
+  color: {{ theme.text_secondary_color }};
   }
 
-#socialcons li a:hover {
-  opacity: 1;
+#social_links li a:hover {
+  color: {{ theme.text_color }} !important;
   }
 
-#socialcons li#social_twitter a {
-  background-position: -87px 0;
-  }
-
-#socialcons li#social_pinterest a {
-  background-position: -58px 0;
-  }
-
-#socialcons li#social_tumblr a {
-  background-position: -29px 0;
-  }
-
-#socialcons li#social_svpply a {
-  background-position: 100% 0;
-  }
+  
   
 /* Big Cartel Badge
 ------------------------------------------------------------*/
