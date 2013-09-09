@@ -309,12 +309,12 @@ a#mobile_info {
 #categories a.button span {
 	display: inline-block;
 	position: relative;
-	top: -1px;
+	top: 1px;
 	margin-left: 5px;
-	width: 12px;
-	height: 5px;
-	background-size: 100%;
+	width: 24px;
+	height: 10px;
 	background: url({{ 'select_arrow.png' | theme_image_url }}) no-repeat 50%;
+	background-size: 50%;	
 	}	
 
 #categories .options_menu {

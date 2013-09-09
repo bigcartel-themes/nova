@@ -8,13 +8,16 @@
 
 #contact_form li {
   padding:  0;
+  overflow: hidden;
+  border-top: 1px solid {{ theme.border_color }};  
   }
 
 #contact_form li label {
+	float: left;
   width: 100px;
-  margin-top: 28px;
+  margin-top: 14px;
   padding-bottom: 10px;
-  border-bottom: 1px solid {{ theme.border_color }};
+  color: {{ theme.text_secondary_color }};  
   }
 
 #contact_form li#contact_message label {
@@ -22,18 +25,17 @@
 	}
 
 #contact_form li input {
+	float: left;
   width: 404px;
-  padding: 28px 8px 10px;
+  padding: 14px 8px 20px;
   border: none;
-  border-bottom: 1px solid {{ theme.border_color }};
   }
   
 #contact_form li textarea {
   width: 404px;
   height: 150px;
   border: none;
-  padding: 28px 8px 10px;  
-  border-bottom: 1px solid {{ theme.border_color }};
+  padding: 14px 8px 20px;
   }
 
 #contact_form button {
@@ -45,12 +47,11 @@
   }
 
  #contact_form #captcha_img img {
-  float: left;
+  float: right;
   height: 34px;
-  margin-top: 15px;
+  margin-top: 10px;
   padding-bottom: 8px;
   margin-right: 0;
-  border-bottom: 1px solid {{ theme.border_color }};
   }
 
 #contact_form #captcha_img input {
