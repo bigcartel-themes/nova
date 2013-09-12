@@ -17,7 +17,7 @@ options[:customization] = {
 #     :height => 50
 #   },
 #   :background_color => '#CCCCCC',
-#   :show_search => true,
+    :show_search => true,
 #   :twitter_username => 'mytwitter'
 		:show_inventory_bars => true,
 		:tumblr_link => 'http://tumblr.com/',

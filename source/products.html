@@ -1,4 +1,3 @@
-{% if products != blank %}
 {% paginate products from products.current by theme.products_per_page %}
 	
 <nav id="categories">
@@ -8,7 +7,8 @@
   </ul>
   <span class="keyline"></span>
 </nav>
-	
+
+	{% if products != blank %}
 	<section id="products">
 	  {% for product in products %}
 	  <article id="product_{{ product.id }}" class="product {{ product.status }}">
@@ -94,7 +94,7 @@
 	  <ul>{% if paginate.previous %}{% if paginate.previous.is_link %}<li id="pag_prev"><a href="{{ paginate.previous.url }}" class="button" title="Previous">Previous</a></li>{% endif %}{% endif %}{% if paginate.next %}{% if paginate.next.is_link %}<li id="pag_next"><a href="{{ paginate.next.url }}" class="button" title="Next">Next</a></li>{% endif %}{% endif %}</ul>  
 	</nav>   
 
+	{% else %}
+	<p class="alert-noproducts message">No products found.</p>
+	{% endif %}
 {% endpaginate %}
-{% else %}
-<p class="alert-noproducts message">No products found.</p>
-{% endif %}

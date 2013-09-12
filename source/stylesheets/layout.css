@@ -181,10 +181,13 @@ ul#error li {
 	margin: -15px 0 0;
 	outline: none;	
 	color: {{ theme.text_color }};
-	background: transparent !important;
 	border: none;
-	border-bottom: 1px solid {{ theme.border_color }}
 	}
+	
+#search #search-form input:focus {
+	color: {{ theme.background_color }};
+	}
+	
 
 /* -------------------------------------------------------------- 
   Structure

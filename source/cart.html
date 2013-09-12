@@ -27,6 +27,22 @@
       {% endfor %}      
     </ul>
   </section>
+
+	<section id="cart_options">
+	  <ul>
+	    <li id="cart-shipping-tax">
+	      <label for="country">Shipping</label>
+	      <select id="country" name="cart[shipping_country_id]"><option value="">Select your country...</option><option value="">------------</option><option value="43">United States</option><option value=""></select>
+	      <button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Apply</span></button>                      
+	    </li>
+	
+		  <li id="discount_option">
+		    <label id="cart_discount_label" for="cart_discount_code">Discount</label>
+		    <input autocomplete="off" id="cart_discount_code" name="cart[discount_code]" type="text">
+		    <button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Apply</span></button>    
+		  </li>
+		</ul>   
+	</section>
   
   {% if cart.shipping.enabled or cart.discount.enabled %}
   <section id="cart_options">
@@ -87,7 +103,7 @@
     </div>
   </section>
   
-  <button id="checkout_submit" class="button" type="submit" title="Checkout" onclick="Store.checkout(); return false">Checkout</button>    
+  <button id="checkout-btn" class="button" type="submit" title="Checkout">Checkout</button>
 </form>
 
 {% else %}
