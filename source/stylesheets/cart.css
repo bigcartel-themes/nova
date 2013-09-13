@@ -136,6 +136,7 @@ a.remove_item:hover {
 #cart_options li label {
 	width: 40.1%;
 	padding-right: 4%;
+  color: {{ theme.text_secondary_color }};	
 	}  
 	
 #cart_options .update-btn {
@@ -169,7 +170,6 @@ a.remove_item:hover {
 #cart_options h3 {
   margin: 10px 0 0 27px;
   float: left;
-  color: {{ theme.text_secondary_color }};
   }
 
 #cart_options p {
@@ -185,6 +185,10 @@ a.remove_item:hover {
 #cart-shipping-tax.not_set h3 {
   margin-left: 0;
   } 
+  
+#cart-shipping-tax label.not_set {
+	color: {{ theme.error_color }};
+	}  
 
 #discount_option {
   padding-top: 2px;
