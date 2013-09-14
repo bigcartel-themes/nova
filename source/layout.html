@@ -65,7 +65,16 @@
     {% endif %}
 
     <nav id="nav_primary">
-      <ul><li><a href="/" alt="Home">Home</a></li><li><a href="/products" alt="Our Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li></ul>
+      <ul><li><a href="/" alt="Home">Home</a></li><li><a href="/products" alt="Our Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li></ul>      
+	  	
+	  	{% if theme.show_search %}
+	  	<div id="search">
+	      <form id="search-form" name="search" action="/products" method="get">
+	        <a href="#search-form">Search</a>
+	        <input id="search-input" name="search" type="text">
+	      </form>
+      </div>
+	    {% endif %}
       <span class="keyline"></span>
     </nav>    
 
@@ -91,13 +100,13 @@
       <span class="keyline"></span>
 		  <ul id="social_links">
 		    {% if theme.twitter_link != blank %}
-		      <li><a href="{ theme.twitter_link }}" title="Follow us on Twitter">Twitter</a></li>
+		      <li><a href="{{ theme.twitter_link }}" title="Follow us on Twitter">Twitter</a></li>
 		    {% endif %}
 		    {% if theme.facebook_link != blank %}
 		      <li><a href="{{ theme.facebook_link }}" title="Friend us on Facebook">Facebook</a></li>
 		    {% endif %}
 		    {% if theme.tumblr_link != blank %}
-		      <li><a href="{{ theme.tumblr_link }}" title="Follow us on Tumblr">Facebook</a></li>
+		      <li><a href="{{ theme.tumblr_link }}" title="Follow us on Tumblr">Tumblr</a></li>
 		    {% endif %}		    
 		  </ul>
 		  {% endif %}			
