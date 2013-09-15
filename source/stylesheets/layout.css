@@ -12,27 +12,12 @@ body {
   color: {{ theme.text_color }};
   text-rendering: optimizeLegibility;	
   -webkit-font-smoothing: antialiased;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
   background-color: {{ theme.background_color }};
 {% if theme.background_image != blank %}
   background-image: url({{ theme.background_image.url }});
   background-repeat: repeat;
 {% endif %}  
   }
-
-body::before { top: 0; }
-body::after { bottom: 0; }  
-
-body::before, body::after {
-  position: fixed;
-  left: 0;
-  right: 0;
-  height: 10px;
-  z-index: 200;
-  content: "";
-  background: transparent;
-  }  
 	
 ::-moz-selection{ background: {{ theme.link_color }}; color: {{ theme.background_color }}; }
 ::selection { background: {{ theme.link_color }}; color: {{ theme.background_color }}; }	
@@ -240,12 +225,12 @@ ul#error li {
   
 #branding {
   float: left;
-  margin-left: 20px;
+  margin-left: 30px;
   }  
   
 #cart_nav {
   float: right;
-  margin-right: 30px;
+  margin-right: 20px;
   }  
   
 #cart_nav #menu {

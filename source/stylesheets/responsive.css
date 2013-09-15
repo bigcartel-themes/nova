@@ -19,26 +19,17 @@ body::before, body::after {
 	background: transparent;
   }  
   
-.canvas {
-  width: 92%;
-  min-width: 290px;
+.canvas > * {
+  width: 92% !important;
+  min-width: 290px !important;
   margin: 0 auto 0;
   }  
   
 #site_content {
+	width: 100%;
 	overflow: hidden;
 	margin-top: 0; 
   min-width: inherit;   
-  }  
-  
-.custom #page_body,
-#success #page_body,
-#contact #page_body,
-#product #page_body {
-  width: 100%;
-  max-width: inherit;
-  min-width: inherit;
-  margin: 0 auto;
   }  
 
 .button {
@@ -101,6 +92,7 @@ ul#error {
 	}	
 
 #nav_primary {
+	width: 100% !important;
   box-sizing: border-box;
 	margin-top: 0;
 	margin-bottom: 20px;
@@ -170,8 +162,7 @@ ul#error {
 	
 #categories {
 	width: 100%;
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin: 20px auto;
 	}	
 	
 #categories a.button,
@@ -197,6 +188,7 @@ ul#error {
   }
 
 #site_footer {
+	width: 100% !important;
 	position: relative;	
 	padding-top: 20px;
 	margin-top: 70px;
@@ -255,7 +247,8 @@ ul#error {
 	}  
   
 #pagination {
-  margin: 100px 0 0 0;
+	width: 100% !important;
+  margin: 100px auto 0;
   }  
 
 #pagination ul {
@@ -302,8 +295,7 @@ ul#error {
 
 #home #all_products_btn {
   box-sizing: border-box;    
-  margin: 10px 0 20px;
-  width: 100%;
+  margin: 10px auto 20px !important;
   color: {{ theme.hover_color }};
   border-color: {{ theme.link_color }}; 		
 	} 
@@ -320,7 +312,7 @@ ul#error {
 
 .product_images {
   min-height: 0;
-  margin: 0 0 14px 0;
+  margin: 0 auto 14px;
   }
 
 .product_overview {
@@ -558,6 +550,10 @@ body#product .product_price h3.price:before {
   Cart
 -------------------------------------------------------------- */
   
+#cart #site_content {
+	width: 100%;
+	}  
+  
 #cart #content_header {
 	margin-bottom: 22px;
 	}  
@@ -741,10 +737,14 @@ body#product .product_price h3.price:before {
  
 .message {
 	max-width: 550px;
- 	margin: 80px auto;
+ 	margin: 70px auto 80px;
  	padding: 25px 0;
   text-align: center;
   border-top: 0;
   background: transparent;
-  }     
+  }    
+  
+#cart .message {
+	margin-top: 50px;
+	} 
 }
