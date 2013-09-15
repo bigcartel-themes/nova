@@ -39,13 +39,7 @@ body#product .product_price h3.price:before {
   position: relative;
   display: inline-block;
   }  
-/*  
-.option_select span {
-  cursor: pointer;
-  text-decoration: underline;
-  color: {{ theme.text_secondary_color }};
-  }
-*/  
+
 #product .coming-soon .product_price h3,
 #product .sold-out .product_price h3 {
   padding: 0;
@@ -164,3 +158,17 @@ body#product .product_price h3.price:before {
 	background: {{ theme.link_color }};
 	opacity: .1;
 	}	
+
+#product .product_inventory + .product_sharing {
+	margin-top: 10px;
+	}
+	
+#product .product_sharing {
+	margin-top: 40px;
+	margin-bottom: 130px;
+	}	
+	
+#product .product_sharing h3 span {
+	color: {{ theme.link_color }}
+	}
+	

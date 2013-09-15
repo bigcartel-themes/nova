@@ -25,7 +25,9 @@ var Store = {
   
     $('#site_content').imagesLoaded(function() {
       setTimeout(function() {
-      
+      	
+      	$('.slides').show();
+      	
 			  // Initialize galleries for product images
     
 			  $('.product_images.galy').flexslider({
