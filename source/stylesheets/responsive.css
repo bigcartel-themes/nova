@@ -457,8 +457,6 @@ a.more_info.selected {
 	color: {{ theme.text_color }};	
 	}   
 	
- 
-
 
 /* -------------------------------------------------------------- 
   Contact
@@ -520,6 +518,7 @@ a.more_info.selected {
   margin-left: 0;
   } 
   
+  
 /* -------------------------------------------------------------- 
   Product
 -------------------------------------------------------------- */  
@@ -544,6 +543,22 @@ body#product .product_price h3.price:before {
 #product #pagination {
 	margin-top: 80px;
 	}
+	
+.product_sharing li h3 {
+  display: none;
+  }
+
+.product_sharing li .social_action {
+  display: block;
+  }	
+	
+#product .product_inventory + .product_sharing {
+	margin-top: 0;
+	}
+	
+#product .product_sharing {
+	margin-bottom: 60px;
+	}	
 	
 
 /* -------------------------------------------------------------- 
