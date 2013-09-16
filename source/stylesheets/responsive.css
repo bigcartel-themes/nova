@@ -84,6 +84,7 @@ ul#error {
 #cart_nav a {
 	padding: 0 15px;
 	display: inline-block;
+	color: {{ theme.link_color }}
 	}  	
 
 #nav_primary,	

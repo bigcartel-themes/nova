@@ -225,6 +225,7 @@ ul#error li {
   
 #branding {
   float: left;
+  max-width: 60%;
   margin-left: 30px;
   }  
   
