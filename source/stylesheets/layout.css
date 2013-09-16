@@ -12,27 +12,12 @@ body {
   color: {{ theme.text_color }};
   text-rendering: optimizeLegibility;	
   -webkit-font-smoothing: antialiased;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  background-color: {{ theme.background }};
+  background-color: {{ theme.background_color }};
 {% if theme.background_image != blank %}
   background-image: url({{ theme.background_image.url }});
   background-repeat: repeat;
 {% endif %}  
   }
-
-body::before { top: 0; }
-body::after { bottom: 0; }  
-
-body::before, body::after {
-  position: fixed;
-  left: 0;
-  right: 0;
-  height: 10px;
-  z-index: 200;
-  content: "";
-  background: transparent;
-  }  
 	
 ::-moz-selection{ background: {{ theme.link_color }}; color: {{ theme.background_color }}; }
 ::selection { background: {{ theme.link_color }}; color: {{ theme.background_color }}; }	
@@ -154,11 +139,9 @@ ul#error li {
   
 .message {
 	max-width: 500px;
- 	margin: 130px auto 0;
+ 	margin: 110px auto 0;
  	padding: 25px 25px;
   text-align: center;
-  border-top: 1px solid {{ theme.border_color }};
-  background: {{ theme.background_secondary_color }};
   }  
   
 .message p {
@@ -183,10 +166,18 @@ ul#error li {
 	margin: -15px 0 0;
 	outline: none;	
 	color: {{ theme.text_color }};
-	background: transparent !important;
 	border: none;
-	border-bottom: 1px solid {{ theme.border_color }}
 	}
+	
+#search #search-form input:focus {
+	color: {{ theme.background_color }};
+	}
+	
+
+#nav_primary #search {
+	display: none;
+	}	
+	
 
 /* -------------------------------------------------------------- 
   Structure
@@ -234,12 +225,13 @@ ul#error li {
   
 #branding {
   float: left;
-  margin-left: 20px;
+  max-width: 60%;
+  margin-left: 30px;
   }  
   
 #cart_nav {
   float: right;
-  margin-right: 30px;
+  margin-right: 20px;
   }  
   
 #cart_nav #menu {
@@ -285,7 +277,8 @@ ul#error li {
   }  
 
 #home #intro .keyline,
-#nav_primary .keyline {
+#nav_primary .keyline,
+#site_footer .keyline {
   clear: both;
   display: block;
   margin: 50px auto 0;
@@ -298,11 +291,6 @@ ul#error li {
 /* -------------------------------------------------------------- 
   Site Footer
 -------------------------------------------------------------- */  
-
-#frivolous {
-  display: block;
-  padding-bottom: 165px;
-  }  
   
 #site_footer {
   width: 100%;
@@ -310,15 +298,9 @@ ul#error li {
   overflow: hidden;
   position: absolute;
   width: 100%;
-  bottom: 0;
-  padding: 0 0 3px;
-  margin: 0 auto;     
+  margin: 135px auto 0;
   }
 
-#site_footer:hover {
-  opacity: 1;
-  }
-  
 #site_footer p {
   color: {{ theme.text_secondary_color }};
   }
@@ -343,44 +325,52 @@ ul#error li {
   
 #site_footer ul:hover li a:hover {
   color: {{ theme.text_secondary_color }};
+  }
+  
+#site_footer .keyline {
+  margin: 0 auto;
+  height: 1px;
+	width: 100%;
+  max-width: 550px;
+  }  
 
+#social_links {
+  margin: 15px 0 40px;
   }
 
-#socialcons {
-  display: none;
-  margin: 10px 0 27px;
+#social_links li a {
+  color: {{ theme.text_secondary_color }};
   }
 
-#socialcons li a {
+#social_links li a:hover {
+  color: {{ theme.text_color }} !important;
+  }
+
+  
+  
+/* Big Cartel Badge
+------------------------------------------------------------*/
+
+#badge {
+  width: 100%;
+  margin: 18px 0 20px;  
+  }
+
+#website + #badge {
+  margin-top: 35px;
+  }
+
+#badge a {
   display: block;
-  opacity: .5;  
-  padding: 0;
-  margin: 0 3px;
-  text-indent: -9999px;
-  width: 29px;
-  height: 29px;
-  background: transparent url(http://singlenaut.com/themes/nova/resources/images/socialcons.svg) no-repeat 0 0;
-  }
-
-#socialcons li a:hover {
-  opacity: 1;
-  }
-
-#socialcons li#social_twitter a {
-  background-position: -87px 0;
-  }
-
-#socialcons li#social_pinterest a {
-  background-position: -58px 0;
-  }
-
-#socialcons li#social_tumblr a {
-  background-position: -29px 0;
-  }
-
-#socialcons li#social_svpply a {
-  background-position: 100% 0;
-  }
+  margin: 0 auto;
+  width: 79px;
+  height: 23px;
+  border: none;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  background: url({{ 'bc_badge.png' | theme_image_url }}) no-repeat;
+  }  
   
   
 /* -------------------------------------------------------------- 

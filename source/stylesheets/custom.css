@@ -5,6 +5,7 @@
 .custom #page_body,
 #success #page_body,
 #contact #page_body {
+	overflow: hidden;
   width: 550px;
   max-width: 550px;
   min-width: 550px;
@@ -69,3 +70,16 @@
 .product_overview ol {
   list-style-type: decimal;
   }
+
+#blog #entries li {
+	padding-bottom: 5px;
+	border-bottom: 1px solid {{ theme.border_color }}
+	}
+
+#blog #entries div img {
+	width: 100%;
+	}
+  
+#blog #entries div + p {
+	margin-top: 20px;
+	}

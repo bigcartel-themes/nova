@@ -15,6 +15,13 @@
   <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
   <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
 
+	<style>
+    /* Prevents slides from flashing */
+    .slides {
+      display:none;
+    }
+  </style>
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
   <script src="{{ theme | theme_js_url }}" type="text/javascript"></script>
 
@@ -65,7 +72,16 @@
     {% endif %}
 
     <nav id="nav_primary">
-      <ul><li><a href="/" alt="Home">Home</a></li><li><a href="/products" alt="Our Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li></ul>
+      <ul><li><a href="/" alt="Home">Home</a></li><li><a href="/products" alt="Our Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li></ul>      
+	  	
+	  	{% if theme.show_search %}
+	  	<div id="search">
+	      <form id="search-form" name="search" action="/products" method="get">
+	        <a href="#search-form">Search</a>
+	        <input id="search-input" name="search" type="text">
+	      </form>
+      </div>
+	    {% endif %}
       <span class="keyline"></span>
     </nav>    
 
@@ -85,17 +101,23 @@
     {% else %}
       {{ page_content }}
     {% endif %} 
-    <span id="frivolous"></span>    
     <footer id="site_footer">
       <ul id="footer_nav"><li><a href="/" title="Home">Home</a></li><li><a href="/products" title="Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li><li><a href="/cart">Cart</a></li></ul> 
-
-      <ul id="socialcons">
-        <li id="social_facebook"><a href="">Facebook</a></li>
-        <li id="social_twitter"><a href="">Twitter</a></li>
-        <li id="social_pinterest"><a href="">Pinterest</a></li>
-        <li id="social_svpply"><a href="">Svpply</a></li>
-        <li id="social_tumblr"><a href="">Tumblr</a></li>
-      </ul>
+		  {% if theme.twitter_link != blank or theme.facebook_link != blank or theme.tumblr_link != blank %}
+      <span class="keyline"></span>
+		  <ul id="social_links">
+		    {% if theme.twitter_link != blank %}
+		      <li><a href="{{ theme.twitter_link }}" title="Follow us on Twitter">Twitter</a></li>
+		    {% endif %}
+		    {% if theme.facebook_link != blank %}
+		      <li><a href="{{ theme.facebook_link }}" title="Friend us on Facebook">Facebook</a></li>
+		    {% endif %}
+		    {% if theme.tumblr_link != blank %}
+		      <li><a href="{{ theme.tumblr_link }}" title="Follow us on Tumblr">Tumblr</a></li>
+		    {% endif %}		    
+		  </ul>
+		  {% endif %}			
+			<div id="badge">{{ bigcartel_credit }}</div>      
     </footer>     
   </div> 
 </body>
