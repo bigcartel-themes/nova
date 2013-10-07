@@ -5,15 +5,9 @@
 <section class="product_images galy">
   <div>
     <ul class="slides">
-<!--
       {% for image in product.images %}
-      {% if image.first %}
-        {% assign image_height = image.height %}
-      {% endif %}
-      {{ image_height }}
--->
       <li id="image_{{ forloop.index }}">
-        <img src="{{ image | product_image_url size:"fullsize" }}" class="fade_in" alt="Image of {{ product.name | escape }}" />
+		  	<img src="{{ image | product_image_url | constrain: '780'}}" alt="Image of {{ product.name | escape }}" />
       </li>
       {% endfor %}
     </ul>
@@ -81,6 +75,40 @@
   	</ul>
   </section>
   {% endif %}  
+
+  {% if theme.show_facebook or theme.show_twitter or theme.show_pinterest %}
+  <section class="product_sharing">
+	  <ul>
+	    {% if theme.show_facebook %}
+	    <li class="social_facebook">
+	      <h3>Like <span>&ldquo;{{ product.name }}&rdquo;</span> on Facebook</h3>
+	      <div class="social_action">
+	        <iframe src="//www.facebook.com/plugins/like.php?href={{ page.full_url }}&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50%; height:20px;" allowTransparency="true"></iframe>
+	      </div>
+	    </li>
+	    {% endif %}
+	    {% if theme.show_twitter %}
+	    <li class="social_tweet">
+	      <h3>Share <span>&ldquo;{{ product.name }}&rdquo;</span> on Twitter</h3>
+	      <div class="social_action">
+	        <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ page.full_url }}" data-text="Check out {{ product.name }} from {{ store.name }}!" {% if theme.twitter_username != blank %}data-via="{{ theme.twitter_username | replace: "@", "" }}{% endif %}">Tweet</a>
+	        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	      </div>
+	    </li>
+	    {% endif %}
+	    {% if theme.show_pinterest %}
+	    <li class="social_pinterest">
+	      <h3>Pin <span>&ldquo;{{ product.name }}&rdquo;</span> to Pinterest</h3>
+	      <div class="social_action">
+	        <a href="http://pinterest.com/pin/create/button/?url={{ page.full_url }}&media={{ product.image.url }}&description={% if product.description != blank %}{{ product.description | escape | truncate: 490 }}{% endif %}" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It"></a>
+	        <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+	      </div>
+	    </li>
+	    {% endif %}
+	  </ul>
+	</section>
+	{% endif %}
+
 </section>
 
 <nav id="pagination">
