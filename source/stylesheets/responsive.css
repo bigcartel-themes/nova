@@ -764,3 +764,10 @@ body#product .product_price h3.price:before {
 	margin-top: 50px;
 	} 
 }
+
+@media all and (device-width: 768px) and (device-height: 1024px) {
+  #products .product a.more_info,
+	#home .product a.more_info {
+  	display: inherit;
+  } 
+}

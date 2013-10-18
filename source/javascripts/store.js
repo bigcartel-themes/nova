@@ -36,13 +36,15 @@ var Store = {
 			    animationSpeed: 500,
 			    directionNav: false,
 			    slideshow: false,
-			    smoothHeight: true
+			    smoothHeight: true,
+			    useCSS: false //temp css transition fix
 			  });		   
 			   
       }, inPreview ? 50 : 0);
     });		  
 	  			
-	  $('.product_images.galy').click(function() {
+	  $('.product_images.galy').click(function(event) {
+	  	event.preventDefault();
 	    $(this).flexslider('next'); //Go to next slide
 	  });    
 	  
@@ -68,7 +70,7 @@ var Store = {
 		  
 		  $('.product_overview').hide();     		  
 		  		  
-			$('.more_info').click(function(){
+			$('.more_info').on('click touchstart', function(){
 			   $(this).parent().parent().children('.product_overview').fadeToggle().css({'display':'-webkit-box'}).height($(this).parent().parent().parent().children('.product_images').height());    
 			   
 			   $(this).toggleClass('selected')			   	
@@ -88,25 +90,31 @@ var Store = {
 		  
 		  // Add to Cart button
 		  
-		  $('.options_button, #cat_button').click(function(event){
+		  $('.options_button, #cat_button').on('click touchend', function(event){
+		  	event.preventDefault();
+		  	
 		    $(this).parent().children('.options_menu').toggle();
 		    $(this).parent().children('span').toggle();
 		    
 		    event.stopPropagation();
 		  });
 		
-		  $('html').click(function() {
+		  $('html').on('click', function() {
 		    $('.options_menu:visible').parent().children('span').toggle();          
 		    $('.options_menu').hide();
 		  });
 		    
-		  $('#products .options_menu li, #product .options_menu li').click(function(){
+		  $('#products .options_menu li, #product .options_menu li').on('click touchend', function(){
 		    var option    = $(this).text();
 		    var option_id = $(this).attr('id');
 		  
 		    $(this).parents('form').children('input[type="hidden"]').attr('value', option_id);
 		    $(this).parents('form').children('#product-addtocart').click();
-		  });  
+		  }); 
+		  
+		  $('#product-addtocart').on('touchend', function() {
+		  	$(this).click();
+		  });
 		}
 
     if(page == 'cart') {
