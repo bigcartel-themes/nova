@@ -1,7 +1,7 @@
 {% paginate products from products.current by theme.products_per_page %}
 	
 <nav id="categories">
-	<a id="cat_button" class="button">{% if page.url == '/products' %}All Products{% else %}{{ page.name }}{% endif %}<span></span></a>
+	<a id="cat_button" class="button">{% if page.url == '/products' %}All Products{% else %}{{ page.name }}{% endif %}<span class="arrow"></span></a>
   <ul class="options_menu">
     <li class="{% if page.url == '/products' %}selected{% endif %}"><a href="/products" title="Shop all products">All Products</a></li>{% for category in categories.active %}<li class="page {% if page.full_url contains category.url %}selected{% endif %}">{{ category | link_to }}</li>{% endfor %}
   </ul>

@@ -72,7 +72,7 @@ video {
 -------------------------------------------------------------- */  
 
 .button {
-  padding: 11px 27px;
+  padding: 12px 27px 13px;
   margin: 0;
   border: 1px solid {{ theme.border_color }};
   color: {{ theme.text_secondary_color }} !important;

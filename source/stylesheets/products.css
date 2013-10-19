@@ -112,7 +112,7 @@
 .product_options .button {
   display: block;
   margin: 0 auto;
-  padding: 14px 0;
+	padding: 15px 0;
   width: 200px;
   color: {{ theme.text_secondary_color }};
   border-color: transparent;
@@ -123,6 +123,18 @@
 .product_options .button.options_button {
   color: {{ theme.link_color }} !important;
 	}
+	
+.product_options .button.options_button {
+	padding: 15px 0 16px;
+	}		
+
+.product_options .button span.arrow {
+	display: none;
+	}
+	
+.product_options .button:hover span.arrow {
+	display: inline-block;
+	}	
 
 .product_options .button:hover {
   border: 1px solid {{ theme.link_color }};
@@ -130,6 +142,7 @@
   }
   
 .option_select #button_header {
+	padding: 15px 0 16px;
 	color: {{ theme.text_secondary_color }} !important;
 	}
 
@@ -145,7 +158,7 @@
   display: none;
   position: absolute;
   z-index: 999;
-  padding-top: 41px;
+  padding-top: 44px;
   top: 0;
   width: 200px;
   text-align: center;
@@ -240,12 +253,14 @@ a#mobile_info {
   }
   
 .product_overview .product_description h3 {
-  margin-bottom: .6em;
+  margin-bottom: .8em;
   text-align: center;
+  line-height: 1.2em;
   }
 
 .product_overview .product_inventory {
-	margin: 10px auto;	
+	width: 100%;
+	margin: 20px auto 15px;	
   border-bottom: 1px solid rgba(255,255,255,.3);
 	}
 
@@ -284,7 +299,7 @@ a#mobile_info {
   position: relative;
   display: block;
   width: 110px;
-  padding: 9px 0;  
+  padding: 13px 0;  
   color: {{ theme.text_secondary_color }};    
   }
   
@@ -307,12 +322,12 @@ a#mobile_info {
 	
 #categories a.button {	
 	display: inline-block;
-	margin; 0 auto;
+	margin: 0 auto;
 	width: 144px;
-	padding: 18px 27px;
+	padding: 18px 23px 18px 31px;
 	}
 	
-#categories a.button span {
+span.arrow {
 	display: inline-block;
 	position: relative;
 	top: 1px;
@@ -347,7 +362,7 @@ a#mobile_info {
 	
 #all_products_btn { 
 	margin: 100px auto 0;
-  padding: 15px 27px;	
+  padding: 14px 27px 16px;	
 	display: block;
 	width: 144px;
 	}	

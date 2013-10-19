@@ -416,6 +416,7 @@ ul#error {
 
 .product_options .option_select .options_menu {
   z-index: 9999;
+	padding-top: 41px;
   width: 100%;
   text-align: center;
   }
@@ -536,6 +537,11 @@ body#product .product_price h3.price:before {
 #product #page_body {
 	margin-top: 30px;
 	}
+	
+.product_inventory,
+.product_sharing {
+	width: 100% !important;
+	}		
 	
 #product .product_inventory {
 	margin-top: 30px;
@@ -747,7 +753,7 @@ body#product .product_price h3.price:before {
 	}
   
 #checkout-btn {
-  padding: 22px 0 !important;
+  padding: 22px 0 21px !important;
   margin: 0 auto;
   }  
  
