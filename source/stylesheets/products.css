@@ -252,10 +252,11 @@ a#mobile_info {
   margin: 50px auto;
   }
   
-.product_overview .product_description h3 {
+.product_overview .product_description h3.product_name {
   margin-bottom: .8em;
   text-align: center;
   line-height: 1.2em;
+  font-weight: normal;
   }
 
 .product_overview .product_inventory {
@@ -271,7 +272,7 @@ a#mobile_info {
 .product_overview .product_inventory li h3 {
 	margin: 0;
   text-align: left;
-	font-size: 14px !important;	
+	font-size: 13px !important;	
 	}      
 	
 .product_overview .product_inventory li .bar {
