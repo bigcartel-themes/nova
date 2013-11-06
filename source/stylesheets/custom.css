@@ -98,21 +98,21 @@
   Blog
 -------------------------------------------------------------- */
 
-#entries li {
+#page_body #entries > li {
 	list-style-type: none;
-	padding-bottom: 0;
+	margin-bottom: 4em;
 	border-top: 1px solid {{ theme.border_color }}
 	}
 	
-#entries li:first-child {
+#page_body #entries li:first-child {
 	border-top: none;
 	}	
 
-#entries div img {
+#page_body #entries div img {
 	width: 100%;
 	}
   
-#entries div + p {
+#page_body #entries div + p {
 	margin-top: 20px;
 	}
 	
@@ -121,7 +121,7 @@
 	margin-top: .5em;
 	}	
 	
-#entries .blog_date {
+#page_body #entries .blog_date {
 	margin-top: -1px;
 	margin-bottom: 1em;
 	color: {{ theme.text_secondary_color }}

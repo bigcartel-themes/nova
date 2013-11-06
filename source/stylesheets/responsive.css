@@ -65,6 +65,10 @@ ul#error {
   margin: 27px 0 0 15px;
   }  
   
+#branding #website {
+	display: none;
+	}
+  
 #cart_nav {
   margin: 27px 0 40px 0;
   }
@@ -120,6 +124,10 @@ ul#error {
 #nav_primary li:last-child a {
 	border: none;
 	}	
+
+#nav_primary li#website {
+	display: block
+	}
 
 #nav_primary #search {
 	display: inherit;

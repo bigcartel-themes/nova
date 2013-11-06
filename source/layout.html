@@ -45,7 +45,11 @@
 <body id="{% if page.permalink == 'products' %}layout{% else %}{{ page.permalink }}{% endif %}" class="{{ page.category }} {% if page.full_url contains '/category/' %}multi_col{% endif %}">
   <header id="site_header">
     <div id="branding">
-      <h1><a href="/" title="Home">{{ store.name }}</a></h1>
+      <h1><a href="/" title="Home">{{ store.name }}</a> 
+      	{% if store.website != blank %}
+        <a href="{{ store.website }}" id="website">Back to site</a>
+				{% endif %}              
+      </h1>
     </div>
     
     <nav id="cart_nav">
@@ -72,7 +76,7 @@
     {% endif %}
 
     <nav id="nav_primary">
-      <ul><li><a href="/" alt="Home">Home</a></li><li><a href="/products" alt="Our Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li></ul>      
+      <ul>{% if store.website != blank %}<li id="website"><a href="{{ store.website }}">Back to site</a></li>{% endif %}<li><a href="/" alt="Home">Home</a></li><li><a href="/products" alt="Our Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li></ul>      
 	  	
 	  	{% if theme.show_search %}
 	  	<div id="search">

@@ -227,7 +227,16 @@ ul#error li {
   float: left;
   max-width: 50%;
   margin-left: 30px;
-  }  
+  }
+  
+#branding a#website {
+	color: {{ theme.text_secondary_color }};
+	margin-left: 22px;
+	}
+	
+#branding a#website:hover {
+	color: {{ theme.text_color }}
+	}	
   
 #cart_nav {
   float: right;
@@ -287,6 +296,10 @@ ul#error li {
   background: {{ theme.border_color }};
   }
 
+#nav_primary li#website {
+	display: none;
+	}
+	
 
 /* -------------------------------------------------------------- 
   Site Footer
