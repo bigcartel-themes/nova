@@ -8,7 +8,7 @@ html {
 
 body {
   font-family: {{ theme.header_font }}, "Andale Mono", AndaleMono, "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-  font-size: 13px;
+  font-size: 14px;
   color: {{ theme.text_color }};
   text-rendering: optimizeLegibility;	
   -webkit-font-smoothing: antialiased;
@@ -79,8 +79,9 @@ video {
   background: transparent;
   cursor: pointer;
   font-family: {{ theme.header_font }};  
-  font-size: 13px;
-  text-align: center; 	    
+  font-size: 14px;
+  text-align: center; 	
+  -webkit-font-smoothing: antialiased;  
   }
   
 .button:hover {

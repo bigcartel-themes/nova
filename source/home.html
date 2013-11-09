@@ -71,8 +71,10 @@
 				  	<ul>
 				      {% for option in product.options %}
 				  		<li>
-						  	<h3>{{ option.name }} <span>{{ option.quantity }} in stock</h3>
-				  			<span class="bar" style="width:{{ option.inventory }}%;"></span>
+						  	<h3>{% if product.has_default_option %}{{ product.name }}{% else %}{{ option.name }}{% endif %} <span>{{ option.quantity }} in stock</h3>
+							  	<div class="bar">
+						  			<span class="bar fill" style="width:{{ option.inventory }}%;"></span>
+							  	</div>					  		
 				  		</li>
 				  		{% endfor %}
 				  	</ul>

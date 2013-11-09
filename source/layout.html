@@ -106,7 +106,7 @@
       {{ page_content }}
     {% endif %} 
     <footer id="site_footer">
-      <ul id="footer_nav"><li><a href="/" title="Home">Home</a></li><li><a href="/products" title="Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li><li><a href="/cart">Cart</a></li></ul> 
+      <ul id="footer_nav"><li><a href="/" title="Home">Home</a></li><li><a href="/products" title="Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li></ul> 
 		  {% if theme.twitter_link != blank or theme.facebook_link != blank or theme.tumblr_link != blank %}
       <span class="keyline"></span>
 		  <ul id="social_links">
