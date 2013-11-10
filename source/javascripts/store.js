@@ -44,15 +44,22 @@ var Store = {
 			  
 				if ('ontouchstart' in document.documentElement) {
 					$('a.more_info, .product_images .flex-control-nav, .on_sale').css({'display':'block'});
-				}			  
+				} else {
+					$('.product_images.galy').click(function(event) {
+				  	event.preventDefault();
+				    $(this).flexslider('next'); //Go to next slide
+				  }); 
+				}	  
 			   
       }, inPreview ? 50 : 0);
     });		  
+/*
 	  			
 	  $('.product_images.galy').click(function(event) {
 	  	event.preventDefault();
 	    $(this).flexslider('next'); //Go to next slide
-	  });    
+	  }); 
+*/   
 	  
     // Set up search toggle on click
     

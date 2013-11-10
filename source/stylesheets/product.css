@@ -102,7 +102,7 @@ body#product .product_price h3.price:before {
 
 #product .product_images .flex-control-nav {
 	bottom: -36px;
-	visibility: visible;
+	display: block;
 	}
 	
 #product .product_info {
@@ -160,7 +160,7 @@ body#product .product_price h3.price:before {
 	
 #product .product_sharing {
 	float: none;
-	margin: 50px auto 230px;
+	margin: 50px auto 211px;
 	}		
 	
 .product_sharing {
@@ -218,8 +218,4 @@ body#product .product_price h3.price:before {
   margin-left: 25% !important;
   }
 
-.product_sharing .social_pinterest iframe {}	
-	
-	
-	
-	
+.product_sharing .social_pinterest iframe {}

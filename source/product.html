@@ -37,7 +37,7 @@
           <button id="product-addtocart" name="submit" type="submit" class="button">Buy Now</button>          
         {% else %}
           <div class="option_select">
-            <span class="options_button button">Buy Now</span>
+            <span class="options_button button">Buy Now<span class="arrow"></span></span>
             <span class="button" id="button_header" style="display:none">Select an Option</span>
             <ul class="options_menu">      
             {% for option in product.options_in_stock %}

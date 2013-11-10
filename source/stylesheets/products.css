@@ -42,7 +42,7 @@
 	display: none;
 	width: 100%; 
 	position: absolute; 
-	bottom: 59px; 
+	bottom: 60px; 
 	left: -4px 
 	}
 
@@ -148,6 +148,7 @@
 	}
 	
 .product_options .button:hover span.arrow {
+	opacity: 1;
 	display: inline-block;
 	}	
 

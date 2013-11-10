@@ -12,6 +12,7 @@ body {
   color: {{ theme.text_color }};
   text-rendering: optimizeLegibility;	
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background-color: {{ theme.background_color }};
 {% if theme.background_image != blank %}
   background-image: url({{ theme.background_image.url }});
@@ -66,6 +67,7 @@ object,
 video {
   max-width: 100%;
   }	
+  
   
 /* -------------------------------------------------------------- 
   Elements / Shared
@@ -359,8 +361,6 @@ ul#error li {
 #social_links li a:hover {
   color: {{ theme.text_color }} !important;
   }
-
-  
   
 /* Big Cartel Badge
 ------------------------------------------------------------*/
@@ -422,7 +422,3 @@ ul#error li {
 /*============================================================
   Basic Styles - used for the simple controls
 ============================================================*/
-
-  
-  
-  
