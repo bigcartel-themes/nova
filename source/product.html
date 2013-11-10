@@ -31,7 +31,7 @@
   <section class="product_options">    
     {% case product.status %}
       {% when 'active' %}
-      <form method="post" action="/cart">
+      <form method="post" accept-charset="utf8" action="/cart">
         {% if product.has_default_option %}
           {{ product.option | hidden_option_input }}
           <button id="product-addtocart" name="submit" type="submit" class="button">Buy Now</button>          
