@@ -38,7 +38,13 @@ var Store = {
 			    slideshow: false,
 			    smoothHeight: true,
 			    useCSS: false //temp css transition fix
-			  });		   
+			  });
+			  
+			  // Display certain elements on touch devices
+			  
+				if ('ontouchstart' in document.documentElement) {
+					$('a.more_info, .product_images .flex-control-nav, .on_sale').css({'display':'block'});
+				}			  
 			   
       }, inPreview ? 50 : 0);
     });		  
@@ -70,7 +76,7 @@ var Store = {
 		  
 		  $('.product_overview').hide();     		  
 		  		  
-			$('.more_info').on('click touchstart', function(){
+			$('.more_info').on('click', function(){
 			   $(this).parent().parent().children('.product_overview').fadeToggle().css({'display':'-webkit-box'}).height($(this).parent().parent().parent().children('.product_images').height());    
 			   
 			   $(this).toggleClass('selected')			   	
@@ -87,10 +93,9 @@ var Store = {
 			  $('.more_info.selected').toggleClass('selected')			   			    
 		  });
 		  
-		  
 		  // Add to Cart button
 		  
-		  $('.options_button, #cat_button').on('click touchend', function(event){
+		  $('.options_button, #cat_button').on('click', function(event){
 		  	event.preventDefault();
 		  	
 		    $(this).parent().children('.options_menu').toggle();
@@ -99,22 +104,20 @@ var Store = {
 		    event.stopPropagation();
 		  });
 		
+			// Close dropdown menus on click outside of menu
+			
 		  $('html').on('click', function() {
 		    $('.options_menu:visible').parent().children('span').toggle();          
 		    $('.options_menu').hide();
 		  });
-		    
-		  $('#products .options_menu li, #product .options_menu li').on('click touchend', function(){
+		  
+		  $('#products .options_menu li, #product .options_menu li').on('click', function(){
 		    var option    = $(this).text();
 		    var option_id = $(this).attr('id');
 		  
 		    $(this).parents('form').children('input[type="hidden"]').attr('value', option_id);
 		    $(this).parents('form').children('#product-addtocart').click();
 		  }); 
-		  
-		  $('#product-addtocart').on('touchend', function() {
-		  	$(this).click();
-		  });
 		}
 
     if(page == 'cart') {
@@ -131,6 +134,6 @@ var Store = {
 			  $(this).closest('li').find('.quantity_input input').val(0);
 			  cartForm.submit();
 			});		      
-	  }
+	  }	  
   }
 };

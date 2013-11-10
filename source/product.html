@@ -19,7 +19,7 @@
     <hgroup>
       {% case product.status %}
       {% when 'active' %}
-      <h3 class="price">{{ product.default_price | money_with_sign }} {% if product.on_sale %}{% endif %}</h3>
+      <h3 class="price">{{ product.default_price | money_with_sign }} {% if product.on_sale %}<span class="on_sale">On sale!</span>{% endif %}</h3>
       {% when 'sold-out' %}
   	  <h3>Sold out</h3>
       {% when 'coming-soon' %}
@@ -76,18 +76,15 @@
   </section>
   {% endif %}  
 
-  {% if theme.show_facebook or theme.show_twitter or theme.show_pinterest %}
+	{% if theme.share_buttons %}
   <section class="product_sharing">
 	  <ul>
-	    {% if theme.show_facebook %}
 	    <li class="social_facebook">
 	      <h3>Like it</h3>
 	      <div class="social_action">
 	        <iframe src="//www.facebook.com/plugins/like.php?href={{ page.full_url }}&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50%; height:20px;" allowTransparency="true"></iframe>
 	      </div>
 	    </li>
-	    {% endif %}
-	    {% if theme.show_twitter %}
 	    <li class="social_tweet">
 	      <h3>Tweet it</h3>
 	      <div class="social_action">
@@ -95,8 +92,6 @@
 	        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 	      </div>
 	    </li>
-	    {% endif %}
-	    {% if theme.show_pinterest %}
 	    <li class="social_pinterest">
 	      <h3>Pin it</h3>
 	      <div class="social_action">
@@ -104,11 +99,9 @@
 	        <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
 	      </div>
 	    </li>
-	    {% endif %}
 	  </ul>
 	</section>
 	{% endif %}
-
 </section>
 
 <nav id="pagination">

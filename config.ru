@@ -6,7 +6,7 @@ options = {}
 # categories, and more. Just give us the subdomain. Default is "dugway" for dugway.bigcartel.com.
 # manyhands
 
-options[:store] = 'editionsof100'
+options[:store] = 'snugonline'
 
 # Simulate the customization done by store owners by passing values to different variables.
 # Default values are based on the "default" for each setting in your settings.json.
@@ -20,7 +20,8 @@ options[:customization] = {
 #   :background_color => '#CCCCCC',
     :show_search => true,
 #   :twitter_username => 'mytwitter'
-		:show_inventory_bars => true,
+		:share_buttons => true,
+		:show_inventory_bars => false,
 		:tumblr_link => 'http://tumblr.com/',
 		:twitter_link => 'http://twitter.com/',
 		:facebook_link => 'http://facebook.com/',		

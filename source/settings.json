@@ -114,25 +114,11 @@
       "description": "Shows the product search area"
     },
   	{
-      "variable": "show_facebook",
-      "label": "Show Facebook's Like button",
+      "variable": "share_buttons",
+      "label": "Show social buttons",
       "type": "boolean",
       "default": true,
-      "description": "Adds a Like button to the Product page"
-    },
-    {
-      "variable": "show_twitter",
-      "label": "Show Twitter's Tweet button",
-      "type": "boolean",
-      "default": true,
-      "description": "Adds a Tweet button to the Product page"
-    },
-    {
-      "variable": "show_pinterest",
-      "label": "Show Pinterest's Pin It button",
-      "type": "boolean",
-      "default": true,
-      "description": "Adds a Pin It button to the Product page"
+      "description": "Adds Facebook, Twitter, and Pinterest buttons to Product pages"
     },
     {
       "variable": "twitter_link",
