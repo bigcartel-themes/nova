@@ -132,7 +132,6 @@
 .product_options .button {
   display: block;
   margin: 0 auto;
-	padding: 15px 0;
   width: 200px;
   color: {{ theme.text_secondary_color }};
   border-color: transparent;
@@ -145,7 +144,8 @@
 	}
 	
 .product_options .button.options_button {
-	padding: 15px 0 16px;
+	padding-right: 0;
+	padding-left: 0;
 	}		
 
 .product_options .button span.arrow {
@@ -166,7 +166,8 @@
   }
   
 .option_select #button_header {
-	padding: 15px 0 16px;
+	padding-right: 0;
+	padding-left: 0;
 	color: {{ theme.text_secondary_color }} !important;
 	}
 
@@ -182,7 +183,7 @@
   display: none;
   position: absolute;
   z-index: 999;
-  padding-top: 44px;
+  padding-top: 45px;
   top: 0;
   width: 200px;
   text-align: center;
@@ -190,7 +191,7 @@
   background: transparent;
   border-radius: 0;
   border: 1px solid {{ theme.link_color }};    
-  box-shadow: 0 1px 4px rgba(0,0,0, .3);
+  box-shadow: 0 1px 15px rgba(0,0,0, .25);
   }      
 
 .options_menu li {
@@ -338,7 +339,7 @@ a#mobile_info {
 #pagination a.button {
   position: relative;
   display: block;
-  width: 110px;
+  width: 120px;
   padding: 13px 0;  
   color: {{ theme.text_secondary_color }};    
   }
@@ -408,9 +409,11 @@ span.arrow {
 	
 #all_products_btn { 
 	margin: 100px auto 0;
-  padding: 14px 27px 16px;	
 	display: block;
-	width: 144px;
+	width: 198px;
+	padding-left: 0;
+	padding-right: 0;
+	display: block;
 	}
 	
 /* Product Grid */

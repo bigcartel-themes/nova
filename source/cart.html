@@ -33,13 +33,11 @@
       {% if cart.shipping.enabled %}
         {% if cart.shipping.strict %}
         <li id="cart-shipping-tax">
-          	{% if cart.shipping.pending %}
-          		{% if cart.country %}
-          		  <label for="country" class="not_set">Select another country</label>
-          		{% else %}
-          			<label for="country">Shipping</label>
-          		{% endif %}
-          	{% endif %}
+        	{% if cart.country %}
+      		  <label for="country" class="not_set">Select another country</label>
+      		{% else %}
+      			<label for="country">Shipping</label>
+      		{% endif %}
           {{ store.country | country_select }}
           {% if cart.shipping.pending %}
           	<h3 class="cart_pending">$0</h3>
