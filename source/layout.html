@@ -42,7 +42,7 @@
   
   {{ head_content }}
 </head>
-<body id="{% if page.permalink == 'products' %}layout{% else %}{{ page.permalink }}{% endif %}" class="{{ page.category }} {% if page.full_url contains '/category/' %}multi_col{% endif %}">
+<body id="{% if page.permalink == 'products' %}products_page{% else %}{{ page.permalink }}{% endif %}" class="{{ page.category }} {% if page.full_url contains '/category/' %}multi_col{% endif %}">
   <header id="site_header">
     <div id="branding">
       <h1><a href="/" title="Home">{{ store.name }}</a> 
@@ -68,7 +68,7 @@
     </nav>
   </header>
   
-  <div id="site_content" class="canvas">
+  <div id="site_content" class="canvas {% unless theme.product_list_layout == "stacked" %}grid{% endunless %}">
     {% if theme.image != blank %}
     <div id="theme_image">
       <img src="{{ theme.image.url }}" alt="{{ store.name }}" />

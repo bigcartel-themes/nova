@@ -90,7 +90,7 @@ body#product .product_price h3.price:before {
   border: none;
   padding: 0;
   margin-left: -2px;
-  font-family: {{ theme.header_font }} 
+  font-family: {{ theme.text_font }} 
   font-size: 13px;
   text-decoration: underline;
   background: transparent;  
@@ -160,8 +160,12 @@ body#product .product_price h3.price:before {
 	
 #product .product_sharing {
 	float: none;
-	margin: 50px auto 211px;
-	}		
+	margin: 37px auto 201px;
+	}
+	
+#product .product_inventory + .product_sharing {
+	margin: 70px auto 231px;
+	}
 	
 .product_sharing {
 	float: left;

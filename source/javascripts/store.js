@@ -13,10 +13,11 @@ var Store = {
 
 		  
 	  // Make sure the body height is always equal to the window height
-	  
+	  /*
 	  if($("body").height() < $(window).height()){
 	  	$("body").height($(window).height());
 	  };      
+	  */
 	  
 	  $('#menu a').click(function() { 
 		  $('#nav_primary').slideToggle('slow');
@@ -25,6 +26,14 @@ var Store = {
   
     $('#site_content').imagesLoaded(function() {
       setTimeout(function() {
+      	
+      	var $productGrid = $('#products.masonry');
+      	
+      	$productGrid.isotope({
+		  		itemSelector : '.product',
+		  		layoutMode : 'fitRows',
+		  		resizable: true, 
+				});
       	
       	$('.slides').show();
       	
@@ -52,14 +61,7 @@ var Store = {
 				}	  
 			   
       }, inPreview ? 50 : 0);
-    });		  
-/*
-	  			
-	  $('.product_images.galy').click(function(event) {
-	  	event.preventDefault();
-	    $(this).flexslider('next'); //Go to next slide
-	  }); 
-*/   
+    });		    
 	  
     // Set up search toggle on click
     

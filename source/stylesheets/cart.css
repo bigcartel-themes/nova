@@ -204,7 +204,7 @@ a.remove_item:hover {
   font-size: 11px;
   padding: 0;
   margin: 13px 31px 0 0;
-  font-family: {{ theme.header_font }}, "Andale Mono", AndaleMono, "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace; monospace;
+  font-family: {{ theme.text_font }}, "Andale Mono", AndaleMono, "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace; monospace;
   color: {{ theme.link_color }};
   border: none;
   background: none;

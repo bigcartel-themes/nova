@@ -7,7 +7,7 @@ html {
   }
 
 body {
-  font-family: {{ theme.header_font }}, "Andale Mono", AndaleMono, "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-family: {{ theme.text_font }}, "Andale Mono", AndaleMono, "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   font-size: 14px;
   color: {{ theme.text_color }};
   text-rendering: optimizeLegibility;	
@@ -80,7 +80,7 @@ video {
   color: {{ theme.text_secondary_color }} !important;
   background: transparent;
   cursor: pointer;
-  font-family: {{ theme.header_font }};  
+  font-family: {{ theme.text_font }};  
   font-size: 14px;
   text-align: center; 	
   -webkit-font-smoothing: antialiased;  
@@ -88,11 +88,9 @@ video {
   
 .button:hover {
   color: {{ theme.hover_color }} !important;
-  border-color: {{ theme.link_color }}; 		  
+  border-color: {{ theme.hover_color }}; 		  
   }
-  
-.button.disabled {}
-  
+    
 .button.disabled:hover {
   cursor: default;
   }   
@@ -101,7 +99,7 @@ input,
 textarea {
   padding: 10px 8px;
   width: auto;
-  font-family: {{ theme.header_font }}
+  font-family: {{ theme.text_font }};
   background: transparent;
   outline: none;
   }
@@ -336,11 +334,11 @@ ul#error li {
 
 #site_footer li a {
   padding: 13px;
-  color: {{ theme.text_color }};
+  color: {{ theme.text_secondary_color }};
   }      
   
 #site_footer ul:hover li a:hover {
-  color: {{ theme.text_secondary_color }};
+  color: {{ theme.text_color }};
   }
   
 #site_footer .keyline {
@@ -355,11 +353,11 @@ ul#error li {
   }
 
 #social_links li a {
-  color: {{ theme.text_secondary_color }};
+  color: {{ theme.link_color }};
   }
 
 #social_links li a:hover {
-  color: {{ theme.text_color }} !important;
+  color: {{ theme.hover_color }} !important;
   }
   
 /* Big Cartel Badge
@@ -367,7 +365,7 @@ ul#error li {
 
 #badge {
   width: 100%;
-  margin: 18px 0 20px;  
+  margin: 10px 0 20px;  
   }
 
 #website + #badge {
@@ -397,6 +395,7 @@ ul#error li {
   }
   
 #content_header h1 {
+	font-family: {{ theme.header_font }};
   font-size: 34px;
   color: {{ theme.text_color }};
   }
@@ -407,8 +406,9 @@ ul#error li {
 -------------------------------------------------------------- */  
   
 #home #intro {
-	margin: -28px auto 0;
+	margin: -28px auto 50px;
 	max-width: 660px;
+	font-family: {{ theme.header_font }};
 	font-size: 30px;
 	color: {{ theme.link_color }};
 	text-align: center;

@@ -49,12 +49,12 @@
     {
       "variable": "link_color",
       "label": "Links",
-      "default": "#4bc0ba"
+      "default": "#4CD964"
     }, 
     {
       "variable": "hover_color",
       "label": "Link's Hover",
-      "default": "#288d88"
+      "default": "#0fce2f"
     },
     {
       "variable": "error_color",
@@ -98,6 +98,14 @@
       "default": 6,
       "description": "The number of products shown at a time on the Products page"
     },
+		{
+      "variable": "product_list_layout",
+      "label": "Product List Layout",
+      "type": "select",
+      "options": [["Stacked", "stacked"], ["Grid", "masonry"]],
+      "default": "stacked",
+      "description": "The arrangement of your products on the Products pages"
+    },    
     {
       "variable": "show_inventory_bars",
       "label": "Show inventory bars",
