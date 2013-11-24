@@ -364,8 +364,8 @@ a#mobile_info {
 #categories a.button {	
 	display: inline-block;
 	margin: 0 auto;
-	width: 144px;
-	padding: 18px 27px;
+	width: 198px;
+	padding: 18px 0;
 	}
 	
 span.arrow {
@@ -390,7 +390,7 @@ span.arrow {
   left: 50%;
   top: 0;
   z-index: 999;
-  padding-top: 49px;
+  padding-top: 55px;
   width: 198px;
   margin: 0 0 0 -100px;
   }      
