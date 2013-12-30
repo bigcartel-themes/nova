@@ -157,12 +157,12 @@
 .product_options .button:hover span.arrow {
 	opacity: 1;
 	display: inline-block;
-	border-color: {{ theme.hover_color }} transparent transparent transparent;
+	border-color: darken({{ theme.link_color }}, 15%) transparent transparent transparent;
 	}	
 
 .product_options .button:hover {
-  border: 1px solid {{ theme.hover_color }};
-  color: {{ theme.hover_color }} !important;
+  border: 1px solid darken({{ theme.link_color }}, 15%);
+  color: darken({{ theme.link_color }}, 15%) !important;
   }
   
 .option_select #button_header {
@@ -191,7 +191,7 @@
   background: transparent;
   border-radius: 0;
   border: 1px solid {{ theme.link_color }};    
-  box-shadow: 0 1px 15px rgba(0,0,0, .25);
+  box-shadow: 4px 4px 8px rgba(0,0,0, .25);
   }      
 
 .options_menu li {
@@ -219,7 +219,7 @@
   }
 
 .options_menu li:hover {
-  color: {{ theme.hover_color }};    	
+  color: darken({{ theme.link_color }}, 15%);    	
   background: {{ theme.background_secondary_color }} !important;
   } 
 
@@ -294,7 +294,7 @@ a#mobile_info {
 	}  
 	
 .product_overview .product_description h3.product_name a:hover {
-	border-color: {{ theme.hover_color }}
+	border-color: darken({{ theme.link_color }}, 15%)
 }	
 
 .product_overview .product_inventory {
@@ -382,7 +382,7 @@ span.arrow {
 	
 #categories a.button:hover span.arrow {
 	opacity: .8;
-	border-color: {{ theme.hover_color }} transparent transparent transparent;	
+	border-color: darken({{ theme.link_color }}, 15%) transparent transparent transparent;	
 	}		
 
 #categories .options_menu {
@@ -485,5 +485,5 @@ span.arrow {
   }
 
 #products.masonry a:hover .product_price * {
-  color: {{ theme.hover_color }};
+  color: darken({{ theme.link_color }}, 15%);
   }	

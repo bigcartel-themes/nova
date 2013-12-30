@@ -47,7 +47,7 @@ a:visited {
 
 a:hover,
 a:active {
-  color: {{ theme.hover_color }};    	
+  color: darken({{ theme.link_color }}, 15%);    	
   }
 
 a img {
@@ -88,8 +88,8 @@ video {
   }
   
 .button:hover {
-  color: {{ theme.hover_color }} !important;
-  border-color: {{ theme.hover_color }}; 		  
+  color: darken({{ theme.link_color }}, 15%) !important;
+  border-color: darken({{ theme.link_color }}, 15%); 		  
   }
     
 .button.disabled:hover {
@@ -358,7 +358,7 @@ ul#error li {
   }
 
 #social_links li a:hover {
-  color: {{ theme.hover_color }} !important;
+  color: darken({{ theme.link_color }}, 15%) !important;
   }
   
 /* Big Cartel Badge

@@ -48,8 +48,8 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 		padding: 19px 0 !important;
 		line-height: 1.4em !important;
 		box-sizing: border-box;
-		color: {{ theme.hover_color }} !important;
-	  border-color: {{ theme.hover_color }}; 
+		color: darken({{ theme.link_color }}, 15%) !important;
+	  border-color: darken({{ theme.link_color }}, 15%); 
 		}
 		
 	ul#error {
@@ -195,12 +195,12 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 	}
 		
 	#categories a.button {
-		color: {{ theme.hover_color }};
-	  border-color: {{ theme.hover_color }}; 	
+		color: darken({{ theme.link_color }}, 15%);
+	  border-color: darken({{ theme.link_color }}, 15%); 	
 		}	
 		
 	#categories a.button .arrow {
-		border-color: {{ theme.hover_color }} transparent transparent transparent !important; 	
+		border-color: darken({{ theme.link_color }}, 15%) transparent transparent transparent !important; 	
 		}
 	
 	  
@@ -321,8 +321,8 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 	#home #all_products_btn {
 	  box-sizing: border-box;    
 	  margin: 10px auto 20px !important;
-	  color: {{ theme.hover_color }};
-	  border-color: {{ theme.hover_color }}; 		
+	  color: darken({{ theme.link_color }}, 15%);
+	  border-color: darken({{ theme.link_color }}, 15%); 		
 		} 
 	
 	.product {
@@ -430,15 +430,15 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 	
 	.product #product-addtocart,
 	#product #product-addtocart {
-		color: {{ theme.hover_color }} !important; 
+		color: darken({{ theme.link_color }}, 15%) !important; 
 		}
 		
 	.product_options .button.options_button {
-		color: {{ theme.hover_color }} !important; 
+		color: darken({{ theme.link_color }}, 15%) !important; 
 		}
 		
 	.product_options .button.options_button .arrow {
-		border-color: {{ theme.hover_color }} transparent transparent transparent !important; 
+		border-color: darken({{ theme.link_color }}, 15%) transparent transparent transparent !important; 
 		}		
 	
 	.product_options .button:hover {

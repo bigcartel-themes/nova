@@ -29,43 +29,38 @@
     {
       "variable": "background_color",
       "label": "Background",
-      "default": "#ffffff"
+      "default": "#f5f5f5"
     },
     {
       "variable": "background_secondary_color",
       "label": "Background Secondary",
-      "default": "#efeff4"
+      "default": "#ececec"
     },    
     {
       "variable": "text_color",
       "label": "Text",
-      "default": "#111111"
+      "default": "#1f1f1f"
     },
     {
       "variable": "text_secondary_color",
       "label": "Text Secondary",
-      "default": "#8e8e93"
+      "default": "#888888"
     },    
     {
       "variable": "link_color",
       "label": "Links",
-      "default": "#4CD964"
-    }, 
+      "default": "#007aff"
+    },    
     {
-      "variable": "hover_color",
-      "label": "Link's Hover",
-      "default": "#0fce2f"
+      "variable": "border_color",
+      "label": "Borders",
+      "default": "#b0b0b0"
     },
     {
       "variable": "error_color",
       "label": "Errors",
       "default": "#e36aa6"
-    },    
-    {
-      "variable": "border_color",
-      "label": "Borders",
-      "default": "#dcdce0"
-    }            
+    }                 
   ],
   "options": [
     {

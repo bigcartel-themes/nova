@@ -116,7 +116,7 @@ a.remove_item {
   } 
   
 a.remove_item:hover {
-  color: {{ theme.hover_color }};    	
+  color: darken({{ theme.link_color }}, 15%);    	
   }    
   
 #cart_options {
@@ -204,7 +204,7 @@ a.remove_item:hover {
   font-size: 11px;
   padding: 0;
   margin: 13px 31px 0 0;
-  font-family: {{ theme.text_font }}, "Andale Mono", AndaleMono, "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace; monospace;
+  font-family: {{ theme.text_font }}, "Andale Mono", AndaleMono, "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   color: {{ theme.link_color }};
   border: none;
   background: none;
@@ -212,7 +212,7 @@ a.remove_item:hover {
   }  
   
 .update-btn:hover {
-  color: {{ theme.hover_color }};
+  color: darken({{ theme.link_color }}, 15%);
   }
   
 #cart_total {
@@ -257,7 +257,6 @@ a.remove_item:hover {
   }
 
 #checkout-btn {
-/*   padding: 15px 40px 15px; */
   margin: 40px 0 0 63%;
   }  
 	

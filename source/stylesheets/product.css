@@ -88,7 +88,6 @@ body#product .product_price h3.price:before {
   
 #product_options button {
   border: none;
-/*   padding: 0; */
   margin-left: -2px;
   font-family: {{ theme.text_font }} 
   font-size: 13px;

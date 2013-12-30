@@ -7,7 +7,10 @@ options = {}
 # manyhands
 
 # options[:store] = 'thisispaper'
+#  options[:store] = 'unmarkedmx'
+  options[:store] = 'rothirsch'
 
+  
 # Simulate the customization done by store owners by passing values to different variables.
 # Default values are based on the "default" for each setting in your settings.json.
 
@@ -17,14 +20,14 @@ options[:customization] = {
 #     :width => 200,
 #     :height => 50http://images.cdn.bigcartel.com/bigcartel/product_images/114125334/max_h-1000+max_w-1000/HEL_WD86_1_1000x1000.jpg
 #   },
-#    :background_color => '#f9f9fe',
-#    :border_color => '#626c76',
-#    :background_secondary_color => '#626f7d',  
-#    :text_color => '#ECF9FD',  
+#    :background_color => '#f5f5f5',
+#    :border_color => '#b0b0b0',
+#    :background_secondary_color => '#e5e5e5',  
+#    :text_color => '#1f1f1f',
 #    :text_secondary_color => '#75C2DB',
-#    :link_color => '#66A9BF',
+#    :link_color => '#007aff',
 #    :hover_color => '#FF6157',
-		:products_per_page => '6',
+#		:products_per_page => '12',
 		:product_list_layout => 'stacked',
     :show_search => false,
 #   :twitter_username => 'mytwitter'
