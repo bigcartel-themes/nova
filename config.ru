@@ -6,9 +6,9 @@ options = {}
 # categories, and more. Just give us the subdomain. Default is "dugway" for dugway.bigcartel.com.
 # manyhands
 
-# options[:store] = 'thisispaper'
+ options[:store] = 'thisispaper'
 #  options[:store] = 'unmarkedmx'
-  options[:store] = 'rothirsch'
+#  options[:store] = 'rothirsch'
 
   
 # Simulate the customization done by store owners by passing values to different variables.
@@ -20,7 +20,7 @@ options[:customization] = {
 #     :width => 200,
 #     :height => 50http://images.cdn.bigcartel.com/bigcartel/product_images/114125334/max_h-1000+max_w-1000/HEL_WD86_1_1000x1000.jpg
 #   },
-#    :background_color => '#f5f5f5',
+#    :background_color => '#ffffff',
 #    :border_color => '#b0b0b0',
 #    :background_secondary_color => '#e5e5e5',  
 #    :text_color => '#1f1f1f',
@@ -28,7 +28,7 @@ options[:customization] = {
 #    :link_color => '#007aff',
 #    :hover_color => '#FF6157',
 #		:products_per_page => '12',
-		:product_list_layout => 'stacked',
+#		:product_list_layout => 'grid',
     :show_search => false,
 #   :twitter_username => 'mytwitter'
 		:share_buttons => false,
