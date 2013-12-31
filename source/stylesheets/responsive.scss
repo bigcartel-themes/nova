@@ -5,9 +5,13 @@
 @media screen and (max-width: 900px) {
 	/* Product Grid */
 		  
-#products.masonry .product {
-  width:  31.4%; /* 230px*/
-  }
+	#products.masonry .product {
+	  width:  31.4%; /* 230px*/
+	  }
+  
+	#products.masonry .product_price {
+		opacity: 1;
+		}  	  
 }
 
 @media screen and (max-width: 560px),
@@ -179,7 +183,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 		
 	#categories {
 		width: 100%;
-		margin: 20px auto;
+		margin: 20px auto 40px !important;
 		}	
 		
 	#categories a.button,
@@ -807,5 +811,9 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 	#products.masonry .product {
 		margin-bottom: 10px;
 	  width:  48.1%; /* 230px*/
-	  }		 	
+	  }	
+	  
+	#products.masonry .product_price {
+		opacity: 1;
+		}  	 	
 }
