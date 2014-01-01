@@ -306,7 +306,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 	  
 	#home #intro {
 		margin: 25px auto 0;
-		font-size: 30px;
+		font-size: 24px;
 		}  
 		
 	#home #intro p{
@@ -502,7 +502,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 	-------------------------------------------------------------- */
 	
 	#contact h1 {
-		margin-bottom: 1em;
+		margin-bottom: .3em;
 		}
 	
 	#contact_form {
@@ -806,6 +806,14 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 	  
 	#cart .message {
 		margin-top: 50px;
+		}	
+		
+	#cart #site_content {
+		min-height: 50%;
+	}	
+		
+	#cart_empty {
+		margin-bottom: 0;
 		}	
 		
 	#products.masonry .product {

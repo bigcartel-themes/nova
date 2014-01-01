@@ -2,7 +2,7 @@
   Base styles
 -------------------------------------------------------------- */
 
-html {
+html, body {
   height: 100%;	
   }
 
@@ -195,9 +195,7 @@ ul#error li {
 #site_content {
   position:relative;
   min-width: 550px;    
-  height: auto !important;
-  height: 100%; 
-  min-height: 100%;
+  min-height: 90%;
   padding: 0;	   
   margin-top: 80px;
   }

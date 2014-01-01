@@ -104,25 +104,25 @@
       </section>
     {% else %}
       {{ page_content }}
-    {% endif %} 
-    <footer id="site_footer">
-      <ul id="footer_nav"><li><a href="/" title="Home">Home</a></li><li><a href="/products" title="Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li></ul> 
-		  {% if theme.twitter_link != blank or theme.facebook_link != blank or theme.tumblr_link != blank %}
-      <span class="keyline"></span>
-		  <ul id="social_links">
-		    {% if theme.twitter_link != blank %}
-		      <li><a href="{{ theme.twitter_link }}" title="Follow us on Twitter">Twitter</a></li>
-		    {% endif %}
-		    {% if theme.facebook_link != blank %}
-		      <li><a href="{{ theme.facebook_link }}" title="Friend us on Facebook">Facebook</a></li>
-		    {% endif %}
-		    {% if theme.tumblr_link != blank %}
-		      <li><a href="{{ theme.tumblr_link }}" title="Follow us on Tumblr">Tumblr</a></li>
-		    {% endif %}		    
-		  </ul>
-		  {% endif %}			
-			<div id="badge">{{ bigcartel_credit }}</div>      
-    </footer>     
+    {% endif %}     
   </div> 
+  <footer id="site_footer">
+    <ul id="footer_nav"><li><a href="/" title="Home">Home</a></li><li><a href="/products" title="Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li></ul> 
+	  {% if theme.twitter_link != blank or theme.facebook_link != blank or theme.tumblr_link != blank %}
+    <span class="keyline"></span>
+	  <ul id="social_links">
+	    {% if theme.twitter_link != blank %}
+	      <li><a href="{{ theme.twitter_link }}" title="Follow us on Twitter">Twitter</a></li>
+	    {% endif %}
+	    {% if theme.facebook_link != blank %}
+	      <li><a href="{{ theme.facebook_link }}" title="Friend us on Facebook">Facebook</a></li>
+	    {% endif %}
+	    {% if theme.tumblr_link != blank %}
+	      <li><a href="{{ theme.tumblr_link }}" title="Follow us on Tumblr">Tumblr</a></li>
+	    {% endif %}		    
+	  </ul>
+	  {% endif %}			
+		<div id="badge">{{ bigcartel_credit }}</div>      
+  </footer>   
 </body>
 </html>
