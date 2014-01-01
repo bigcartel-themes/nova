@@ -6,9 +6,9 @@ options = {}
 # categories, and more. Just give us the subdomain. Default is "dugway" for dugway.bigcartel.com.
 # manyhands
 
- options[:store] = 'thisispaper'
+# options[:store] = 'thisispaper'
 #  options[:store] = 'unmarkedmx'
-#  options[:store] = 'rothirsch'
+  options[:store] = 'rothirsch'
 
   
 # Simulate the customization done by store owners by passing values to different variables.
