@@ -45,11 +45,7 @@
 <body id="{% if page.permalink == 'products' %}products_page{% else %}{{ page.permalink }}{% endif %}" class="{{ page.category }} {% if page.full_url contains '/category/' %}multi_col{% endif %}">
   <header id="site_header">
     <div id="branding">
-      <h1><a href="/" title="Home">{{ store.name }}</a> 
-      	{% if store.website != blank %}
-        <a href="{{ store.website }}" id="website">Back to site</a>
-				{% endif %}              
-      </h1>
+      <h1><a href="/" title="Home">{{ store.name }}</a></h1>
     </div>
     
     <nav id="cart_nav">
@@ -107,7 +103,7 @@
     {% endif %}     
   </div> 
   <footer id="site_footer">
-    <ul id="footer_nav"><li><a href="/" title="Home">Home</a></li><li><a href="/products" title="Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li></ul> 
+    <ul id="footer_nav">{% if store.website != blank %}<li id="website_link"><a href="{{ store.website }}" id="website">{{ store.website | replace: "http://", "" }}</a></li>{% endif %}<li><a href="/" title="Home">Home</a></li><li><a href="/products" title="Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li></ul> 
 	  {% if theme.twitter_link != blank or theme.facebook_link != blank or theme.tumblr_link != blank %}
     <span class="keyline"></span>
 	  <ul id="social_links">
@@ -121,7 +117,7 @@
 	      <li><a href="{{ theme.tumblr_link }}" title="Follow us on Tumblr">Tumblr</a></li>
 	    {% endif %}		    
 	  </ul>
-	  {% endif %}			
+	  {% endif %}			  
 		<div id="badge">{{ bigcartel_credit }}</div>      
   </footer>   
 </body>

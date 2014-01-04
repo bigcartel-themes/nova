@@ -229,15 +229,6 @@ ul#error li {
   margin-left: 30px;
   }
   
-#branding a#website {
-	color: {{ theme.text_secondary_color }};
-	margin-left: 22px;
-	}
-	
-#branding a#website:hover {
-	color: {{ theme.text_color }}
-	}	
-  
 #cart_nav {
   float: right;
   margin-right: 20px;
@@ -311,7 +302,8 @@ ul#error li {
   overflow: hidden;
   position: absolute;
   width: 100%;
-  margin: 135px auto 0;
+  margin: 120px auto 0;
+  text-align: center;
   }
 
 #site_footer p {
@@ -345,7 +337,14 @@ ul#error li {
   height: 1px;
 	width: 100%;
   max-width: 550px;
-  }  
+  } 
+  
+#site_footer li#website_link {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	z-index: 9999;
+	} 
 
 #social_links {
   margin: 15px 0 40px;
@@ -358,17 +357,13 @@ ul#error li {
 #social_links li a:hover {
   color: darken({{ theme.link_color }}, 15%) !important;
   }
-  
+
 /* Big Cartel Badge
 ------------------------------------------------------------*/
 
 #badge {
   width: 100%;
-  margin: 10px 0 20px;  
-  }
-
-#website + #badge {
-  margin-top: 35px;
+  margin: 20px 0 20px;  
   }
 
 #badge a {

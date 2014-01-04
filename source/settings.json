@@ -98,7 +98,7 @@
       "label": "Product List Layout",
       "type": "select",
       "options": [["Stacked", "stacked"], ["Grid", "masonry"]],
-      "default": "masonry",
+      "default": "stacked",
       "description": "The arrangement of your products on the Products pages"
     },    
     {

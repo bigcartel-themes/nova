@@ -77,10 +77,6 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 	  margin: 27px 0 0 15px;
 	  }  
 	  
-	#branding #website {
-		display: none;
-		}
-	  
 	#cart_nav {
 	  margin: 27px 0 40px 0;
 	  }
@@ -136,11 +132,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 	#nav_primary li:last-child a {
 		border: none;
 		}	
-	
-	#nav_primary li#website {
-		display: block;
-		}
-	
+
 	#nav_primary #search {
 		display: inherit;
 		}
@@ -258,7 +250,12 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 		padding: 10px 0;
 	  border-bottom: 1px solid {{ theme.border_color }};  		
 		} 
-		  
+		
+	#site_footer li#website_link {		
+		position: relative;
+		left: 0;
+		bottom: 0;	
+		}
 	#social_links li a {	  
 	  color: {{ theme.text_secondary_color }} !important;
 	  }
