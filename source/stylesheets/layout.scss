@@ -73,6 +73,11 @@ video {
   Elements / Shared
 -------------------------------------------------------------- */  
 
+button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;  	
+}
+
 .button {
 	padding: 13px 30px;
 	line-height: 1.4em !important;
@@ -103,6 +108,8 @@ textarea {
   font-family: {{ theme.text_font }};
   background: transparent;
   outline: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;  
   }
   
 li:hover textarea,
@@ -152,10 +159,12 @@ ul#error li {
 	}	
 	
 #search {
+	position: relative;
 	margin-right: 10px;
 	}	
-
 #search #search-form a {
+	position: absolute;
+	right: 0;
 	color: {{ theme.text_secondary_color }} !important;
 	}
 	
@@ -164,17 +173,31 @@ ul#error li {
 	}	
 
 #search #search-form input {
-	display: none;
+	visibility: hidden;
 	margin: -15px 0 0;
-	outline: none;	
+	outline: none;
+	opacity: 0;
 	color: {{ theme.text_color }};
+	background: {{ theme.background_secondary_color }};
 	border: none;
+	transition: all .2s ease-in;
+	border-radius: 3px;
 	}
 	
 #search #search-form input:focus {
 	color: {{ theme.background_color }};
 	}
 	
+
+#search:hover #search-form a {
+	visibility: hidden;	
+	}
+	
+#search:hover #search-form input {
+	visibility: visible;
+	opacity: 1;
+	transition: all 0 ease-in;	
+	}	
 
 #nav_primary #search {
 	display: none;
@@ -297,73 +320,78 @@ ul#error li {
 -------------------------------------------------------------- */  
   
 #site_footer {
+	opacity: .4;
   width: 100%;
 	clear: both;
   overflow: hidden;
   position: absolute;
   width: 100%;
-  margin: 120px auto 0;
+  margin: 110px auto 0;
+  padding-top: 20px;
+  padding-bottom: 15px;
   text-align: center;
-  }
-
-#site_footer p {
-  color: {{ theme.text_secondary_color }};
-  }
-
-#site_footer h1 {
-  margin-bottom: 20px;
-  }  
-  
-#site_footer ul {
-  clear: both;
-  text-align: center;
-  }
-
-#site_footer li {
-  display: inline-block;  
-  }  
-
-#site_footer li a {
-  padding: 13px;
-  color: {{ theme.text_secondary_color }};
-  }      
-  
-#site_footer ul:hover li a:hover {
-  color: {{ theme.text_color }};
+  //border-top: 1px solid {{ theme.border_color }};
+  transition: all .2s ease-in;
   }
   
-#site_footer .keyline {
-  margin: 0 auto;
-  height: 1px;
-	width: 100%;
-  max-width: 550px;
-  } 
-  
-#site_footer li#website_link {
-	position: fixed;
-	right: 20px;
-	bottom: 20px;
-	z-index: 9999;
-	} 
+#site_footer:hover {
+	opacity: 1;
+}  
+    
+#site_footer nav {
+	overflow: hidden;
+	}
 
+#site_footer nav ul {
+	margin-bottom: 1em;
+	}
+  
+#site_footer nav li {
+	display: inline-block;
+	}
+	
+#site_footer nav li a {
+	display: block;
+	padding: 0 12px;
+	color: {{ theme.text_color }};
+	}
+	
+#site_footer nav li a:hover {
+	color: {{ theme.text_secondary_color }};
+	}	
+  
 #social_links {
-  margin: 15px 0 40px;
-  }
-
+	overflow: hidden;
+	}  
+  
+#social_links li {
+	display: inline-block;
+	}  
+	
 #social_links li a {
-  color: {{ theme.link_color }};
-  }
-
+	display: block;
+	padding: 0 12px;
+	color: {{ theme.text_secondary_color }};
+	}
+	
 #social_links li a:hover {
-  color: darken({{ theme.link_color }}, 15%) !important;
-  }
+	color: {{ theme.text_color }};
+	}		
+  
+#website_link {
+	position: absolute;
+	right: 20px;
+	z-index: 9999;
+	display: none;
+	opacity: .5;
+	}
 
 /* Big Cartel Badge
 ------------------------------------------------------------*/
 
 #badge {
   width: 100%;
-  margin: 20px 0 20px;  
+  margin: 35px 0 10px;  
   }
 
 #badge a {

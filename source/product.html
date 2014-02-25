@@ -83,13 +83,13 @@
 	    <li class="social_facebook">
 	      <h3>Like it</h3>
 	      <div class="social_action">
-	        <iframe src="//www.facebook.com/plugins/like.php?href={{ page.full_url }}&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50%; height:20px;" allowTransparency="true"></iframe>
+	      	<div class="fb-share-button" data-href="{{ product.url }}" data-type="button_count"></div>
 	      </div>
 	    </li>
 	    <li class="social_tweet">
 	      <h3>Tweet it</h3>
 	      <div class="social_action">
-	        <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ page.full_url }}" data-text="Check out {{ product.name }} from {{ store.name }}!" {% if theme.twitter_username != blank %}data-via="{{ theme.twitter_username | replace: "@", "" }}{% endif %}">Tweet</a>
+	        <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ page.full_url }}" data-text="Check out {{ product.name }} from {{ store.name }}!" {% if theme.twitter_link != blank %}data-via="{{ theme.twitter_link | replace: "http//twitter.com/", "" }}{% endif %}">Tweet</a>
 	        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 	      </div>
 	    </li>

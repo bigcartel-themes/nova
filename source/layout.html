@@ -12,6 +12,12 @@
   <meta name="description" content="{{ page.meta_description }}" />
   <meta name="keywords" content="{{ page.meta_keywords }}" />
 
+  <meta property="og:title" content="{{ product.name | escape }}">
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="{{ page.full_url }}">
+  <meta property="og:image" content="{{ product.image.url }}">
+  <meta property="og:site_name" content="{{ store.name | escape }}">
+
   <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
   <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
 
@@ -43,6 +49,16 @@
   {{ head_content }}
 </head>
 <body id="{% if page.permalink == 'products' %}products_page{% else %}{{ page.permalink }}{% endif %}" class="{{ page.category }} {% if page.full_url contains '/category/' %}multi_col{% endif %}">
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>	
+	
   <header id="site_header">
     <div id="branding">
       <h1><a href="/" title="Home">{{ store.name }}</a></h1>
@@ -103,22 +119,28 @@
     {% endif %}     
   </div> 
   <footer id="site_footer">
-    <ul id="footer_nav">{% if store.website != blank %}<li id="website_link"><a href="{{ store.website }}" id="website">{{ store.website | replace: "http://", "" }}</a></li>{% endif %}<li><a href="/" title="Home">Home</a></li><li><a href="/products" title="Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li></ul> 
-	  {% if theme.twitter_link != blank or theme.facebook_link != blank or theme.tumblr_link != blank %}
-    <span class="keyline"></span>
-	  <ul id="social_links">
-	    {% if theme.twitter_link != blank %}
-	      <li><a href="{{ theme.twitter_link }}" title="Follow us on Twitter">Twitter</a></li>
-	    {% endif %}
-	    {% if theme.facebook_link != blank %}
-	      <li><a href="{{ theme.facebook_link }}" title="Friend us on Facebook">Facebook</a></li>
-	    {% endif %}
-	    {% if theme.tumblr_link != blank %}
-	      <li><a href="{{ theme.tumblr_link }}" title="Follow us on Tumblr">Tumblr</a></li>
-	    {% endif %}		    
-	  </ul>
-	  {% endif %}			  
-		<div id="badge">{{ bigcartel_credit }}</div>      
+  	<div class="canvas">
+  		<nav>
+	    	<ul><li><a href="/products" title="Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li></ul> 
+  		</nav>
+		  {% if theme.twitter_link != blank or theme.facebook_link != blank or theme.tumblr_link != blank or store.website != blank%}
+		  <ul id="social_links">
+		  	{% if store.website != blank %}
+		  		<li><a href="{{ store.website }}" id="website">{{ store.website | replace: "http://", "" | replace: "www.", "" }}</a></li>
+		  	{% endif %}
+		    {% if theme.twitter_link != blank %}
+		      <li><a href="{{ theme.twitter_link }}" title="Follow us on Twitter">Twitter</a></li>
+		    {% endif %}
+		    {% if theme.facebook_link != blank %}
+		      <li><a href="{{ theme.facebook_link }}" title="Friend us on Facebook">Facebook</a></li>
+		    {% endif %}
+		    {% if theme.tumblr_link != blank %}
+		      <li><a href="{{ theme.tumblr_link }}" title="Follow us on Tumblr">Tumblr</a></li>
+		    {% endif %}		    
+		  </ul>
+		  {% endif %}			  
+			<div id="badge">{{ bigcartel_credit }}</div>     
+  	</div>
   </footer>   
 </body>
 </html>

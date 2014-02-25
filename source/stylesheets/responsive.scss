@@ -209,11 +209,18 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 	  }
 	
 	#site_footer {
+		opacity: 1;
 		width: 100% !important;
 		position: relative;	
 		padding-top: 20px;
 		margin-top: 70px;
 		background: {{ theme.background_secondary_color }};
+		}
+		
+	#site_footer .canvas {
+		width: 100%;
+		max-width: 100%;
+		min-width: 100%;
 		}
 		
 	#contact #site_footer,	
@@ -227,7 +234,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 		margin-top: 0;
 		}
 	
-	#footer_nav,
+	#site_footer nav ,
 	#social_links {
 		padding: 0 20px;
 		clear: both;
@@ -237,13 +244,13 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 		border-top: 1px solid {{ theme.border_color }};
 		}	
 	
-	#footer_nav li,
+	#site_footer nav li,
 	#social_links li {
 	  display: block;
 	  width: 100%;
 	  }      
 	
-	#footer_nav li a,
+	#site_footer nav li a,
 	#social_links li a {
 		color: {{ theme.text_color }};
 		display: block;
@@ -251,7 +258,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 	  border-bottom: 1px solid {{ theme.border_color }};  		
 		} 
 		
-	#site_footer li#website_link {		
+	#site_footer nav li#website_link {		
 		position: relative;
 		left: 0;
 		bottom: 0;	
@@ -260,15 +267,15 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 	  color: {{ theme.text_secondary_color }} !important;
 	  }
 		  
-	#footer_nav li:last-child a {
+	#site_footer nav li:last-child a {
 		border-bottom: 0;
 		}  
 	  	
-	#footer_nav li a:hover {
+	#site_footer nav li a:hover {
 		color: {{ theme.text_secondary_color }};
 		}	 
 	  
-	#site_footer .keyline {
+	#site_footer nav .keyline {
 		display: none;
 		}  
 	  
@@ -789,6 +796,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 		}
 	  
 	#checkout-btn {
+		width: 100%;
 	  margin: 0 auto;
 	  }  
 	 

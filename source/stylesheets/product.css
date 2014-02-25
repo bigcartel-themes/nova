@@ -55,7 +55,7 @@ body#product .product_price h3.price:before {
   width: 150px;
   text-align: left;
   text-indent: 10px;
-  background: {{ theme.secondary_background_color }};
+  background: {{ theme.background_secondary_color }};
   border-radius: 4px;
   box-shadow: 0 1px 4px rgba(0,0,0, .3);
   } 
@@ -109,7 +109,7 @@ body#product .product_price h3.price:before {
 	}	
   
 #product #page_body {
-  width: 550px;
+  width: 520px;
   margin: 30px auto 0;
   }
 
@@ -136,7 +136,7 @@ body#product .product_price h3.price:before {
 	}
 
 .product_inventory li h3 {
-	margin: 0 0 3px;
+	margin: 0 0 4px;
 	padding: 0;
 	}
 
@@ -211,9 +211,11 @@ body#product .product_price h3.price:before {
   padding-bottom: 0;
   }
 
-.product_sharing .social_facebook iframe {
+.product_sharing .social_facebook .fb-share-button {
  	width: 100% !important;
-  margin-left: 25% !important;
+ 	position: relative;
+ 	top: -3px;
+  margin-left: 0 !important;
   }
 
 .product_sharing .social_tweet iframe {

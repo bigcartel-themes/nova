@@ -1,6 +1,13 @@
 /* -------------------------------------------------------------- 
   Contact
 -------------------------------------------------------------- */
+#contact #page_body {
+	overflow: hidden;
+  width: 550px;
+  max-width: 550px;
+  min-width: 550px;
+  margin: 0 auto;	
+  }
 
 #contact_form {
 	text-align: center;
@@ -21,7 +28,7 @@
   }
 
 #contact_form li#contact_message label {
-	padding-bottom: 141px;
+/* 	padding-bottom: 141px; */
 	}
 
 #contact_form li input {
@@ -32,11 +39,16 @@
   }
   
 #contact_form li textarea {
+	height: 22px;
   width: 404px;
-  height: 150px;
-  border: none;
   padding: 12px 8px 24px;
+  border: none;  
+	transition: height .2s ease-in;  
   }
+  
+#contact_form li textarea:focus {
+  height: 150px;
+	}
 
 #contact_form button {
   margin: 30px auto;
@@ -59,10 +71,3 @@
   width: 319px;
   margin-left: 0;
   }
-  
-#contact_button {
-/*
-	padding-left: 40px;
-	padding-right: 40px;
-*/
-	}

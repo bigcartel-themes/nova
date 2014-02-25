@@ -5,6 +5,7 @@
 #cart #site_content {
   width: 92%;
   max-width: 710px;
+  margin-bottom: -15%;
   }
   
 #cart_items {
@@ -19,19 +20,19 @@
 #cart_items header h4 {
   float: left;
   margin: 0 0 5px 0;
-  color: {{ theme.border_color }};
+  color: {{ theme.text_secondary_color }};
   }
 
 #cart_items header #item {
-  margin-left: 22.2%;
+  margin-left: 22.4%;
   }
   
 #cart_items header #qty {
-  margin-left: 38.5%;
+  margin-left: 38.6%;
   }  
   
 #cart_items header #price {
-  margin-left: 35px;
+  margin-left: 5.4%;
   }
   
 #cart_items ul {
@@ -41,13 +42,13 @@
     
 #cart_items li {
   overflow: hidden;
-  padding: 10px 0 10px;
+  padding: 10px 0;
   border-bottom: 1px solid {{ theme.border_color }};  
   }     
     
 .item_thumb {
   float: left;
-  width: 75px;
+  width: 10.6%;
   min-height: 55px;
   max-height: 55px;
   margin: 0 0 0 6%;
@@ -85,6 +86,7 @@
   width: 20px;
   text-align: center;
   border-color: transparent;
+  border-radius: 3px;
   }   
   
 #cart_items li:hover input {
@@ -92,7 +94,7 @@
   background: {{ theme.background_secondary_color }};
   }     
   
-#cart_items li:hover input:focus {
+#cart_items li input:focus {
 	background: {{ theme.link_color }};
 	box-shadow: none;
 	color: {{ theme.background_color }};
@@ -100,7 +102,7 @@
   
 .item_price {
   float: left;
-  margin: 19px 0 0 27px;
+  margin: 19px 0 0 3.9%;
   color: {{ theme.text_color }};
   }  
   
@@ -223,30 +225,30 @@ a.remove_item:hover {
   
 #cart_total p {
   float: left;
-  width: 49%;
-  margin: 28px 0 0 6%;
+  width: 40%;
+  margin: 28px 0 0 7.5%;
   font-size: 11px;
   color: {{ theme.text_secondary_color }};
   }  
   
 #cart_total #total {
-  float: left;
-  width: 44%;  
-  margin: 20px 0 0 5px;
+  float: right;
+  width: 40%;  
+  margin: 20px 0 0 10%;
   }  
 
 #cart_total #total h3 {
   float: left;
-  margin: 8px 15px 0;
-  width: 75px;
-  font-size: 11px;  
+  margin: 8px 0 0;
+  width: 27%;
+  font-size: 11px;    
   color: {{ theme.text_secondary_color }};  
-  text-align: right;
+  text-align: center;
   }
   
 #cart_total #total h2 {
   float: left;
-  margin: 0;
+  margin: 0 0 0 2.1%;
   font-size: 22px;
   color: {{ theme.text_color }};
   }  
@@ -257,13 +259,22 @@ a.remove_item:hover {
   }
 
 #checkout-btn {
-  margin: 40px 0 0 63%;
+	width: 198px;
+  margin: 40px 0 0 61%;
   }  
 
 #cart_empty {
-	margin-bottom: -25%;
+	margin-top: 130px;
+	margin-bottom: -30%;
 	}
 	
 #cart_empty a {
-	display: block;
+	font-size: 34px;
+	border-bottom: 2px solid {{ theme.link_color }};
   }
+
+#cart_empty a:hover {
+	border-color: darken({{ theme.link_color }}, 15%);
+}  
+  
+

@@ -61,23 +61,8 @@ var Store = {
 				}	  
 			   
       }, inPreview ? 50 : 0);
-    });		    
-	  
-    // Set up search toggle on click
-    
-    if(options.showSearch) {
-      $('#search a').click(function(event) {
-        event.preventDefault();
-        $('#search input').show().focus();
-        $(this).hide();
-      });
-
-      $('#search input').blur(function(event) {
-        event.preventDefault();
-        $(this).hide();
-        $('#search a').show();
-      });
-    }	  
+    });		        
+    	  
 		
 		if(page == 'home' || 'products' || 'product') {
 	

@@ -49,7 +49,7 @@
     {
       "variable": "link_color",
       "label": "Links",
-      "default": "#007aff"
+      "default": "#17a0cd"
     },    
     {
       "variable": "border_color",
@@ -90,7 +90,7 @@
       "label": "Products per page",
       "type": "select",
       "options": "1..100",
-      "default": 24,
+      "default": 12,
       "description": "The number of products shown at a time on the Products page"
     },
 		{
@@ -133,7 +133,7 @@
       "variable": "facebook_link",
       "label": "Facebook Link",
       "type": "text",
-      "description": "Ex: http://twitter.com/bigcartel"
+      "description": "Ex: http://facebook.com/bigcartel"
     },
     {
       "variable": "tumblr_link",
