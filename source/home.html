@@ -22,99 +22,23 @@
     </section>
     <section class="product_info">
       <section class="product_price">
-        <hgroup>
-          <h2><a href="{{ product.url }}" title="View {{ product.name }}">{{ product.name | truncate: 75 }}</a></h2>
-          {% case product.status %}
-          {% when 'active' %}
-          <h3 class="price">{{ product.default_price | money_with_sign }} {% if product.on_sale %}{% endif %}</h3>
-          {% when 'sold-out' %}
-      	  <h3>Sold out</h3>
-          {% when 'coming-soon' %}
-      	  <h3>Coming soon</h3>
-          {% endcase %}
-        </hgroup>
-      </section>  
-      <section class="product_options">
-        {% if product.description != blank %}<a href="#" class="more_info">Info</a>{% endif %}  
-	      {% if product.on_sale %}<h3 class="on_sale">On sale!</h3>{% endif %}        
-	      <a id="mobile_info" href="{{ product.url }}" title="View {{ product.name | escape }}">Info</a>
-
-        {% case product.status %}
+        <a href="{{ product.url }}" title="View {{ product.name }}">
+	        <h2>{{ product.name | truncate: 75 }}</h2>
+	        {% case product.status %}
 	        {% when 'active' %}
-	        <form method="post" accept-charset="utf8" action="/cart">
-	          {% if product.has_default_option %}
-	            {{ product.option | hidden_option_input }}
-	            <button id="product-addtocart" name="submit" type="submit" class="button">Buy Now</button>          
-	          {% else %}
-	            <div class="option_select">
-			          <span class="options_button button">Buy Now<span class="arrow"></span></span>
-	              <span class="button" id="button_header" style="display:none">Select an Option</span>
-	              <ul class="options_menu">      
-	              {% for option in product.options_in_stock %}
-	                <li id="{{ option.id }}" {% if theme.show_inventory_bars %} style="background: -webkit-gradient(linear, left top, right top, color-stop({{ option.inventory }}%, {{ theme.background_secondary_color }}), color-stop({{ option.inventory }}%, {{ theme.background_color }}), color-stop(0%, {{ theme.background_secondary_color }}));;"{% endif %}>{{ option.name }} {% if option.has_custom_price %}{{ option.price | money_with_sign }}{% endif %}</li>
-	              {% endfor %}
-	              </ul>
-	            </div>
-	          
-	            <input id="option" type="hidden" name="cart[add][id]" />
-	            <input name="_utf8" type="hidden" value="&#x2713;" />        
-	            <button id="product-addtocart" name="submit" type="submit" class="button" style="display:none">Buy Now</button>
-	          {% endif %}
-	        </form>
-        {% endcase %}                
-      </section>
-      <section class="product_overview">
-        {% if product.description != blank %}
-        <div class="product_description">
-        	<h3 class="product_name"><a href="{{ product.url }}" title="View {{ product.name | escape }}">{{ product.name }}</a></h3>
-		      {{ product.description | paragraphs }}
-	        {% if theme.show_inventory_bars %}
-				  <section class="product_inventory">
-				  	<ul>
-				      {% for option in product.options %}
-				  		<li>
-						  	<h3>{% if product.has_default_option %}{{ product.name }}{% else %}{{ option.name }}{% endif %} <span>{{ option.quantity }} in stock</h3>
-							  	<div class="bar">
-						  			<span class="bar fill" style="width:{{ option.inventory }}%;"></span>
-							  	</div>					  		
-				  		</li>
-				  		{% endfor %}
-				  	</ul>
-				  </section>
-				  {% endif %}	          
-				  {% if theme.share_buttons %}
-				  <section class="product_sharing">
-					  <ul>
-					    <li class="social_facebook">
-					      <h3>Like it</h3>
-					      <div class="social_action">
-					        <iframe src="//www.facebook.com/plugins/like.php?href={{ page.full_url }}&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50%; height:20px;" allowTransparency="true"></iframe>
-					      </div>
-					    </li>
-					    <li class="social_tweet">
-					      <h3>Tweet it</h3>
-					      <div class="social_action">
-					        <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ page.full_url }}" data-text="Check out {{ product.name }} from {{ store.name }}!" {% if theme.twitter_username != blank %}data-via="{{ theme.twitter_username | replace: "@", "" }}{% endif %}">Tweet</a>
-					        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-					      </div>
-					    </li>
-					    <li class="social_pinterest">
-					      <h3>Pin it</h3>
-					      <div class="social_action">
-					        <a href="http://pinterest.com/pin/create/button/?url={{ page.full_url }}&media={{ product.image.url }}&description={% if product.description != blank %}{{ product.description | escape | truncate: 490 }}{% endif %}" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It"></a>
-					        <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
-					      </div>
-					    </li>
-					  </ul>
-					</section>
-					{% endif %}
-        </div>
-        {% endif %}
-      </section>      
+					<h3 class="price">{{ product.default_price | money_with_sign }} {% if product.on_sale %}<span class="on_sale">On sale!</span>{% endif %}</h3>
+	        {% when 'sold-out' %}
+	    	  <h3>Sold out</h3>
+	        {% when 'coming-soon' %}
+	    	  <h3>Coming soon</h3>
+	        {% endcase %}
+        </a>
+      </section>        
     </section>
   </article>   
   {% endfor %}      
 </section>
+
 <a href="/products" id="all_products_btn" class="button">All Products</a>
 {% else %}
 	<p class="alert_no_products message">No products found.</p>

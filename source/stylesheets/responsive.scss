@@ -3,15 +3,14 @@
 ============================================================*/
 
 @media screen and (max-width: 900px) {
-	/* Product Grid */
 		  
-	#products.masonry .product {
+  #products_page .canvas.grid #products .product {
 	  width:  31.4%; /* 230px*/
-	  }
+  }
   
-	#products.masonry .product_price {
-		opacity: 1;
-		}  	  
+	#products_page .canvas.grid #products .product .product_price {
+		opacity: 1 !important;
+	}  	  
 }
 
 @media screen and (max-width: 560px),
@@ -20,6 +19,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 	body {
 		border: none;	
 		padding-top: 71px;
+		font-size: 16px !important;
 		}
 	
 	body::before { top: 0; }
@@ -53,7 +53,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 		line-height: 1.4em !important;
 		box-sizing: border-box;
 		color: darken({{ theme.link_color }}, 15%) !important;
-	  border-color: darken({{ theme.link_color }}, 15%); 
+	  border-color: darken({{ theme.link_color }}, 15%) !important; 
 		}
 		
 	ul#error {
@@ -179,15 +179,19 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 		}	
 		
 	#categories a.button,
-	#categories .options_menu {	
+	#categories #options_menu {	
 		width: 100%;
 		box-sizing: border-box;
 		left: 0;
 		margin-left: 0;
 		}	
 		
-	#categories .options_menu {
+	#categories #options_menu {
 		padding-top: 57px;
+		
+		li {
+			padding: 6px 0;
+		}
 	}
 		
 	#categories a.button {
@@ -215,94 +219,99 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 		padding-top: 20px;
 		margin-top: 70px;
 		background: {{ theme.background_secondary_color }};
+				
+		.canvas {
+			width: 100%;
+			max-width: 100%;
+			min-width: 100%;			
 		}
 		
-	#site_footer .canvas {
-		width: 100%;
-		max-width: 100%;
-		min-width: 100%;
+		#contact &, #cart & {
+			margin-top: 50px;
 		}
 		
-	#contact #site_footer,	
-	#cart #site_footer {
-		margin-top: 50px;
-		}	
-	
-	#home #site_footer,
-	#products_page #site_footer,
-	#product #site_footer {
-		margin-top: 0;
+		#home &, #products_page &, #product & {
+			margin-top: 0;
 		}
-	
-	#site_footer nav ,
-	#social_links {
-		padding: 0 20px;
-		clear: both;
-		}	
-		
-	#social_links li:first-child {
-		border-top: 1px solid {{ theme.border_color }};
-		}	
-	
-	#site_footer nav li,
-	#social_links li {
-	  display: block;
-	  width: 100%;
-	  }      
-	
-	#site_footer nav li a,
-	#social_links li a {
-		color: {{ theme.text_color }};
-		display: block;
-		padding: 10px 0;
-	  border-bottom: 1px solid {{ theme.border_color }};  		
-		} 
-		
-	#site_footer nav li#website_link {		
-		position: relative;
-		left: 0;
-		bottom: 0;	
+			
+		#badge {
+			margin: 20px auto;
 		}
-	#social_links li a {	  
-	  color: {{ theme.text_secondary_color }} !important;
-	  }
-		  
-	#site_footer nav li:last-child a {
-		border-bottom: 0;
-		}  
-	  	
-	#site_footer nav li a:hover {
-		color: {{ theme.text_secondary_color }};
-		}	 
-	  
-	#site_footer nav .keyline {
-		display: none;
-		}  
+		
+		nav,
+		#social_links {
+			clear: both;
+			padding: 0 20px;
+			
+			ul {			
+				li {
+					display: block;
+					width: 100%;
+					
+					a {
+						display: block;
+						padding: 10px 0;
+						border-bottom: 1px solid {{ theme.border_color }};
+						color: {{ theme.text_color }};
+					}
+				}
+			}
+		}
+		
+		nav {
+			ul {
+				li {
+					a {
+						color: {{ theme.text_secondary_color }};
+					}
+					
+					&:last-child a {
+						border-bottom: none;
+					}
+				}
+			}
+		}
+		
+		#social_links {
+			li {
+				a {
+					color: {{ theme.text_secondary_color }};
+				}
+			}
+		
+			& + #credit {
+				position: relative;
+				top: 0;
+				right: 0;			
+			}
+		}
+	}	 
 	  
 	#pagination {
 		width: 100% !important;
 	  margin: 100px auto 0;
+	  
+	  ul {
+			margin-bottom: 0;
+		  border-top: 1px solid	{{ theme.border_color }};
+		  border-bottom: 1px solid	{{ theme.border_color }};	  
+	  
+			li {
+				width: 50%;
+			
+				a {
+					&.button {
+						width: 100%;
+						border: 0;
+					}
+				}
+			}
+			
+			li + li a {
+				border-left: 1px solid {{ theme.border_color }} !important;
+			}
 	  }  
-	
-	#pagination ul {
-		margin-bottom: 0;
-	  border-top: 1px solid	{{ theme.border_color }};
-	  border-bottom: 1px solid	{{ theme.border_color }};
-		}
-	  
-	#pagination li {
-		width: 50%;
-	  } 
-	  
-	#pagination a.button {
-	  width: 100%;
-	  border: 0; 
-	  }
-	  
-	#pagination li + li a {
-		border-left: 1px solid {{ theme.border_color }} !important;
-		}  
-	
+	}  
 	
 	/* -------------------------------------------------------------- 
 	  Home
@@ -313,7 +322,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 		font-size: 24px;
 		}  
 		
-	#home #intro p{
+	#home #intro p {
 		line-height: 1.3em;	
 		}	
 	  
@@ -340,7 +349,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 	
 	.flex-viewport {
 	  height: 100%;
-	  min-height: 0;
+	  min-height: intrinsic !important;
 	  }
 	
 	.product_images {
@@ -348,159 +357,29 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 	  margin: 0 auto 14px;
 	  }
 	
-	.product_overview {
-	  display: block;  
-	  position: relative;
-	  top: 0;
-	  left: 0;
-	  z-index: 10;  
-	  overflow: scroll;  
-	  width: 100%;
-	  height: 100%;
-	  color: {{ theme.text_color }};
-	  background: transparent;  
-	  -webkit-box-orient: horizontal;
-	  -webkit-box-pack: center;
-	  -webkit-box-align: center;
-	  }
-	  
-	.product_overview {
-		display: none;
-	  }
-	  
-	.product .product_info {
-	  border-bottom: 1px solid {{ theme.border_color }};
-	  } 
-	  
-	#product .product_info.active {
-	  border-bottom: 1px solid {{ theme.border_color }};
-	  }     
-	  
-	#product .product_info.sold-out h3,
-	#product .product_info.coming-soon h3 {
-		padding-bottom: 11px;
-	  border-bottom: 1px solid {{ theme.border_color }};
+	#product_options {
+	
+		#option_select {
+			width: 100%;
 		}
 	
-	.product_price {
-	  margin-top: 5px;  
-	  text-align: center;
-	  }    
-	  
-	.product_price h2,
-	.product_price h3 {
-	  display: inline-block;  
-	  margin-bottom: 11px;
-	  }
-	
-	.product_price h3.price:before {
-	  content: "/";
-	  padding-right: 7px;
-	  } 
-	
-	.coming-soon .product_price h3,
-	.sold-out .product_price h3 {
-	  display: block;
-	  margin: 0 auto;
-	  padding: 19px 0px 20px;
-	  line-height: 1.4em;
-	  width: 100%;
-	  color: {{ theme.text_secondary_color }};
-	  border-color: transparent;
-	  border-top: 1px solid {{ theme.border_color }};  
-	  text-transform: Capitalize;
-	  }
-	
-	.sold-out .product_price h3 {
-	  color: {{ theme.error_color }};
-	  }
-	
-	.product_options {
-	  text-align: center;
-	  }
-	  
-	.product_options .option_select {
-	  width: 100%;
-	  }  
-	  
-	.product_options .button {
-	  width: 100%;
-	  border-color: transparent;
-	  border-top: 1px solid {{ theme.border_color }};
-	  }
-	  
-	.product_options .button#button_header {
-	  z-index: 9999;
-	  padding: 19px 0;
-		position: relative;	
-		background: {{ theme.background_color }};
-		}
-	
-	.product #product-addtocart,
-	#product #product-addtocart {
-		color: darken({{ theme.link_color }}, 15%) !important; 
+		.button {
+			width: 100%;
+			border: 1px solid {{ theme.border_color }};
 		}
 		
-	.product_options .button.options_button {
-		color: darken({{ theme.link_color }}, 15%) !important; 
+		#options_menu {
+			box-sizing: border-box;
+			width: 100%;
+			padding-top: 57px;
+			
+			li {
+				padding: 12px 0;
+			}
 		}
-		
-	.product_options .button.options_button .arrow {
-		border-color: darken({{ theme.link_color }}, 15%) transparent transparent transparent !important; 
-		}		
-	
-	.product_options .button:hover {
-	  border-color: transparent;
-	  border-top: 1px solid {{ theme.border_color }};
-	  }
-	
-	.product_options .option_select .options_menu {
-	  z-index: 9999;
-		padding-top: 58px;
-	  width: 100%;
-	  text-align: center;
-	  }
-	
-	#products .product a.more_info,
-	#home .product a.more_info {
-	  display: none;
-	  } 
-	  
-	#products .product a#mobile_info,
-	#home .product a#mobile_info { 
-		display: block;
-		}	     
-	  
-	#products .product .flex-control-nav,  
-	#home .product .flex-control-nav {
-	  visibility: visible;
-	  z-index: -1;
-	  } 
-	  
-	#products .flex-control-nav,
-	#home .flex-control-nav { 
-		visibility: hidden; 
-		width: 100%; 
-		position: absolute; 
-		bottom: 23px; 
-		left: -2px 
-		}
-	
-	a#mobile_info,	
-	a.more_info {
-	  position: absolute;
-	  z-index: 100;
-	  bottom: 4px;
-	  right: -18px;
-	  padding: 20px;
-	  color: {{ theme.text_secondary_color }}; 
-	  }	
-	  
-	a.more_info.selected {
-		color: {{ theme.text_color }};	
-		}   
-		
-	
+	}
+
+
 	/* -------------------------------------------------------------- 
 	  Contact
 	-------------------------------------------------------------- */
@@ -821,12 +700,12 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 		margin-bottom: 0;
 		}	
 		
-	#products.masonry .product {
+	#products_page .canvas.grid #products .product { 
 		margin-bottom: 10px;
-	  width:  48.1%; /* 230px*/
-	  }	
+	  width:  48.1%; /* 230px*/	
+	}
 	  
-	#products.masonry .product_price {
-		opacity: 1;
+	#products_page .canvas.grid #products .product .product_price {
+		opacity: 1 !important;
 		}  	 	
 }

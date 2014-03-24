@@ -6,11 +6,6 @@
 <form id="cart-form" {% unless cart.shipping.enabled or cart.discount.enabled %}class="no_options"{% endunless %} method="post" accept-charset="utf8" action="/cart">
 
   <section id="cart_items">
-    <header>
-      <h4 id="item">Item</h4>
-      <h4 id="qty"><abbr title="Quantity">Qty</abbr></h4>
-      <h4 id="price">Price</h4>
-    </header>
     <ul>
       {% for item in cart.items %}
       <li id="item-{{ item.id }}" {% unless item.product.has_default_option %}class="with_option"{% endunless %}>

@@ -2,7 +2,7 @@
   Cart
 -------------------------------------------------------------- */
 
-#cart #site_content {
+#cart #site_content { 
   width: 92%;
   max-width: 710px;
   margin-bottom: -15%;
@@ -12,39 +12,22 @@
   margin-top: -15px;
   }  
 
-#cart_items header {
-  overflow: hidden;
-  font-size: 11px;
-  }
-
-#cart_items header h4 {
-  float: left;
-  margin: 0 0 5px 0;
-  color: {{ theme.text_secondary_color }};
-  }
-
-#cart_items header #item {
-  margin-left: 22.4%;
-  }
-  
-#cart_items header #qty {
-  margin-left: 38.6%;
-  }  
-  
-#cart_items header #price {
-  margin-left: 5.4%;
-  }
-  
 #cart_items ul {
 	margin-bottom: 0;
-  border-top: 1px solid {{ theme.border_color }};
   }    
     
 #cart_items li {
   overflow: hidden;
   padding: 10px 0;
-  border-bottom: 1px solid {{ theme.border_color }};  
-  }     
+  transition: all .5s ease-in;  
+  
+  &:hover {
+	  background: lighten({{ theme.background_secondary_color }}, 5%);
+		transition: all 0 ease-in;  
+  }
+}   
+  
+    
     
 .item_thumb {
   float: left;
@@ -220,6 +203,7 @@ a.remove_item:hover {
 #cart_total {
   overflow: hidden;
   min-height: 70px;
+  margin-top: 10px;
   background: {{ theme.background_secondary_color }};
   }  
   

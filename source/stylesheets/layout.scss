@@ -201,7 +201,19 @@ ul#error li {
 
 #nav_primary #search {
 	display: none;
-	}	
+	}
+
+span.arrow {
+	display: inline-block;
+	position: relative;
+	top: -2px;
+	margin-left: 10px;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 5px 5px 0 5px;
+	border-color: {{ theme.text_secondary_color }} transparent transparent transparent;	
+	}		
 	
 
 /* -------------------------------------------------------------- 
@@ -220,7 +232,7 @@ ul#error li {
   min-width: 550px;    
   min-height: 90%;
   padding: 0;	   
-  margin-top: 80px;
+  margin-top: 110px;
   }
 
 
@@ -309,10 +321,6 @@ ul#error li {
   width: 200px;
   background: {{ theme.border_color }};
   }
-
-#nav_primary li#website {
-	display: none;
-	}
 	
 
 /* -------------------------------------------------------------- 
@@ -320,91 +328,78 @@ ul#error li {
 -------------------------------------------------------------- */  
   
 #site_footer {
+  position: relative;
+  overflow: hidden;
 	opacity: .4;
   width: 100%;
 	clear: both;
-  overflow: hidden;
-  position: absolute;
-  width: 100%;
-  margin: 110px auto 0;
-  padding-top: 20px;
-  padding-bottom: 15px;
+  margin: 130px auto 0;
+  padding: 0 0 15px;
   text-align: center;
-  //border-top: 1px solid {{ theme.border_color }};
   transition: all .2s ease-in;
-  }
-  
-#site_footer:hover {
-	opacity: 1;
-}  
-    
-#site_footer nav {
-	overflow: hidden;
+
+	&:hover {
+		opacity: 1;
 	}
 
-#site_footer nav ul {
-	margin-bottom: 1em;
-	}
-  
-#site_footer nav li {
-	display: inline-block;
-	}
-	
-#site_footer nav li a {
-	display: block;
-	padding: 0 12px;
-	color: {{ theme.text_color }};
-	}
-	
-#site_footer nav li a:hover {
-	color: {{ theme.text_secondary_color }};
-	}	
-  
-#social_links {
-	overflow: hidden;
-	}  
-  
-#social_links li {
-	display: inline-block;
-	}  
-	
-#social_links li a {
-	display: block;
-	padding: 0 12px;
-	color: {{ theme.text_secondary_color }};
+	nav {
+		overflow: hidden;
+		
+		ul {
+			margin-bottom: 1em;
+		
+			li {
+				display: inline-block;
+				
+				a {
+					display: block;
+					padding: 0 12px;
+					color: {{ theme.text_color }};
+					
+					&:hover {
+						color: {{ theme.text_secondary_color }};
+					}
+				}
+			}
+		}
 	}
 	
-#social_links li a:hover {
-	color: {{ theme.text_color }};
-	}		
-  
-#website_link {
-	position: absolute;
-	right: 20px;
-	z-index: 9999;
-	display: none;
-	opacity: .5;
+	#social_links {
+		overflow: hidden;
+		
+		li {
+			display: inline-block;
+		
+			a {
+				display: block;
+				padding: 0 12px;
+			}
+		}
+	}
+	
+	nav + #social_links {
+		margin-bottom: 12px;
 	}
 
-/* Big Cartel Badge
-------------------------------------------------------------*/
-
-#badge {
-  width: 100%;
-  margin: 35px 0 10px;  
-  }
-
-#badge a {
-  display: block;
-  margin: 0 auto;
-  width: 79px;
-  height: 23px;
-  border: none;
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  background: url({{ 'bc_badge.png' | theme_image_url }}) no-repeat;
-  }  
+	#credit { 
+		margin-bottom: 15px;
+		
+		a {
+			color: {{ theme.text_secondary_color }}	;
+			
+			&:hover {
+				color: {{ theme.text_color }};
+			}
+		}
+	}
+	
+	#social_links + #credit {
+		position: absolute;
+		right: 30px;
+		bottom: 30px;		
+		margin-bottom: 0;
+	}
+}
   
   
 /* -------------------------------------------------------------- 
@@ -439,6 +434,15 @@ ul#error li {
 #home #intro .keyline {
 	margin-bottom: 70px;
 	} 
+	
+#home	#all_products_btn { 
+	margin: 100px auto 0;
+	display: block;
+	width: 198px;
+	padding-left: 0;
+	padding-right: 0;
+	display: block;
+}	
 	 
   
 /*============================================================
