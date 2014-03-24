@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------- 
   Home/Products
 -------------------------------------------------------------- */
-  
+
 .product {
   position: relative;
   margin: 0 0 58px;
@@ -131,7 +131,11 @@
   clear: both;
   margin: 100px 0 0 0;
   text-align: center;
-		
+	
+	#products_page & {
+		margin-top: 120px;
+	}
+	
 	li {
 		display: inline-block;
 		
