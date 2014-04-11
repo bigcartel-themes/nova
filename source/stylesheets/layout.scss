@@ -2,13 +2,9 @@
   Base styles
 -------------------------------------------------------------- */
 
-html, body {
-  height: 100%;	
-  }
-
 body {
   font-family: {{ theme.text_font }}, "Andale Mono", AndaleMono, "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-  font-size: 14px;
+  font-size: 15px;
   color: {{ theme.text_color }};
   text-rendering: optimizeLegibility;	
   -webkit-font-smoothing: antialiased;
@@ -87,7 +83,7 @@ button {
   background: transparent;
   cursor: pointer;
   font-family: {{ theme.text_font }};  
-  font-size: 14px;
+  font-size: 15px;
   text-align: center; 	
   -webkit-font-smoothing: antialiased;  
   }
@@ -154,7 +150,7 @@ ul#error li {
   }  
   
 .message p {
-	font-size: 14px;
+	font-size: 15px;
 	margin-bottom: 0;	
 	}	
 	
@@ -215,6 +211,26 @@ span.arrow {
 	border-color: {{ theme.text_secondary_color }} transparent transparent transparent;	
 	}		
 	
+/* Big Cartel Badge
+------------------------------------------------------------*/
+
+#badge {
+  width: 100%;
+  margin-top: 25px;
+  }
+
+#badge a {
+  display: block;
+  margin: 0 auto;
+  width: 79px;
+  height: 23px;
+  border: none;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  background: url("{{ 'bc_badge.png' | theme_image_url }}") no-repeat;
+  }	
+	
 
 /* -------------------------------------------------------------- 
   Structure
@@ -230,9 +246,9 @@ span.arrow {
 #site_content {
   position:relative;
   min-width: 550px;    
-  min-height: 90%;
+  min-height: 60vh;
+  margin: 110px auto 130px;
   padding: 0;	   
-  margin-top: 110px;
   }
 
 
@@ -333,10 +349,13 @@ span.arrow {
 	opacity: .4;
   width: 100%;
 	clear: both;
-  margin: 130px auto 0;
+  //margin: 130px auto 0;
+  
   padding: 0 0 15px;
   text-align: center;
   transition: all .2s ease-in;
+
+	
 
 	&:hover {
 		opacity: 1;

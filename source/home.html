@@ -12,6 +12,7 @@
   {% for product in products %}
   <article id="product_{{ product.id }}" class="product {{ product.status }} no_buy">
     <section class="product_images galy">
+	    	<div class="spinner"></div>    
         <ul class="slides">
         {% for image in product.images %}
           <li id="image_{{ forloop.index }}">

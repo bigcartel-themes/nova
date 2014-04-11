@@ -11,56 +11,56 @@ var Store = {
     
     options = $.extend(this.defaults, options);
 	  
+	  // Mobile menu
+	  
 	  $('#menu a').click(function() { 
 		  $('#nav_primary').slideToggle('slow');
-		  $('#menu').toggleClass('selected');
-	  }); 
-  
-    $('#site_content').imagesLoaded(function() {
-      setTimeout(function() {
-      	
-      	// Set up masonry grid
-      	
-      	var $productGrid = $('.canvas.grid #products');
-      	
-      	$productGrid.isotope({
-		  		itemSelector : '.product',
-		  		layoutMode : 'fitRows',
-		  		resizable: true, 
-				});
-      	
-      	$('.slides').show();
-      	
-			  // Initialize galleries for product images
-    
-			  $('.product_images.galy').flexslider({
-			    animation: 'slide',
-			    easing: 'swing',
-			    animationSpeed: 500,
-			    directionNav: false,
-			    slideshow: false,
-			    smoothHeight: true,
-			    useCSS: false //temp css transition fix
-			  });
-			  
-			  // Display certain elements on touch devices
-			  
-				if ('ontouchstart' in document.documentElement) {
-					//
-				} else {
-					$('.product_images.galy').click(function(event) {
-				  	event.preventDefault();
-				    $(this).flexslider('next'); //Go to next slide
-				  }); 
-				}	  
-			   
-      }, inPreview ? 50 : 0);
-    });		        
-    	  
+	  });  
+		
 		
 		if(page == 'home' || 'products' || 'product') {
 		  
-		  // Add to Cart button
+			$('.product').each(function() {
+				$(this).imagesLoaded(function() {
+
+					$(this).find('.spinner').hide();					
+					$(this).find('.slides').show();
+	  			  
+				  // Initialize galleries for product images
+			
+				  $(this).find('.product_images.galy').flexslider({
+				    animation: 'slide',
+				    easing: 'swing',
+				    animationSpeed: 500,
+				    directionNav: false,
+				    slideshow: false,
+				    smoothHeight: true
+				    // useCSS: false //temp css transition fix
+				  }); 
+				});
+	    });		  
+		  
+		  // Setup click to advance slideshow (not on mobile)
+		  
+  		if ('ontouchstart' in document.documentElement) {
+				//
+			} else {
+				$('.product_images.galy').click(function(event) {
+			  	event.preventDefault();
+			    $(this).flexslider('next'); //Go to next slide
+			  }); 
+			}	
+
+		  // Setup masonry grid
+		  
+		  var $productGrid = $('.canvas.grid #products');
+			$productGrid.isotope({
+	  		itemSelector : '.product',
+	  		layoutMode : 'fitRows',
+	  		resizable: true, 
+			});
+		  
+		  // Dropdowns 
 		  
 		  $('#options_button, #cat_button').on('click', function(event){
 		  	event.preventDefault();

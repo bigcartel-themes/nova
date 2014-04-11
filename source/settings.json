@@ -90,7 +90,7 @@
       "label": "Products per page",
       "type": "select",
       "options": "1..100",
-      "default": 12,
+      "default": 8,
       "description": "The number of products shown at a time on the Products page"
     },
 		{

@@ -71,3 +71,7 @@
   width: 319px;
   margin-left: 0;
   }
+
+#contact_button {
+	min-width: 198px;
+}

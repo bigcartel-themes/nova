@@ -3,7 +3,7 @@
 </header>
 
 <section class="product_images galy">
-  <div>
+    <div class="spinner"></div>  
     <ul class="slides">
       {% for image in product.images %}
       <li id="image_{{ forloop.index }}">
@@ -11,7 +11,6 @@
       </li>
       {% endfor %}
     </ul>
-  </div>
 </section>
 
 <section class="product_info {{ product.status }}">
@@ -76,8 +75,8 @@
 
 	{% if theme.share_buttons %}
   <section class="product_sharing">
-	  <ul>
-			<li><a target="_blank" href="http://twitter.com/home?status={{product.name}}%20-%20{{store.name}}%20{{store.url}}{{product.url}}">Tweet</a></li>
+	  <ul>	
+			<li><a target="_blank" href="http://twitter.com/share?url={{ store.url }}{{ product.url }}&text=Check out {{store.name}}'s">Tweet</a></li>
 			<li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{store.url}}{{product.url}}">Share</a></li>
 			<li><a target="_blank" href="http://pinterest.com/pin/create/button/?url={{store.url}}{{product.url}}&media={{ product.images.first.url }}">Pin It</a></li>
 	  </ul>

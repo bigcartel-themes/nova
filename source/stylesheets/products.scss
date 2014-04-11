@@ -2,6 +2,44 @@
   Home/Products
 -------------------------------------------------------------- */
 
+.spinner {
+	opacity: .5;
+	height:40px;
+	width:40px;
+	position:relative;
+	top: 110px;
+	margin: 0 auto;
+	-webkit-animation: rotation 1s infinite linear;
+	-moz-animation: rotation 1s infinite linear;
+	-o-animation: rotation 1s infinite linear;
+	animation: rotation 1s infinite linear;
+	border-left:2px solid {{ theme.border_color }};
+	border-right:2px solid {{ theme.border_color }};
+	border-bottom:2px solid {{ theme.border_color }};
+	border-top:2px solid {{ theme.text_secondary_color }};
+	border-radius:100%;
+}
+
+@-webkit-keyframes rotation {
+	from {-webkit-transform: rotate(0deg);}
+	to {-webkit-transform: rotate(359deg);}
+}
+
+@-moz-keyframes rotation {
+	from {-moz-transform: rotate(0deg);}
+	to {-moz-transform: rotate(359deg);}
+}
+
+@-o-keyframes rotation {
+	from {-o-transform: rotate(0deg);}
+	to {-o-transform: rotate(359deg);}
+}
+
+@keyframes rotation {
+	from {transform: rotate(0deg);}
+	to {transform: rotate(359deg);}
+}
+
 .product {
   position: relative;
   margin: 0 0 58px;
@@ -19,6 +57,10 @@
   margin: 0 0 22px 0;
   text-align: center;
   background: transparent; 
+
+	&.loading {
+		background: red;
+	}
 
 	img {
   	max-width: 100%;
@@ -41,7 +83,7 @@
 	.flex-control-nav { 
 		width: 100%; 
 		position: absolute; 
-		bottom: 15px;	
+		bottom: 18px;	
 		left: -4px;
 
 		.product:hover & {
@@ -89,6 +131,7 @@
   position: relative;
   margin-top: 5px;  
   text-align: center;
+  line-height: 0;
   
   a {
 		color: {{ theme.text_color }};
