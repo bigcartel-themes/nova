@@ -6,9 +6,10 @@
 	opacity: .5;
 	height:40px;
 	width:40px;
-	position:relative;
+	position:absolute;
 	top: 110px;
-	margin: 0 auto;
+	left: 50%;
+	margin: 0 auto 0 -20px;
 	-webkit-animation: rotation 1s infinite linear;
 	-moz-animation: rotation 1s infinite linear;
 	-o-animation: rotation 1s infinite linear;
