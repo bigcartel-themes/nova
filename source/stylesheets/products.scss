@@ -58,10 +58,6 @@
   text-align: center;
   background: transparent; 
 
-	&.loading {
-		background: red;
-	}
-
 	img {
   	max-width: 100%;
   }    
@@ -295,10 +291,14 @@
 				  transition: all 0.5s ease;  		
 	  		
 					h2 {
+						width: 100%;
 						margin-bottom: 0;
 					}
 					
 					h3 {
+						position: relative;
+						right: 0;
+						top: 0;
 						float: none;
 						display: block;
 						color: {{ theme.text_secondary_color }};

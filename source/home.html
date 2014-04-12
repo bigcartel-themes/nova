@@ -10,7 +10,7 @@
 {% if products != blank %}
 <section id="products">
   {% for product in products %}
-  <article id="product_{{ product.id }}" class="product {{ product.status }} no_buy">
+  <article id="product_{{ product.id }}" class="product {{ product.status }}">
     <section class="product_images galy">
 	    	<div class="spinner"></div>    
         <ul class="slides">

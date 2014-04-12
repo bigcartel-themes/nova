@@ -381,6 +381,8 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 	#product {
 		
 		.product_images {
+			min-height: 300px;
+			
 			.flex-control-nav {
 				bottom: -32px;
 				left: -4px;

@@ -102,7 +102,7 @@ textarea {
   padding: 10px 8px;
   width: auto;
   font-family: {{ theme.text_font }};
-  background: transparent;
+  background: {{ theme.background_color }};
   outline: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;  
@@ -216,7 +216,7 @@ span.arrow {
 
 #badge {
   width: 100%;
-  margin-top: 25px;
+  margin-top: 20px;
   }
 
 #badge a {
@@ -346,16 +346,12 @@ span.arrow {
 #site_footer {
   position: relative;
   overflow: hidden;
-	opacity: .4;
+	opacity: 1;
   width: 100%;
-	clear: both;
-  //margin: 130px auto 0;
-  
+	clear: both;  
   padding: 0 0 15px;
   text-align: center;
   transition: all .2s ease-in;
-
-	
 
 	&:hover {
 		opacity: 1;
@@ -365,7 +361,7 @@ span.arrow {
 		overflow: hidden;
 		
 		ul {
-			margin-bottom: 1em;
+			margin-bottom: .5em;
 		
 			li {
 				display: inline-block;
@@ -398,25 +394,6 @@ span.arrow {
 	
 	nav + #social_links {
 		margin-bottom: 12px;
-	}
-
-	#credit { 
-		margin-bottom: 15px;
-		
-		a {
-			color: {{ theme.text_secondary_color }}	;
-			
-			&:hover {
-				color: {{ theme.text_color }};
-			}
-		}
-	}
-	
-	#social_links + #credit {
-		position: absolute;
-		right: 30px;
-		bottom: 30px;		
-		margin-bottom: 0;
 	}
 }
   

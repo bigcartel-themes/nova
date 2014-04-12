@@ -17,13 +17,25 @@
   <section class="product_price">
 	  {% case product.status %}
 	  {% when 'active' %}
-	  <h3 class="price">{{ product.default_price | money_with_sign }} {% if product.on_sale %}<span class="on_sale">On sale!</span>{% endif %}</h3>
+	  <h3 class="price">{% if product.on_sale %}<span class="on_sale">On sale!</span>{% endif %} {{ product.default_price | money_with_sign }}</h3>
 	  {% when 'sold-out' %}
 	  <h3>Sold out</h3>
 	  {% when 'coming-soon' %}
 	  <h3>Coming soon</h3>
 	  {% endcase %}
   </section>  
+
+	{% if theme.share_buttons %}
+  <section id="product_sharing">
+		<a href="">Share</a>
+	  <ul>	
+			<li><a href="#" id="close_sharing">Close</a></li>	  
+			<li><a target="_blank" href="http://twitter.com/share?url={{ store.url }}{{ product.url }}&text=Check out {{store.name}}'s">Twitter</a></li>
+			<li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{store.url}}{{product.url}}">Facebook</a></li>
+			<li><a target="_blank" href="http://pinterest.com/pin/create/button/?url={{store.url}}{{product.url}}&media={{ product.images.first.url }}">Pinterest</a></li>
+	  </ul>		
+  </section>
+	{% endif %}  
   
   <section id="product_options">    
     {% case product.status %}
@@ -72,16 +84,6 @@
   	</ul>
   </section>
   {% endif %}  
-
-	{% if theme.share_buttons %}
-  <section class="product_sharing">
-	  <ul>	
-			<li><a target="_blank" href="http://twitter.com/share?url={{ store.url }}{{ product.url }}&text=Check out {{store.name}}'s">Tweet</a></li>
-			<li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{store.url}}{{product.url}}">Share</a></li>
-			<li><a target="_blank" href="http://pinterest.com/pin/create/button/?url={{store.url}}{{product.url}}&media={{ product.images.first.url }}">Pin It</a></li>
-	  </ul>
-	</section>
-	{% endif %}
 </section>
 
 <nav id="pagination">

@@ -20,10 +20,10 @@ var Store = {
 		
 		if(page == 'home' || 'products' || 'product') {
 		  
-			$('.product').each(function() {
+			$('.product, #product').each(function() {
 				$(this).imagesLoaded(function() {
 
-					$(this).find('.spinner').hide();					
+					$(this).find('.spinner').fadeOut();					
 					$(this).find('.slides').show();
 	  			  
 				  // Initialize galleries for product images
@@ -52,13 +52,15 @@ var Store = {
 			}	
 
 		  // Setup masonry grid
-		  
-		  var $productGrid = $('.canvas.grid #products');
-			$productGrid.isotope({
-	  		itemSelector : '.product',
-	  		layoutMode : 'fitRows',
-	  		resizable: true, 
-			});
+		  var $productGrid = $('#products_page .canvas.grid #products');
+		  $($productGrid).imagesLoaded(function() {
+
+				$productGrid.isotope({
+		  		itemSelector : '.product',
+		  		layoutMode : 'fitRows',
+		  		resizable: true, 
+				});
+			});					
 		  
 		  // Dropdowns 
 		  
@@ -72,6 +74,18 @@ var Store = {
 		    
 		    event.stopPropagation();
 		  });
+		  
+		  $('#product_sharing > a').click(function(event) {
+			  event.preventDefault();
+				
+			  $('#product_sharing ul').fadeToggle();
+		  });
+
+		  $('#close_sharing').click(function(event) {
+			  event.preventDefault();
+				
+			  $('#product_sharing ul').fadeToggle();
+		  });		  
 		
 			// Close dropdown menus on click outside of menu
 			
