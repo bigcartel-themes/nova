@@ -1,31 +1,28 @@
 /* -------------------------------------------------------------- 
   Base styles
 -------------------------------------------------------------- */
-
 body {
-  font-family: {{ theme.text_font }}, "Andale Mono", AndaleMono, "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-family: #{'{{ theme.text_font }}'};
   font-size: 15px;
-  color: {{ theme.text_color }};
-  text-rendering: optimizeLegibility;	
+  color: #{'{{ theme.text_color }}'};
+  text-rendering: optimizeLegibility; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: {{ theme.background_color }};
-{% if theme.background_image != blank %}
-  background-image: url({{ theme.background_image.url }});
+  background-color: #{'{{ theme.background_color }}'};
+  background-image: #{'{% if theme.background_image != blank %} url("{{ theme.background_image.url }}") {% else %} none {% endif %}'};
   background-repeat: repeat;
-{% endif %}  
   }
-	
-::-moz-selection{ background: {{ theme.link_color }}; color: {{ theme.background_color }}; }
-::selection { background: {{ theme.link_color }}; color: {{ theme.background_color }}; }	
+  
+::-moz-selection{ background: #{'{{ theme.link_color }}'}; color: #{'{{ theme.background_color }}'}; }
+::selection { background: #{'{{ theme.link_color }}'}; color: #{'{{ theme.background_color }}'}; } 
 
 p, blockquote, ul, ol, dl {
-  margin-bottom: 1.2em;	
+  margin-bottom: 1.2em; 
   line-height: 1.4em;
   }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 1.2em;	
+  margin-bottom: 1.2em; 
   line-height: 1.4em;
   }
 
@@ -35,15 +32,15 @@ em, i { font-style: italic; }
 a,
 a:link,
 a:visited {
-  color: {{ theme.link_color }};
+  color: #{'{{ theme.link_color }}'};
   text-decoration: none;
   outline: none;
-  cursor: pointer; 	  
+  cursor: pointer;    
   }
 
 a:hover,
 a:active {
-  color: darken({{ theme.link_color }}, 15%);    	
+  color: #{'{{ theme.link_hover }}'};      
   }
 
 a img {
@@ -55,14 +52,14 @@ a img {
 img {
   border: none;
   -ms-interpolation-mode: bicubic;
-  }	
-	
+  } 
+  
 img,
 embed,
 object,
 video {
   max-width: 100%;
-  }	
+  } 
   
   
 /* -------------------------------------------------------------- 
@@ -71,26 +68,27 @@ video {
 
 button {
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;  	
+  -moz-osx-font-smoothing: grayscale;   
 }
 
 .button {
-	padding: 13px 30px;
-	line-height: 1.4em !important;
+  padding: 13px 30px;
+  line-height: 1.4em !important;
   margin: 0;
-  border: 1px solid {{ theme.border_color }};
-  color: {{ theme.text_secondary_color }} !important;
+  border: 1px solid #{'{{ theme.border_color }}'};
+  color: #{'{{ theme.text_secondary_color }}'} !important;
   background: transparent;
   cursor: pointer;
-  font-family: {{ theme.text_font }};  
+  font-family: #{'{{ theme.text_font }}'};  
   font-size: 15px;
-  text-align: center; 	
+  text-align: center;   
   -webkit-font-smoothing: antialiased;  
+  -moz-osx-font-smoothing: grayscale;  
   }
   
 .button:hover {
-  color: darken({{ theme.link_color }}, 15%) !important;
-  border-color: darken({{ theme.link_color }}, 15%); 		  
+  color: #{'{{ theme.link_hover }}'} !important;
+  border-color: #{'{{ theme.link_hover }}'};       
   }
     
 .button.disabled:hover {
@@ -101,8 +99,8 @@ input,
 textarea {
   padding: 10px 8px;
   width: auto;
-  font-family: {{ theme.text_font }};
-  background: {{ theme.background_color }};
+  font-family: #{'{{ theme.text_font }}'};
+  background: #{'{{ theme.background_color }}'};
   outline: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;  
@@ -110,14 +108,14 @@ textarea {
   
 li:hover textarea,
 li:hover input {
-	background: {{ theme.background_secondary_color }};
-	}
+  background: #{'{{ theme.background_secondary_color }}'};
+  }
   
 input:focus,
 textarea:focus {
-  color: {{ theme.background_color }};
+  color: #{'{{ theme.background_color }}'};
   outline: none;
-	background: {{ theme.link_color }} !important;  
+  background: #{'{{ theme.link_color }}'} !important;  
   }
   
 label {
@@ -130,87 +128,87 @@ label {
   }  
 
 ul#error {
-	max-width: 550px;
-	margin: 20px auto 80px;
-	text-align: center;
-	color: {{ theme.error_color }};
-	}
-	
+  max-width: 550px;
+  margin: 20px auto 80px;
+  text-align: center;
+  color: #{'{{ theme.error_color }}'};
+  }
+  
 ul#error li {
-	padding: 14px 0;
-	margin-bottom: 1px;
-	background: #fef1f8;
-	}	
+  padding: 14px 0;
+  margin-bottom: 1px;
+  background: #fef1f8;
+  } 
   
 .message {
-	max-width: 500px;
- 	margin: 110px auto 0;
- 	padding: 25px 25px;
+  max-width: 500px;
+  margin: 110px auto 0;
+  padding: 25px 25px;
   text-align: center;
   }  
   
 .message p {
-	font-size: 15px;
-	margin-bottom: 0;	
-	}	
-	
+  font-size: 15px;
+  margin-bottom: 0; 
+  } 
+  
 #search {
-	position: relative;
-	margin-right: 10px;
-	}	
+  position: relative;
+  margin-right: 10px;
+  } 
 #search #search-form a {
-	position: absolute;
-	right: 0;
-	color: {{ theme.text_secondary_color }} !important;
-	}
-	
+  position: absolute;
+  right: 0;
+  color: #{'{{ theme.text_secondary_color }}'} !important;
+  }
+  
 #search #search-form a:hover {
-	color: {{ theme.text_color }} !important;
-	}	
+  color: #{'{{ theme.text_color }}'} !important;
+  } 
 
 #search #search-form input {
-	visibility: hidden;
-	margin: -15px 0 0;
-	outline: none;
-	opacity: 0;
-	color: {{ theme.text_color }};
-	background: {{ theme.background_secondary_color }};
-	border: none;
-	transition: all .2s ease-in;
-	border-radius: 3px;
-	}
-	
+  visibility: hidden;
+  margin: -15px 0 0;
+  outline: none;
+  opacity: 0;
+  color: #{'{{ theme.text_color }}'};
+  background: #{'{{ theme.background_secondary_color }}'};
+  border: none;
+  transition: all .2s ease-in;
+  border-radius: 3px;
+  }
+  
 #search #search-form input:focus {
-	color: {{ theme.background_color }};
-	}
-	
+  color: #{'{{ theme.background_color }}'};
+  }
+  
 
 #search:hover #search-form a {
-	visibility: hidden;	
-	}
-	
+  visibility: hidden; 
+  }
+  
 #search:hover #search-form input {
-	visibility: visible;
-	opacity: 1;
-	transition: all 0 ease-in;	
-	}	
+  visibility: visible;
+  opacity: 1;
+  transition: all 0 ease-in;  
+  } 
 
 #nav_primary #search {
-	display: none;
-	}
+  display: none;
+  }
 
 span.arrow {
-	display: inline-block;
-	position: relative;
-	top: -2px;
-	margin-left: 10px;
-	width: 0px;
-	height: 0px;
-	border-style: solid;
-	border-width: 5px 5px 0 5px;
-	border-color: {{ theme.text_secondary_color }} transparent transparent transparent;	
-	}		
-	
+  display: inline-block;
+  position: relative;
+  top: -2px;
+  margin-left: 10px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: #{'{{ theme.text_secondary_color }}'} transparent transparent transparent;  
+  }   
+  
 /* Big Cartel Badge
 ------------------------------------------------------------*/
 
@@ -228,9 +226,9 @@ span.arrow {
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
-  background: url("{{ 'bc_badge.png' | theme_image_url }}") no-repeat;
-  }	
-	
+  background: url(#{'{{ "bc_badge.png" | theme_image_url }}'}) no-repeat;
+  } 
+  
 
 /* -------------------------------------------------------------- 
   Structure
@@ -248,7 +246,7 @@ span.arrow {
   min-width: 550px;    
   min-height: 60vh;
   margin: 110px auto 130px;
-  padding: 0;	   
+  padding: 0;    
   }
 
 
@@ -266,12 +264,12 @@ span.arrow {
   
 #branding a,
 #cart_nav a {
-  color: {{ theme.text_color }};
+  color: #{'{{ theme.text_color }}'};
   }
   
 #branding a:hover,
 #cart_nav a:hover {
-  color: {{ theme.text_secondary_color }};
+  color: #{'{{ theme.text_secondary_color }}'};
   }    
   
 #branding {
@@ -286,8 +284,8 @@ span.arrow {
   }  
   
 #cart_nav #menu {
-	display: none;
-	}
+  display: none;
+  }
   
 #cart_nav li {
   float: left;
@@ -319,12 +317,12 @@ span.arrow {
 
 #nav_primary li a {
   padding: 0 12px;
-  color: {{ theme.text_color }};
+  color: #{'{{ theme.text_color }}'};
   }
   
 #nav_primary li a:hover,
 #nav_primary li.selected a {
-  color: {{ theme.text_secondary_color }};
+  color: #{'{{ theme.text_secondary_color }}'};
   }  
 
 #home #intro .keyline,
@@ -335,9 +333,9 @@ span.arrow {
   margin: 50px auto 0;
   height: 1px;
   width: 200px;
-  background: {{ theme.border_color }};
+  background: #{'{{ theme.border_color }}'};
   }
-	
+  
 
 /* -------------------------------------------------------------- 
   Site Footer
@@ -346,55 +344,55 @@ span.arrow {
 #site_footer {
   position: relative;
   overflow: hidden;
-	opacity: 1;
+  opacity: 1;
   width: 100%;
-	clear: both;  
+  clear: both;  
   padding: 0 0 15px;
   text-align: center;
   transition: all .2s ease-in;
 
-	&:hover {
-		opacity: 1;
-	}
+  &:hover {
+    opacity: 1;
+  }
 
-	nav {
-		overflow: hidden;
-		
-		ul {
-			margin-bottom: .5em;
-		
-			li {
-				display: inline-block;
-				
-				a {
-					display: block;
-					padding: 0 12px;
-					color: {{ theme.text_color }};
-					
-					&:hover {
-						color: {{ theme.text_secondary_color }};
-					}
-				}
-			}
-		}
-	}
-	
-	#social_links {
-		overflow: hidden;
-		
-		li {
-			display: inline-block;
-		
-			a {
-				display: block;
-				padding: 0 12px;
-			}
-		}
-	}
-	
-	nav + #social_links {
-		margin-bottom: 12px;
-	}
+  nav {
+    overflow: hidden;
+    
+    ul {
+      margin-bottom: .5em;
+    
+      li {
+        display: inline-block;
+        
+        a {
+          display: block;
+          padding: 0 12px;
+          color: #{'{{ theme.text_color }}'};
+          
+          &:hover {
+            color: #{'{{ theme.text_secondary_color }}'};
+          }
+        }
+      }
+    }
+  }
+  
+  #social_links {
+    overflow: hidden;
+    
+    li {
+      display: inline-block;
+    
+      a {
+        display: block;
+        padding: 0 12px;
+      }
+    }
+  }
+  
+  nav + #social_links {
+    margin-bottom: 12px;
+  }
 }
   
   
@@ -408,9 +406,9 @@ span.arrow {
   }
   
 #content_header h1 {
-	font-family: {{ theme.header_font }};
+  font-family: #{'{{ theme.header_font }}'};
   font-size: 34px;
-  color: {{ theme.text_color }};
+  color: #{'{{ theme.text_color }}'};
   }
   
   
@@ -419,27 +417,27 @@ span.arrow {
 -------------------------------------------------------------- */  
   
 #home #intro {
-	margin: -28px auto 50px;
-	max-width: 660px;
-	font-family: {{ theme.header_font }};
-	font-size: 30px;
-	color: {{ theme.link_color }};
-	text-align: center;
-	}  
+  margin: -28px auto 50px;
+  max-width: 660px;
+  font-family: #{'{{ theme.header_font }}'};
+  font-size: 30px;
+  color: #{'{{ theme.link_color }}'};
+  text-align: center;
+  }  
   
 #home #intro .keyline {
-	margin-bottom: 70px;
-	} 
-	
-#home	#all_products_btn { 
-	margin: 100px auto 0;
-	display: block;
-	width: 198px;
-	padding-left: 0;
-	padding-right: 0;
-	display: block;
-}	
-	 
+  margin-bottom: 70px;
+  } 
+  
+#home #all_products_btn { 
+  margin: 100px auto 0;
+  display: block;
+  width: 198px;
+  padding-left: 0;
+  padding-right: 0;
+  display: block;
+} 
+   
   
 /*============================================================
   Basic Styles - used for the simple controls

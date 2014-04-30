@@ -2,76 +2,76 @@
   Contact
 -------------------------------------------------------------- */
 #contact #page_body {
-	overflow: hidden;
+  overflow: hidden;
   width: 550px;
   max-width: 550px;
   min-width: 550px;
-  margin: 0 auto;	
+  margin: 0 auto; 
   }
 
 #contact_form {
-	text-align: center;
-	
-	li {
-		padding:  0;
-		overflow: hidden;
-		border-top: 1px solid {{ theme.border_color }};
-	
-		label {
-			float: left;
-		  width: 100px;
-		  margin-top: 12px;
-		  padding-bottom: 10px;
-		  color: {{ theme.text_secondary_color }};  
-  	}
-  	
-  	input {
-  		float: left;
-			width: 404px;
-			padding: 12px 8px 24px;
-			border: none;
-			transition: background .5s ease-in;
-  	}
-  	
-  	&:hover {
-  		input, textarea {
-				transition: background 0s ease-in;    	
-			}
-  	}
-  	
-  	textarea {
-			height: 22px;
-		  width: 404px;
-		  padding: 12px 8px 24px;
-		  border: none;  
-			transition: height .2s ease-in, background .5s ease-in;    	
-		
-			&:focus {
-				height: 150px;
-			}
-		}
-	
-		&#captcha_img {
-			overflow: hidden;
-			
-			img {
-				float: right;
-				height: 34px;
-				margin-top: 10px;
-				padding-bottom: 8px;
-				margin-right: 0;
-			}
-			
-			input {
-				float: left;
-				width: 319px;
-				margin-left: 0;
-			}
-		}
-	}
-	
-	button#contact_button {
-		margin: 30px auto;
-		min-width: 198px;
-	}
+  text-align: center;
+  
+  li {
+    padding:  0;
+    overflow: hidden;
+    border-top: 1px solid #{'{{ theme.border_color }}'};
+  
+    label {
+      float: left;
+      width: 100px;
+      margin-top: 12px;
+      padding-bottom: 10px;
+      color: #{'{{ theme.text_secondary_color }}'};  
+    }
+    
+    input {
+      float: left;
+      width: 404px;
+      padding: 12px 8px 24px;
+      border: none;
+      transition: background .5s ease-in;
+    }
+    
+    &:hover {
+      input, textarea {
+        transition: background 0s ease-in;      
+      }
+    }
+    
+    textarea {
+      height: 22px;
+      width: 404px;
+      padding: 12px 8px 24px;
+      border: none;  
+      transition: height .2s ease-in, background .5s ease-in;     
+    
+      &:focus {
+        height: 150px;
+      }
+    }
+  
+    &#captcha_img {
+      overflow: hidden;
+      
+      img {
+        float: right;
+        height: 34px;
+        margin-top: 10px;
+        padding-bottom: 8px;
+        margin-right: 0;
+      }
+      
+      input {
+        float: left;
+        width: 319px;
+        margin-left: 0;
+      }
+    }
+  }
+  
+  button#contact_button {
+    margin: 30px auto;
+    min-width: 198px;
+  }
 }

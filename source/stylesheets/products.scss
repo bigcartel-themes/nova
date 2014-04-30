@@ -3,52 +3,52 @@
 -------------------------------------------------------------- */
 
 .spinner {
-	opacity: .5;
-	height:40px;
-	width:40px;
-	position:absolute;
-	top: 110px;
-	left: 50%;
-	margin: 0 auto 0 -20px;
-	-webkit-animation: rotation 1s infinite linear;
-	-moz-animation: rotation 1s infinite linear;
-	-o-animation: rotation 1s infinite linear;
-	animation: rotation 1s infinite linear;
-	border-left:2px solid {{ theme.border_color }};
-	border-right:2px solid {{ theme.border_color }};
-	border-bottom:2px solid {{ theme.border_color }};
-	border-top:2px solid {{ theme.text_secondary_color }};
-	border-radius:100%;
+  opacity: .5;
+  height:40px;
+  width:40px;
+  position:absolute;
+  top: 110px;
+  left: 50%;
+  margin: 0 auto 0 -20px;
+  -webkit-animation: rotation 1s infinite linear;
+  -moz-animation: rotation 1s infinite linear;
+  -o-animation: rotation 1s infinite linear;
+  animation: rotation 1s infinite linear;
+  border-left:2px solid #{'{{ theme.border_color }}'};
+  border-right:2px solid #{'{{ theme.border_color }}'};
+  border-bottom:2px solid #{'{{ theme.border_color }}'};
+  border-top:2px solid #{'{{ theme.text_secondary_color }}'};
+  border-radius:100%;
 }
 
 @-webkit-keyframes rotation {
-	from {-webkit-transform: rotate(0deg);}
-	to {-webkit-transform: rotate(359deg);}
+  from {-webkit-transform: rotate(0deg);}
+  to {-webkit-transform: rotate(359deg);}
 }
 
 @-moz-keyframes rotation {
-	from {-moz-transform: rotate(0deg);}
-	to {-moz-transform: rotate(359deg);}
+  from {-moz-transform: rotate(0deg);}
+  to {-moz-transform: rotate(359deg);}
 }
 
 @-o-keyframes rotation {
-	from {-o-transform: rotate(0deg);}
-	to {-o-transform: rotate(359deg);}
+  from {-o-transform: rotate(0deg);}
+  to {-o-transform: rotate(359deg);}
 }
 
 @keyframes rotation {
-	from {transform: rotate(0deg);}
-	to {transform: rotate(359deg);}
+  from {transform: rotate(0deg);}
+  to {transform: rotate(359deg);}
 }
 
 .product {
   position: relative;
   margin: 0 0 58px;
 
-	.flex-viewport {
-	  height: 100%;
-	  min-height: 300px;
-	}	
+  .flex-viewport {
+    height: 100%;
+    min-height: 300px;
+  } 
 }   
 
 .product_images {
@@ -59,65 +59,65 @@
   text-align: center;
   background: transparent; 
 
-	img {
-  	max-width: 100%;
+  img {
+    max-width: 100%;
   }    
   
   ul, li {
-  	line-height: 0;
+    line-height: 0;
   } 
   
   &.loading li img {
-  	visibility: visible; // ?
+    visibility: visible; 
   }
   
   .flex-viewport {
-		ul {
-			cursor: pointer;
-		}
-	} 
-	
-	.flex-control-nav { 
-		width: 100%; 
-		position: absolute; 
-		bottom: 18px;	
-		left: -4px;
+    ul {
+      cursor: e-resize;
+    }
+  } 
+  
+  .flex-control-nav { 
+    width: 100%; 
+    position: absolute; 
+    bottom: 18px; 
+    left: -4px;
 
-		.product:hover & {
-			display: block;
-		}
-		
-		li {
-			margin: 3px !important; 
-			display: block; *display: block; 
-			float: left; 
-		}
-		
-		&.flex-control-paging {
-			li { 
-				a {
-					width: 4px; 
-					height: 4px; 
-					display: block; 
-					border: 1px solid {{ theme.border_color }}; 
-					opacity: 1;
-					box-shadow: none;
-					background: transparent;
-					
-					&:hover {
-						background: {{ theme.border_color }};
-					}
-					
-					&.flex-active {
-						margin-top: 1px; 
-						cursor: default; 
-						border: none; 
-						background: {{ theme.border_color }};
-					}
-				}
-			}
-		}
-	}		   
+    .product:hover & {
+      display: block;
+    }
+    
+    li {
+      margin: 3px !important; 
+      display: block; *display: block; 
+      float: left; 
+    }
+    
+    &.flex-control-paging {
+      li { 
+        a {
+          width: 4px; 
+          height: 4px; 
+          display: block; 
+          border: 1px solid #{'{{ theme.border_color }}'}; 
+          opacity: 1;
+          box-shadow: none;
+          background: transparent;
+          
+          &:hover {
+            background: #{'{{ theme.border_color }}'};
+          }
+          
+          &.flex-active {
+            margin-top: 1px; 
+            cursor: default; 
+            border: none; 
+            background: #{'{{ theme.border_color }}'};
+          }
+        }
+      }
+    }
+  }      
 }   
   
 .product_info {
@@ -131,39 +131,39 @@
   line-height: 0;
   
   a {
-		color: {{ theme.text_color }};
-		
-		&:hover {
-			color: {{ theme.text_secondary_color }};
-		}
+    color: #{'{{ theme.text_color }}'};
+    
+    &:hover {
+      color: #{'{{ theme.text_secondary_color }}'};
+    }
   }
   
   h2, h3 {
-		display: inline-block;  
-		margin-bottom: 11px;	  
+    display: inline-block;  
+    margin-bottom: 11px;    
   }
   
   h2 {
-  	width: 65%;
-	  white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		font-family: {{ theme.header_font }};		
+    width: 65%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: #{'{{ theme.header_font }}'};    
   }
   
   h3 {
-  	position: absolute;
-  	right: 0;
-		color: {{ theme.text_secondary_color }};
-  	
-  	.on_sale {
-			font-family: {{ theme.text_font }};
-			color: {{ theme.error_color }};
-		} 
-  	
-  	.sold-out & {
-			color: {{ theme.error_color }};
-  	}
+    position: absolute;
+    right: 0;
+    color: #{'{{ theme.text_secondary_color }}'};
+    
+    .on_sale {
+      font-family: #{'{{ theme.text_font }}'};
+      color: #{'{{ theme.error_color }}'};
+    } 
+    
+    .sold-out & {
+      color: #{'{{ theme.error_color }}'};
+    }
   }
 }    
 
@@ -171,147 +171,147 @@
   clear: both;
   margin: 100px 0 0 0;
   text-align: center;
-	
-	#products_page & {
-		margin-top: 120px;
-	}
-	
-	li {
-		display: inline-block;
-		
-		a.button {
-		  position: relative;
-		  display: block;
-		  width: 120px;
-		  padding: 13px 0;  
-		  color: {{ theme.text_secondary_color }};    
-		
-			&:hover {
-			  color: {{ theme.link_color }};  
-			  z-index: 10;				
-			}
-		}
-		
-		&:first-child a.button {
-			position: relative;
-			right: -1px;
-		}
-	}
+  
+  #products_page & {
+    margin-top: 120px;
+  }
+  
+  li {
+    display: inline-block;
+    
+    a.button {
+      position: relative;
+      display: block;
+      width: 120px;
+      padding: 13px 0;  
+      color: #{'{{ theme.text_secondary_color }}'};    
+    
+      &:hover {
+        color: #{'{{ theme.link_color }}'};  
+        z-index: 10;        
+      }
+    }
+    
+    &:first-child a.button {
+      position: relative;
+      right: -1px;
+    }
+  }
 }  
 
 
 #categories {
-	position: relative;
-	z-index: 100;
-	margin: -71px 0 64px 0;
-	text-align: center;
-	
-	a.button {
-		display: inline-block;
-		margin: 0 auto;
-		width: 198px;
-		padding: 18px 0;	
-		
-		&:hover span.arrow {
-			opacity: .8;
-			border-color: darken({{ theme.link_color }}, 15%) transparent transparent transparent;
-		}
-	}
-	
-	#options_menu {
-	  position: absolute;
-	  left: 50%;
-	  top: 0;
-	  z-index: 999;
-	  padding-top: 55px;
-	  width: 198px;
-	  margin: 0 0 0 -100px;
-	  
-	  li {
-			padding: 0;
-		  
-		  a {
-		  	display: block;
-				padding: 8px 0;
-		  }
-		  
-		  &.selected {
-				display: none;
-		  }
-	  }
-  }	
-}
-	
-#products_page .canvas.grid	{
-	width: 92%;
-	max-width: 980px;
-
-	#categories {
-		margin-bottom: 74px;
-	}
-	
-	#pagination {
-		margin-top: 30px;
-	}
-	
-	#products {
-		overflow: hidden;
-	  width: 100%;
-	  text-align: left;	
+  position: relative;
+  z-index: 100;
+  margin: -71px 0 64px 0;
+  text-align: center;
   
-		#product_list {
-			overflow: hidden;
-		}
-		
-		.product {
-			float: left;
-			width:  23.1%; 
-			margin: 0 .9% 0 .9%;		
-			
-			a {
-				.product_images {
-				  width: 100%;
-				  min-height: 100%;
-				  margin: 0;
-				  background: transparent;  
-				  background: #efefef;	
-				  
-				  img {
-					  max-width: 100%;
-					  max-height: 100%;
-					  margin: 0 auto;			  
-	  			}		
-	  		}
-	  		
-	  		.product_price {
-				  text-align: left;
-				  margin-top: 6px;  
-				  margin-bottom: 15px;
-				  text-align: center;
-				  opacity: 0;
-				  transition: all 0.5s ease;  		
-	  		
-					h2 {
-						width: 100%;
-						margin-bottom: 0;
-					}
-					
-					h3 {
-						position: relative;
-						right: 0;
-						top: 0;
-						float: none;
-						display: block;
-						color: {{ theme.text_secondary_color }};
-					}
-	  		}
-	  		
-	  		&:hover {
-		  		.product_price {
-			  		opacity: 1;
-		  		}
-	  		}
-	  	}
-  	}
+  a.button {
+    display: inline-block;
+    margin: 0 auto;
+    width: 198px;
+    padding: 18px 0;  
+    
+    &:hover span.arrow {
+      opacity: .8;
+      border-color: #{'{{ theme.link_hover }}'} transparent transparent transparent;
+    }
+  }
+  
+  #options_menu {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 999;
+    padding-top: 55px;
+    width: 198px;
+    margin: 0 0 0 -100px;
+    
+    li {
+      padding: 0;
+      
+      a {
+        display: block;
+        padding: 8px 0;
+      }
+      
+      &.selected {
+        display: none;
+      }
+    }
+  } 
+}
+  
+#products_page .canvas.grid {
+  width: 92%;
+  max-width: 980px;
+
+  #categories {
+    margin-bottom: 74px;
+  }
+  
+  #pagination {
+    margin-top: 30px;
+  }
+  
+  #products {
+    overflow: hidden;
+    width: 100%;
+    text-align: left; 
+  
+    #product_list {
+      overflow: hidden;
+    }
+    
+    .product {
+      float: left;
+      width:  23.1%; 
+      margin: 0 .9% 0 .9%;    
+      
+      a {
+        .product_images {
+          width: 100%;
+          min-height: 100%;
+          margin: 0;
+          background: transparent;  
+          background: #efefef;  
+          
+          img {
+            max-width: 100%;
+            max-height: 100%;
+            margin: 0 auto;       
+          }   
+        }
+        
+        .product_price {
+          text-align: left;
+          margin-top: 6px;  
+          margin-bottom: 15px;
+          text-align: center;
+          opacity: 0;
+          transition: all 0.5s ease;      
+        
+          h2 {
+            width: 100%;
+            margin-bottom: 0;
+          }
+          
+          h3 {
+            position: relative;
+            right: 0;
+            top: 0;
+            float: none;
+            display: block;
+            color: #{'{{ theme.text_secondary_color }}'};
+          }
+        }
+        
+        &:hover {
+          .product_price {
+            opacity: 1;
+          }
+        }
+      }
+    }
   }
 }

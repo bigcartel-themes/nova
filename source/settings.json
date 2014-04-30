@@ -50,7 +50,12 @@
       "variable": "link_color",
       "label": "Links",
       "default": "#1201ff"
-    },    
+    },
+    {
+      "variable": "link_hover",
+      "label": "Links",
+      "default": "#0b019b"
+    },        
     {
       "variable": "border_color",
       "label": "Borders",

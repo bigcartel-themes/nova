@@ -2,15 +2,9 @@
   Custom / Success / Typography
 -------------------------------------------------------------- */
 
-/*
-.custom #site_content {
-	margin-bottom: -15%;
-}
-*/
-
 .custom #page_body,
 #success #page_body {
-	overflow: hidden;
+  overflow: hidden;
   width: 520px;
   max-width: 520px;
   min-width: 520px;
@@ -26,8 +20,8 @@
   }  
   
 #product .product_description {
-	display: block;
-	}	  
+  display: block;
+  }   
 
 .product_description h3:first-child {
   font-size: 22px !important;
@@ -37,7 +31,7 @@
 #products .product_description h2,
 #products .product_description h3,
 #products .product_description h4 {
-  color: {{ theme.background_color }} !important;
+  color: #{'{{ theme.background_color }}'} !important;
   }
 
 .custom #page_body h2,
@@ -74,7 +68,7 @@
 .product_description h6 {
   margin-top: 1.6em;
   margin-bottom: 0;
-  color: {{ theme.text_secondary_color }};  
+  color: #{'{{ theme.text_secondary_color }}'};  
   }
 
 .custom #page_body ul,
@@ -95,8 +89,8 @@
   }
   
 .custom #page_body img {
-	width: 100%;
-	}  
+  width: 100%;
+  }  
 
 
 /* -------------------------------------------------------------- 
@@ -104,30 +98,30 @@
 -------------------------------------------------------------- */
 
 #page_body #entries > li {
-	list-style-type: none;
-	margin-bottom: 4em;
-	border-top: 1px solid {{ theme.border_color }}
-	}
-	
+  list-style-type: none;
+  margin-bottom: 4em;
+  border-top: 1px solid #{'{{ theme.border_color }}'}
+  }
+  
 #page_body #entries li:first-child {
-	border-top: none;
-	}	
+  border-top: none;
+  } 
 
 #page_body #entries div img {
-	width: 100%;
-	}
+  width: 100%;
+  }
   
 #page_body #entries div + p {
-	margin-top: 20px;
-	}
-	
+  margin-top: 20px;
+  }
+  
 #page_body #entries li h2  {
-	margin-bottom: 0;
-	margin-top: .5em;
-	}	
-	
+  margin-bottom: 0;
+  margin-top: .5em;
+  } 
+  
 #page_body #entries .blog_date {
-	margin-top: -1px;
-	margin-bottom: 1em;
-	color: {{ theme.text_secondary_color }}
-	}
+  margin-top: -1px;
+  margin-bottom: 1em;
+  color: #{'{{ theme.text_secondary_color }}'}
+  }
