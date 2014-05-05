@@ -15,6 +15,7 @@
   li {
     padding:  0;
     overflow: hidden;
+    list-style-type: none;
     border-top: 1px solid #{'{{ theme.border_color }}'};
   
     label {
@@ -55,6 +56,7 @@
       overflow: hidden;
       
       img {
+        width: auto;
         float: right;
         height: 34px;
         margin-top: 10px;
