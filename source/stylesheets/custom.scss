@@ -1,127 +1,121 @@
 /* -------------------------------------------------------------- 
   Custom / Success / Typography
 -------------------------------------------------------------- */
-
-.custom #page_body,
-#success #page_body {
+ 
+#page_body {
   overflow: hidden;
   width: 520px;
   max-width: 520px;
   min-width: 520px;
-  margin: 0 auto;
-  }
-
-#page_body * {
-  line-height: 1.6em;
+  margin: 0 auto;  
+  
+  * {
+    line-height: 1.6em;
   }
   
-#success #page_body {
-  text-align: center;
-  }  
-  
-#product .product_description {
-  display: block;
-  }   
-
-.product_description h3:first-child {
-  font-size: 22px !important;
-  text-decoration: none;
-  }
-
-#products .product_description h2,
-#products .product_description h3,
-#products .product_description h4 {
-  color: #{'{{ theme.background_color }}'} !important;
-  }
-
-.custom #page_body h2,
-.product_description h2 {
-  margin-top: 1.4em;
-  margin-bottom: .2em;  
-  font-size: 22px;
-  }
-
-.custom #page_body h3,
-.product_description h3 {
-  margin-top: 1.6em;  
-  margin-bottom: .3em;  
-  font-size: 16px;
-  font-weight: bold;
-  }
-
-.custom #page_body h4,
-.product_description h4 {
-  margin-top: 1.5em;
-  margin-bottom: .4em;
-  font-size: 14px;
-  font-weight: bold;  
-  }
-
-.custom #page_body h5,
-.product_description h5 {
-  margin-top: 1.6em;
-  margin-bottom: 0;
-  font-weight: bold;    
+  h1 {
+    margin-top: 1.4em;
+    margin-bottom: .2em;  
+    font-size: 28px;
   }
   
-.custom #page_body h6,
-.product_description h6 {
-  margin-top: 1.6em;
-  margin-bottom: 0;
-  color: #{'{{ theme.text_secondary_color }}'};  
-  }
-
-.custom #page_body ul,
-.custom #page_body ol,
-.product_description ul,
-.product_description ol {
-  list-style-position: inside;
-  }
-
-.custom #page_body ul,
-.product_description ul {
-  list-style-type: none;
-  } 
-
-.custom #page_body ol,
-.product_description ol {
-  list-style-type: decimal;
+  h2 {
+    margin-top: 1.4em;
+    margin-bottom: .2em;  
+    font-size: 24px;
   }
   
-.custom #page_body img {
-  width: 100%;
-  }  
-
-
-/* -------------------------------------------------------------- 
-  Blog
--------------------------------------------------------------- */
-
-#page_body #entries > li {
-  list-style-type: none;
-  margin-bottom: 4em;
-  border-top: 1px solid #{'{{ theme.border_color }}'}
+  h3 {
+    margin-top: 1.6em;  
+    margin-bottom: .2em;  
+    font-size: 20px;
   }
   
-#page_body #entries li:first-child {
-  border-top: none;
-  } 
-
-#page_body #entries div img {
-  width: 100%;
+  h4 {
+    margin-top: 1.5em;
+    margin-bottom: .2em;
+    font-size: 18px;
   }
   
-#page_body #entries div + p {
-  margin-top: 20px;
+  h5 {
+    margin-top: 1.6em;
+    margin-bottom: 0;
+    font-size: 16px;
   }
   
-#page_body #entries li h2  {
-  margin-bottom: 0;
-  margin-top: .5em;
-  } 
-  
-#page_body #entries .blog_date {
-  margin-top: -1px;
-  margin-bottom: 1em;
-  color: #{'{{ theme.text_secondary_color }}'}
+  h6 {
+    margin-top: 1.6em;
+    margin-bottom: 0;
+    text-decoration: underline;    
   }
+  
+  ul, ol {
+    list-style-position: inside;
+  }
+  
+  ul {
+    list-style-type: disc;
+  }
+  
+  ol {
+    list-style-type: decimal;
+  }
+  
+  blockquote {
+    padding: 1.3em 1em .2em;
+    background: #{'{{ theme.background_secondary_color }}'}
+  }
+  
+  img {
+    width: 100%;
+  }
+  
+  hr {
+    border: 0;
+    border-top: 1px solid #{'{{ theme.border_color }}'};
+    display: block;
+    height: 1px;
+    margin: 1em 0;
+  }
+  
+  #success & {
+    text-align: center;
+  }
+  
+  #entries {
+    
+    & > li {
+      list-style-type: none;
+      margin-bottom: 4em;
+      border-top: 1px solid #{'{{ theme.border_color }}'}
+    }
+    
+    li {
+      
+      &:first-child {
+        border-top: none;
+      }
+      
+      h2 {
+        margin-bottom: 0;
+        margin-top: .5em;
+      }
+    }
+    
+    div {
+      img {
+        width: 100%;
+      }
+      
+      p {
+        margin-top: 20px;
+      }
+    }
+    
+    .blog_date {
+      margin-top: -1px;
+      margin-bottom: 1em;
+      color: #{'{{ theme.text_secondary_color }}'}
+    }
+  }
+}

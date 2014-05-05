@@ -13,6 +13,13 @@
       "description": "Adds a repeating background image"
     }
   ],
+  "image_sets": [
+    {
+      "variable": "slideshow",
+      "label": "Slideshow",
+      "description": "Replaces products on Home page"
+    }
+  ],
   "fonts": [
     {
       "variable": "header_font",
@@ -53,7 +60,7 @@
     },
     {
       "variable": "link_hover",
-      "label": "Links",
+      "label": "Link Hover",
       "default": "#0b019b"
     },        
     {

@@ -43,7 +43,7 @@ options[:customization] = {
 #		:tumblr_link => 'http://tumblr.com/',
 #		:twitter_link => 'http://twitter.com/',
 #		:facebook_link => 'http://facebook.com/',		
-#		:welcome_text => 'What was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye on the earth.',
+#	:welcome_text => 'What was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye on the earth.',
  }
 
 run Dugway.application(options)

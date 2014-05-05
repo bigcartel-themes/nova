@@ -20,7 +20,7 @@ var Store = {
 		
 		if(page == 'home' || 'products' || 'product') {
 		  
-			$('.product, #product').each(function() {
+			$('.product, #product, #gallery').each(function() {
 				$(this).imagesLoaded(function() {
 
 					$(this).find('.spinner').fadeOut();					

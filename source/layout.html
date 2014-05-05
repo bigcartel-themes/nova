@@ -81,7 +81,7 @@
     {% endif %}
 
     <nav id="nav_primary">
-      <ul><li><a href="/products" alt="Our Products">Products</a></li>{% for page in pages.all limit: 3 %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li></ul>      
+      <ul><li><a href="/products" title="Shop Products">Products</a></li>{% for page in pages.all limit: 3 %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact" title="Contact Us">Contact</a></li></ul>      
 	  	
 	  	{% if theme.show_search %}
 	  	<div id="search">
@@ -105,7 +105,7 @@
         <h1>{{ page.name }}</h1>
       </header>
       <section id="page_body">
-      {{ page_content | paragraphs }}
+        {{ page_content | paragraphs }}
       </section>
     {% else %}
       {{ page_content }}
@@ -115,7 +115,7 @@
   <footer id="site_footer">
   	<div class="canvas">
   		<nav>
-	    	<ul><li><a href="/products" title="Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li></ul> 
+	    	<ul><li><a href="/" title="Home">Home</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}</ul> 
   		</nav>
 		  {% if theme.twitter_link != blank or theme.facebook_link != blank or theme.tumblr_link != blank or store.website != blank%}
 		  <ul id="social_links">

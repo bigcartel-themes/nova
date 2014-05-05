@@ -2,45 +2,6 @@
   Home/Products
 -------------------------------------------------------------- */
 
-.spinner {
-  opacity: .5;
-  height:40px;
-  width:40px;
-  position:absolute;
-  top: 110px;
-  left: 50%;
-  margin: 0 auto 0 -20px;
-  -webkit-animation: rotation 1s infinite linear;
-  -moz-animation: rotation 1s infinite linear;
-  -o-animation: rotation 1s infinite linear;
-  animation: rotation 1s infinite linear;
-  border-left:2px solid #{'{{ theme.border_color }}'};
-  border-right:2px solid #{'{{ theme.border_color }}'};
-  border-bottom:2px solid #{'{{ theme.border_color }}'};
-  border-top:2px solid #{'{{ theme.text_secondary_color }}'};
-  border-radius:100%;
-}
-
-@-webkit-keyframes rotation {
-  from {-webkit-transform: rotate(0deg);}
-  to {-webkit-transform: rotate(359deg);}
-}
-
-@-moz-keyframes rotation {
-  from {-moz-transform: rotate(0deg);}
-  to {-moz-transform: rotate(359deg);}
-}
-
-@-o-keyframes rotation {
-  from {-o-transform: rotate(0deg);}
-  to {-o-transform: rotate(359deg);}
-}
-
-@keyframes rotation {
-  from {transform: rotate(0deg);}
-  to {transform: rotate(359deg);}
-}
-
 .product {
   position: relative;
   margin: 0 0 58px;
@@ -99,20 +60,20 @@
           width: 4px; 
           height: 4px; 
           display: block; 
-          border: 1px solid #{'{{ theme.border_color }}'}; 
-          opacity: 1;
+          border: 1px solid #{'{{ theme.text_secondary_color }}'}; 
+          opacity: .7;
           box-shadow: none;
           background: transparent;
           
           &:hover {
-            background: #{'{{ theme.border_color }}'};
+            background: #{'{{ theme.text_secondary_color }}'};
           }
           
           &.flex-active {
             margin-top: 1px; 
             cursor: default; 
             border: none; 
-            background: #{'{{ theme.border_color }}'};
+            background: #{'{{ theme.text_secondary_color }}'};
           }
         }
       }

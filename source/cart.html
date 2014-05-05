@@ -28,12 +28,16 @@
       {% if cart.shipping.enabled %}
         {% if cart.shipping.strict %}
         <li id="cart-shipping-tax">
-        	{% if cart.country %}
-      		  <label for="country" class="not_set">Select another country</label>
-      		{% else %}
-      			<label for="country">Shipping</label>
+        	{% if cart.shipping.pending %}
+          	{% if cart.country %}
+        		  <label for="country" class="not_set">Select a different country</label>
+        		{% else %}
+        			<label for="country">Shipping</label>
+        		{% endif %}
       		{% endif %}
+      		
           {{ store.country | country_select }}
+          
           {% if cart.shipping.pending %}
           	<h3 class="cart_pending">$0</h3>
 						<button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Apply</span></button>  
@@ -45,7 +49,7 @@
       {% else %}
       <li id="cart-shipping-tax" class="not_set">
         <label>Shipping</label>
-        <p>Applicable fees apply</p>
+        <p>Shipping fees applied during checkout</p>
       </li>        
       {% endif %}
       
@@ -68,12 +72,12 @@
       {% endif %}
     </ul>   
   </section>
-  {% endif %}
+  {% endif %} 
   
   <section id="cart_total">
     <p>Applicable shipping and tax apply</p>
     <div id="total">
-      {% if cart.shipping.enabled and cart.shipping.pending %}
+      {% if cart.shipping.pending and cart.discount.pending %}
       <h3>Subtotal</h3>
       <h2>{{ cart.subtotal | money_with_sign }}</h2>
       <button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Update</span></button>      

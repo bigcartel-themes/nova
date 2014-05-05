@@ -239,7 +239,15 @@ span.arrow {
   max-width: 800px;
   min-width: 550px;  
   margin: 0 auto 0;
+}
+
+#home,
+#products_page, 
+#product {
+  .canvas {
+    max-width: 1200px;
   }
+}
   
 #site_content {
   position:relative;
@@ -386,6 +394,11 @@ span.arrow {
       a {
         display: block;
         padding: 0 12px;
+        color: #{'{{ theme.text_secondary_color }}'};
+        
+        &:hover {
+          color: #{'{{ theme.text_color }}'}
+        }
       }
     }
   }
@@ -410,35 +423,52 @@ span.arrow {
   font-size: 34px;
   color: #{'{{ theme.text_color }}'};
   }
-  
-  
+
+
 /* -------------------------------------------------------------- 
-  Home
+  Loading Spinner
 -------------------------------------------------------------- */  
-  
-#home #intro {
-  margin: -28px auto 50px;
-  max-width: 660px;
-  font-family: #{'{{ theme.header_font }}'};
-  font-size: 30px;
-  color: #{'{{ theme.link_color }}'};
-  text-align: center;
-  }  
-  
-#home #intro .keyline {
-  margin-bottom: 70px;
-  } 
-  
-#home #all_products_btn { 
-  margin: 100px auto 0;
-  display: block;
-  width: 198px;
-  padding-left: 0;
-  padding-right: 0;
-  display: block;
-} 
+
+.spinner {
+  opacity: .5;
+  height:40px;
+  width:40px;
+  position:absolute;
+  top: 110px;
+  left: 50%;
+  margin: 0 auto 0 -20px;
+  -webkit-animation: rotation 1s infinite linear;
+  -moz-animation: rotation 1s infinite linear;
+  -o-animation: rotation 1s infinite linear;
+  animation: rotation 1s infinite linear;
+  border-left:2px solid #{'{{ theme.border_color }}'};
+  border-right:2px solid #{'{{ theme.border_color }}'};
+  border-bottom:2px solid #{'{{ theme.border_color }}'};
+  border-top:2px solid #{'{{ theme.text_secondary_color }}'};
+  border-radius:100%;
+}
+
+@-webkit-keyframes rotation {
+  from {-webkit-transform: rotate(0deg);}
+  to {-webkit-transform: rotate(359deg);}
+}
+
+@-moz-keyframes rotation {
+  from {-moz-transform: rotate(0deg);}
+  to {-moz-transform: rotate(359deg);}
+}
+
+@-o-keyframes rotation {
+  from {-o-transform: rotate(0deg);}
+  to {-o-transform: rotate(359deg);}
+}
+
+@keyframes rotation {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(359deg);}
+}  
    
-  
+   
 /*============================================================
   Basic Styles - used for the simple controls
 ============================================================*/
