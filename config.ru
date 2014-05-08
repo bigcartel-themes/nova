@@ -8,7 +8,7 @@ options = {}
 
 # options[:store] = 'askalice'
 #  options[:store] = 'thisispaper'
- options[:store] = 'windandwillowhome'
+# options[:store] = 'windandwillowhome'
 #  options[:store] = 'lunatheme'
 #  options[:store] = 'rothirsch'
 #  options[:store] = 'pelledesigns'
@@ -16,7 +16,7 @@ options = {}
 #  options[:store] = 'dahlhausart'
 #  options[:store] = 'ohmykids'
 #  options[:store] = 'herriottgrace'
-#  options[:store] = 'unmarkedmx'
+  options[:store] = 'unmarkedmx'
 
   
 # Simulate the customization done by store owners by passing values to different variables.
@@ -36,10 +36,10 @@ options[:customization] = {
 #    :link_color => '#007aff',
 #    :hover_color => '#FF6157',
 #		:products_per_page => '12',
-#		:product_list_layout => 'grid',
+		:product_list_layout => 'stacked',
 #    :show_search => true,
 		:share_buttons => true,
-		:show_inventory_bars => false,
+		:show_inventory_bars => true,
 #		:tumblr_link => 'http://tumblr.com/',
 #		:twitter_link => 'http://twitter.com/',
 #		:facebook_link => 'http://facebook.com/',		

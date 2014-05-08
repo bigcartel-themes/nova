@@ -35,7 +35,7 @@ var Store = {
 				    directionNav: false,
 				    slideshow: false,
 				    smoothHeight: true
-				    // useCSS: false //temp css transition fix
+				    //useCSS: false //temp css transition fix
 				  }); 
 				});
 	    });		  

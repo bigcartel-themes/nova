@@ -28,33 +28,30 @@
       {% if cart.shipping.enabled %}
         {% if cart.shipping.strict %}
         <li id="cart-shipping-tax">
-        	{% if cart.shipping.pending %}
-          	{% if cart.country %}
-        		  <label for="country" class="not_set">Select a different country</label>
-        		{% else %}
-        			<label for="country">Shipping</label>
-        		{% endif %}
-      		{% endif %}
-      		
+          {% if cart.shipping.pending %}
+            {% if cart.country %}
+              <label for="country" class="not_set">Select a different country</label>
+            {% else %}
+              <label for="country">Shipping</label>
+            {% endif %}
+          {% else %}
+            <label for="country">Shipping</label>
+          {% endif %}
+          
           {{ store.country | country_select }}
           
           {% if cart.shipping.pending %}
-          	<h3 class="cart_pending">$0</h3>
-						<button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Apply</span></button>  
-					{% else %}
+            <h3 class="cart_pending">$0</h3>
+            <button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Apply</span></button>  
+          {% else %}
             <h3>{{ cart.shipping.amount | money_with_sign }}</h3>
           {% endif %}
         </li>
-        {% endif %}
-      {% else %}
-      <li id="cart-shipping-tax" class="not_set">
-        <label>Shipping</label>
-        <p>Shipping fees applied during checkout</p>
-      </li>        
+        {% endif %}  
       {% endif %}
       
       {% if cart.discount.enabled %}
-      <li id="discount_option">
+      <li id="discount_option" {% unless cart.shipping.strict %}class="solo"{% endunless %}>
         {% if cart.discount.pending %}
           <label id="cart_discount_label" for="cart_discount_code">Discount</label>
           {{ cart.discount | discount_code_input }}
@@ -75,7 +72,9 @@
   {% endif %} 
   
   <section id="cart_total">
-    <p>Applicable shipping and tax apply</p>
+    {% unless cart.shipping.strict %}
+      <p>Applicable shipping and tax apply</p>
+    {% endunless %}
     <div id="total">
       {% if cart.shipping.pending and cart.discount.pending %}
       <h3>Subtotal</h3>

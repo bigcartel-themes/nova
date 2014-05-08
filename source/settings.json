@@ -40,7 +40,7 @@
     },
     {
       "variable": "background_secondary_color",
-      "label": "Background Secondary",
+      "label": "Background Accent",
       "default": "#ececec"
     },    
     {
@@ -50,7 +50,7 @@
     },
     {
       "variable": "text_secondary_color",
-      "label": "Text Secondary",
+      "label": "Text Accent",
       "default": "#888888"
     },    
     {

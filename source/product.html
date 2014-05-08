@@ -71,18 +71,22 @@
   {% endif %}
   
   {% if theme.show_inventory_bars %}
-  <section class="product_inventory">
-  	<ul>
-      {% for option in product.options %}
-  		<li>
-		  	<h3>{% if product.has_default_option %}{{ product.name }}{% else %}{{ option.name }}{% endif %} <span>{{ option.quantity }} in stock</h3>
-		  	<div class="bar">
-	  			<span class="bar fill" style="width:{{ option.inventory }}%;"></span>
-		  	</div>
-  		</li>
-  		{% endfor %}
-  	</ul>
-  </section>
+    {% case product.status %}
+      {% when 'active' %}
+        <section class="product_inventory">
+        	<ul>
+            {% for option in product.options %}
+        		<li>
+        	  	<div class="bar"><span class="bar fill" style="width:{{ option.inventory }}%;"></span></div>        		
+        	  	<h3>
+        	  	  {% if product.has_default_option %}{{ product.name }}{% else %}{{ option.name }}{% endif %} 
+        	  	  <span>{% if option.sold_out %}Sold Out{% else %}{{ option.quantity }} in stock{% endif %}</span>
+        	  	</h3>
+        		</li>
+        		{% endfor %}
+        	</ul>
+        </section>
+    {% endcase %}
   {% endif %}  
 </section>
 
