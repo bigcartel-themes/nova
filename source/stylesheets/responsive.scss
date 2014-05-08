@@ -369,6 +369,16 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     .product {
       position: relative;
       margin: 0 0 30px;
+      
+      .product_price {
+        h2 {
+          width: 55%;
+        }
+                    
+        .on_sale {
+          display: none
+        }
+      }
     }
   }   
   
