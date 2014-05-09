@@ -68,9 +68,11 @@
 </section>
 {% endif %}
 
+{% if paginate.previous.is_link or paginate.next.is_link %}
 <nav id="pagination">
 	<ul>{% if paginate.previous %}{% if paginate.previous.is_link %}<li id="pag_prev"><a href="{{ paginate.previous.url }}" class="button" title="Previous">Previous</a></li>{% endif %}{% endif %}{% if paginate.next %}{% if paginate.next.is_link %}<li id="pag_next"><a href="{{ paginate.next.url }}" class="button" title="Next">Next</a></li>{% endif %}{% endif %}</ul>  
 </nav>   
+{% endif %}
 
 {% else %}
 <p class="alert-noproducts message">No products found</p>

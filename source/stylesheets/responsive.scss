@@ -45,6 +45,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     overflow: hidden;
     margin-top: 0; 
     margin-bottom: 0;
+    min-height: 40vh;
     min-width: inherit;   
     }  
   
@@ -237,6 +238,8 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     padding-top: 20px;
     margin-top: 20px;
     background: #{'{{ theme.background_secondary_color }}'};
+    border-top: 1px solid  #{'{{ theme.border_color }}'};    
+
         
     .canvas {
       width: 100%;
@@ -290,8 +293,8 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
         margin-top: 30px;
       }
     }
-    
-    #badge {
+  
+    #social_links + #badge {
       margin-top: 0;
     }
   }  
@@ -303,7 +306,6 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     ul {
       margin-bottom: 0;
       border-top: 1px solid #{'{{ theme.border_color }}'};
-      border-bottom: 1px solid  #{'{{ theme.border_color }}'};    
     
       li {
         width: 50%;
@@ -343,7 +345,11 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     
     #gallery {
       margin-top: 20px;
-      margin-bottom: 0;
+      margin-bottom: 60px;
+      
+      #shop_products {
+        bottom: -37px;
+      }
     }
     
     #all_products_btn {
