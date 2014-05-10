@@ -70,8 +70,17 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     text-align: center;
     border-top: 0;
     background: transparent;
-    }     
-      
+    }  
+    
+   .spinner {
+      top: 55px;    
+    }
+  
+    #theme_image {
+      margin: 25px 0 20px;
+      width: 100% !important;  
+    }
+    
   
   /* -------------------------------------------------------------- 
     Site Header
@@ -463,7 +472,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     }
     
     #pagination {
-      margin-top: 80px;
+      margin-top: 40px;
       margin-bottom: 0;
     }
   }  

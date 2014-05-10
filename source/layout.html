@@ -79,7 +79,7 @@
       <img src="{{ theme.image.url }}" alt="{{ store.name }}" />
     </div>
     {% endif %}
-
+    
     <nav id="nav_primary">
       <ul><li><a href="/products" title="Shop Products">Products</a></li>{% for page in pages.all limit: 3 %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact" title="Contact Us">Contact</a></li></ul>      
 	  	
