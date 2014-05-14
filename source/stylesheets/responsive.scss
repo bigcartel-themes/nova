@@ -18,7 +18,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 
   body {
     border: none; 
-    padding-top: 71px;
+    padding-bottom: 70px;
     font-size: 16px !important;
     }
   
@@ -77,7 +77,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     }
   
     #theme_image {
-      margin: 25px 0 20px;
+      margin: 50px 0 35px;
       width: 100% !important;  
     }
     
@@ -90,17 +90,19 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     height: 70px;
     z-index: 200;
     padding: 0;
+    bottom: 0;
+    top: auto;
     opacity: .95;
     background: #{'{{ theme.background_color }}'};
-    border-bottom: 1px solid #{'{{ theme.border_color }}'};
+    border-top: 1px solid #{'{{ theme.border_color }}'};
     }  
     
   #branding {
-    margin: 27px 0 0 15px;
+    margin: 25px 0 0 15px;
     }  
     
   #cart_nav {
-    margin: 27px 0 40px 0;
+    margin: 25px 0 40px 0;
     }
   
   #cart_nav span {
@@ -122,75 +124,10 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     }   
   
   #nav_primary, 
-  #nav_primary .keyline {
-    display: none;
-    } 
-  
-  #nav_primary {
-    width: 100% !important;
-    box-sizing: border-box;
-    margin-top: 0;
-    margin-bottom: 20px;
-    padding: 10px 20px 10px;
-    clear: both;
-    background: #{'{{ theme.background_secondary_color }}'};
-    }
-  
-  #nav_primary ul {
-    margin-bottom: 0;
-    }
-  
-  #nav_primary li {
-    display: block;
-    width: 100%;
-    }      
-    
-  #nav_primary li a {
-    display: block;
-    padding: 10px 0;
-    border-bottom: 1px solid #{'{{ theme.border_color }}'};     
-    } 
-    
-  #nav_primary li:last-child a {
-    border: none;
-    } 
-
-  #nav_primary #search {
-    display: inherit;
-    }
-    
+  #nav_primary .keyline,
   #cart_nav #search {
     display: none;
     }
-    
-  #nav_primary #search {
-    display: inherit;
-    margin: 0 0 10px;
-    min-height: 34px;
-    padding: 0;
-    border-top: 1px solid #{'{{ theme.border_color }}'};
-    text-align: center;
-      
-    &:hover {
-      input {
-        background: #{'{{ theme.link_hover }}'};
-      }
-    }
-    
-    a {
-      display: block;
-      width: 100%;
-      padding: 12px 0;
-    }
-  
-    input {
-      box-sizing: border-box;     
-      width: 100%;
-      margin: 0;
-      padding: 14px 10px;
-      border-radius: 0 0 4px 4px;
-    }
-  }
   
   #content_header {
     margin-top: 30px;
@@ -276,6 +213,36 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
             padding: 10px 0;
             border-bottom: 1px solid #{'{{ theme.border_color }}'};
             color: #{'{{ theme.text_color }}'};
+          }
+          
+          &#search {
+            display: block;
+            margin: 0 0 10px;
+            min-height: 34px;
+            padding: 0;
+            text-align: center;
+            border-bottom: 1px solid #{'{{ theme.border_color }}'};
+              
+            &:hover {
+              input {
+                background: transparent;
+              }
+            }
+            
+            a {
+              display: block;
+              width: 100%;
+              padding: 12px 0;
+              border-bottom: none;
+            }
+          
+            input {
+              box-sizing: border-box;     
+              width: 100%;
+              margin: 0;
+              padding: 14px 10px;
+              border-radius: 0;
+            }
           }
         }
       }
@@ -540,7 +507,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
             
             input {
               float: left;
-              width: 75%;
+              width: 70%;
               margin-left: 0;
             }
           }

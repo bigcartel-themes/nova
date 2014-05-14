@@ -59,7 +59,7 @@
     
     <nav id="cart_nav">
       <ul>
-      	<li id="menu"><a href="#">Menu</a></li>
+      	<li id="menu"><a href="#site_footer">Menu</a></li>
 				{% if theme.show_search %}
         <li id="search">
           <form id="search-form" name="search" action="/products" method="get">
@@ -79,18 +79,9 @@
       <img src="{{ theme.image.url }}" alt="{{ store.name }}" />
     </div>
     {% endif %}
-    
+
     <nav id="nav_primary">
       <ul><li><a href="/products" title="Shop Products">Products</a></li>{% for page in pages.all limit: 3 %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact" title="Contact Us">Contact</a></li></ul>      
-	  	
-	  	{% if theme.show_search %}
-	  	<div id="search">
-	      <form id="search-form" name="search" action="/products" method="get">
-	        <a href="#search-form">Search</a>
-	        <input id="search-input" name="search" type="text">
-	      </form>
-      </div>
-	    {% endif %}
       <span class="keyline"></span>
     </nav>    
 
@@ -115,7 +106,7 @@
   <footer id="site_footer">
   	<div class="canvas">
   		<nav>
-	    	<ul><li><a href="/" title="Home">Home</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}</ul> 
+	    	<ul><li><a href="/products" title="Shop Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact" title="Contact Us">Contact</a></li>{% if theme.show_search %}<li id="search"><form id="search-form" name="search" action="/products" method="get"><a href="#search-form">Search</a><input id="search-input" name="search" type="text"></form></li>{% endif %}</ul> 
   		</nav>
 		  {% if theme.twitter_link != blank or theme.facebook_link != blank or theme.tumblr_link != blank or store.website != blank%}
 		  <ul id="social_links">

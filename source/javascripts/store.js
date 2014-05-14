@@ -13,7 +13,7 @@ var Store = {
     
     // Mobile menu
     
-    $('#menu a').click(function() { 
+    $('').click(function() { 
       $('#nav_primary').slideToggle('slow');
     });  
     

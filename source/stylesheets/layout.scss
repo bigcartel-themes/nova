@@ -151,7 +151,7 @@ ul#error li {
   font-size: 15px;
   margin-bottom: 0; 
   } 
-  
+
 #search {
   position: relative;
   margin-right: 10px;
@@ -192,11 +192,7 @@ ul#error li {
   opacity: 1;
   transition: all 0 ease-in;  
   } 
-
-#nav_primary #search {
-  display: none;
-  }
-
+  
 span.arrow {
   display: inline-block;
   position: relative;
@@ -380,6 +376,10 @@ span.arrow {
           &:hover {
             color: #{'{{ theme.text_secondary_color }}'};
           }
+        }
+        
+        &#search {
+          display: none;
         }
       }
     }
