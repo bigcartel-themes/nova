@@ -9,13 +9,7 @@ var Store = {
     var win = $(window);
     var width = $(document).width();
     
-    options = $.extend(this.defaults, options);
-    
-    // Mobile menu
-    
-    $('').click(function() { 
-      $('#nav_primary').slideToggle('slow');
-    });  
+    options = $.extend(this.defaults, options); 
     
     
     if(page == 'home' || 'products' || 'product') {
@@ -43,7 +37,7 @@ var Store = {
       // Setup click to advance slideshow (not on mobile)
       
       if ('ontouchstart' in document.documentElement) {
-        //
+        // 
       } else {
         $('.product_images.galy').click(function(event) {
           event.preventDefault();

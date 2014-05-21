@@ -223,6 +223,10 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
             border-bottom: 1px solid #{'{{ theme.border_color }}'};
               
             &:hover {
+              a {
+                visibility: visible;
+              }
+            
               input {
                 background: transparent;
               }
@@ -233,14 +237,19 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
               width: 100%;
               padding: 12px 0;
               border-bottom: none;
+              background: transparent;
             }
           
             input {
+              position: relative;
+              z-index: 1000;
+              visibility: visible;
               box-sizing: border-box;     
               width: 100%;
               margin: 0;
               padding: 14px 10px;
               border-radius: 0;
+              z-index: 0;
             }
           }
         }
@@ -321,6 +330,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     #gallery {
       margin-top: 20px;
       margin-bottom: 60px;
+      min-height: 150px;
       
       #shop_products {
         bottom: -37px;
