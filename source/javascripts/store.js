@@ -70,24 +70,26 @@ var Store = {
       
       $('#product_sharing > a').click(function(event) {
         event.preventDefault();
+        event.stopPropagation();                
         
         $('#product_sharing ul').fadeToggle();
       });
 
       $('#close_sharing').click(function(event) {
         event.preventDefault();
-        
+        event.stopPropagation();                
+
         $('#product_sharing ul').fadeToggle();
       });     
     
       // Close dropdown menus on click outside of menu
       
       $('html, #options_menu').on('click', function() {
-
         $('#options_button.selected').children('span.label').text('Buy Now');         
         $('#options_button.selected').children('span.arrow').toggle();       
         $('#options_button').removeClass('selected');             
         $('#options_menu').hide();
+        $('#product_sharing ul:visible').fadeToggle();
       });
       
       // Grabs option id and submits add to cart button
