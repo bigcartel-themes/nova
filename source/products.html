@@ -1,5 +1,6 @@
 {% paginate products from products.current by theme.products_per_page %}
-	
+
+{% if categories.active != blank %}
 <nav id="categories">
 	<a id="cat_button" class="button">{% if page.name == 'Products' %}All Products{% else %}{{ page.name }}{% endif %}<span class="arrow"></span></a>
   <ul id="options_menu">
@@ -7,6 +8,7 @@
   </ul>
   <span class="keyline"></span>
 </nav>
+{% endif %}
 	
 {% if products != blank %}
 {% if theme.product_list_layout == "stacked" %}
@@ -17,7 +19,7 @@
     	<div class="spinner"></div>
       <ul class="slides">
       {% for image in product.images %}
-        <li id="image_{{ forloop.index }}">
+        <li {% if forloop.last %}class="solo"{% endif %}>
         	<img src="{{ image | product_image_url | constrain: '1000'}}" alt="Image of {{ product.name | escape }}">
         </li>
       {% endfor %}

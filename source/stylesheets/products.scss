@@ -34,7 +34,13 @@
   
   .flex-viewport {
     ul {
-      cursor: e-resize;
+      li {
+        cursor: e-resize;
+        
+        &.solo {
+          cursor: default;
+        }
+      }
     }
   } 
   
