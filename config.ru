@@ -17,7 +17,7 @@ options = {}
 #  options[:store] = 'ohmykids'
 #  options[:store] = 'herriottgrace'
 #  options[:store] = 'unmarkedmx'
-#  options[:store] = 'novademo'
+  options[:store] = 'novademo'
 
   
 # Simulate the customization done by store owners by passing values to different variables.
@@ -44,7 +44,7 @@ options[:customization] = {
 #		:tumblr_link => 'http://tumblr.com/',
 #		:twitter_link => 'http://twitter.com/',
 #		:facebook_link => 'http://facebook.com/',		
-	:welcome_text => 'What was most significant about the lunar voyage was not that.',
+# 	:welcome_text => 'What was most significant about the lunar voyage was not that.',
  }
 
 run Dugway.application(options)
