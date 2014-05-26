@@ -17,7 +17,7 @@ options = {}
 #  options[:store] = 'ohmykids'
 #  options[:store] = 'herriottgrace'
 #  options[:store] = 'unmarkedmx'
-options[:store] = 'novademo'
+#  options[:store] = 'novademo'
 
   
 # Simulate the customization done by store owners by passing values to different variables.
