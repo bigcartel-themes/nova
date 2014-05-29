@@ -13,6 +13,13 @@
       "description": "Adds a repeating background image"
     }
   ],
+  "image_sets": [
+    {
+      "variable": "slideshow",
+      "label": "Slideshow",
+      "description": "Replaces products on Home page"
+    }
+  ],
   "fonts": [
     {
       "variable": "header_font",
@@ -33,39 +40,39 @@
     },
     {
       "variable": "background_secondary_color",
-      "label": "Background Secondary",
-      "default": "#efeff4"
+      "label": "Background Accent",
+      "default": "#ececec"
     },    
     {
       "variable": "text_color",
       "label": "Text",
-      "default": "#111111"
+      "default": "#1f1f1f"
     },
     {
       "variable": "text_secondary_color",
-      "label": "Text Secondary",
-      "default": "#8e8e93"
+      "label": "Text Accent",
+      "default": "#888888"
     },    
     {
       "variable": "link_color",
       "label": "Links",
-      "default": "#4bc0ba"
-    }, 
+      "default": "#1201ff"
+    },
     {
-      "variable": "hover_color",
-      "label": "Link's Hover",
-      "default": "#288d88"
+      "variable": "link_hover",
+      "label": "Link Hover",
+      "default": "#0b019b"
+    },        
+    {
+      "variable": "border_color",
+      "label": "Borders",
+      "default": "#c0c0c0"
     },
     {
       "variable": "error_color",
       "label": "Errors",
       "default": "#e36aa6"
-    },    
-    {
-      "variable": "border_color",
-      "label": "Borders",
-      "default": "#dcdce0"
-    }            
+    }                 
   ],
   "options": [
     {
@@ -95,9 +102,17 @@
       "label": "Products per page",
       "type": "select",
       "options": "1..100",
-      "default": 6,
+      "default": 8,
       "description": "The number of products shown at a time on the Products page"
     },
+		{
+      "variable": "product_list_layout",
+      "label": "Product List Layout",
+      "type": "select",
+      "options": [["Stacked", "stacked"], ["Grid", "masonry"]],
+      "default": "stacked",
+      "description": "The arrangement of your products on the Products pages"
+    },    
     {
       "variable": "show_inventory_bars",
       "label": "Show inventory bars",
@@ -114,25 +129,11 @@
       "description": "Shows the product search area"
     },
   	{
-      "variable": "show_facebook",
-      "label": "Show Facebook's Like button",
+      "variable": "share_buttons",
+      "label": "Show social buttons",
       "type": "boolean",
       "default": true,
-      "description": "Adds a Like button to the Product page"
-    },
-    {
-      "variable": "show_twitter",
-      "label": "Show Twitter's Tweet button",
-      "type": "boolean",
-      "default": true,
-      "description": "Adds a Tweet button to the Product page"
-    },
-    {
-      "variable": "show_pinterest",
-      "label": "Show Pinterest's Pin It button",
-      "type": "boolean",
-      "default": true,
-      "description": "Adds a Pin It button to the Product page"
+      "description": "Adds Facebook, Twitter, and Pinterest buttons to Product pages"
     },
     {
       "variable": "twitter_link",
@@ -144,7 +145,7 @@
       "variable": "facebook_link",
       "label": "Facebook Link",
       "type": "text",
-      "description": "Ex: http://twitter.com/bigcartel"
+      "description": "Ex: http://facebook.com/bigcartel"
     },
     {
       "variable": "tumblr_link",

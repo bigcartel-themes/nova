@@ -6,7 +6,7 @@
   {% if contact.sent %}
   <p id="thank_you" class="message">Your message has been sent and we will try to respond within 24 business hours.</p>      
   {% else %}      
-  <form id="contact_form" method="post" action="/contact">
+  <form id="contact_form" method="post" accept-charset="utf8" action="/contact">
     <ul>
       <li>
         <label>Your name</label>
@@ -25,12 +25,14 @@
         {{ contact | contact_input: 'message' }}
       </li>
       <li id="captcha_img">
-        <label>Captcha</label>
+        <label>Human Check</label>
         <div id="captcha_phrase">{{ contact.captcha }}</div>                
         {{ contact | contact_input: 'captcha' }}       
       </li>
     </ul>
-    <button id="contact_button" type="submit" name="submit" class="button">Send Message</button>            
+    
+    <input name="_utf8" type="hidden" value="&#x2713;" />
+    <button id="contact_button" type="submit" name="submit" class="button">Send</button>            
   </form>
   {% endif %}
 </section>

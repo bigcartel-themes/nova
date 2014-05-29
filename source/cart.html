@@ -3,20 +3,15 @@
 </header>
 
 {% if cart.items != blank %}
-<form id="cart-form" {% unless cart.shipping.enabled or cart.discount.enabled %}class="no_options"{% endunless %} method="post" action="/cart">
+<form id="cart-form" {% unless cart.shipping.enabled or cart.discount.enabled %}class="no_options"{% endunless %} method="post" accept-charset="utf8" action="/cart">
 
   <section id="cart_items">
-    <header>
-      <h4 id="item">Item</h4>
-      <h4 id="qty"><abbr title="Quantity">Qty</abbr></h4>
-      <h4 id="price">Price</h4>
-    </header>
     <ul>
       {% for item in cart.items %}
       <li id="item-{{ item.id }}" {% unless item.product.has_default_option %}class="with_option"{% endunless %}>
         <div class="item_thumb"><img src="{{ item.product.image | product_image_url | constrain: '-', '55'}}" alt="Image of {{ product.name | escape }}" /></div>
         <div class="item_name">
-          <h3><a href="{{ store.url }}#product_{{ item.product.id }}" title="{{ item.product.name }} details">{{ item.product.name }}</a></h3>
+          <h3><a href="{{ item.product.url }}" title="{{ item.product.name }} details">{{ item.product.name }}</a></h3>
           {% unless item.product.has_default_option %}<span>{{ item.option.name }}</span>{% endunless %}
         </div>
         <div class="quantity_input">{{ item | item_quantity_input }}</div>
@@ -33,31 +28,30 @@
       {% if cart.shipping.enabled %}
         {% if cart.shipping.strict %}
         <li id="cart-shipping-tax">
-          	{% if cart.shipping.pending %}
-          		{% if cart.country %}
-          		  <label for="country" class="not_set">Select another country</label>
-          		{% else %}
-          			<label for="country">Shipping</label>
-          		{% endif %}
-          	{% endif %}
-          {{ store.country | country_select }}
           {% if cart.shipping.pending %}
-          	<h3 class="cart_pending">$0</h3>
-						<button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Apply</span></button>  
-					{% else %}
+            {% if cart.country %}
+              <label for="country" class="not_set">Select a different country</label>
+            {% else %}
+              <label for="country">Shipping</label>
+            {% endif %}
+          {% else %}
+            <label for="country">Shipping</label>
+          {% endif %}
+          
+          {{ store.country | country_select }}
+          
+          {% if cart.shipping.pending %}
+            <h3 class="cart_pending">$0</h3>
+            <button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Apply</span></button>  
+          {% else %}
             <h3>{{ cart.shipping.amount | money_with_sign }}</h3>
           {% endif %}
         </li>
-        {% endif %}
-      {% else %}
-      <li id="cart-shipping-tax" class="not_set">
-        <label>Shipping</label>
-        <p>Applicable fees apply</p>
-      </li>        
+        {% endif %}  
       {% endif %}
       
       {% if cart.discount.enabled %}
-      <li id="discount_option">
+      <li id="discount_option" {% unless cart.shipping.strict %}class="solo"{% endunless %}>
         {% if cart.discount.pending %}
           <label id="cart_discount_label" for="cart_discount_code">Discount</label>
           {{ cart.discount | discount_code_input }}
@@ -75,12 +69,14 @@
       {% endif %}
     </ul>   
   </section>
-  {% endif %}
+  {% endif %} 
   
   <section id="cart_total">
-    <p>Applicable shipping and tax apply</p>
+    {% unless cart.shipping.strict %}
+      <p>Applicable shipping and tax apply</p>
+    {% endunless %}
     <div id="total">
-      {% if cart.shipping.enabled and cart.shipping.pending %}
+      {% if cart.shipping.pending and cart.discount.pending %}
       <h3>Subtotal</h3>
       <h2>{{ cart.subtotal | money_with_sign }}</h2>
       <button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Update</span></button>      
@@ -92,13 +88,14 @@
     </div>
   </section>
   
+  <input name="_utf8" type="hidden" value="&#x2713;" />
   <button id="checkout-btn" class="button" type="submit" title="Checkout">Checkout</button>
 </form>
 
 {% else %}
 
 <div id="cart_empty" class="message">
-  <p>Your cart is empty. <a href="/">Start shopping</a></p>
+  <p><a href="/products">Start Shopping</a></p>
 </div>
 
 {% endif %}

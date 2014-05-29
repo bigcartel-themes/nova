@@ -1,7 +1,7 @@
 <!doctype html>
-<!--[if lte IE 9 ]><html class="ie" lang="en"><![endif]-->
-<!--[if gt IE 9 ]><html lang="en"><![endif]-->
-<!--[if !IE ]> --><html lang="en"><![endif]-->
+<!--[if lt IE 9 ]><html class="ltie9" lang="en"><![endif]-->
+<!--[if gte IE 9 ]><html class="gteie9" lang="en"><![endif]-->
+<!--[if !IE ]> --><html lang="en"><!-- <![endif]-->
 <head>
   <title>{{ page.name }} / {{ store.name }}</title>
   
@@ -12,13 +12,21 @@
   <meta name="description" content="{{ page.meta_description }}" />
   <meta name="keywords" content="{{ page.meta_keywords }}" />
 
+	{% if page.permalink == 'product' and theme.share_buttons %}
+  <meta property="og:title" content="{{ product.name | escape }}">
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="{{ page.full_url }}">
+  <meta property="og:image" content="{{ product.image.url }}">
+  <meta property="og:site_name" content="{{ store.name | escape }}">
+  {% endif %}
+
   <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
   <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
 
 	<style>
     /* Prevents slides from flashing */
     .slides {
-      display:none;
+      display: none;
     }
   </style>
 
@@ -42,7 +50,8 @@
   
   {{ head_content }}
 </head>
-<body id="{% if page.permalink == 'products' %}layout{% else %}{{ page.permalink }}{% endif %}" class="{{ page.category }} {% if page.full_url contains '/category/' %}multi_col{% endif %}">
+<body id="{% if page.permalink == 'products' %}products_page{% else %}{{ page.permalink }}{% endif %}" class="{{ page.category }} {% if page.full_url contains '/category/' %}multi_col{% endif %}">	
+	
   <header id="site_header">
     <div id="branding">
       <h1><a href="/" title="Home">{{ store.name }}</a></h1>
@@ -50,7 +59,7 @@
     
     <nav id="cart_nav">
       <ul>
-      	<li id="menu"><a href="#">Menu</a></li>
+      	<li id="menu"><a href="#site_footer">Menu</a></li>
 				{% if theme.show_search %}
         <li id="search">
           <form id="search-form" name="search" action="/products" method="get">
@@ -64,7 +73,7 @@
     </nav>
   </header>
   
-  <div id="site_content" class="canvas">
+  <div id="site_content" class="canvas {% unless theme.product_list_layout == "stacked" %}grid{% endunless %}">
     {% if theme.image != blank %}
     <div id="theme_image">
       <img src="{{ theme.image.url }}" alt="{{ store.name }}" />
@@ -72,16 +81,7 @@
     {% endif %}
 
     <nav id="nav_primary">
-      <ul><li><a href="/" alt="Home">Home</a></li><li><a href="/products" alt="Our Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li></ul>      
-	  	
-	  	{% if theme.show_search %}
-	  	<div id="search">
-	      <form id="search-form" name="search" action="/products" method="get">
-	        <a href="#search-form">Search</a>
-	        <input id="search-input" name="search" type="text">
-	      </form>
-      </div>
-	    {% endif %}
+      <ul><li><a href="/products" title="Shop Products">Products</a></li>{% for page in pages.all limit: 3 %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact" title="Contact Us">Contact</a></li></ul>      
       <span class="keyline"></span>
     </nav>    
 
@@ -96,15 +96,19 @@
         <h1>{{ page.name }}</h1>
       </header>
       <section id="page_body">
-      {{ page_content | paragraphs }}
+        {{ page_content | paragraphs }}
       </section>
     {% else %}
       {{ page_content }}
-    {% endif %} 
-    <footer id="site_footer">
-      <ul id="footer_nav"><li><a href="/" title="Home">Home</a></li><li><a href="/products" title="Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li><li><a href="/cart">Cart</a></li></ul> 
-		  {% if theme.twitter_link != blank or theme.facebook_link != blank or theme.tumblr_link != blank %}
-      <span class="keyline"></span>
+    {% endif %}     
+  </div> 
+  
+  <footer id="site_footer">
+  	<div class="canvas">
+  		<nav>
+	    	<ul><li><a href="/products" title="Shop Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact" title="Contact Us">Contact</a></li>{% if theme.show_search %}<li id="search"><form id="search-form" name="search" action="/products" method="get"><a href="#search-form">Search</a><input id="search-input" name="search" type="text"></form></li>{% endif %}</ul> 
+  		</nav>
+		  {% if theme.twitter_link != blank or theme.facebook_link != blank or theme.tumblr_link != blank or store.website != blank%}
 		  <ul id="social_links">
 		    {% if theme.twitter_link != blank %}
 		      <li><a href="{{ theme.twitter_link }}" title="Follow us on Twitter">Twitter</a></li>
@@ -114,11 +118,14 @@
 		    {% endif %}
 		    {% if theme.tumblr_link != blank %}
 		      <li><a href="{{ theme.tumblr_link }}" title="Follow us on Tumblr">Tumblr</a></li>
-		    {% endif %}		    
+		    {% endif %}
+		  	{% if store.website != blank %}
+		  		<li id="website"><a href="{{ store.website }}">{{ store.website | replace: "http://", "" | replace: "www.", "" }}</a></li>
+		  	{% endif %}		    
 		  </ul>
-		  {% endif %}			
-			<div id="badge">{{ bigcartel_credit }}</div>      
-    </footer>     
-  </div> 
+		  {% endif %}			  
+			<div id="badge">{{ bigcartel_credit }}</div>     
+  	</div>
+  </footer>   
 </body>
 </html>

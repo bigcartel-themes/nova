@@ -7,118 +7,56 @@
 </section>
 {% endif %}
 
-{% if products != blank %}
-<section id="products">
-  {% for product in products %}
-  <article id="product_{{ product.id }}" class="product {{ product.status }}">
-    <section class="product_images galy">
-        <ul class="slides">
-        {% for image in product.images %}
-          <li id="image_{{ forloop.index }}">
-		      	<img src="{{ image | product_image_url | constrain: '780'}}" alt="Image of {{ product.name | escape }}" />
-          </li>
-        {% endfor %}
-        </ul>
-    </section>
-    <section class="product_info">
-      <section class="product_price">
-        <hgroup>
-          <h2>{{ product.name }}</h2>
-          {% case product.status %}
-          {% when 'active' %}
-          <h3 class="price">{{ product.default_price | money_with_sign }} {% if product.on_sale %}{% endif %}</h3>
-          {% when 'sold-out' %}
-      	  <h3>Sold out</h3>
-          {% when 'coming-soon' %}
-      	  <h3>Coming soon</h3>
-          {% endcase %}
-        </hgroup>
-      </section>  
-      <section class="product_options">
-        {% if product.description != blank %}<a href="#" class="more_info">Info</a>{% endif %}  
-	      <a id="mobile_info" href="{{ product.url }}" title="View {{ product.name | escape }}">Info</a>
-
-        {% case product.status %}
-	        {% when 'active' %}
-	        <form method="post" action="/cart">
-	          {% if product.has_default_option %}
-	            {{ product.option | hidden_option_input }}
-	            <button id="product-addtocart" name="submit" type="submit" class="button">Buy Now</button>          
-	          {% else %}
-	            <div class="option_select">
-	              <span class="options_button button">Buy Now</span>
-	              <span class="button" id="button_header" style="display:none">Select an Option</span>
-	              <ul class="options_menu">      
-	              {% for option in product.options_in_stock %}
-	                <li id="{{ option.id }}" {% if theme.show_inventory_bars %} style="background: -webkit-gradient(linear, left top, right top, color-stop({{ option.inventory }}%, #f5f5f5), color-stop({{ option.inventory }}%, #ffffff), color-stop(0%, #f5f5f5));;"{% endif %}>{{ option.name }}</li>
-	              {% endfor %}
-	              </ul>
-	            </div>
-	          
-	            <input id="option" type="hidden" name="cart[add][id]" />        
-	            <button id="product-addtocart" name="submit" type="submit" class="button" style="display:none">Buy Now</button>
-	          {% endif %}
-	        </form>
-        {% endcase %}                
-      </section>
-      <section class="product_overview">
-        {% if product.description != blank %}
-        <div class="product_description">
-        	<h3><a href="{{ product.url }}" title="View {{ product.name | escape }}">{{ product.name }}</a></h3>
-		      {{ product.description | paragraphs }}
-	        {% if theme.show_inventory_bars %}
-				  <section class="product_inventory">
-				  	<ul>
-				      {% for option in product.options %}
-				  		<li>
-						  	<h3>{{ option.name }} <span>{{ option.quantity }} in stock</h3>
-				  			<span class="bar" style="width:{{ option.inventory }}%;"></span>
-				  		</li>
-				  		{% endfor %}
-				  	</ul>
-				  </section>
-				  {% endif %}	          
-				  {% if theme.show_facebook or theme.show_twitter or theme.show_pinterest %}
-				  <section class="product_sharing">
-					  <ul>
-					    {% if theme.show_facebook %}
-					    <li class="social_facebook">
-					      <h3>Like it</h3>
-					      <div class="social_action">
-					        <iframe src="//www.facebook.com/plugins/like.php?href={{ page.full_url }}&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50%; height:20px;" allowTransparency="true"></iframe>
-					      </div>
-					    </li>
-					    {% endif %}
-					    {% if theme.show_twitter %}
-					    <li class="social_tweet">
-					      <h3>Tweet it</h3>
-					      <div class="social_action">
-					        <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ page.full_url }}" data-text="Check out {{ product.name }} from {{ store.name }}!" {% if theme.twitter_username != blank %}data-via="{{ theme.twitter_username | replace: "@", "" }}{% endif %}">Tweet</a>
-					        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-					      </div>
-					    </li>
-					    {% endif %}
-					    {% if theme.show_pinterest %}
-					    <li class="social_pinterest">
-					      <h3>Pin it</h3>
-					      <div class="social_action">
-					        <a href="http://pinterest.com/pin/create/button/?url={{ page.full_url }}&media={{ product.image.url }}&description={% if product.description != blank %}{{ product.description | escape | truncate: 490 }}{% endif %}" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It"></a>
-					        <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
-					      </div>
-					    </li>
-					    {% endif %}
-					  </ul>
-					</section>
-					{% endif %}
-        </div>
-        {% endif %}
-      </section>      
-    </section>
-  </article>   
-  {% endfor %}      
-</section>
-<a href="/products" id="all_products_btn" class="button">All Products</a>
+{% if theme.image_sets.slideshow.size > 0 %}
+  <section id="gallery">
+    <div class="product_images galy">
+      <div class="spinner"></div>
+      <ul class="slides">
+        {% for image in theme.image_sets.slideshow %}
+        <li><img src="{{ image.url }}" /></li>
+        {% endfor %}      
+      </ul>
+    </div>
+    
+    <a id="shop_products" href="/products" title="Shop Products">Shop Products</a>
+  </section>
 {% else %}
-	<p class="alert_no_products message">No products found.</p>
-{% endif %} 
+  {% if products != blank %}
+    <section id="products">
+      {% for product in products %}
+      <article id="product_{{ product.id }}" class="product {{ product.status }}">
+        <section class="product_images galy">
+    	    	<div class="spinner"></div>    
+            <ul class="slides">
+            {% for image in product.images %}
+              <li {% if forloop.last %}class="solo"{% endif %}>
+    		      	<img src="{{ image | product_image_url | constrain: '1000'}}" alt="Image of {{ product.name | escape }}" />
+              </li>
+            {% endfor %}
+            </ul>
+        </section>
+        <section class="product_info">
+          <section class="product_price">
+            <a href="{{ product.url }}" title="View {{ product.name }}">
+    	        <h2>{{ product.name | truncate: 75 }}</h2>
+    	        {% case product.status %}
+    	        {% when 'active' %}
+    					<h3 class="price">{% if product.on_sale %}<span class="on_sale">On sale!</span>{% endif %} {{ product.default_price | money_with_sign }}</h3>
+    	        {% when 'sold-out' %}
+    	    	  <h3>Sold out</h3>
+    	        {% when 'coming-soon' %}
+    	    	  <h3>Coming soon</h3>
+    	        {% endcase %}
+            </a>
+          </section>        
+        </section>
+      </article>   
+      {% endfor %}      
+    </section>
+    
+    <a href="/products" id="all_products_btn" class="button">All Products</a>
+  {% else %}
+  	<p class="alert_no_products message">No products found.</p>
+  {% endif %} 
+{% endif %}
 {% endget %}
