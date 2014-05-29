@@ -1,10 +1,12 @@
+.bundle
 .DS_Store
 
 build
+examples
 tmp
 log
-.bundle
 
 *.tmproj
 *.esproj
 *.sublime*
+*.sass-cache*
