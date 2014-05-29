@@ -359,7 +359,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
   #products {
     .product {
       position: relative;
-      margin: 0 0 30px;
+      margin: 0 0 25px;
       
       .product_price {
         h2 {
@@ -380,12 +380,16 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
   
   .product_images {
     min-height: 150px;
-    margin: 0 auto 14px;
+    margin: 0 auto;
    
     .flex-viewport {
       height: 100%;
       min-height: intrinsic !important;
     }  
+    
+    .flex-control-nav {
+      bottom: 20px;
+    }
   }
     
   #products_page .canvas.grid #products .product { 
@@ -413,7 +417,21 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     }
     
     .product_info {
+      
+      &.sold-out + #page_body {
+        margin-top: 10px;
+      }
+      
+      .product_price {
+        padding: 15px 0;
+      }      
+      
+      #product_sharing {
+       margin-top: -34px;
+      }      
+      
       #product_options {
+        
         #option_select {
           width: 100%;
         }
@@ -440,10 +458,6 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
       
       .product_inventory {
         margin-top: -8px;
-      }
-      
-      .product_sharing {
-        margin: 40px 0;
       }
     }
     
