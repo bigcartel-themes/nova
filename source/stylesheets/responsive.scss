@@ -92,13 +92,19 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     padding: 0;
     bottom: 0;
     top: auto;
-    opacity: .95;
-    background: #{'{{ theme.background_color }}'};
+    opacity: .97;
+    background: #{'{{ theme.background_secondary_color }}'};
     border-top: 1px solid #{'{{ theme.border_color }}'};
     }  
     
   #branding {
+    max-width: 50%;
+    width: 50%;
     margin: 25px 0 0 15px;
+    
+    &.wrap {
+      margin-top: 15px;
+    }
     }  
     
   #cart_nav {
@@ -156,9 +162,15 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     
   #categories #options_menu {
     padding-top: 60px;
+    height: 40vh;
+    overflow: scroll;
     
     li {
       padding: 6px 0;
+      
+      &.cat_header {
+        padding: 14px 0;
+      }
     }
   }
     
