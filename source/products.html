@@ -1,14 +1,21 @@
 {% paginate products from products.current by theme.products_per_page %}
 
-{% if categories.active != blank %}
+{% if categories.active != blank or  artists.active != blank %}
 <nav id="categories">
-	<a id="cat_button" class="button">{% if page.name == 'Products' %}All Products{% else %}{{ page.name }}{% endif %}<span class="arrow"></span></a>
+	<a id="cat_button" class="button">{% if page.name == 'Products' %}All Products{% else %}{{ page.name | truncate: 20 }}{% endif %}<span class="arrow"></span></a>
   <ul id="options_menu">
-    <li class="{% if page.name == 'Products' %}selected{% endif %}"><a href="/products" title="Shop all products">All Products</a></li>{% for category in categories.active %}<li class="page {% if page.full_url contains category.url %}selected{% endif %}">{{ category | link_to }}</li>{% endfor %}
-  </ul>
-  <span class="keyline"></span>
+    {% if categories.active != blank %}
+      {% if artists.active != blank %}<li class="cat_header">Products</li>{% endif %}
+      <li class="{% if page.name == 'Products' %}selected{% endif %}"><a href="/products" title="Shop all products">All</a></li>{% for category in categories.active %}<li class="page {% if page.full_url contains category.url %}selected{% endif %}">{{ category | link_to }}</li>{% endfor %}
+    {% endif %}
+    {% if artists.active != blank %}
+      {% if categories.active != blank %}<li class="cat_header">Artists</li>{% endif %}
+      <li class="{% if page.name == 'Products' %}selected{% endif %}"><a href="/products" title="Shop all Artists">All</a></li>{% for artist in artists.active %}<li class="page {% if page.full_url contains artist.url %}selected{% endif %}">{{ artist | link_to }}</li>{% endfor %}    
+    {% endif %}
+  </ul>  
 </nav>
 {% endif %}
+
 	
 {% if products != blank %}
 {% if theme.product_list_layout == "stacked" %}

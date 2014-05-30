@@ -53,7 +53,7 @@
 <body id="{% if page.permalink == 'products' %}products_page{% else %}{{ page.permalink }}{% endif %}" class="{{ page.category }} {% if page.full_url contains '/category/' %}multi_col{% endif %}">	
 	
   <header id="site_header">
-    <div id="branding">
+    <div id="branding" {% if store.name.size > 22 %}class="wrap"{% endif %}>
       <h1><a href="/" title="Home">{{ store.name }}</a></h1>
     </div>
     

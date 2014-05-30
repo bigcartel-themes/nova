@@ -188,6 +188,7 @@
   }
   
   #options_menu {
+    z-index: 1000;
     position: absolute;
     left: 50%;
     top: 0;
@@ -206,6 +207,17 @@
       
       &.selected {
         display: none;
+      }
+      
+      &.cat_header {
+        padding: 12px 0;
+        color: #{'{{ theme.text_color }}'};
+        background: #{'{{ theme.background_secondary_color }}'} !important;
+              
+        &:hover {
+        cursor: default;
+        background: #{'{{ theme.background_secondary_color }}'} !important;
+        }
       }
     }
   } 
