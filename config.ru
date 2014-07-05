@@ -12,13 +12,13 @@ options = {}
 #  options[:store] = 'lunatheme'
 #  options[:store] = 'rothirsch'
 #  options[:store] = 'pelledesigns'
-#	 options[:store] = 'unmarkedmx'
+#  options[:store] = 'unmarkedmx'
 #  options[:store] = 'dahlhausart'
 #  options[:store] = 'ohmykids'
 #  options[:store] = 'herriottgrace'
 #  options[:store] = 'unmarkedmx'
-  options[:store] = 'novademo'
-# options[:store] = 'undertow'
+#  options[:store] = 'exquisiteboutique00'
+ options[:store] = 'undertow'
 
   
 # Simulate the customization done by store owners by passing values to different variables.
@@ -41,7 +41,7 @@ options[:customization] = {
 		:product_list_layout => 'stacked',
     :show_search => true,
 		:share_buttons => true,
-		:show_inventory_bars => true,
+		:show_inventory_bars => false,
 #		:tumblr_link => 'http://tumblr.com/',
 #		:twitter_link => 'http://twitter.com/',
 #		:facebook_link => 'http://facebook.com/',		
