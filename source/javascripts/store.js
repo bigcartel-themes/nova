@@ -18,19 +18,26 @@ var Store = {
         $(this).imagesLoaded(function() {
 
           $(this).find('.spinner').fadeOut();         
-          $(this).find('.slides').show();
-            
-          // Initialize galleries for product images
+
+          // Initialize galleries for images
       
-          $(this).find('.product_images.galy').flexslider({
+          $('.product, #product').find('.product_images.galy').flexslider({
             animation: 'slide',
             easing: 'swing',
             animationSpeed: 500,
             directionNav: false,
             slideshow: false,
             smoothHeight: true
-            //useCSS: false //temp css transition fix
           }); 
+          $('#gallery .product_images.galy').flexslider({
+            animation: 'slide',
+            easing: 'swing',
+            animationSpeed: 500,
+            directionNav: false,
+            slideshow: true,
+            smoothHeight: true
+          });
+          $(this).find('.slides img').attr('style','opacity: 1');
         });
       });     
       
