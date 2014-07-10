@@ -12,7 +12,7 @@
   <meta name="description" content="{{ page.meta_description }}" />
   <meta name="keywords" content="{{ page.meta_keywords }}" />
 
-	{% if page.permalink == 'product' and theme.share_buttons %}
+  {% if page.permalink == 'product' and theme.share_buttons %}
   <meta property="og:title" content="{{ product.name | escape }}">
   <meta property="og:type" content="product">
   <meta property="og:url" content="{{ page.full_url }}">
@@ -20,21 +20,13 @@
   <meta property="og:site_name" content="{{ store.name | escape }}">
   {% endif %}
 
-  <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
   <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
-
-	<style>
-    /* Prevents slides from flashing */
-    .slides {
-      display: none;
-    }
-  </style>
-
+  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
   <script src="{{ theme | theme_js_url }}" type="text/javascript"></script>
 
   <script type="text/javascript" charset="utf-8">
-    $(function() {
+    $(window).load(function() {
       Store.init('{{ page.permalink }}', {
         shippingEnabled: {{ cart.shipping.enabled }},
         discountEnabled: {{ cart.discount.enabled }},
@@ -60,7 +52,7 @@
     <nav id="cart_nav">
       <ul>
       	<li id="menu"><a href="#site_footer">Menu</a></li>
-				{% if theme.show_search %}
+		{% if theme.show_search %}
         <li id="search">
           <form id="search-form" name="search" action="/products" method="get">
             <a href="#search-form">Search</a>

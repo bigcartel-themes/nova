@@ -162,7 +162,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     
   #categories #options_menu {
     padding-top: 60px;
-    height: 40vh;
+    max-height: 40vh;
     overflow: scroll;
     
     li {
@@ -418,7 +418,12 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     Product
   -------------------------------------------------------------- */  
     
-  #product {
+  #product {  
+        
+    #site_content.canvas {
+      overflow: visible;
+    }
+  
     .product_images {
       min-height: 200px;
       
@@ -457,9 +462,21 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
           box-sizing: border-box;
           width: 100%;
           padding-top: 60px;
+          max-height: 300px;
+          overflow-y: scroll;
           
           li {
             padding: 12px 0;
+
+            &:hover {
+              background: #{'{{ theme.background_color }}'} !important;
+            }
+            
+            &:active {
+              color: #{'{{ theme.link_hover }}'};      
+              background: #{'{{ theme.background_secondary_color }}'} !important;
+              transition: background 0 ease-in;
+            }            
           }
         }
       }     
