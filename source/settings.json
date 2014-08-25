@@ -79,6 +79,7 @@
     "title_background_color": "{{ background_secondary_color }}",
     "title_font": "{{ header_font }}",
     "background_color": "{{ background_color }}",
+    "background_image": "{{ background_image }}",
     "body_font": "{{ text_font }}",
 	"step_border_color":"{{ border_color }}",
 	"step_header_color":"{{ text_color }}",
