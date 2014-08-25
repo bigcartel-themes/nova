@@ -1,6 +1,6 @@
 {
   "name": "Nova",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "images": [
     {
       "variable": "image",
@@ -74,6 +74,38 @@
       "default": "#e36aa6"
     }                 
   ],
+  "checkout": {
+    "logo": "{{ image }}",
+    "title_background_color": "{{ background_secondary_color }}",
+    "title_font": "{{ header_font }}",
+    "background_color": "{{ background_color }}",
+    "body_font": "{{ text_font }}",
+	"step_border_color":"{{ border_color }}",
+	"step_header_color":"{{ text_color }}",
+	"step_inactive_header_color":" {{ text_secondary_color }}",
+	"step_header_font":"{{ header_font }}",
+	"content_color":"{{ text_font }}",
+	"content_border_color":"{{ border_color }}", 
+	"input_background_color":"{{ background_color }}",
+	"input_focus_background_color":"{{ background_secondary_color }}",
+	"input_border_color":"{{ border_color }} ",
+	"input_border_radius":"0px",
+	"input_focus_border_color":"transparent",
+	"input_font":"{{ text_font }}",
+	"input_color":"{{ text_color }}",
+	"input_focus_color":"{{ text_secondary_color }}",
+	"button_color":"{{ border_color }}",
+	"button_border_width":"1px",
+	"button_border_radius":"0px",
+	"button_hover_color":"{{ link_hover }}",
+	"button_background_color":"transparent",
+	"button_hover_background_color":"transparent",
+	"button_border_color":"{{ border_color }}",
+	"button_hover_border_color":"{{ link_hover }}",
+	"link_color":"{{ link_color }}",
+	"link_hover_color":"{{ link_hover }}",
+	"summary_item_border_color":"{{ border_color }}"
+  },
   "options": [
     {
       "variable": "welcome_text",
