@@ -75,7 +75,7 @@
     }                 
   ],
   "checkout": {
-    "logo": "{{ image }}",
+    "header_image": "{{ image }}",
     "title_color": "{{ text_color }}",
     "title_background_color": "{{ background_color }}",
     "title_font": "{{ header_font }}",
