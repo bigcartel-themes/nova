@@ -1,6 +1,6 @@
 {
   "name": "Nova",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "images": [
     {
       "variable": "image",
@@ -82,12 +82,15 @@
     "background_color": "{{ background_color }}",
     "background_image": "{{ background_image }}",
     "body_font": "{{ text_font }}",
+    "step_background_color":"{{ background_color }}",
     "step_border_color":"{{ border_color }}",
     "step_header_color":"{{ text_color }}",
     "step_inactive_header_color":" {{ text_secondary_color }}",
     "step_header_font":"{{ header_font }}",
     "content_color":"{{ text_font }}",
-    "content_border_color":"{{ border_color }}", 
+    "content_background_color":"{{ background_color }}",
+    "content_border_color":"{{ border_color }}",
+    "content_header_background_color":"{{ background_color }}",
     "input_focus_color": "#000000",
     "input_focus_background_color": "#ffffff",
     "input_focus_border_color": "#bfbfbf",
@@ -109,7 +112,8 @@
     "button_hover_border_color":"{{ link_hover }}",
     "link_color":"{{ link_color }}",
     "link_hover_color":"{{ link_hover }}",
-    "summary_item_border_color":"{{ border_color }}"
+    "summary_item_border_color":"{{ border_color }}",
+    "summary_color":"{{ text_color }}"
   },
   "options": [
     {
