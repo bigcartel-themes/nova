@@ -1,6 +1,6 @@
 {
   "name": "Nova",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "images": [
     {
       "variable": "image",
@@ -91,6 +91,7 @@
     "content_background_color":"{{ background_color }}",
     "content_border_color":"{{ border_color }}",
     "content_header_background_color":"{{ background_color }}",
+    "content_header_color":"{{ text_color }}",
     "input_focus_color": "#000000",
     "input_focus_background_color": "#ffffff",
     "input_focus_border_color": "#bfbfbf",
