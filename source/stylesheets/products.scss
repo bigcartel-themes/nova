@@ -126,7 +126,7 @@
     color: #{'{{ theme.text_secondary_color }}'};
     
     .on_sale {
-      font-family: #{'{{ theme.text_font }}'};
+      font-family: #{'{{ theme.text_font | font_family }}'};
       color: #{'{{ theme.error_color }}'};
     } 
     

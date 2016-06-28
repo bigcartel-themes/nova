@@ -111,7 +111,7 @@
   font-size: 12px;
   padding: 0;
   margin: 13px 25px 0 0;
-  font-family: #{'{{ theme.text_font }}'};
+  font-family: #{'{{ theme.text_font | font_family }}'};
   color: #{'{{ theme.link_color }}'};
   border: none;
   background: none;

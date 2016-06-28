@@ -3,7 +3,7 @@
   #intro {
     margin: -28px auto 50px;
     max-width: 660px;
-    font-family: #{'{{ theme.header_font }}'};
+    font-family: #{'{{ theme.header_font | font_family }}'};
     font-size: 30px;
     color: #{'{{ theme.link_color }}'};
     text-align: center;
