@@ -117,7 +117,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-family: #{'{{ theme.header_font }}'};    
+    font-family: #{'{{ theme.header_font | font_family }}'};    
   }
   
   h3 {
