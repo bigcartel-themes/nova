@@ -85,22 +85,25 @@
   		<nav>
 	    	<ul><li><a href="/products" title="Shop Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact" title="Contact Us">Contact</a></li>{% if theme.show_search %}<li id="search"><form id="search-form" name="search" action="/products" method="get"><a href="#search-form">Search</a><input id="search-input" name="search" type="text"></form></li>{% endif %}</ul> 
   		</nav>
-		  {% if theme.twitter_link != blank or theme.facebook_link != blank or theme.tumblr_link != blank or store.website != blank%}
-		  <ul id="social_links">
-		    {% if theme.twitter_link != blank %}
-		      <li><a href="{{ theme.twitter_link }}" title="Follow us on Twitter">Twitter</a></li>
-		    {% endif %}
-		    {% if theme.facebook_link != blank %}
-		      <li><a href="{{ theme.facebook_link }}" title="Friend us on Facebook">Facebook</a></li>
-		    {% endif %}
-		    {% if theme.tumblr_link != blank %}
-		      <li><a href="{{ theme.tumblr_link }}" title="Follow us on Tumblr">Tumblr</a></li>
-		    {% endif %}
-		  	{% if store.website != blank %}
-		  		<li id="website"><a href="{{ store.website }}">{{ store.website | replace: "http://", "" | replace: "www.", "" }}</a></li>
-		  	{% endif %}		    
-		  </ul>
-		  {% endif %}			  
+        {% if theme.twitter_url != blank or theme.facebook_url != blank or theme.instagram_url != blank or theme.tumblr_url != blank or store.website != blank %}
+          <ul id="social_links">
+            {% if theme.twitter_url != blank %}
+              <li><a title="Twitter" href="{{ theme.twitter_url }}">Twitter</a></li>
+            {% endif %}
+            {% if theme.facebook_url != blank %}
+              <li><a title="Facebook" href="{{ theme.facebook_url }}">Facebook</a></li>
+            {% endif %}
+            {% if theme.instagram_url != blank %}
+              <li><a title="Instagram" href="{{ theme.instagram_url }}">Instagram</a></li>
+            {% endif %}
+            {% if theme.tumblr_url != blank %}
+              <li><a title="Tumblr" href="{{ theme.tumblr_url }}">Tumblr</a></li>
+            {% endif %}
+            {% if store.website != blank %}
+    		  		<li id="website"><a href="{{ store.website }}">{{ store.website | replace: "http://", "" | replace: "www.", "" }}</a></li>
+    		  	{% endif %}		
+          </ul>
+        {% endif %}		  
 			<div id="badge">{{ bigcartel_credit }}</div>     
   	</div>
   </footer>   

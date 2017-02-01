@@ -1,6 +1,6 @@
 {
   "name": "Nova",
-  "version": "1.1.12",
+  "version": "1.2.0",
   "images": [
     {
       "variable": "image",
@@ -180,22 +180,28 @@
       "description": "Adds Facebook, Twitter, and Pinterest buttons to Product pages"
     },
     {
-      "variable": "twitter_link",
-      "label": "Twitter Link",
+      "variable": "twitter_url",
+      "label": "Twitter URL",
       "type": "text",
       "description": "Ex: http://twitter.com/bigcartel"
     },
     {
-      "variable": "facebook_link",
-      "label": "Facebook Link",
+      "variable": "facebook_url",
+      "label": "Facebook URL",
       "type": "text",
       "description": "Ex: http://facebook.com/bigcartel"
     },
     {
-      "variable": "tumblr_link",
-      "label": "Tumblr Link",
+      "variable": "tumblr_url",
+      "label": "Tumblr URL",
       "type": "text",
-      "description": "Ex: http://tumblr.com/bigcartel"
-    }    
+      "description": "Ex: http://bigcartel.tumblr.com"
+    },
+    {
+      "variable": "instagram_url",
+      "label": "Instagram URL",
+      "type": "text",
+      "description": "Ex: http://instagram.com/bigcartel"
+    }  
   ]
 }
