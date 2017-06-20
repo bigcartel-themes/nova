@@ -1,6 +1,6 @@
 {
   "name": "Nova",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "images": [
     {
       "variable": "image",
@@ -113,6 +113,7 @@
     "button_hover_border_color":"{{ link_hover }}",
     "link_color":"{{ link_color }}",
     "link_hover_color":"{{ link_hover }}",
+    "summary_submit_background_color":"{{ background_color }}",
     "summary_item_border_color":"{{ border_color }}",
     "summary_item_list_border_color":"{{ border_color }}",
     "summary_item_list_border_width":"1px",
