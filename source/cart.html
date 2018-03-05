@@ -22,54 +22,6 @@
       {% endfor %}      
     </ul>
   </section>
-  {% if cart.shipping.enabled or cart.discount.enabled %}
-  <section id="cart_options">
-    <ul>
-      {% if cart.shipping.enabled %}
-        {% if cart.shipping.strict %}
-        <li id="cart-shipping-tax">
-          {% if cart.shipping.pending %}
-            {% if cart.country %}
-              <label for="country" class="not_set">Select a different country</label>
-            {% else %}
-              <label for="country">Shipping</label>
-            {% endif %}
-          {% else %}
-            <label for="country">Shipping</label>
-          {% endif %}
-          
-          {{ store.country | country_select }}
-          
-          {% if cart.shipping.pending %}
-            <h3 class="cart_pending">$0</h3>
-            <button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Apply</span></button>  
-          {% else %}
-            <h3>{{ cart.shipping.amount | money_with_sign }}</h3>
-          {% endif %}
-        </li>
-        {% endif %}  
-      {% endif %}
-      
-      {% if cart.discount.enabled %}
-      <li id="discount_option" {% unless cart.shipping.strict %}class="solo"{% endunless %}>
-        {% if cart.discount.pending %}
-          <label id="cart_discount_label" for="cart_discount_code">Discount</label>
-          {{ cart.discount | discount_code_input }}
-          <h3 class="cart_pending">{{ store.currency.sign }}0</h3>
-          <button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Apply</span></button>    
-        {% elsif cart.discount.free_shipping %}
-          <label for="cart_discount_code">Discount</label>        
-          <p>{{ cart.discount.name }}</p>         
-        {% else %}
-          <label for="cart_discount_code">Discount</label>        
-          <p>{{ cart.discount.name }}</p>
-          <h3>-{{ cart.discount.amount | money_with_sign }}</h3>
-        {% endif %}
-      </li>
-      {% endif %}
-    </ul>   
-  </section>
-  {% endif %} 
   
   <section id="cart_total">
     {% unless cart.shipping.strict %}
