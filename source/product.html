@@ -17,7 +17,7 @@
   <section class="product_price">
 	  {% case product.status %}
 	  {% when 'active' %}
-	  <h3 class="price">{% if product.on_sale %}<span class="on_sale">On sale!</span>{% endif %} {{ product.default_price | money_with_sign }}</h3>
+	  <h3 class="price">{% if product.on_sale %}<span class="on_sale">On sale!</span>{% endif %} {{ product.default_price | money: theme.money_format }}</h3>
 	  {% when 'sold-out' %}
 	  <h3>Sold out</h3>
 	  {% when 'coming-soon' %}
@@ -49,7 +49,7 @@
             <a id="options_button" class="button"><span class="label">Buy Now</span><span class="arrow"></span></a>
             <ul id="options_menu">      
             {% for option in product.options_in_stock %}
-              <li id="{{ option.id }}" {% if theme.show_inventory_bars %} style="background: -webkit-gradient(linear, left top, right top, color-stop({{ option.inventory }}%, {{ theme.background_secondary_color }}), color-stop({{ option.inventory }}%, {{ theme.background_color }}), color-stop(0%, {{ theme.background_secondary_color }}));;"{% endif %}>{{ option.name }} {% if option.has_custom_price %}<span>{{ option.price | money_with_sign }}</span>{% endif %}</li>
+              <li id="{{ option.id }}" {% if theme.show_inventory_bars %} style="background: -webkit-gradient(linear, left top, right top, color-stop({{ option.inventory }}%, {{ theme.background_secondary_color }}), color-stop({{ option.inventory }}%, {{ theme.background_color }}), color-stop(0%, {{ theme.background_secondary_color }}));;"{% endif %}>{{ option.name }} {% if option.has_custom_price %}<span>{{ option.price | money: theme.money_format }}</span>{% endif %}</li>
             {% endfor %}
             </ul>
           </div>

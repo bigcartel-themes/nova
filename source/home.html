@@ -41,7 +41,7 @@
     	        <h2>{{ product.name | truncate: 75 }}</h2>
     	        {% case product.status %}
     	        {% when 'active' %}
-    					<h3 class="price">{% if product.on_sale %}<span class="on_sale">On sale!</span>{% endif %} {{ product.default_price | money_with_sign }}</h3>
+    					<h3 class="price">{% if product.on_sale %}<span class="on_sale">On sale!</span>{% endif %} {{ product.default_price | money: theme.money_format }}</h3>
     	        {% when 'sold-out' %}
     	    	  <h3>Sold out</h3>
     	        {% when 'coming-soon' %}
