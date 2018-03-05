@@ -3,51 +3,43 @@
 </header>
 
 {% if cart.items != blank %}
-<form id="cart-form" {% unless cart.shipping.enabled or cart.discount.enabled %}class="no_options"{% endunless %} method="post" accept-charset="utf8" action="/cart">
+  <form id="cart-form" class="no_options" method="post" accept-charset="utf8" action="/cart">
 
-  <section id="cart_items">
-    <ul>
-      {% for item in cart.items %}
-      <li id="item-{{ item.id }}" {% unless item.product.has_default_option %}class="with_option"{% endunless %}>
-        <div class="item_thumb"><img src="{{ item.product.image | product_image_url | constrain: '-', '55'}}" alt="Image of {{ product.name | escape }}" /></div>
-        <div class="item_name">
-          <h3><a href="{{ item.product.url }}" title="{{ item.product.name }} details">{{ item.product.name }}</a></h3>
-          {% unless item.product.has_default_option %}<span>{{ item.option.name }}</span>{% endunless %}
-        </div>
-        <div class="quantity_input">{{ item | item_quantity_input }}</div>
-        <h3 class="item_price">{{ item.price | money_with_sign }}</h3>
+    <section id="cart_items">
+      <ul>
+        {% for item in cart.items %}
+        <li id="item-{{ item.id }}" {% unless item.product.has_default_option %}class="with_option"{% endunless %}>
+          <div class="item_thumb"><img src="{{ item.product.image | product_image_url | constrain: '-', '55'}}" alt="Image of {{ product.name | escape }}" /></div>
+          <div class="item_name">
+            <h3><a href="{{ item.product.url }}" title="{{ item.product.name }} details">{{ item.product.name }}</a></h3>
+            {% unless item.product.has_default_option %}<span>{{ item.option.name }}</span>{% endunless %}
+          </div>
+          <div class="quantity_input">{{ item | item_quantity_input }}</div>
+          <h3 class="item_price">{{ item.price | money_with_sign }}</h3>
+    
+          <a href="#" class="remove_item" title="Remove item from cart">Remove</a>    
+        </li>
+        {% endfor %}      
+      </ul>
+    </section>
+    
+    <section id="cart_total">
+      <div id="total">
+        <h3>Subtotal</h3>
+        <h2>{{ cart.total | money_with_sign }}</h2>
+        <button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Update</span></button>            
+        {% endif %}
+      </div>
+    </section>
   
-        <a href="#" class="remove_item" title="Remove item from cart">Remove</a>    
-      </li>
-      {% endfor %}      
-    </ul>
-  </section>
-  
-  <section id="cart_total">
-    {% unless cart.shipping.strict %}
-      <p>Applicable shipping and tax apply</p>
-    {% endunless %}
-    <div id="total">
-      {% if cart.shipping.pending and cart.discount.pending %}
-      <h3>Subtotal</h3>
-      <h2>{{ cart.subtotal | money_with_sign }}</h2>
-      <button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Update</span></button>      
-      {% else %}
-      <h3>Total</h3>
-      <h2>{{ cart.total | money_with_sign }}</h2>
-      <button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Update</span></button>            
-      {% endif %}
-    </div>
-  </section>
-  
-  <input name="_utf8" type="hidden" value="&#x2713;" />
-  <button id="checkout-btn" class="button" type="submit" title="Checkout">Checkout</button>
-</form>
+    <input name="_utf8" type="hidden" value="&#x2713;" />
+    <button id="checkout-btn" class="button" type="submit" title="Checkout">Checkout</button>
+  </form>
 
 {% else %}
 
-<div id="cart_empty" class="message">
-  <p><a href="/products">Start Shopping</a></p>
-</div>
+  <div id="cart_empty" class="message">
+    <p><a href="/products">Start Shopping</a></p>
+  </div>
 
 {% endif %}
