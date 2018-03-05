@@ -1,111 +1,104 @@
-<!doctype html>
-<!--[if lt IE 9 ]><html class="ltie9" lang="en"><![endif]-->
-<!--[if gte IE 9 ]><html class="gteie9" lang="en"><![endif]-->
-<!--[if !IE ]> --><html lang="en"><!-- <![endif]-->
-<head>
-  <title>{{ page.name }} | {{ store.name }}</title>
-  <meta charset="UTF-8">
-  <!--[if IE ]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->  
-  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1, width=device-width" />  
-  <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
-  <script src="{{ theme | theme_js_url }}" type="text/javascript"></script>
-  <script type="text/javascript" charset="utf-8">
-    $(window).load(function() {
-      Store.init('{{ page.permalink }}', {
-        shippingEnabled: {{ cart.shipping.enabled }},
-        discountEnabled: {{ cart.discount.enabled }},
-        showSearch: {{ theme.show_search }}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ page.name }} | {{ store.name }}</title>
+    <meta charset="UTF-8">
+    <!--[if IE ]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->  
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1, width=device-width" />  
+    <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script src="{{ theme | theme_js_url }}" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8">
+      $(window).load(function() {
+        Store.init('{{ page.permalink }}', {
+          shippingEnabled: {{ cart.shipping.enabled }},
+          discountEnabled: {{ cart.discount.enabled }},
+          showSearch: {{ theme.show_search }}
+        });
       });
-    });
-  </script>  
-  
-  <!-- IE6-8 support of HTML5 elements -->
-  <!--[if lt IE 9]>
-  <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  
-  {{ head_content }}
-</head>
-<body id="{% if page.permalink == 'products' %}products_page{% else %}{{ page.permalink }}{% endif %}" class="{{ page.category }} {% if page.full_url contains '/category/' %}multi_col{% endif %}">	
-	
-  <header id="site_header">
-    <div id="branding" {% if store.name.size > 22 %}class="wrap"{% endif %}>
-      <h1><a href="/" title="Home">{{ store.name }}</a></h1>
-    </div>
+    </script>  
     
-    <nav id="cart_nav">
-      <ul>
-      	<li id="menu"><a href="#site_footer">Menu</a></li>
-		{% if theme.show_search %}
-        <li id="search">
-          <form id="search-form" name="search" action="/products" method="get">
-            <a href="#search-form">Search</a>
-            <input id="search-input" name="search" type="text">
-          </form>
-        </li>
-        {% endif %}       	
-        <li id="cart_info"><a href="/cart" title="Cart">Cart<span>/ {{ cart.item_count | pluralize: 'item', 'items' }}</span></a></li>      
-      </ul>
-    </nav>
-  </header>
+    {{ head_content }}
+  </head>
+  <body id="{% if page.permalink == 'products' %}products_page{% else %}{{ page.permalink }}{% endif %}" class="{{ page.category }} {% if page.full_url contains '/category/' %}multi_col{% endif %}">	
+  	
+    <header id="site_header">
+      <div id="branding" {% if store.name.size > 22 %}class="wrap"{% endif %}>
+        <h1><a href="/" title="Home">{{ store.name }}</a></h1>
+      </div>
+      
+      <nav id="cart_nav">
+        <ul>
+        	<li id="menu"><a href="#site_footer">Menu</a></li>
+  		{% if theme.show_search %}
+          <li id="search">
+            <form id="search-form" name="search" action="/products" method="get">
+              <a href="#search-form">Search</a>
+              <input id="search-input" name="search" type="text">
+            </form>
+          </li>
+          {% endif %}       	
+          <li id="cart_info"><a href="/cart" title="Cart">Cart<span>/ {{ cart.item_count | pluralize: 'item', 'items' }}</span></a></li>      
+        </ul>
+      </nav>
+    </header>
+    
+    <div id="site_content" class="canvas {% unless theme.product_list_layout == "stacked" %}grid{% endunless %}">
+      {% if theme.image != blank %}
+      <div id="theme_image">
+        <img src="{{ theme.image.url | constrain: 1000 }}" alt="{{ store.name }}" />
+      </div>
+      {% endif %}
   
-  <div id="site_content" class="canvas {% unless theme.product_list_layout == "stacked" %}grid{% endunless %}">
-    {% if theme.image != blank %}
-    <div id="theme_image">
-      <img src="{{ theme.image.url | constrain: 1000 }}" alt="{{ store.name }}" />
-    </div>
-    {% endif %}
-
-    <nav id="nav_primary">
-      <ul><li><a href="/products" title="Shop Products">Products</a></li>{% for page in pages.all limit: 3 %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact" title="Contact Us">Contact</a></li></ul>      
-      <span class="keyline"></span>
-    </nav>    
-
-    {% if errors != blank %}
-    <ul id="error" class="fade-in">
-      {% for error in errors %}<li>{{ error }}</li>{% endfor %}
-    </ul>    
-    {% endif %}
-   
-    {% if page.category == 'custom' or page.full_url contains '/success' %}
-      <header id="content_header">
-        <h1>{{ page.name }}</h1>
-      </header>
-      <section id="page_body">
-        {{ page_content | paragraphs }}
-      </section>
-    {% else %}
-      {{ page_content }}
-    {% endif %}     
-  </div> 
+      <nav id="nav_primary">
+        <ul><li><a href="/products" title="Shop Products">Products</a></li>{% for page in pages.all limit: 3 %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact" title="Contact Us">Contact</a></li></ul>      
+        <span class="keyline"></span>
+      </nav>    
   
-  <footer id="site_footer">
-  	<div class="canvas">
-  		<nav>
-	    	<ul><li><a href="/products" title="Shop Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact" title="Contact Us">Contact</a></li>{% if theme.show_search %}<li id="search"><form id="search-form" name="search" action="/products" method="get"><a href="#search-form">Search</a><input id="search-input" name="search" type="text"></form></li>{% endif %}</ul> 
-  		</nav>
-        {% if theme.twitter_url != blank or theme.facebook_url != blank or theme.instagram_url != blank or theme.tumblr_url != blank or store.website != blank %}
-          <ul id="social_links">
-            {% if theme.twitter_url != blank %}
-              <li><a title="Twitter" href="{{ theme.twitter_url }}">Twitter</a></li>
-            {% endif %}
-            {% if theme.facebook_url != blank %}
-              <li><a title="Facebook" href="{{ theme.facebook_url }}">Facebook</a></li>
-            {% endif %}
-            {% if theme.instagram_url != blank %}
-              <li><a title="Instagram" href="{{ theme.instagram_url }}">Instagram</a></li>
-            {% endif %}
-            {% if theme.tumblr_url != blank %}
-              <li><a title="Tumblr" href="{{ theme.tumblr_url }}">Tumblr</a></li>
-            {% endif %}
-            {% if store.website != blank %}
-    		  		<li id="website"><a href="{{ store.website }}">{{ store.website | replace: "http://", "" | replace: "www.", "" }}</a></li>
-    		  	{% endif %}		
-          </ul>
-        {% endif %}		  
-			<div id="badge">{{ bigcartel_credit }}</div>     
-  	</div>
-  </footer>   
-</body>
+      {% if errors != blank %}
+      <ul id="error" class="fade-in">
+        {% for error in errors %}<li>{{ error }}</li>{% endfor %}
+      </ul>    
+      {% endif %}
+     
+      {% if page.category == 'custom' or page.full_url contains '/success' %}
+        <header id="content_header">
+          <h1>{{ page.name }}</h1>
+        </header>
+        <section id="page_body">
+          {{ page_content | paragraphs }}
+        </section>
+      {% else %}
+        {{ page_content }}
+      {% endif %}     
+    </div> 
+    
+    <footer id="site_footer">
+    	<div class="canvas">
+    		<nav>
+  	    	<ul><li><a href="/products" title="Shop Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact" title="Contact Us">Contact</a></li>{% if theme.show_search %}<li id="search"><form id="search-form" name="search" action="/products" method="get"><a href="#search-form">Search</a><input id="search-input" name="search" type="text"></form></li>{% endif %}</ul> 
+    		</nav>
+          {% if theme.twitter_url != blank or theme.facebook_url != blank or theme.instagram_url != blank or theme.tumblr_url != blank or store.website != blank %}
+            <ul id="social_links">
+              {% if theme.twitter_url != blank %}
+                <li><a title="Twitter" href="{{ theme.twitter_url }}">Twitter</a></li>
+              {% endif %}
+              {% if theme.facebook_url != blank %}
+                <li><a title="Facebook" href="{{ theme.facebook_url }}">Facebook</a></li>
+              {% endif %}
+              {% if theme.instagram_url != blank %}
+                <li><a title="Instagram" href="{{ theme.instagram_url }}">Instagram</a></li>
+              {% endif %}
+              {% if theme.tumblr_url != blank %}
+                <li><a title="Tumblr" href="{{ theme.tumblr_url }}">Tumblr</a></li>
+              {% endif %}
+              {% if store.website != blank %}
+      		  		<li id="website"><a href="{{ store.website }}">{{ store.website | replace: "http://", "" | replace: "www.", "" }}</a></li>
+      		  	{% endif %}		
+            </ul>
+          {% endif %}		  
+  			<div id="badge">{{ bigcartel_credit }}</div>     
+    	</div>
+    </footer>   
+  </body>
 </html>
