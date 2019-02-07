@@ -38,7 +38,7 @@
             </form>
           </li>
           {% endif %}
-          <li id="cart_info"><a href="/cart" title="Cart">Cart<span>/ {{ cart.item_count | pluralize: 'item', 'items' }}</span></a></li>
+          <li id="cart_info"><a href="/cart">Cart<span>/ {{ cart.item_count | pluralize: 'item', 'items' }}</span></a></li>
         </ul>
       </nav>
     </header>
@@ -51,7 +51,7 @@
       {% endif %}
 
       <nav id="nav_primary">
-        <ul><li><a href="/products" title="Shop Products">Products</a></li>{% for page in pages.all limit: 3 %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact" title="Contact Us">Contact</a></li></ul>
+        <ul><li><a href="/products">{{ pages.products.name }}</a></li>{% for page in pages.all limit: 3 %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li></ul>
         <span class="keyline"></span>
       </nav>
 
@@ -76,7 +76,7 @@
     <footer id="site_footer">
     	<div class="canvas">
     		<nav>
-  	    	<ul><li><a href="/products" title="Shop Products">Products</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact" title="Contact Us">Contact</a></li>{% if theme.show_search %}<li id="search"><form id="search-form" name="search" action="/products" method="get"><a href="#search-form">Search</a><input id="search-input" name="search" type="text"></form></li>{% endif %}</ul>
+  	    	<ul><li><a href="/products">{{ pages.products.name }}</a></li>{% for page in pages.all %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li>{% if theme.show_search %}<li id="search"><form id="search-form" name="search" action="/products" method="get"><a href="#search-form">Search</a><input id="search-input" name="search" type="text"></form></li>{% endif %}</ul>
     		</nav>
           {% if theme.twitter_url != blank or theme.facebook_url != blank or theme.instagram_url != blank or theme.tumblr_url != blank or theme.pinterest_url != blank or store.website != blank %}
             <ul id="social_links">
