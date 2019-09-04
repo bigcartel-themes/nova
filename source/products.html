@@ -1,22 +1,23 @@
 {% paginate products from products.current by theme.products_per_page %}
 
-{% if categories.active != blank or  artists.active != blank %}
-<nav id="categories">
-	<a id="cat_button" class="button">{% if page.name == 'Products' %}All Products{% else %}{{ page.name | truncate: 20 }}{% endif %}<span class="arrow"></span></a>
-  <ul id="options_menu">
-    {% if categories.active != blank %}
-      {% if artists.active != blank %}<li class="cat_header">Products</li>{% endif %}
-      <li class="{% if page.name == 'Products' %}selected{% endif %}"><a href="/products" title="Shop all products">All</a></li>{% for category in categories.active %}<li class="page {% if page.full_url contains category.url %}selected{% endif %}">{{ category | link_to }}</li>{% endfor %}
-    {% endif %}
-    {% if artists.active != blank %}
-      {% if categories.active != blank %}<li class="cat_header">Artists</li>{% endif %}
-      <li class="{% if page.name == 'Products' %}selected{% endif %}"><a href="/products" title="Shop all Artists">All</a></li>{% for artist in artists.active %}<li class="page {% if page.full_url contains artist.url %}selected{% endif %}">{{ artist | link_to }}</li>{% endfor %}    
-    {% endif %}
-  </ul>  
-</nav>
-{% endif %}
+  {% if categories.active != blank or artists.active != blank %}
+    <div class="category-navigation">
+      <div class="category-navigation-title" tabindex="0">
+        <span class="category-title">{% if page.name == 'Products' %}All Products{% else %}{{ page.name | truncate: 20 }}{% endif %}</span>
+        <svg version="1.1" id="Layer_1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="53" height="46" viewBox="0 0 531.74 460.5" overflow="visible" enable-background="new 0 0 531.74 460.5" xml:space="preserve"><polygon stroke="#000000" points="530.874,0.5 265.87,459.5 0.866,0.5 "/></svg>
+      </div>
+      <ul class="category-navigation-list">
+        {% for category in categories.active %}
+          <li>{{ category | link_to }}</li>
+        {% endfor %}
+        {% for artist in artists.active %}
+          <li>{{ artist | link_to }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
 
-	
+
 {% if products != blank %}
 {% if theme.product_list_layout == "stacked" %}
 <section id="products">
@@ -45,10 +46,10 @@
 	    	  <h3>Coming soon</h3>
 	        {% endcase %}
         </a>
-      </section>        
+      </section>
     </section>
-  </article>   
-  {% endfor %}      
+  </article>
+  {% endfor %}
 </section>
 {% else %}
 <section id="products">
@@ -71,16 +72,16 @@
           {% endcase %}
 	      </section>
 	    </a>
-	  </article>   
-	  {% endfor %} 
-	</div>               
+	  </article>
+	  {% endfor %}
+	</div>
 </section>
 {% endif %}
 
 {% if paginate.previous.is_link or paginate.next.is_link %}
 <nav id="pagination">
-	<ul>{% if paginate.previous %}{% if paginate.previous.is_link %}<li id="pag_prev"><a href="{{ paginate.previous.url }}" class="button" title="Previous">Previous</a></li>{% endif %}{% endif %}{% if paginate.next %}{% if paginate.next.is_link %}<li id="pag_next"><a href="{{ paginate.next.url }}" class="button" title="Next">Next</a></li>{% endif %}{% endif %}</ul>  
-</nav>   
+	<ul>{% if paginate.previous %}{% if paginate.previous.is_link %}<li id="pag_prev"><a href="{{ paginate.previous.url }}" class="button" title="Previous">Previous</a></li>{% endif %}{% endif %}{% if paginate.next %}{% if paginate.next.is_link %}<li id="pag_next"><a href="{{ paginate.next.url }}" class="button" title="Next">Next</a></li>{% endif %}{% endif %}</ul>
+</nav>
 {% endif %}
 
 {% else %}

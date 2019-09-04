@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
     {{ head_content }}
+
   </head>
 
   <body id="{% if page.permalink == 'products' %}products_page{% else %}{{ page.permalink }}{% endif %}" class="{{ page.category }} {% if page.full_url contains '/category/' %}multi_col{% endif %}">
@@ -100,5 +101,10 @@
         Product.find('{{ product.permalink }}', processProduct)
       </script>
     {% endif %}
+    <script type="text/javascript" charset="utf-8">
+      $(window).on('load', function() {
+        Store.init('{{ page.permalink }}');
+      });
+    </script>
   </body>
 </html>
