@@ -73,7 +73,7 @@ button {
 }
 
 .button {
-  padding: 13px 30px;
+  padding: 18px 30px;
   line-height: 1.4em !important;
   margin: 0;
   border: 1px solid #{'{{ theme.border_color }}'};
@@ -87,14 +87,19 @@ button {
   -moz-osx-font-smoothing: grayscale;
   }
 
+  .button.disabled, .button:disabled {
+  cursor: not-allowed;
+  opacity: .3;
+  }
+
 .button:hover {
   color: #{'{{ theme.link_hover }}'} !important;
   border-color: #{'{{ theme.link_hover }}'};
   }
 
-.button.disabled:hover {
-  cursor: not-allowed;
-  opacity: .3;
+.button.disabled:hover, .button:disabled:hover {
+  border: 1px solid #{'{{ theme.border_color }}'};
+  color: #{'{{ theme.text_secondary_color }}'} !important;
   }
 
 .select {
@@ -481,7 +486,7 @@ span.arrow {
   }
 
   nav + #social_links {
-    margin-bottom: 12px;
+    margin: 12px auto;
   }
 }
 
