@@ -169,6 +169,7 @@
 }
 
 .category-navigation {
+  box-sizing: border-box;
   color: #{'{{ theme.text_secondary_color }}'} !important;
   cursor: pointer;
   font-family: #{'{{ theme.text_font | font_family }}'};
@@ -222,35 +223,32 @@
 .category-navigation-list {
   background: #{'{{ theme.background_color }}'};
   border: 1px solid #{'{{ theme.text_color }}'};
+  box-sizing: border-box;
   list-style: none;
   margin: 0;
   opacity: 0;
   padding: 0;
   position: absolute;
   top: calc(100% - 8px);
-  width: 198px;
+  width: 100%;
   visibility: hidden;
   z-index: 2;
 
   @media screen and (max-width: 560px), screen and (max-device-width: 560px) and (orientation: landscape) {
-    width: 100%;
+    top: 100%;
   }
 
   li {
     border-bottom: 1px solid #{'{{ theme.border_color }}'};
 
-    a, span.product-option {
+    a {
       @include flexbox;
       @include justify-content(center);
       @include align-items(center);
       cursor: pointer;
       height: 67px;
       line-height: 20px;
-      padding: 0 30px;
-
-      @media screen and (max-width: 560px), screen and (max-device-width: 560px) and (orientation: landscape) {
-        height: 42px;
-      }
+      padding: 0 20px;
 
       &:hover, &:active, &:focus {
         background: #{'{{ theme.background_secondary_color }}'};
@@ -265,61 +263,6 @@
   &.visible {
     opacity: 1;
     visibility: visible;
-  }
-}
-
-#categories {
-  position: relative;
-  z-index: 100;
-  margin: -71px 0 64px 0;
-  text-align: center;
-
-  a.button {
-    display: inline-block;
-    margin: 0 auto;
-    width: 198px;
-    padding: 18px 0;
-
-    &:hover span.arrow {
-      opacity: .8;
-      border-color: #{'{{ theme.link_hover }}'} transparent transparent transparent;
-    }
-  }
-
-  #options_menu {
-    display: none;
-    z-index: 1000;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    z-index: 999;
-    padding-top: 57px;
-    width: 198px;
-    margin: 0 0 0 -100px;
-
-    li {
-      padding: 0;
-
-      a {
-        display: block;
-        padding: 8px 0;
-      }
-
-      &.selected {
-        display: none;
-      }
-
-      &.cat_header {
-        padding: 12px 0;
-        color: #{'{{ theme.text_color }}'};
-        background: #{'{{ theme.background_secondary_color }}'} !important;
-
-        &:hover {
-        cursor: default;
-        background: #{'{{ theme.background_secondary_color }}'} !important;
-        }
-      }
-    }
   }
 }
 
