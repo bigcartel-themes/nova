@@ -46,12 +46,12 @@
     {
       "variable": "text_color",
       "label": "Text",
-      "default": "#1f1f1f"
+      "default": "#111111"
     },
     {
       "variable": "text_secondary_color",
       "label": "Text Accent",
-      "default": "#888888"
+      "default": "#222222"
     },
     {
       "variable": "link_color",
@@ -66,7 +66,7 @@
     {
       "variable": "border_color",
       "label": "Borders",
-      "default": "#c0c0c0"
+      "default": "#777777"
     },
     {
       "variable": "error_color",
@@ -155,14 +155,14 @@
       "label": "Product List Layout",
       "type": "select",
       "options": [["Stacked", "stacked"], ["Grid", "masonry"]],
-      "default": "stacked",
+      "default": "masonry",
       "description": "The arrangement of your products on the Products pages"
     },
     {
       "variable": "show_inventory_bars",
       "label": "Show inventory bars",
       "type": "boolean",
-      "default": true,
+      "default": false,
       "description": "Shows a product's inventory amounts (when using inventory tracking)",
       "requires": "inventory"
     },
@@ -177,8 +177,16 @@
       "variable": "share_buttons",
       "label": "Show social buttons",
       "type": "boolean",
-      "default": true,
+      "default": false,
       "description": "Adds Facebook, Twitter, and Pinterest buttons to Product pages"
+    },
+    {
+      "variable": "show_sold_out_product_options",
+      "label": "Show sold out product options",
+      "type": "boolean",
+      "default": true,
+      "description": "Shows sold out product options in the Product page dropdowns",
+      "requires": "inventory"
     },
     {
       "variable": "money_format",
