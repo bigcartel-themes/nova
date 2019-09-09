@@ -1,6 +1,7 @@
-/* -------------------------------------------------------------- 
+/* --------------------------------------------------------------
   Product
--------------------------------------------------------------- */  
+-------------------------------------------------------------- */
+
 
 #product {
 
@@ -12,55 +13,68 @@
     margin-bottom: 29px;
     line-height: 1.3em;
   }
-  
+
   .product_images {
     position: relative;
-    
+
     .flex-control-nav {
       bottom: -36px;
       display: block;
     }
   }
-  
+
+  .product-form {
+    margin: 40px auto 0;
+    max-width: 300px;
+    width: 100%;
+
+    .add-to-cart-button {
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+
   .product_info {
     margin-bottom: 20px;
-    
+
     .product_price {
         padding: 15px 0 11px;
-        
+
       h3 {
         position: relative;
         right: 0;
-        
+
         &.price {
           position: relative;
           width: 100%;
           color: #{'{{ theme.text_color }}'};
-          
+
           .on_sale {}
         }
       }
     }
-    
+
     &.coming-soon, &.sold-out {}
-    
-    
+
+
     #product_sharing {
       float: right;
-      margin-top: -30px;  
-      
+      margin-top: -30px;
+
       a {
         position: relative;
-        z-index: 100;     
+        z-index: 100;
         color: #{'{{ theme.text_secondary_color }}'};
-        
+
         &:hover {
           color: #{'{{ theme.text_color }}'};
         }
       }
-      
+
       ul {
-        display: none;      
+        display: none;
         position: fixed;
         z-index: 200;
         top: 50%;
@@ -72,9 +86,9 @@
         -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
-                
-        
-        li {          
+
+
+        li {
           a {
             display: block;
             width: 80%;
@@ -84,29 +98,29 @@
             font-size: 34px;
             color: #fff;
             border-top: 1px solid rgba(255,255,255, .3);
-            transition: background .5s ease-in;     
-            
+            transition: background .5s ease-in;
+
             &:hover {
               color: #fff;
               background: rgba(255,255,255, .3);
-              transition: background 0 ease-in;  
+              transition: background 0 ease-in;
             }
           }
-          
+
           &:first-child {
             padding-bottom: 10px;
-            
+
             a {
               color: rgba(255,255,255, .7);
               border: none;
-              
+
               &:hover {
                 background: transparent;
                 color: #fff;
               }
             }
           }
-          
+
           &:last-child {
             a {
               border-bottom: 1px solid rgba(255,255,255, .3);
@@ -114,22 +128,22 @@
           }
         }
       }
-    }     
-  } 
-  
+    }
+  }
+
   #page_body {
     width: 520px;
-    margin: 30px auto 0;    
+    margin: 30px auto 0;
   }
-  
+
   .product_inventory {
     width: 100%;
     margin: 24px auto;
     line-height: 0;
-  
+
     ul {
       margin-bottom: 0;
-      
+
       li {
         position: relative;
         overflow: hidden;
@@ -141,20 +155,20 @@
           margin: 0 0 4px;
           padding: 0;
           font-size: 15px;
-        
+
           span {
             float: right;
             color: #{'{{ theme.text_secondary_color }}'};
           }
         }
-        
+
         .bar {
           z-index: -1;
           float: left;
           width: 100%;
           height: 3px;
-          background: #{'{{ theme.background_secondary_color }}'};          
-        
+          background: #{'{{ theme.background_secondary_color }}'};
+
           .fill {
             background: #{'{{ theme.link_color }}'};
           }
@@ -162,106 +176,8 @@
       }
     }
   }
-  
+
   #pagination {
     margin: 100px auto;
-  }
-}
-
-#product_options {
-  text-align: center;
-  
-  .button {
-    display: block;
-    margin: 0 auto;
-    width: 200px;
-    border-color: transparent;
-    border-top: 1px solid #{'{{ theme.border_color }}'};
-    color: #{'{{ theme.link_color }}'} !important;    
-    
-    &:hover {
-      border: 1px solid #{'{{ theme.link_hover }}'};
-      color: #{'{{ theme.link_hover }}'} !important;
-    }
-  }
-  
-  #option_select {
-    width: 200px;
-    position: relative;
-    display: inline-block;    
-    
-    span { text-decoration: none; }
-    
-    #options_button,
-    #button_header {
-      padding-right: 0;
-      padding-left: 0;
-      color: #{'{{ theme.link_color }}'};     
-    }
-    
-    #options_button {     
-      span.arrow {
-        top: -2px;
-        opacity: .8;
-        border-color: #{'{{ theme.link_color }}'} transparent transparent transparent;
-      }
-      
-      &:hover {
-        span.arrow {
-          border-color: #{'{{ theme.link_hover }}'} transparent transparent transparent;
-        }       
-      } 
-    } 
-    
-    #button_header {
-      color: #{'{{ theme.text_secondary_color }}'} !important;
-    }
-  }
-}  
-
-#options_menu {
-  display: none;
-  position: absolute;
-  z-index: 999;
-  padding-top: 47px;
-  top: 0;
-  width: 200px;
-  text-align: center;
-  text-indent: 0;
-  background: transparent;
-  border-radius: 0;
-  border: 1px solid #{'{{ theme.link_color }}'};    
-  box-shadow: 4px 4px 8px rgba(0,0,0, .25);   
-
-  &:after {
-    border: none;
-  }
-  
-  li {
-    padding: 8px;
-    cursor: pointer;
-    line-height: 1.2em;
-    color: #{'{{ theme.link_color }}'};
-    border-radius: 0;  
-    background: #{'{{ theme.background_color }}'};
-    border-top: 1px solid #{'{{ theme.border_color }}'};
-    border-bottom: 0;
-    transition: background .5s ease-in;
-  
-    span.currency_sign:before {
-      content: "/";
-      color: #{'{{ theme.text_secondary_color }}'} !important;
-      padding-right: 6px;
-    }
-    
-    &:last-child {
-      border-top: 1px solid #{'{{ theme.border_color }}'};
-    }
-    
-    &:hover {
-      color: #{'{{ theme.link_hover }}'};      
-      background: #{'{{ theme.background_secondary_color }}'} !important;
-      transition: background 0 ease-in;
-    }
   }
 }
