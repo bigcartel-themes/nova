@@ -28,11 +28,26 @@
     max-width: 300px;
     width: 100%;
 
-    .add-to-cart-button {
+    .add-to-cart-button, .reset-selection-button {
       width: 100%;
       max-width: 300px;
       margin: 0 auto;
       display: block;
+    }
+
+    .reset-selection-button-container {
+      text-align: center;
+      width: 100%;
+    }
+
+    button.reset-selection-button {
+      display: none;
+      height: auto;
+      max-width: 100%;
+      line-height: normal;
+      margin: 20px auto 0;
+      padding: 4px !important;
+      width: auto;
     }
   }
 

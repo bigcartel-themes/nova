@@ -456,11 +456,6 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
           width: 100%;
         }
 
-        .button {
-          width: 100%;
-          border: 1px solid #{'{{ theme.border_color }}'};
-        }
-
         #options_menu {
           box-sizing: border-box;
           width: 100%;

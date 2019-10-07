@@ -85,11 +85,22 @@ button {
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  &.minimal-button {
+    background: none;
+    border: none;
+    font-size: 14px;
+    padding: 0;
+
+    &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus {
+      text-decoration: underline;
+    }
   }
+}
 
   .button.disabled, .button:disabled {
-  cursor: not-allowed;
-  opacity: .3;
+    cursor: not-allowed;
+    opacity: .3;
   }
 
 .button:hover {
