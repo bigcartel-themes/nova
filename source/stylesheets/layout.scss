@@ -3,7 +3,7 @@
 -------------------------------------------------------------- */
 body {
   font-family: #{'{{ theme.text_font | font_family }}'};
-  font-size: 15px;
+  font-size: 16px;
   color: #{'{{ theme.text_color }}'};
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -12,9 +12,6 @@ body {
   background-image: #{'{% if theme.background_image != blank %} url("{{ theme.background_image.url }}") {% else %} none {% endif %}'};
   background-repeat: repeat;
   }
-
-::-moz-selection{ background: #{'{{ theme.link_color }}'}; color: #{'{{ theme.background_color }}'}; }
-::selection { background: #{'{{ theme.link_color }}'}; color: #{'{{ theme.background_color }}'}; }
 
 p, blockquote, ul, ol, dl {
   margin-bottom: 1.2em;
@@ -34,13 +31,13 @@ a:link,
 a:visited {
   color: #{'{{ theme.link_color }}'};
   text-decoration: none;
-  outline: none;
   cursor: pointer;
   }
 
 a:hover,
 a:active {
   color: #{'{{ theme.link_hover }}'};
+  text-decoration: underline;
   }
 
 a img {
@@ -81,7 +78,7 @@ button {
   background: transparent;
   cursor: pointer;
   font-family: #{'{{ theme.text_font | font_family }}'};
-  font-size: 15px;
+  font-size: 16px;
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -133,7 +130,7 @@ button {
     border-radius: 0;
     color: #{'{{ theme.text_secondary_color }}'} !important;
     font-family: #{'{{ theme.text_font | font_family }}'};
-    font-size: 14px;
+    font-size: 16px;
     height: 100%;
     letter-spacing: 1px;
     line-height: 1.4em !important;
@@ -207,9 +204,7 @@ li:hover input {
 
 input:focus,
 textarea:focus {
-  color: #{'{{ theme.background_color }}'};
-  outline: none;
-  background: #{'{{ theme.link_color }}'} !important;
+  background: #{'{{ theme.background_secondary_color }}'};
   }
 
 label {
@@ -242,7 +237,7 @@ ul#error li {
   }
 
 .message p {
-  font-size: 15px;
+  font-size: 16px;
   margin-bottom: 0;
   }
 
@@ -565,3 +560,8 @@ span.arrow {
 /*============================================================
   Basic Styles - used for the simple controls
 ============================================================*/
+
+.maintenance-message {
+  text-align: center;
+  margin: 100px 20px;
+}

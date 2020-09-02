@@ -173,7 +173,7 @@
   color: #{'{{ theme.text_secondary_color }}'} !important;
   cursor: pointer;
   font-family: #{'{{ theme.text_font | font_family }}'};
-  font-size: 15px;
+  font-size: 16px;
   height: 60px;
   text-align: center;
   margin: -71px auto 64px;
@@ -295,6 +295,8 @@
       width: 25%;
 
       a {
+        display: block;
+
         .product_images {
           width: 100%;
           min-height: 0;

@@ -1,4 +1,4 @@
-/* -------------------------------------------------------------- 
+/* --------------------------------------------------------------
   Contact
 -------------------------------------------------------------- */
 #contact #page_body {
@@ -6,72 +6,60 @@
   width: 550px;
   max-width: 550px;
   min-width: 550px;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 #contact_form {
   text-align: center;
-  
+
   li {
-    padding:  0;
-    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
     list-style-type: none;
     border-top: 1px solid #{'{{ theme.border_color }}'};
-  
+
     label {
-      float: left;
+      margin: 0;
+      padding: 12px 16px 20px;
       width: 100px;
-      margin-top: 12px;
-      padding-bottom: 10px;
-      color: #{'{{ theme.text_secondary_color }}'};  
+      color: #{'{{ theme.text_secondary_color }}'};
     }
-    
+
     input {
-      float: left;
       width: 404px;
-      padding: 12px 8px 24px;
+      padding: 12px 12px 20px;
       border: none;
       transition: background .5s ease-in;
     }
-    
+
     &:hover {
       input, textarea {
-        transition: background 0s ease-in;      
+        transition: background 0s ease-in;
       }
     }
-    
+
     textarea {
-      height: 22px;
+      height: 150px;
       width: 404px;
-      padding: 12px 8px 24px;
-      border: none;  
-      transition: height .2s ease-in, background .5s ease-in;     
-    
-      &:focus {
-        height: 150px;
-      }
+      padding: 12px 8px;
+      border: none;
+      transition: background .5s ease-in;
     }
-  
+
     &#captcha_img {
       overflow: hidden;
-      
+
       img {
-        width: auto;
-        float: right;
-        height: 34px;
-        margin-top: 10px;
-        padding-bottom: 8px;
-        margin-right: 0;
+        margin-left: auto
       }
-      
+
       input {
-        float: left;
-        width: 319px;
+        width: 272px;
         margin-left: 0;
       }
     }
   }
-  
+
   button#contact_button {
     margin: 30px auto;
     min-width: 198px;

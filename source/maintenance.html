@@ -1,36 +1,17 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <title>{{ page.name }} | {{ store.name }}</title>
-  <style type="text/css">
-    html { 
-      height: 100%;
-      }
-    
-    body {
-      height: 100%;
-      font-family: 'Inconsolata', "Andale Mono", AndaleMono, "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace; monospace;
-      font-size: 13px;
-      color: #aaa;
-      text-rendering: optimizeLegibility;	
-      background: #f8f7f7;
-      }
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ page.name }} | {{ store.name }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
+    {{ head_content }}
 
-    h3 {
-      margin-top: 30%;
-      font-size: 13px;
-      line-height: 1.4em;
-      font-weight: normal;
-      }
-
-  </style>
-  {{ head_content }}
-</head>
+  </head>
 <body>
-
-  <div align="center" style="margin:20px;">
-    <h3>We're doing some maintenance. Check back soon.</h3>
+  <div class="maintenance-message">
+    <h1>{{ store.name }}</h1>
+    <p>We're doing some maintenance. Check back soon.</p>
   </div>
-
 </body>
 </html>
