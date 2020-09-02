@@ -13,9 +13,6 @@ body {
   background-repeat: repeat;
   }
 
-::-moz-selection{ background: #{'{{ theme.link_color }}'}; color: #{'{{ theme.background_color }}'}; }
-::selection { background: #{'{{ theme.link_color }}'}; color: #{'{{ theme.background_color }}'}; }
-
 p, blockquote, ul, ol, dl {
   margin-bottom: 1.2em;
   line-height: 1.4em;
