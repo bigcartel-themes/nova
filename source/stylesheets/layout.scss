@@ -34,13 +34,13 @@ a:link,
 a:visited {
   color: #{'{{ theme.link_color }}'};
   text-decoration: none;
-  outline: none;
   cursor: pointer;
   }
 
 a:hover,
 a:active {
   color: #{'{{ theme.link_hover }}'};
+  text-decoration: underline;
   }
 
 a img {
@@ -565,3 +565,8 @@ span.arrow {
 /*============================================================
   Basic Styles - used for the simple controls
 ============================================================*/
+
+.maintenance-message {
+  text-align: center;
+  margin: 100px 20px;
+}
