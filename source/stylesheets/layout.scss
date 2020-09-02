@@ -3,7 +3,7 @@
 -------------------------------------------------------------- */
 body {
   font-family: #{'{{ theme.text_font | font_family }}'};
-  font-size: 15px;
+  font-size: 16px;
   color: #{'{{ theme.text_color }}'};
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -81,7 +81,7 @@ button {
   background: transparent;
   cursor: pointer;
   font-family: #{'{{ theme.text_font | font_family }}'};
-  font-size: 15px;
+  font-size: 16px;
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -133,7 +133,7 @@ button {
     border-radius: 0;
     color: #{'{{ theme.text_secondary_color }}'} !important;
     font-family: #{'{{ theme.text_font | font_family }}'};
-    font-size: 14px;
+    font-size: 16px;
     height: 100%;
     letter-spacing: 1px;
     line-height: 1.4em !important;
@@ -242,7 +242,7 @@ ul#error li {
   }
 
 .message p {
-  font-size: 15px;
+  font-size: 16px;
   margin-bottom: 0;
   }
 
