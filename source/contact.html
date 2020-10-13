@@ -24,10 +24,8 @@
         <label for="message">Message</label>
         {{ contact | contact_input: 'message' }}
       </li>
-      <li id="captcha_img">
-        <label for="captcha">Human Check</label>
-        {{ contact | contact_input: 'captcha' }}
-        <div id="captcha_phrase">{{ contact.captcha }}</div>
+      <li class="recaptcha_note">
+        {{ contact.recaptcha }}
       </li>
     </ul>
 
