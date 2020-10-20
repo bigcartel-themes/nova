@@ -46,17 +46,11 @@
       transition: background .5s ease-in;
     }
 
-    &#captcha_img {
-      overflow: hidden;
-
-      img {
-        margin-left: auto
-      }
-
-      input {
-        width: 272px;
-        margin-left: 0;
-      }
+    &.recaptcha_note {
+      display: block;
+      font-size: 15px;
+      padding-top: 10px;
+      text-align: left;
     }
   }
 
