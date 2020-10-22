@@ -24,29 +24,29 @@
     {
       "variable": "header_font",
       "label": "Header Font",
-      "default": "Inconsolata"
+      "default": "Lato"
     },
     {
       "variable": "text_font",
       "label": "Text Font",
-      "default": "Inconsolata"
+      "default": "Lato"
     }
   ],
   "colors": [
     {
       "variable": "background_color",
       "label": "Background",
-      "default": "#ffffff"
+      "default": "#FFFFFF"
     },
     {
       "variable": "background_secondary_color",
       "label": "Background Accent",
-      "default": "#ececec"
+      "default": "#FCE8F2"
     },
     {
       "variable": "text_color",
       "label": "Text",
-      "default": "#111111"
+      "default": "#000000"
     },
     {
       "variable": "text_secondary_color",
@@ -56,22 +56,22 @@
     {
       "variable": "link_color",
       "label": "Links",
-      "default": "#1201ff"
+      "default": "#000000"
     },
     {
       "variable": "link_hover",
       "label": "Link Hover",
-      "default": "#0b019b"
+      "default": "#C0377B"
     },
     {
       "variable": "border_color",
       "label": "Borders",
-      "default": "#777777"
+      "default": "#000000"
     },
     {
       "variable": "error_color",
       "label": "Errors",
-      "default": "#e36aa6"
+      "default": "#D471A4"
     }
   ],
   "checkout": {
