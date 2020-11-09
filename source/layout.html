@@ -35,7 +35,7 @@
     <div id="site_content" class="canvas {% unless theme.product_list_layout == "stacked" %}grid{% endunless %}">
       {% if theme.image != blank %}
       <div id="theme_image">
-        <img src="{{ theme.image.url | constrain: 1000 }}" alt="{{ store.name }}" />
+        <a href="/" title="Home"><img src="{{ theme.image.url | constrain: 1200 }}" alt="{{ store.name }}" /></a>
       </div>
       {% endif %}
 
