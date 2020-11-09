@@ -1,6 +1,6 @@
 {
   "name": "Nova",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "images": [
     {
       "variable": "image",
@@ -41,7 +41,7 @@
     {
       "variable": "background_secondary_color",
       "label": "Background Accent",
-      "default": "#FCE8F2"
+      "default": "#ECECEC"
     },
     {
       "variable": "text_color",
@@ -71,7 +71,7 @@
     {
       "variable": "error_color",
       "label": "Errors",
-      "default": "#D471A4"
+      "default": "#B11A2A"
     }
   ],
   "checkout": {
