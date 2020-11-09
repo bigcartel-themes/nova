@@ -73,8 +73,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     }
 
     #theme_image {
-      margin: 50px 0 35px;
-      width: 100% !important;
+      margin: 50px auto 35px;
     }
 
 
@@ -512,57 +511,6 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
         margin: 10px 0 0;
       }
 
-      ul {
-        li {
-          margin: 0 0 20px;
-          padding: 8px 0 0;
-          //border: none;
-
-          label {
-            width: 100%;
-            box-sizing: border-box;
-            float: none;
-            margin: 0;
-            border: 0;
-            line-height: .8em;
-            text-align: left;
-            color: #{'{{ theme.text_color }}'};
-          }
-
-          input,
-          textarea {
-            box-sizing: border-box;
-            width: 100%;
-            padding: 13px 8px;
-            background:  #{'{{ theme.background_secondary_color }}'};
-            border: none;
-            border-radius: 3px;
-          }
-
-          textarea {
-            min-height: 51px;
-          }
-
-          &#captcha_img {
-
-            #captcha_phrase {
-              float: right;
-
-              img {
-                height: 34px;
-                margin-top: 8px;
-                border: 0;
-              }
-            }
-
-            input {
-              float: left;
-              width: 70%;
-              margin-left: 0;
-            }
-          }
-        }
-      }
     }
   }
 
