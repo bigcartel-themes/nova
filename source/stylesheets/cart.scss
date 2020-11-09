@@ -172,15 +172,10 @@
 }
 
 #cart_empty {
-  margin-top: 130px;
+  margin-top: 70px;
 
   a {
-    font-size: 34px;
-    border-bottom: 2px solid #{'{{ theme.link_color }}'};
-
-    &:hover {
-      border-color: #{'{{ theme.link_hover }}'};
-    }
+    text-decoration: underline;
   }
 }
 

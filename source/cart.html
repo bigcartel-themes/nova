@@ -16,21 +16,21 @@
           </div>
           <div class="quantity_input">{{ item | item_quantity_input }}</div>
           <h3 class="item_price">{{ item.price | money: theme.money_format }}</h3>
-    
-          <a href="#" class="remove_item" title="Remove item from cart">Remove</a>    
+
+          <a href="#" class="remove_item" title="Remove item from cart">Remove</a>
         </li>
-        {% endfor %}      
+        {% endfor %}
       </ul>
     </section>
-    
+
     <section id="cart_total">
       <div id="total">
         <h3>Subtotal</h3>
         <h2>{{ cart.total | money: theme.money_format }}</h2>
-        <button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Update</span></button>            
+        <button class="update-btn" name="update" type="submit" title="Update your cart total"><span>Update</span></button>
       </div>
     </section>
-  
+
     <input name="_utf8" type="hidden" value="&#x2713;" />
     <button id="checkout-btn" class="button" type="submit" title="Checkout">Checkout</button>
   </form>
@@ -38,7 +38,7 @@
 {% else %}
 
   <div id="cart_empty" class="message">
-    <p><a href="/products">Start Shopping</a></p>
+    <p>Your cart is empty! Sounds like a good time to <a href="/products">start shopping</a>.</p>
   </div>
 
 {% endif %}
