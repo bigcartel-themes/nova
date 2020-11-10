@@ -395,10 +395,17 @@ span.arrow {
   margin: -20px auto 40px;
   text-align: center;
 }
-#theme_image img {
+#theme_image a {
+  display: block;
   margin: 0 auto;
   max-width: 600px;
   width: 100%;
+}
+#theme_image img {
+  height: 240px;
+  margin: 0 auto;
+  max-width: 600px;
+  width: auto;
 }
 
 #nav_primary {
