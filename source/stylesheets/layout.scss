@@ -402,10 +402,11 @@ span.arrow {
   width: 100%;
 }
 #theme_image img {
-  height: 240px;
+  height: 100%;
   margin: 0 auto;
-  max-width: 600px;
-  width: auto;
+  object-fit: contain;
+  max-height: 240px;
+  width: 100%;
 }
 
 #nav_primary {
