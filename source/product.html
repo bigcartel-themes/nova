@@ -33,15 +33,17 @@
   </section>
 
 	{% if theme.share_buttons %}
-  <section id="product_sharing">
-		<a href="">Share</a>
-	  <ul>
-			<li><a href="#" id="close_sharing">Close</a></li>
-			<li><a target="_blank" href="http://twitter.com/share?url={{ store.url }}{{ product.url }}&text=Check out {{store.name}}'s">Twitter</a></li>
-			<li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{store.url}}{{product.url}}">Facebook</a></li>
-			<li><a target="_blank" href="http://pinterest.com/pin/create/button/?url={{store.url}}{{product.url}}&media={{ product.images.first.url }}">Pinterest</a></li>
-	  </ul>
-  </section>
+    {% capture tweet_string %}{{ product.name }} - {{ store.name }} {{ page.full_url }}{% endcapture %}
+    {% assign tweet_string = tweet_string | url_encode %}
+    <section id="product_sharing">
+      <a href="">Share</a>
+      <ul>
+        <li><a href="#" id="close_sharing">Close</a></li>
+        <li><a target="_blank" href="https://twitter.com/intent/tweet?text={{ tweet_string }}">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{store.url}}{{product.url}}">Facebook</a></li>
+        <li><a target="_blank" href="http://pinterest.com/pin/create/button/?url={{store.url}}{{product.url}}&media={{ product.images.first.url }}">Pinterest</a></li>
+      </ul>
+    </section>
 	{% endif %}
 
   <section id="product_options">

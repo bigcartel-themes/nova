@@ -1,6 +1,6 @@
 {
   "name": "Nova",
-  "version": "1.4.8",
+  "version": "1.4.10",
   "images": [
     {
       "variable": "image",
