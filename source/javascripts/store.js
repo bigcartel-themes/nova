@@ -10,8 +10,9 @@ var Store = {
 
     if (page == 'home' || 'products' || 'product') {
       $('.product, #product, #gallery').each(function() {
+        let item_container = $(this);
         $(this).imagesLoaded(function() {
-          $(this).find('.spinner').fadeOut();
+          item_container.find('.spinner').remove();
           // Initialize galleries for images
           $('.product, #product').find('.product_images.galy').flexslider({
             animation: 'slide',
