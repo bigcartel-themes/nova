@@ -1,0 +1,110 @@
+footer
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  flex-shrink: 0
+
+  a, a:visited
+    color: var(--text-color)
+
+  .canvas
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    flex-shrink: 0
+    padding: 40px 64px
+    gap: 48px
+
+.footer-nav
+  &--links
+    ul
+      display: flex
+      align-items: center
+      justify-content: center
+      column-gap: 24px
+      row-gap: 8px
+      flex-wrap: wrap
+
+
+      a
+        display: block
+
+      @media screen and (max-width: $break-small)
+        flex-direction: column
+        row-gap: 24px
+
+.bigcartel-credit
+  font-size: .875rem
+  line-height: 1em
+  align-items: center
+  justify-content: center
+  display: inline-flex
+  gap: 8px
+  outline-offset: 4px
+  padding: 2px 0
+
+  &__text
+    position: relative
+
+  &__lockup
+    display: block
+    fill: currentColor
+    padding-top: 1px
+    width: 80px
+
+.social-icons
+  display: flex
+  gap: 20px
+  list-style: none
+  margin: 0
+  padding: 0
+  flex-wrap: wrap
+  justify-content: center
+
+  @media screen and (max-width: $break-small)
+    gap: 16px
+
+  a
+    color: var(--text-color)
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-shrink: 0
+    width: 36px
+    height: 36px
+
+    &:hover
+      color: var(--link-hover-color)
+
+    svg
+      fill: currentColor
+      height: 22px
+      width: 22px
+
+      &.tumblr-icon
+        width: 14px
+
+.bigcartel-credit
+  color: var(--text-color)
+  line-height: 1em
+  font-size: 15px
+  display: inline-flex
+  align-items: center
+  gap: 8px
+  outline-offset: 4px
+  padding: 2px 0
+  text-decoration: none
+
+  &:hover
+    text-decoration: none
+
+  &__text
+    position: relative
+
+  &__lockup
+    display: block
+    fill: currentColor
+    padding-top: 1px
+    width: 80px

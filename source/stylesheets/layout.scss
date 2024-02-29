@@ -13,11 +13,6 @@ body {
   background-repeat: repeat;
   }
 
-p, blockquote, ul, ol, dl {
-  margin-bottom: 1.2em;
-  line-height: 1.4em;
-  }
-
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1.2em;
   line-height: 1.4em;
@@ -27,7 +22,6 @@ strong, b { font-weight: bold; }
 em, i { font-style: italic; }
 
 a,
-a:link,
 a:visited {
   color: var(--link-color);
   text-decoration: none;
@@ -334,11 +328,7 @@ span.arrow {
 }
 
 #site_content {
-  position:relative;
-  min-width: 550px;
-  min-height: 60vh;
-  margin: 110px auto 130px;
-  padding: 0;
+  position: relative;
   }
 
 
@@ -347,11 +337,15 @@ span.arrow {
 -------------------------------------------------------------- */
 
 #site_header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
   width: 100%;
-  padding: 25px 0;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: var(--background-color);
   }
 
 #branding a,
@@ -365,26 +359,26 @@ span.arrow {
   }
 
 #branding {
-  float: left;
   max-width: 50%;
-  margin-left: 30px;
   }
+#branding h1 {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0;
+}
 
 #cart_nav {
-  float: right;
-  margin-right: 20px;
+  margin-left: auto;
   }
+#cart_nav ul {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 16px;
+}
 
 #cart_nav #menu {
   display: none;
-  }
-
-#cart_nav li {
-  float: left;
-  }
-
-#cart_nav a {
-  padding: 0 10px;
   }
 
 #cart_nav #cart_info span {
@@ -411,17 +405,22 @@ span.arrow {
 
 #nav_primary {
   position: relative;
-  z-index: 11;
   margin: 0 0 70px;
   text-align: center;
-  }
-
-#nav_primary li {
-  display: inline-block;
-  }
+}
+#nav_primary ul {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin: 0 0 70px;
+  text-align: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
 #nav_primary li a {
-  padding: 0 12px;
   color: var(--text-color);
   }
 
@@ -530,4 +529,13 @@ span.arrow {
 .maintenance-message {
   text-align: center;
   margin: 100px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 36px;
+
+  h1 {
+    margin: 0;
+  }
 }

@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
     {{ head_content }}
-
   </head>
 
   <body id="{% if page.permalink == 'products' %}products_page{% else %}{{ page.permalink }}{% endif %}" class="{{ page.category }} {% if page.full_url contains '/category/' %}multi_col{% endif %}">
 
     <header id="site_header">
-      <div id="branding" {% if store.name.size > 22 %}class="wrap"{% endif %}>
+      <div id="branding">
         <h1><a href="/" title="Home">{{ store.name }}</a></h1>
       </div>
 
@@ -20,14 +19,13 @@
         <ul>
         	<li id="menu"><a href="#site_footer">Menu</a></li>
   		    {% if theme.show_search %}
-          <li id="search">
-            <form id="search-form" name="search" action="/products" method="get">
-              <a href="#search-form">Search</a>
-              <input id="search-input" name="search" type="text">
-            </form>
-          </li>
+            <li id="search">
+              <button class="open-search">Search</button>
+            </li>
           {% endif %}
-          <li id="cart_info"><a href="/cart">Cart<span>/ {{ cart.item_count | pluralize: 'item', 'items' }}</span></a></li>
+          <li id="cart_info">
+            <a href="/cart">Cart<span>/ {{ cart.item_count | pluralize: 'item', 'items' }}</span></a>
+          </li>
         </ul>
       </nav>
     </header>
