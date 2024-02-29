@@ -1,0 +1,27 @@
+.social-icons
+  display: flex
+  gap: 24px
+  list-style: none
+  margin: 0
+  padding: 0
+  flex-wrap: wrap
+  justify-content: center
+
+  @media screen and (max-width: $break-small)
+    gap: 16px
+
+  a
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-shrink: 0
+    width: 36px
+    height: 36px
+
+    svg
+      fill: currentColor
+      height: 22px
+      width: 22px
+
+      &.tumblr-icon
+        width: 14px

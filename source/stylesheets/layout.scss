@@ -2,13 +2,13 @@
   Base styles
 -------------------------------------------------------------- */
 body {
-  font-family: #{'{{ theme.text_font | font_family }}'};
+  font-family: var(--text-font);
   font-size: 16px;
-  color: #{'{{ theme.text_color }}'};
+  color: var(--text-color);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #{'{{ theme.background_color }}'};
+  background-color: var(--background-color);
   background-image: #{'{% if theme.background_image != blank %} url("{{ theme.background_image.url }}") {% else %} none {% endif %}'};
   background-repeat: repeat;
   }
@@ -29,14 +29,14 @@ em, i { font-style: italic; }
 a,
 a:link,
 a:visited {
-  color: #{'{{ theme.link_color }}'};
+  color: var(--link-color);
   text-decoration: none;
   cursor: pointer;
   }
 
 a:hover,
 a:active {
-  color: #{'{{ theme.link_hover }}'};
+  color: var(--link-hover-color);
   text-decoration: underline;
   }
 
@@ -73,11 +73,11 @@ button {
   padding: 18px 30px;
   line-height: 1.4em !important;
   margin: 0;
-  border: 1px solid #{'{{ theme.border_color }}'};
-  color: #{'{{ theme.text_secondary_color }}'} !important;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary-color) !important;
   background: transparent;
   cursor: pointer;
-  font-family: #{'{{ theme.text_font | font_family }}'};
+  font-family: var(--text-font);
   font-size: 16px;
   text-align: center;
   -webkit-font-smoothing: antialiased;
@@ -101,19 +101,19 @@ button {
   }
 
 .button:hover {
-  color: #{'{{ theme.link_hover }}'} !important;
-  border-color: #{'{{ theme.link_hover }}'};
+  color: var(--link-hover-color) !important;
+  border-color: var(--link-hover-color);
   }
 
 .button.disabled:hover, .button:disabled:hover {
-  border: 1px solid #{'{{ theme.border_color }}'};
-  color: #{'{{ theme.text_secondary_color }}'} !important;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary-color) !important;
   }
 
 .select {
-  border: 1px solid #{'{{ theme.border_color }}'};
-  color: #{'{{ theme.text_secondary_color }}'} !important;
-  font-family: #{'{{ theme.text_font | font_family }}'};
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary-color) !important;
+  font-family: var(--text-font);
   height: 58px;
   margin-bottom: 20px;
   max-width: 100%;
@@ -128,8 +128,8 @@ button {
     background: none;
     border: 0;
     border-radius: 0;
-    color: #{'{{ theme.text_secondary_color }}'} !important;
-    font-family: #{'{{ theme.text_font | font_family }}'};
+    color: var(--text-secondary-color) !important;
+    font-family: var(--text-font);
     font-size: 16px;
     height: 100%;
     letter-spacing: 1px;
@@ -159,7 +159,7 @@ button {
   }
 
   svg {
-    fill: #{'{{ theme.text_secondary_color }}'} !important;
+    fill: var(--text-secondary-color) !important;
     height: 8px;
     margin-top: -2px;
     position: absolute;
@@ -170,18 +170,18 @@ button {
   }
 
   &:hover, &:active, &:focus, &:focus-within {
-    color: #{'{{ theme.link_hover }}'} !important;
-    border-color: #{'{{ theme.link_hover }}'};
+    color: var(--link-hover-color) !important;
+    border-color: var(--link-hover-color);
 
     select {
-      color: #{'{{ theme.link_hover }}'};
+      color: var(--link-hover-color);
 
       option:disabled {
         color: graytext;
       }
     }
     svg {
-      fill: #{'{{ theme.link_hover }}'};
+      fill: var(--link-hover-color);
     }
   }
 }
@@ -190,8 +190,8 @@ input,
 textarea {
   padding: 10px 8px;
   width: auto;
-  font-family: #{'{{ theme.text_font | font_family }}'};
-  background: #{'{{ theme.background_color }}'};
+  font-family: var(--text-font);
+  background: var(--background-color);
   outline: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -199,12 +199,12 @@ textarea {
 
 li:hover textarea,
 li:hover input {
-  background: #{'{{ theme.background_secondary_color }}'};
+  background: var(--background-secondary-color);
   }
 
 input:focus,
 textarea:focus {
-  background: #{'{{ theme.background_secondary_color }}'};
+  background: var(--background-secondary-color);
   }
 
 label {
@@ -220,8 +220,8 @@ ul#error {
   max-width: 550px;
   margin: 20px auto 80px;
   text-align: center;
-  color: #{'{{ theme.error_color }}'};
-  border: 1px solid #{'{{ theme.error_color }}'};
+  color: var(--error-text-color);
+  background: var(--error-background-color);
   }
 
 ul#error li {
@@ -248,11 +248,11 @@ ul#error li {
 #search #search-form a {
   position: absolute;
   right: 0;
-  color: #{'{{ theme.text_secondary_color }}'} !important;
+  color: var(--text-secondary-color) !important;
   }
 
 #search #search-form a:hover {
-  color: #{'{{ theme.text_color }}'} !important;
+  color: var(--text-color) !important;
   }
 
 #search #search-form input {
@@ -260,15 +260,15 @@ ul#error li {
   margin: -15px 0 0;
   outline: none;
   opacity: 0;
-  color: #{'{{ theme.text_color }}'};
-  background: #{'{{ theme.background_secondary_color }}'};
+  color: var(--text-color);
+  background: var(--background-secondary-color);
   border: none;
   transition: all .2s ease-in;
   border-radius: 3px;
   }
 
 #search #search-form input:focus {
-  color: #{'{{ theme.background_color }}'};
+  color: var(--background-color);
   }
 
 #search:hover #search-form a {
@@ -290,7 +290,7 @@ span.arrow {
   height: 0px;
   border-style: solid;
   border-width: 5px 5px 0 5px;
-  border-color: #{'{{ theme.text_secondary_color }}'} transparent transparent transparent;
+  border-color: var(--text-secondary-color) transparent transparent transparent;
   }
 
 /* Big Cartel Badge
@@ -356,12 +356,12 @@ span.arrow {
 
 #branding a,
 #cart_nav a {
-  color: #{'{{ theme.text_color }}'};
+  color: var(--text-color);
   }
 
 #branding a:hover,
 #cart_nav a:hover {
-  color: #{'{{ theme.text_secondary_color }}'};
+  color: var(--text-secondary-color);
   }
 
 #branding {
@@ -422,12 +422,12 @@ span.arrow {
 
 #nav_primary li a {
   padding: 0 12px;
-  color: #{'{{ theme.text_color }}'};
+  color: var(--text-color);
   }
 
 #nav_primary li a:hover,
 #nav_primary li.selected a {
-  color: #{'{{ theme.text_secondary_color }}'};
+  color: var(--text-secondary-color);
   }
 
 #home #intro .keyline,
@@ -438,7 +438,7 @@ span.arrow {
   margin: 50px auto 0;
   height: 1px;
   width: 200px;
-  background: #{'{{ theme.border_color }}'};
+  background: var(--border-color);
   }
 
 
@@ -460,53 +460,6 @@ span.arrow {
     opacity: 1;
   }
 
-  nav {
-    overflow: hidden;
-
-    ul {
-      margin-bottom: .5em;
-
-      li {
-        display: inline-block;
-
-        a {
-          display: block;
-          padding: 0 12px;
-          color: #{'{{ theme.text_color }}'};
-
-          &:hover {
-            color: #{'{{ theme.text_secondary_color }}'};
-          }
-        }
-
-        &#search {
-          display: none;
-        }
-      }
-    }
-  }
-
-  #social_links {
-    overflow: hidden;
-
-    li {
-      display: inline-block;
-
-      a {
-        display: block;
-        padding: 0 12px;
-        color: #{'{{ theme.text_secondary_color }}'};
-
-        &:hover {
-          color: #{'{{ theme.text_color }}'}
-        }
-      }
-    }
-  }
-
-  nav + #social_links {
-    margin: 12px auto;
-  }
 }
 
 
@@ -520,9 +473,9 @@ span.arrow {
   }
 
 #content_header h1 {
-  font-family: #{'{{ theme.header_font | font_family }}'};
+  font-family: var(--header-font);
   font-size: 34px;
-  color: #{'{{ theme.text_color }}'};
+  color: var(--text-color);
   }
 
 
@@ -542,10 +495,10 @@ span.arrow {
   -moz-animation: rotation 1s infinite linear;
   -o-animation: rotation 1s infinite linear;
   animation: rotation 1s infinite linear;
-  border-left:2px solid #{'{{ theme.border_color }}'};
-  border-right:2px solid #{'{{ theme.border_color }}'};
-  border-bottom:2px solid #{'{{ theme.border_color }}'};
-  border-top:2px solid #{'{{ theme.text_secondary_color }}'};
+  border-left:2px solid var(--border-color);
+  border-right:2px solid var(--border-color);
+  border-bottom:2px solid var(--border-color);
+  border-top:2px solid var(--text-secondary-color);
   border-radius:100%;
 }
 

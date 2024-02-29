@@ -64,7 +64,7 @@
         &.price {
           position: relative;
           width: 100%;
-          color: #{'{{ theme.text_color }}'};
+          color: var(--text-color);
 
           .on_sale {}
         }
@@ -81,10 +81,10 @@
       a {
         position: relative;
         z-index: 100;
-        color: #{'{{ theme.text_secondary_color }}'};
+        color: var(--text-secondary-color);
 
         &:hover {
-          color: #{'{{ theme.text_color }}'};
+          color: var(--text-color);
         }
       }
 
@@ -96,7 +96,7 @@
         left: 50%;
         min-width: 400px;
         padding: 60px 30px 80px;
-        background: #{'{{ theme.link_color }}'};
+        background: var(--link-color);
         opacity: .9;
         -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
@@ -173,7 +173,7 @@
 
           span {
             float: right;
-            color: #{'{{ theme.text_secondary_color }}'};
+            color: var(--text-secondary-color);
           }
         }
 
@@ -182,10 +182,10 @@
           float: left;
           width: 100%;
           height: 3px;
-          background: #{'{{ theme.background_secondary_color }}'};
+          background: var(--background-secondary-color);
 
           .fill {
-            background: #{'{{ theme.link_color }}'};
+            background: var(--link-color);
           }
         }
       }

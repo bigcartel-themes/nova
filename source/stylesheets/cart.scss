@@ -17,7 +17,7 @@
       overflow: hidden;
       padding: 10px 0;
       transition: background .5s ease-in;
-      border-top: 1px solid #{'{{ theme.border_color }}'};
+      border-top: 1px solid var(--border-color);
 
       &.with_option {
 
@@ -59,7 +59,7 @@
         span {
           width: 100%;
           display: inline-block;
-          color: #{'{{ theme.text_secondary_color }}'};
+          color: var(--text-secondary-color);
         }
       }
 
@@ -69,33 +69,33 @@
         padding: 9px 8px;
         width: 20px;
         font-size: 16px;
-        color: #{'{{ theme.text_secondary_color }}'};
+        color: var(--text-secondary-color);
         text-align: center;
         border-color: transparent;
         border-radius: 3px;
 
         &:focus {
-          background: #{'{{ theme.link_color }}'};
+          background: var(--link-color);
           box-shadow: none;
-          color: #{'{{ theme.background_color }}'};
+          color: var(--background-color);
         }
       }
 
       .item_price {
         float: left;
         margin: 19px 0 0 3.9%;
-        color: #{'{{ theme.text_color }}'};
+        color: var(--text-color);
       }
 
       a.remove_item {
         float: right;
         margin: 20px 25px 0 0;
         font-size: 14px;
-        color: #{'{{ theme.link_color }}'};
+        color: var(--link-color);
         text-transform: uppercase;
 
         &:hover {
-          color: #{'{{ theme.link_hover }}'};
+          color: var(--link-hover-color);
         }
       }
     }
@@ -111,14 +111,14 @@
   font-size: 16px;
   padding: 0;
   margin: 13px 25px 0 0;
-  font-family: #{'{{ theme.text_font | font_family }}'};
-  color: #{'{{ theme.link_color }}'};
+  font-family: var(--text-font);
+  color: var(--link-color);
   border: none;
   background: none;
   cursor: pointer;
 
   &:hover {
-    color: #{'{{ theme.link_hover }}'};
+    color: var(--link-hover-color);
   }
 }
 
@@ -126,14 +126,14 @@
   overflow: hidden;
   min-height: 70px;
   margin-top: 0;
-  background: #{'{{ theme.background_secondary_color }}'};
+  background: var(--background-secondary-color);
 
   p {
     float: left;
     width: 40%;
     margin: 28px 0 0 7.5%;
     font-size: 16px;
-    color: #{'{{ theme.text_secondary_color }}'};
+    color: var(--text-secondary-color);
   }
 
   #total {
@@ -145,7 +145,7 @@
       float: left;
       margin: 0 0 0 2.1%;
       font-size: 22px;
-      color: #{'{{ theme.text_color }}'};
+      color: var(--text-color);
     }
 
     h3 {
@@ -153,7 +153,7 @@
       margin: 8px 0 0;
       width: 27%;
       font-size: 16px;
-      color: #{'{{ theme.text_secondary_color }}'};
+      color: var(--text-secondary-color);
       text-align: center;
     }
 
@@ -176,10 +176,10 @@
 
   a {
     font-size: 34px;
-    border-bottom: 2px solid #{'{{ theme.link_color }}'};
+    border-bottom: 2px solid var(--link-color);
 
     &:hover {
-      border-color: #{'{{ theme.link_hover }}'};
+      border-color: var(--link-hover-color);
     }
   }
 }

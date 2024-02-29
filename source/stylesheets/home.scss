@@ -1,37 +1,37 @@
 #home {
-  
+
   #intro {
     margin: -28px auto 50px;
     max-width: 660px;
-    font-family: #{'{{ theme.header_font | font_family }}'};
+    font-family: var(--header-font);
     font-size: 30px;
-    color: #{'{{ theme.link_color }}'};
+    color: var(--link-color);
     text-align: center;
-    
+
     .keyline {
       margin-bottom: 70px;
     }
-  }  
+  }
 
-  #all_products_btn { 
+  #all_products_btn {
     margin: 100px auto 0;
     display: block;
     width: 198px;
     padding-left: 0;
     padding-right: 0;
     display: block;
-  } 
-  
+  }
+
   #gallery {
     position: relative;
     margin-top: -71px;
     margin-bottom: 150px;
     z-index: 100;
-    
-    .flex-control-nav { 
-      bottom: -36px; 
+
+    .flex-control-nav {
+      bottom: -36px;
     }
-  
+
     #shop_products {
       position: absolute;
       right: 0;

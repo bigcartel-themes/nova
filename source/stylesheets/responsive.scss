@@ -51,8 +51,8 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     line-height: 1.4em !important;
     box-sizing: border-box;
     font-size: 16px;
-    color: #{'{{ theme.link_hover }}'} !important;
-    border-color: #{'{{ theme.link_hover }}'} !important;
+    color: var(--link-hover-color) !important;
+    border-color: var(--link-hover-color) !important;
     }
 
   ul#error {
@@ -88,8 +88,8 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     bottom: 0;
     top: auto;
     opacity: .97;
-    background: #{'{{ theme.background_secondary_color }}'};
-    border-top: 1px solid #{'{{ theme.border_color }}'};
+    background: var(--background-secondary-color);
+    border-top: 1px solid var(--border-color);
     }
 
   #branding {
@@ -121,7 +121,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
   #cart_nav a {
     padding: 0 15px;
     display: inline-block;
-    color: #{'{{ theme.link_color }}'};
+    color: var(--link-color);
     }
 
   #nav_primary,
@@ -170,12 +170,12 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
   }
 
   #categories a.button {
-    color: #{'{{ theme.link_hover }}'};
-    border-color: #{'{{ theme.link_hover }}'};
+    color: var(--link-hover-color);
+    border-color: var(--link-hover-color);
     }
 
   #categories a.button .arrow {
-    border-color: #{'{{ theme.link_hover }}'} transparent transparent transparent !important;
+    border-color: var(--link-hover-color) transparent transparent transparent !important;
     }
 
 
@@ -189,8 +189,8 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     position: relative;
     padding-top: 20px;
     margin-top: 20px;
-    background: #{'{{ theme.background_secondary_color }}'};
-    border-top: 1px solid  #{'{{ theme.border_color }}'};
+    background: var(--background-secondary-color);
+    border-top: 1px solid  var(--border-color);
 
 
     .canvas {
@@ -217,8 +217,8 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
           a {
             display: block;
             padding: 10px 0;
-            border-bottom: 1px solid #{'{{ theme.border_color }}'};
-            color: #{'{{ theme.text_color }}'};
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-color);
           }
 
           &#search {
@@ -227,7 +227,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
             min-height: 34px;
             padding: 0;
             text-align: center;
-            border-bottom: 1px solid #{'{{ theme.border_color }}'};
+            border-bottom: 1px solid var(--border-color);
 
             &:hover {
               a {
@@ -270,7 +270,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 
         a {
           padding: 4px 20px;
-          color: #{'{{ theme.text_secondary_color }}'};
+          color: var(--text-secondary-color);
         }
 
         &#website {
@@ -296,7 +296,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 
     ul {
       margin-bottom: 0;
-      border-top: 1px solid #{'{{ theme.border_color }}'};
+      border-top: 1px solid var(--border-color);
 
       li {
         width: 50%;
@@ -310,7 +310,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
       }
 
       li + li a {
-        border-left: 1px solid #{'{{ theme.border_color }}'} !important;
+        border-left: 1px solid var(--border-color) !important;
       }
     }
   }
@@ -347,8 +347,8 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
     #all_products_btn {
       box-sizing: border-box;
       margin: 10px auto 20px !important;
-      color: #{'{{ theme.link_hover }}'};
-      border-color: #{'{{ theme.link_hover }}'};
+      color: var(--link-hover-color);
+      border-color: var(--link-hover-color);
     }
   }
 
@@ -466,12 +466,12 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
             padding: 12px 0;
 
             &:hover {
-              background: #{'{{ theme.background_color }}'} !important;
+              background: var(--background-color) !important;
             }
 
             &:active {
-              color: #{'{{ theme.link_hover }}'};
-              background: #{'{{ theme.background_secondary_color }}'} !important;
+              color: var(--link-hover-color);
+              background: var(--background-secondary-color) !important;
               transition: background 0 ease-in;
             }
           }
@@ -525,7 +525,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
             border: 0;
             line-height: .8em;
             text-align: left;
-            color: #{'{{ theme.text_color }}'};
+            color: var(--text-color);
           }
 
           input,
@@ -533,7 +533,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
             box-sizing: border-box;
             width: 100%;
             padding: 13px 8px;
-            background:  #{'{{ theme.background_secondary_color }}'};
+            background:  var(--background-secondary-color);
             border: none;
             border-radius: 3px;
           }
@@ -596,7 +596,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
       ul {
         li {
           padding: 15px 0;
-          border-top: 1px solid #{'{{ theme.border_color }}'};
+          border-top: 1px solid var(--border-color);
           background: transparent;
           margin: 0;
 
@@ -605,7 +605,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
           }
 
           &:last-child {
-            border-bottom: 1px solid #{'{{ theme.border_color }}'};
+            border-bottom: 1px solid var(--border-color);
           }
 
           &.with_option {
@@ -634,8 +634,8 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
           input {
             float: left;
             margin: 0;
-            color: #{'{{ theme.text_secondary_color }}'};
-            background: #{'{{ theme.background_secondary_color }}'};
+            color: var(--text-secondary-color);
+            background: var(--background-secondary-color);
           }
 
           .item_price {
@@ -677,7 +677,7 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
           padding: 13px 8px;
           line-height: 1.5em;
           font-size: 13px;
-          background: #{'{{ theme.background_secondary_color }}'};
+          background: var(--background-secondary-color);
           border: none;
         }
 

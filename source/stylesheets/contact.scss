@@ -16,13 +16,13 @@
     display: flex;
     align-items: flex-start;
     list-style-type: none;
-    border-top: 1px solid #{'{{ theme.border_color }}'};
+    border-top: 1px solid var(--border-color);
 
     label {
       margin: 0;
       padding: 12px 16px 20px;
       width: 100px;
-      color: #{'{{ theme.text_secondary_color }}'};
+      color: var(--text-secondary-color);
     }
 
     input {
