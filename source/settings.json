@@ -147,36 +147,74 @@
       "description": "Welcome text on the Home page"
     },
     {
+      "variable": "featured_header",
+      "label": "Featured header",
+      "type": "text",
+      "description": "Featured products header on the Home page",
+      "default": "Featured"
+    },
+    {
       "variable": "featured_products",
       "label": "Featured products",
       "type": "select",
-      "options": "1..100",
-      "default": 3,
-      "description": "The number of products shown on the Home page"
+      "options": "0..100",
+      "default": 12,
+      "description": "The number of products displayed on the Home page"
     },
     {
       "variable": "featured_order",
       "label": "Featured products order",
       "type": "select",
-      "options": "product_orders",
-      "default": "newest",
+      "options": [
+        ["Regular", "regular"],
+        ["Top Selling", "sales"],
+        ["Newest", "newest"]
+      ],
+      "default": "regular",
       "description": "The order of products on the Home page"
+    },
+    {
+      "variable": "all_products_button_text",
+      "label": "All products button text",
+      "type": "text",
+      "description": "Displays underneath featured products, links to your Products page",
+      "default": "All Products"
+    },
+    {
+      "variable": "grid_image_style",
+      "label": "Product grid image style",
+      "type": "select",
+      "options": [
+        ["Normal", "default"],
+        ["Fit to square", "contain"],
+        ["Crop to square", "cover"]
+      ],
+      "default": "cover",
+      "description": "Sets the display of images in the product grid"
+    },
+    {
+      "variable": "max_products_per_row",
+      "label": "Maximum products per row",
+      "type": "select",
+      "options": "1..4",
+      "default": 3,
+      "description": "The maximum number of products displayed per row on larger screens"
+    },
+    {
+      "variable": "max_products_per_row_mobile",
+      "label": "Maximum products per row (mobile)",
+      "type": "select",
+      "options": "1..2",
+      "default": 2,
+      "description": "The number of products displayed per row on smaller screens"
     },
     {
       "variable": "products_per_page",
       "label": "Products per page",
       "type": "select",
       "options": "1..100",
-      "default": 8,
+      "default": 48,
       "description": "The number of products shown at a time on the Products page"
-    },
-		{
-      "variable": "product_list_layout",
-      "label": "Product List Layout",
-      "type": "select",
-      "options": [["Stacked", "stacked"], ["Grid", "masonry"]],
-      "default": "masonry",
-      "description": "The arrangement of your products on the Products pages"
     },
     {
       "variable": "show_inventory_bars",

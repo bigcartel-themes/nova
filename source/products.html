@@ -1,90 +1,99 @@
-{% paginate products from products.current by theme.products_per_page %}
+<h1 class="page-title">{% if page.full_url contains "search=" %}Search results{% else %}{{ page.name }}{% endif %}</h1>
 
-  {% if categories.active != blank or artists.active != blank %}
-    <div class="category-navigation">
-      <div class="category-navigation-title" tabindex="0">
-        <span class="category-title">{% if page.name == 'Products' %}All Products{% else %}{{ page.name | truncate: 20 }}{% endif %}</span>
-        <svg version="1.1" id="Layer_1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="53" height="46" viewBox="0 0 531.74 460.5" overflow="visible" enable-background="new 0 0 531.74 460.5" xml:space="preserve"><polygon stroke="#000000" points="530.874,0.5 265.87,459.5 0.866,0.5 "/></svg>
-      </div>
-      <ul class="category-navigation-list">
-        {% for category in categories.active %}
-          <li>{{ category | link_to }}</li>
-        {% endfor %}
-        {% for artist in artists.active %}
-          <li>{{ artist | link_to }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
-
-
-{% if products != blank %}
-{% if theme.product_list_layout == "stacked" %}
-<section id="products">
-  {% for product in products %}
-  <article id="product_{{ product.id }}" class="product {{ product.status }}">
-    <section class="product_images galy">
-    	<div class="spinner"></div>
-      <ul class="slides">
-      {% for image in product.images %}
-        <li {% if forloop.last %}class="solo"{% endif %}>
-        	<img src="{{ image | product_image_url | constrain: '1000'}}" alt="Image of {{ product.name | escape }}">
-        </li>
+{% if categories.active != blank %}
+  <div class="category-list">
+    <ul>
+      <li><a href="/products">All products</a></li>
+      {% for category in categories.active %}
+        <li>{{ category | link_to }}</li>
       {% endfor %}
-      </ul>
-    </section>
-    <section class="product_info">
-      <section class="product_price">
-        <a href="{{ product.url }}" title="View {{ product.name }}">
-	        <h2>{{ product.name | truncate: 75 }}</h2>
-	        {% case product.status %}
-	        {% when 'active' %}
-					<h3 class="price">{% if product.on_sale %}<span class="on_sale">On sale!</span>{% endif %} {{ product.default_price | money: theme.money_format }}</h3>
-	        {% when 'sold-out' %}
-	    	  <h3>Sold out</h3>
-	        {% when 'coming-soon' %}
-	    	  <h3>Coming soon</h3>
-	        {% endcase %}
-        </a>
-      </section>
-    </section>
-  </article>
-  {% endfor %}
-</section>
-{% else %}
-<section id="products">
-	<div id="product_list">
-	  {% for product in products %}
-	  <article id="product_{{ product.id }}" class="product">
-	    <a href="{{ product.url }}" title="View {{ product.name | escape }}">
-	      <section class="product_images">
-	        <img src="{{ product.image | product_image_url | constrain: '600' }}" class="fade_in" alt="Image of {{ product.name | escape }}" />
-	      </section>
-	      <section class="product_price">
-          <h2>{{ product.name | truncate: 30 }}</h2>
+    </ul>
+  </div>
+{% endif %}
+
+{% paginate products from products.current by theme.products_per_page %}
+  {% if products != blank %}
+    <div class="product-list-container">
+      <div class="product-list {% if products.size < 4 %}product-list--center{% endif %}">
+        {% for product in products %}
+          {% assign image_width = product.image.width | times: 1.0 %}
+          {% assign image_height = product.image.height | times: 1.0 %}
+          {% assign aspect_ratio = image_width | divided_by: image_height %}
+          {% assign product_status = '' %}
           {% case product.status %}
-          {% when 'active' %}
-          <h3 class="price">{{ product.default_price | money: theme.money_format }} {% if product.on_sale %}{% endif %}</h3>
-          {% when 'sold-out' %}
-      		<h3>Sold out</h3>
-          {% when 'coming-soon' %}
-      		<h3>Coming soon</h3>
+            {% when 'active' %}
+              {% if product.on_sale %}{% assign product_status = 'On sale' %}{% endif %}
+            {% when 'sold-out' %}
+              {% assign product_status = 'Sold out' %}
+            {% when 'coming-soon' %}
+              {% assign product_status = 'Coming soon' %}
           {% endcase %}
-	      </section>
-	    </a>
-	  </article>
-	  {% endfor %}
-	</div>
-</section>
-{% endif %}
+          <div class="product-list-thumb {{ product.css_class }}">
+            <a class="product-list-link" href="{{ product.url }}" title="View {{ product.name | escape }}">
+              <div class="product-list-image-container product-list-image-container-{{ theme.grid_image_style }}">
+                <img
+                  alt=""
+                  class="blur-up product-list-image lazyload grid-{{ theme.grid_image_style }}"
+                  src="{{ product.image | product_image_url | constrain: 20 }}"
+                  {% unless theme.grid_image_style == 'default' %}data-aspectratio="{{ aspect_ratio }}"{% endunless %}
+                  data-srcset="
+                    {{ product.image | product_image_url | constrain: 240 }} 240w,
+                    {{ product.image | product_image_url | constrain: 320 }} 320w,
+                    {{ product.image | product_image_url | constrain: 400 }} 400w,
+                    {{ product.image | product_image_url | constrain: 540 }} 540w,
+                    {{ product.image | product_image_url | constrain: 600 }} 600w,
+                    {{ product.image | product_image_url | constrain: 800 }} 800w,
+                    {{ product.image | product_image_url | constrain: 960 }} 960w
+                  "
+                  data-sizes="auto"
+                >
+                {% if product_status != blank %}<div class="product-list-thumb-status">{{ product_status }}</div>{% endif %}
+              </div>
+              <div class="product-list-thumb-info">
+                <div class="product-list-thumb-name">{{ product.name }}</div>
+                <div class="product-list-thumb-price">
+                  {% if product.variable_pricing %}
+                    {{ product.min_price | money: theme.money_format }} - {{ product.max_price | money: theme.money_format }}
+                  {% else %}
+                    {{ product.default_price | money: theme.money_format }}
+                  {% endif %}
+                </div>
+                {% if product_status != blank %}<div class="product-list-thumb-status">{{ product_status }}</div>{% endif %}
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% if paginate.pages > 1 %}
+      <nav class="pagination" aria-label="Pagination">
+        {% if paginate.previous.is_link %}
+          <a aria-label="Go to previous page" class="page-link previous-page-link" href="{{ paginate.previous.url }}">
+            <svg aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0.23 0.77 7.51 13.5"><path d="M0.46875 6.96875L6.46875 1C6.75 0.6875 7.21875 0.6875 7.53125 1C7.8125 1.28125 7.8125 1.75 7.53125 2.03125L2.03125 7.5L7.5 13C7.8125 13.2812 7.8125 13.75 7.5 14.0312C7.21875 14.3438 6.75 14.3438 6.46875 14.0312L0.46875 8.03125C0.15625 7.75 0.15625 7.28125 0.46875 6.96875Z"></path></svg>
+            <span>Previous</span>
+          </a>
+        {% else %}
+          <span class="page-link previous-page-link disabled">
+            <svg aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0.23 0.77 7.51 13.5"><path d="M0.46875 6.96875L6.46875 1C6.75 0.6875 7.21875 0.6875 7.53125 1C7.8125 1.28125 7.8125 1.75 7.53125 2.03125L2.03125 7.5L7.5 13C7.8125 13.2812 7.8125 13.75 7.5 14.0312C7.21875 14.3438 6.75 14.3438 6.46875 14.0312L0.46875 8.03125C0.15625 7.75 0.15625 7.28125 0.46875 6.96875Z"></path></svg>
+            <span>Previous</span>
+          </span>
+        {% endif %}
+        {{ paginate | default_pagination, 'page-numbers', 'page-numbers' }}
 
-{% if paginate.previous.is_link or paginate.next.is_link %}
-<nav id="pagination">
-	<ul>{% if paginate.previous %}{% if paginate.previous.is_link %}<li id="pag_prev"><a href="{{ paginate.previous.url }}" class="button" title="Previous">Previous</a></li>{% endif %}{% endif %}{% if paginate.next %}{% if paginate.next.is_link %}<li id="pag_next"><a href="{{ paginate.next.url }}" class="button" title="Next">Next</a></li>{% endif %}{% endif %}</ul>
-</nav>
-{% endif %}
-
-{% else %}
-<p class="alert-noproducts message">No products found</p>
-{% endif %}
+        {% if paginate.next.is_link %}
+          <a aria-label="Go to next page" class="page-link next-page-link" href="{{ paginate.next.url }}">
+            <span>Next</span>
+            <svg aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0.23 0.77 7.51 13.5"><path d="M7.53125 6.96875C7.8125 7.28125 7.8125 7.75 7.53125 8.03125L1.53125 14.0312C1.21875 14.3438 0.75 14.3438 0.46875 14.0312C0.15625 13.75 0.15625 13.2812 0.46875 13L5.9375 7.53125L0.46875 2.03125C0.15625 1.75 0.15625 1.28125 0.46875 1C0.75 0.6875 1.21875 0.6875 1.5 1L7.53125 6.96875Z"></path></svg>
+          </a>
+        {% else %}
+          <span class="page-link next-page-link disabled">
+            <span>Next</span>
+            <svg aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0.23 0.77 7.51 13.5"><path d="M7.53125 6.96875C7.8125 7.28125 7.8125 7.75 7.53125 8.03125L1.53125 14.0312C1.21875 14.3438 0.75 14.3438 0.46875 14.0312C0.15625 13.75 0.15625 13.2812 0.46875 13L5.9375 7.53125L0.46875 2.03125C0.15625 1.75 0.15625 1.28125 0.46875 1C0.75 0.6875 1.21875 0.6875 1.5 1L7.53125 6.96875Z"></path></svg>
+          </span>
+        {% endif %}
+      </nav>
+    {% endif %}
+  {% else %}
+    <div class="message-banner message-banner--centered message-banner--no-bg">No products found.</div>
+  {% endif %}
 {% endpaginate %}

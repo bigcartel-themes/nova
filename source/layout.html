@@ -24,7 +24,7 @@
             </li>
           {% endif %}
           <li id="cart_info">
-            <a href="/cart">Cart<span>/ {{ cart.item_count | pluralize: 'item', 'items' }}</span></a>
+            <a href="/cart">{{ pages.cart.name }}<span>/ {{ cart.item_count | pluralize: 'item', 'items' }}</span></a>
           </li>
         </ul>
       </nav>
@@ -38,14 +38,20 @@
       {% endif %}
 
       <nav id="nav_primary">
-        <ul><li><a href="/products">{{ pages.products.name }}</a></li>{% for page in pages.all limit: 3 %}<li>{{ page | link_to }}</li>{% endfor %}<li><a href="/contact">Contact</a></li></ul>
+        <ul>
+          <li><a href="/products">{{ pages.products.name }}</a></li>
+          {% for page in pages.all limit: 3 %}
+            <li>{{ page | link_to }}</li>
+          {% endfor %}
+          <li><a href="/contact">{{ pages.contact.name }}</a></li>
+        </ul>
         <span class="keyline"></span>
       </nav>
 
       {% if errors != blank %}
-      <ul id="error" class="fade-in">
-        {% for error in errors %}<li>{{ error }}</li>{% endfor %}
-      </ul>
+        <ul id="error" class="fade-in">
+          {% for error in errors %}<li>{{ error }}</li>{% endfor %}
+        </ul>
       {% endif %}
 
       {% if page.category == 'custom' or page.full_url contains '/success' %}
@@ -127,7 +133,7 @@
         {{ powered_by_big_cartel }}
     	</div>
     </footer>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="{{ 'api' | theme_js_url }}"></script>
     <script src="{{ theme | theme_js_url }}"></script>
     {% if page.full_url contains '/product/' %}
@@ -136,10 +142,5 @@
         Product.find('{{ product.permalink }}', processProduct)
       </script>
     {% endif %}
-    <script type="text/javascript" charset="utf-8">
-      $(window).on('load', function() {
-        Store.init('{{ page.permalink }}');
-      });
-    </script>
   </body>
 </html>
