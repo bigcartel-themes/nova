@@ -20,6 +20,19 @@
       "description": "Replaces products on Home page"
     }
   ],
+  "preset_styles": {
+    "preview": {
+      "title_font": "primary_font",
+      "body_font": "secondary_font",
+      "text_color": "text_color",
+      "background_color": "background_color"
+    },
+    "presets": [
+      {
+
+      }
+    ]
+  },
   "fonts": [
     {
       "variable": "header_font",
@@ -121,6 +134,13 @@
   },
   "options": [
     {
+      "variable": "maintenance_message",
+      "label": "Maintenance mode message",
+      "type": "text",
+      "description": "A message visitors see when your shop is in Maintenance Mode",
+      "default": "We're working on our shop right now.<br /><br />Please check back soon."
+    },
+    {
       "variable": "welcome_text",
       "label": "Welcome text",
       "type": "text",
@@ -200,34 +220,58 @@
       "description": "Sets the display of prices in your shop"
     },
     {
+      "variable": "instagram_url",
+      "label": "Instagram URL",
+      "type": "text",
+      "description": "Ex: https://instagram.com/bigcartel"
+    },
+    {
+      "variable": "tiktok_url",
+      "label": "TikTok URL",
+      "type": "text",
+      "description": "Ex: https://tiktok.com/@bigcartelofficial"
+    },
+    {
       "variable": "twitter_url",
       "label": "Twitter URL",
       "type": "text",
-      "description": "Ex: http://twitter.com/bigcartel"
+      "description": "Ex: https://twitter.com/bigcartel"
     },
     {
       "variable": "facebook_url",
       "label": "Facebook URL",
       "type": "text",
-      "description": "Ex: http://facebook.com/bigcartel"
+      "description": "Ex: https://facebook.com/bigcartel"
     },
     {
-      "variable": "tumblr_url",
-      "label": "Tumblr URL",
+      "variable": "snapchat_url",
+      "label": "Snapchat URL",
       "type": "text",
-      "description": "Ex: http://bigcartel.tumblr.com"
-    },
-    {
-      "variable": "instagram_url",
-      "label": "Instagram URL",
-      "type": "text",
-      "description": "Ex: http://instagram.com/bigcartel"
+      "description": "Ex: https://snapchat.com/add/bigcartel"
     },
     {
       "variable": "pinterest_url",
       "label": "Pinterest URL",
       "type": "text",
-      "description": "Ex: http://pinterest.com/bigcartel"
+      "description": "Ex: https://pinterest.com/big_cartel"
+    },
+    {
+      "variable": "youtube_url",
+      "label": "YouTube URL",
+      "type": "text",
+      "description": "Ex: https://youtube.com/@BigCartelDotCom"
+    },
+    {
+      "variable": "tumblr_url",
+      "label": "Tumblr URL",
+      "type": "text",
+      "description": "Ex: https://bigcartel.tumblr.com"
+    },
+    {
+      "variable": "bandcamp_url",
+      "label": "Bandcamp URL",
+      "type": "text",
+      "description": "Ex: https://bigcartel.bandcamp.com"
     }
   ]
 }
