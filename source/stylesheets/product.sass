@@ -1,0 +1,93 @@
+.product-container
+  display: grid
+  grid-template-columns: 1fr 360px
+  column-gap: 60px
+  row-gap: 40px
+
+  @media screen and (max-width: $break-large)
+    column-gap: 40px
+
+  @media screen and (max-width: $break-medium)
+    grid-template-columns: 1fr
+
+.reset-selection-button-container
+  text-align: center
+  width: 100%
+
+  button.reset-selection-button
+    display: none
+
+.product-form
+  width: 100%
+
+  button
+    max-width: 100%
+
+  @media screen and (max-width: $break-large)
+    max-width: 100%
+
+.product-selects
+  margin-bottom: 20px
+
+.product-option-groups
+  display: flex
+  flex-direction: column
+  gap: 16px
+
+.product-detail
+  display: flex
+  flex-direction: column
+  row-gap: 36px
+
+  &__header
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    gap: 4px
+
+    h1
+      margin: 0
+      text-align: left
+
+  &__status
+    text-transform: uppercase
+    font-size: .825rem
+    line-height: normal
+    font-weight: 500
+    display: inline-block
+    padding: 4px 6px
+    margin-left: 8px
+    border: 1px solid var(--border-color)
+    border-radius: var(--border-radius)
+    letter-spacing: 1.1px
+
+  &__pricing
+    display: flex
+    align-items: center
+    font-size: 1.2em
+
+  &__description
+
+    p
+      margin: revert
+
+    &>:first-child
+      margin-top: 0
+
+    &>:last-child
+      margin-bottom: 0
+
+    ol, ul
+      margin: 1em
+
+    ul
+      list-style: disc
+
+    ol
+      list-style: decimal
+
+    a
+      text-decoration: underline
+
+#instant-checkout-button
+  margin-top: 12px

@@ -6,68 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
     {{ head_content }}
+    <style>.preloader * { opacity: 0; }.transition-preloader * { transition: none !important }</style>
   </head>
-
-  <body id="{% if page.permalink == 'products' %}products_page{% else %}{{ page.permalink }}{% endif %}" class="{{ page.category }} {% if page.full_url contains '/category/' %}multi_col{% endif %}">
-
+  <body id="{{ page.permalink }}" class="{{ page.category }} preloader transition-preloader">
+    <a class="skip-link" href="#main">Skip to main content</a>
     <header id="site_header">
-      <div id="branding">
-        <h1><a href="/" title="Home">{{ store.name }}</a></h1>
-      </div>
+      <div class="wrapper">
+        <div class="header-logo {% if theme.image != blank %}image{% else %}text{% endif %}">
+          <a href="/" title="{{ store.name | escape }}">
+            {% if theme.image != blank %}
+              <img alt="{{ store.name }} Home" src="{{ theme.images.image.url | constrain: '416', '132' }}" srcset="{{ theme.images.image.url | constrain: '416', '132' }} 2x, {{ theme.images.image.url | constrain: '208', '66' }} 1x">
+            {% else %}
+              {{ store.name }}
+            {% endif %}
+          </a>
+        </div>
 
-      <nav id="cart_nav">
-        <ul>
-        	<li id="menu"><a href="#site_footer">Menu</a></li>
-  		    {% if theme.show_search %}
-            <li id="search">
-              <button class="open-search">Search</button>
+        <nav id="cart_nav">
+          <ul>
+            <li id="menu"><a href="#site_footer">Menu</a></li>
+            {% if theme.show_search %}
+              <li id="search">
+                <button class="open-search">Search</button>
+              </li>
+            {% endif %}
+            <li id="cart_info">
+              <a href="/cart">{{ pages.cart.name }}<span>/ {{ cart.item_count | pluralize: 'item', 'items' }}</span></a>
             </li>
-          {% endif %}
-          <li id="cart_info">
-            <a href="/cart">{{ pages.cart.name }}<span>/ {{ cart.item_count | pluralize: 'item', 'items' }}</span></a>
-          </li>
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <div id="site_content" class="canvas {% unless theme.product_list_layout == "stacked" %}grid{% endunless %}">
-      {% if theme.image != blank %}
-      <div id="theme_image">
-        <a href="/" title="Home"><img src="{{ theme.image.url | constrain: 1200, 480 }}" alt="{{ store.name }}" /></a>
+    <div id="site_content">
+      <div class="wrapper">
+        <nav id="nav_primary" class="has-border">
+          <ul>
+            <li><a href="/products">{{ pages.products.name }}</a></li>
+            {% for page in pages.all limit: 3 %}
+              <li>{{ page | link_to }}</li>
+            {% endfor %}
+            <li><a href="/contact">{{ pages.contact.name }}</a></li>
+          </ul>
+        </nav>
+        <main id="main">
+          {% if page.category == 'custom' %}
+            <header id="content_header">
+              <h1 class="page-title">{{ page.name }}</h1>
+            </header>
+            <div class="custom-page-content">
+              {{ page_content | paragraphs }}
+            </div>
+          {% else %}
+            {{ page_content }}
+          {% endif %}
+        </main>
       </div>
-      {% endif %}
-
-      <nav id="nav_primary">
-        <ul>
-          <li><a href="/products">{{ pages.products.name }}</a></li>
-          {% for page in pages.all limit: 3 %}
-            <li>{{ page | link_to }}</li>
-          {% endfor %}
-          <li><a href="/contact">{{ pages.contact.name }}</a></li>
-        </ul>
-        <span class="keyline"></span>
-      </nav>
-
-      {% if errors != blank %}
-        <ul id="error" class="fade-in">
-          {% for error in errors %}<li>{{ error }}</li>{% endfor %}
-        </ul>
-      {% endif %}
-
-      {% if page.category == 'custom' or page.full_url contains '/success' %}
-        <header id="content_header">
-          <h1>{{ page.name }}</h1>
-        </header>
-        <section id="page_body">
-          {{ page_content | paragraphs }}
-        </section>
-      {% else %}
-        {{ page_content }}
-      {% endif %}
     </div>
 
-    <footer id="site_footer">
-    	<div class="canvas">
+    <footer class="footer">
+    	<div class="wrapper wrapper--footer">
     		<nav class="footer-nav--links" aria-label="Secondary">
           <ul>
             <li><a href="/">{{ pages.home.name }}</a></li>
@@ -133,12 +131,59 @@
         {{ powered_by_big_cartel }}
     	</div>
     </footer>
+    <script>
+      const themeOptions = {
+        showSoldOutOptions: {{ theme.show_sold_out_product_options }},
+        desktopProductPageImages: '{{ theme.desktop_product_page_images }}',
+        mobileProductPageImages: '{{ theme.mobile_product_page_images }}',
+        productImageZoom: {{ theme.product_image_zoom }},
+      }
+      const themeColors = {
+        backgroundColor: '{{ theme.background_color }}',
+        textColor: '{{ theme.text_color }}',
+      }
+    </script>
+    {% if theme.announcement_message_text != blank %}
+      <script>
+        let hashCode=function(s){return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a;},0);}
+        let announcementElement = document.querySelector(".announcement-message");
+        let announcementText = document.querySelector(".announcement-message__text").innerHTML;
+        let closeAnnouncementBtn = document.querySelector(".announcement-message__close-button");
+        let hashedAnnouncement = hashCode(announcementText);
+
+        function closeAnnouncement() {
+          let announcementElement = document.querySelector(".announcement-message");
+          announcementElement?.remove();
+          document.cookie = `announcementClosed=${hashedAnnouncement};path=/`;
+        }
+
+        if (announcementElement?.classList && closeAnnouncementBtn && hashedAnnouncement) {
+          let hasClosedAnnouncement = document.cookie.includes(`announcementClosed=${hashedAnnouncement}`);
+          if (!hasClosedAnnouncement) {
+            announcementElement.classList.add('visible');
+          }
+          closeAnnouncementBtn.addEventListener("click", closeAnnouncement);
+        }
+      </script>
+    {% endif %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="{{ 'api' | theme_js_url }}"></script>
+    <script type="text/javascript">
+      var formatMoney = Format.money;
+      Format.money = function(number) {
+        {% case theme.money_format %}
+        {% when 'sign' %}
+          return formatMoney(number, true, true, false);
+        {% when 'code' %}
+          return formatMoney(number, true, false, true);
+        {% when 'sign_and_code' %}
+          return formatMoney(number, true, true, true);
+        {% endcase %}
+      };
+    </script>
     <script src="{{ theme | theme_js_url }}"></script>
     {% if page.full_url contains '/product/' %}
       <script>
-        var show_sold_out_product_options = '{{ theme.show_sold_out_product_options }}';
         Product.find('{{ product.permalink }}', processProduct)
       </script>
     {% endif %}

@@ -1,11 +1,13 @@
 \:root
   --background-color: #{'{{ theme.background_color }}'}
-  --background-secondary-color: #{'{{ theme.background_secondary_color }}'}
   --text-color: #{'{{ theme.text_color }}'}
-  --text-secondary-color: #{'{{ theme.text_secondary_color }}'}
+  --secondary-text-color: #{'{{ theme.secondary_text_color }}'}
   --link-color: #{'{{ theme.link_color }}'}
   --link-hover-color: #{'{{ theme.link_hover }}'}
   --border-color: #{'{{ theme.border_color }}'}
+
+  --button-background-color: var(--background-color)
+  --button-text-color: var(--text-color)
 
   --error-background-color: #950f1e
   --error-text-color: #FFFFFF
@@ -13,7 +15,7 @@
   --header-font: #{'{{ theme.header_font | font_family }}'}
   --text-font: #{'{{ theme.text_font | font_family }}'}
 
-  --border-radius: 4px
+  --border-radius: 0
   --border-radius-sm: 2px
   --spacing-unit: 16px
 

@@ -14,11 +14,10 @@
     flex-wrap: wrap
 
     a
-      color: var(--secondary-text-color)
+      color: var(--text-color)
       display: block
-      font-size: 1.2em
-      padding: 2px 6px
-      outline-offset: 2px
+      padding: 2px
+      outline-offset: 4px
 
       &:hover
         color: var(--link-hover-color)
@@ -54,12 +53,15 @@
   width: calc((100% / var(--columns)) - var(--gap) + (var(--gap) / var(--columns)))
 
 a.product-list-link
+  color: var(--text-color)
   text-decoration: none
   outline-offset: 4px
   position: relative
 
   @media (hover: hover)
     &:hover
+      color: var(--link-hover-color)
+
       .product-list-thumb-name
         text-decoration: underline
 
@@ -83,7 +85,6 @@ a.product-list-link
   width: 100%
   height: 100%
   transition: transform 0.3s ease-in-out
-  z-index: 1
 
   &.grid-default
     position: relative
@@ -95,9 +96,9 @@ a.product-list-link
     object-fit: contain
 
 .product-list-thumb-status
-  background: var(--product-status-background-color)
+  background: var(--background-color)
   border-radius: var(--border-radius)
-  color: var(--product-status-text-color)
+  color: var(--text-color)
   top: 12px
   right: 12px
   font-size: .875rem
@@ -107,7 +108,6 @@ a.product-list-link
   position: absolute
   text-transform: uppercase
   padding: 6px
-  z-index: 2
 
 .product-list-thumb-info
   line-height: normal
@@ -137,7 +137,6 @@ a.product-list-link
   width: 100%
   gap: 24px
   line-height: 2em
-  margin-top: var(--margin-size)
 
   .page-link
     display: flex
