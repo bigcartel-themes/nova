@@ -24,7 +24,6 @@
 
         <nav id="cart_nav">
           <ul>
-            <li id="menu"><a href="#site_footer">Menu</a></li>
             {% if theme.show_search %}
               <li id="search">
                 <button class="open-search">Search</button>
@@ -43,7 +42,7 @@
         <nav id="nav_primary" class="has-border">
           <ul>
             <li><a href="/products">{{ pages.products.name }}</a></li>
-            {% for page in pages.all limit: 3 %}
+            {% for page in pages.all limit: theme.nav_items %}
               <li>{{ page | link_to }}</li>
             {% endfor %}
             <li><a href="/contact">{{ pages.contact.name }}</a></li>

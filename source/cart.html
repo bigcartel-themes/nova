@@ -1,7 +1,7 @@
 <h1 class="page-title">{{ page.name }}</h1>
 <div class="cart-container">
   {% if errors != blank %}
-    <div class="message-banner message-banner--errors">
+    <div class="message-banner message-banner--errors message-banner--centered">
       {% for error in errors %}
         <div>{{ error }}</div>
       {% endfor %}

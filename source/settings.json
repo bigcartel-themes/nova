@@ -273,6 +273,14 @@
       "requires": "inventory"
     },
     {
+      "variable": "nav_items",
+      "label": "Navigation items",
+      "type": "select",
+      "options": "0..4",
+      "default": 2,
+      "description": "The number of custom page links show in the main navigation"
+    },
+    {
       "variable": "money_format",
       "label": "Price display",
       "type": "select",
@@ -282,6 +290,19 @@
       ],
       "default": "sign",
       "description": "Sets the display of prices in your shop"
+    },
+    {
+      "variable": "border_radius",
+      "label": "Rounded corners",
+      "type": "select",
+      "options": [
+        ["Off", "0"],
+        ["Small", "2px"],
+        ["Medium", "4px"],
+        ["Large", "8px"]
+      ],
+      "default": "4px",
+      "description": "Controls the rounded corner style on images and other site elements"
     },
     {
       "variable": "instagram_url",
