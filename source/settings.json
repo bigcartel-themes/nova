@@ -52,6 +52,11 @@
       "default": "#FFFFFF"
     },
     {
+      "variable": "secondary_background_color",
+      "label": "Secondary Background",
+      "default": "#ECECEC"
+    },
+    {
       "variable": "text_color",
       "label": "Text",
       "default": "#111111"
@@ -75,11 +80,6 @@
       "variable": "border_color",
       "label": "Borders",
       "default": "#777777"
-    },
-    {
-      "variable": "error_color",
-      "label": "Errors",
-      "default": "#B11A2A"
     }
   ],
   "checkout": {
@@ -128,6 +128,12 @@
     "summary_color":"{{ text_color }}"
   },
   "options": [
+    {
+      "variable": "announcement_message_text",
+      "label": "Announcement text",
+      "type": "text",
+      "description": "Displays an announcement message on the top of every page"
+    },
     {
       "variable": "maintenance_message",
       "label": "Maintenance mode message",

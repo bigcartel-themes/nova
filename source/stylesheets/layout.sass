@@ -194,17 +194,55 @@ span.arrow
   font-weight: normal
   margin: 0
 
-#cart_nav
-  margin-left: auto
-
-#cart_nav ul
+.top-nav
   display: flex
-  align-items: center
-  margin-left: auto
-  gap: 16px
+  padding: 16px 32px
+  gap: 32px
+  font-size: 1.25em
+  font-weight: 600
+  line-height: 1em
+  font-family: var(--primary-font)
 
-#cart_nav #cart_info span
-  padding-left: 7px
+  @media screen and (max-width: $break-small)
+    padding: 16px
+
+  a, button.nav-button
+    color: inherit
+    display: flex
+    align-items: center
+    padding: 8px
+
+    &:hover, &:focus
+      color: var(--link-hover-color)
+
+  &--links
+    @media screen and (max-width: $break-small)
+      display: none
+
+    ul
+      display: flex
+      flex-wrap: wrap
+      column-gap: 16px
+      row-gap: 8px
+
+  &--icons
+    display: flex
+    gap: 16px
+    margin-left: auto
+    flex-shrink: 0
+
+    .open-search
+      svg
+        height: 22px
+        width: 22px
+
+    svg
+      display: flex
+      align-items: center
+      justify-content: center
+      height: 26px
+      width: 26px
+      fill: currentColor
 
 .wrapper
   max-width: 1200px

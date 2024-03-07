@@ -1,0 +1,39 @@
+.announcement-message
+  align-items: center
+  background-color: var(--announcement-background-color)
+  color: var(--announcement-text-color)
+  display: none
+  font-size: 1rem
+  justify-content: center
+  line-height: 1.25em
+  padding: 22px 96px
+  position: relative
+  text-align: center
+  width: 100%
+  z-index: 1
+
+  @media screen and (max-width: $break-small)
+    padding: 14px 64px
+
+  &.visible
+    display: flex
+
+  &__close-button
+    align-items: center
+    color: var(--announcement-text-color)
+    display: flex
+    height: 32px
+    justify-content: center
+    padding: 0
+    position: absolute
+    right: 32px
+    top: 50%
+    transform: translateY(-50%)
+    width: 32px
+
+    @media screen and (max-width: $break-small)
+      right: 16px
+
+  &__close-icon
+    height: 14px
+    width: 14px
