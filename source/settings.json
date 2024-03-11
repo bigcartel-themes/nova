@@ -5,7 +5,7 @@
     {
       "variable": "image",
       "label": "Header image",
-      "description": "Transparent background recommended"
+      "description": "Transparent background recommended, up to 300 by 100px"
     }
   ],
   "image_sets": [
@@ -320,10 +320,10 @@
     },
   	{
       "variable": "share_buttons",
-      "label": "Show social buttons",
+      "label": "Show product share button",
       "type": "boolean",
       "default": false,
-      "description": "Adds Facebook, Twitter, and Pinterest buttons to Product pages"
+      "description": "Adds a Share button to your Product page after the description"
     },
     {
       "variable": "product_image_zoom",

@@ -182,7 +182,7 @@ button.button, a.button, div.button
     padding: 24px
 
     @media screen and (max-width: $break-small)
-      padding: 24px 16px
+      padding: 16px
 
   a
     color: var(--text-color)
@@ -231,17 +231,19 @@ button.button, a.button, div.button
       font-size: 1.3rem
 
   &.image
-    height: 120px
+    height: 100px
 
     @media screen and (max-width: $break-medium)
       height: 80px
 
     @media screen and (max-width: $break-small)
-      height: 72px
+      height: 64px
 
     img
+      max-width: 300px
       height: 100%
       object-fit: contain
+      object-position: left
       width: 100%
 
     a
