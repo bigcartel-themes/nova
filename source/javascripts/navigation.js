@@ -49,3 +49,23 @@ const adjustDropdownHeights = () => {
 adjustDropdownHeights();
 
 window.addEventListener('resize', adjustDropdownHeights);
+
+
+function setHeaderBottomPosition() {
+  const headerBottomPosition = document.querySelector('header').getBoundingClientRect().bottom;
+  document.documentElement.style.setProperty('--header-bottom-position', `${headerBottomPosition}px`);
+}
+
+const toggleMenuButton = document.querySelector('.open-mobile-navigation');
+const sidebarNavigation = document.getElementById('mobile-navigation');
+
+function toggleSidebarNavigation() {
+  setHeaderBottomPosition();
+  document.body.classList.toggle('no-scroll');
+  const isButtonExpanded = toggleMenuButton.getAttribute('aria-expanded') === 'true';
+  const isMenuHidden = sidebarNavigation.getAttribute('aria-hidden') === 'true';
+  toggleMenuButton.setAttribute('aria-expanded', isButtonExpanded ? 'false' : 'true');
+  sidebarNavigation.setAttribute('aria-hidden', isMenuHidden ? 'false' : 'true');
+}
+
+toggleMenuButton.addEventListener('click', toggleSidebarNavigation);

@@ -156,7 +156,7 @@
     {
       "variable": "secondary_text_color",
       "label": "Secondary Text",
-      "default": "#e30ea7"
+      "default": "#222222"
     },
     {
       "variable": "link_color",
@@ -166,7 +166,7 @@
     {
       "variable": "link_hover",
       "label": "Link Hover",
-      "default": "#e30ea7"
+      "default": "#0B019B"
     },
     {
       "variable": "border_color",

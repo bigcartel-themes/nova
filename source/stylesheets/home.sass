@@ -2,21 +2,32 @@
   color: var(--secondary-text-color)
   font-family: var(--header-font)
   font-size: 1.5em
-  padding-bottom: 48px
+  padding: 48px 0
   margin: 0 auto 80px
   max-width: 680px
+  position: relative
   text-align: center
   width: 100%
 
-.home-tagline-mobile
-  display: block
-  width: 100%
-  padding-bottom: 48px
-  margin-bottom: 48px
+  @media screen and (max-width: $break-small)
+    margin-bottom: 60px
+    padding: 32px 0
+    font-size: 1.25em
 
-  @media screen and (min-width: $break-small + 1)
-    display: none
+  &:after, &:before
+    content: ""
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+    height: 1px
+    width: 200px
+    background: var(--border-color)
 
+  &:before
+    top: -1px
+
+  &:after
+    bottom: 0
 
 \:root
   --pagination-background: transparent

@@ -38,7 +38,7 @@ a.skip-link
     top: 20px
 
 h1, h2, h3, h4, h5, h6
-  margin-bottom: 1.5em
+  margin-bottom: 1.3em
   line-height: 1.4em
 
 a
@@ -151,24 +151,30 @@ button.button, a.button, div.button
     width: 14px
     z-index: 1
 
-#site_content
+.site-content
   flex: 1
   position: relative
   padding-top: 40px
+
+  .has-tagline &
+    padding-top: 0
+
+    @media screen and (max-width: $break-small)
+      padding-top: 16px
 
   @media screen and (max-width: $break-small)
     padding-top: 16px
 
 .header
-  width: 100%
-  display: flex
-  align-items: center
-  justify-content: flex-start
-  background: var(--background-color)
-  flex-shrink: 0
-  align-self: start
+  .has-tagline &
+    &:after
+      display: none
 
-  .wrapper
+  @media screen and (max-width: $break-medium)
+    &:after
+      display: none
+
+  .wrapper.top-nav
     width: 100%
     display: flex
     align-items: center
@@ -189,7 +195,7 @@ button.button, a.button, div.button
   left: -8px
   position: relative
 
-  @media screen and (max-width: $break-small)
+  @media screen and (max-width: $break-medium)
     display: block
 
 .open-mobile-navigation
@@ -250,7 +256,7 @@ button.button, a.button, div.button
   line-height: 1em
   font-family: var(--primary-font)
 
-  @media screen and (max-width: $break-small)
+  @media screen and (max-width: $break-medium)
     font-size: 1em
     padding: 16px
     column-gap: 8px
