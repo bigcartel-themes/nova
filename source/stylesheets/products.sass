@@ -1,27 +1,8 @@
-.category-list
-  margin: 0 auto 60px
-  text-align: center
+.product-list-container
+  margin-bottom: 40px
 
-  @media screen and (max-width: $break-small)
-    margin-bottom: 40px
-
-  ul
-    display: flex
-    align-items: center
-    justify-content: center
-    column-gap: 16px
-    row-gap: 8px
-    flex-wrap: wrap
-
-    a
-      color: var(--text-color)
-      display: block
-      padding: 2px
-      outline-offset: 4px
-
-      &:hover
-        color: var(--link-hover-color)
-        text-decoration: underline
+.product-list-container + .pagination
+  margin-top: 80px
 
 .product-list
   --gap: calc(var(--spacing-unit) * 4)
@@ -46,6 +27,7 @@
     --columns: #{"{{ theme.max_products_per_row_mobile }}"}
     --gap: calc(var(--spacing-unit) * 2)
     justify-content: flex-start
+    row-gap: 24px
 
 .product-list-thumb
   position: relative
@@ -123,6 +105,10 @@ a.product-list-link
 .product-list-thumb-name
   font-size: 1.1rem
   word-break: break-word
+  font-weight: 500
+
+  @media screen and (max-width: $break-small)
+    font-size: 1rem
 
 .product-list-thumb-price
   font-size: .975rem
@@ -159,6 +145,8 @@ a.product-list-link
   gap: 24px
 
   .current
+    color: var(--secondary-text-color)
+    font-weight: 500
     text-underline-offset: 4px
     text-decoration: underline
 

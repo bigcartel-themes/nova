@@ -1,12 +1,22 @@
 .home-tagline
   color: var(--secondary-text-color)
-  font-family: var(--secondary-font)
+  font-family: var(--header-font)
   font-size: 1.5em
   padding-bottom: 48px
   margin: 0 auto 80px
   max-width: 680px
   text-align: center
   width: 100%
+
+.home-tagline-mobile
+  display: block
+  width: 100%
+  padding-bottom: 48px
+  margin-bottom: 48px
+
+  @media screen and (min-width: $break-small + 1)
+    display: none
+
 
 \:root
   --pagination-background: transparent

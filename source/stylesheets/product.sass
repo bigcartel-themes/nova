@@ -1,10 +1,11 @@
 .product-container
   display: grid
-  grid-template-columns: 1fr 360px
+  grid-template-columns: 1fr 400px
   column-gap: 60px
   row-gap: 40px
 
   @media screen and (max-width: $break-large)
+    grid-template-columns: 1fr 330px
     column-gap: 40px
 
   @media screen and (max-width: $break-medium)
@@ -57,7 +58,8 @@
     display: inline-block
     padding: 4px 6px
     margin-left: 8px
-    border: 1px solid var(--border-color)
+    color: var(--secondary-text-color)
+    border: 1px solid var(--secondary-text-color)
     border-radius: var(--border-radius)
     letter-spacing: 1.1px
 
@@ -91,3 +93,95 @@
 
 #instant-checkout-button
   margin-top: 12px
+
+.product-inventory
+  margin-top: 16px
+
+.product-inventory-header
+  border-bottom: 1px solid var(--border-color)
+  padding-bottom: 4px
+  margin-bottom: 16px
+  text-align: center
+  font-weight: bold
+
+.inventory-bars
+  font-family: var(--secondary-font)
+  font-size: .875em
+  display: flex
+  flex-direction: column
+  gap: 12px
+
+  .inventory-option
+    display: flex
+    gap: 4px
+    flex-direction: column
+
+    &__caption
+      gap: 8px
+      display: flex
+
+    &__in-stock
+      margin-left: auto
+
+    &__bar
+      border-radius: var(--border-radius)
+      overflow: hidden
+      background-color: var(--border-color-light)
+      height: 4px
+      position: relative
+      width: 100%
+
+    &__percentage
+      background-color: var(--secondary-text-color)
+      height: 100%
+      position: absolute
+
+.product-detail__share
+  color: var(--primary-text-color)
+  position: relative
+
+  .product-share-launch
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 6px
+
+    &:hover
+      color: var(--link-hover-color)
+
+      span
+        text-decoration: underline
+        text-underline-offset: 4px
+
+    svg
+      height: 22px
+      width: 22px
+      fill: currentColor
+
+  .product-share-buttons
+    display: none
+    gap: 16px
+    position: absolute
+    background: var(--background-color)
+    border: 2px solid var(--border-color)
+    top: calc(100% + 4px)
+    padding: 12px
+    font-size: .925em
+    flex-direction: column
+
+    li a
+      color: var(--primary-text-color)
+      display: flex
+      gap: 12px
+      align-items: center
+
+    &[aria-hidden="false"]
+      display: flex
+
+    a:hover
+      color: var(--link-hover-color)
+
+    svg
+      fill: currentColor
+      height: 16px
+      width: 16px

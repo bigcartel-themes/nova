@@ -1,6 +1,6 @@
 {
   "name": "Nova",
-  "version": "1.4.12",
+  "version": "1.4.13",
   "images": [
     {
       "variable": "image",
@@ -22,14 +22,106 @@
   ],
   "preset_styles": {
     "preview": {
-      "title_font": "primary_font",
-      "body_font": "secondary_font",
+      "title_font": "header_font",
+      "body_font": "text_font",
       "text_color": "text_color",
       "background_color": "background_color"
     },
     "presets": [
       {
-
+        "group_name": "Classic",
+        "styles": [
+          {
+            "style_name": "Classic #1",
+            "fonts": {
+              "header_font": "Lato",
+              "text_font": "Lato"
+            },
+            "colors": {
+              "background_color": "#FFFFFF",
+              "secondary_background_color": "#ECECEC",
+              "text_color": "#111111",
+              "secondary_text_color": "#222222",
+              "link_color": "#1201FF",
+              "link_hover": "#0B019B",
+              "border_color": "#777777"
+            }
+          }
+        ]
+      },
+      {
+        "group_name": "Elegant",
+        "styles": [
+          {
+            "style_name": "Elegant #1",
+            "fonts": {
+              "header_font": "Marcellus",
+              "text_font": "Inter"
+            },
+            "colors": {
+              "background_color": "#141415",
+              "secondary_background_color": "#141415",
+              "text_color": "#F8F8F8",
+              "secondary_text_color": "#F8F8F8",
+              "link_color": "#F8F8F8",
+              "link_hover": "#AEAEAE",
+              "border_color": "#4F4F4F"
+            }
+          },
+          {
+            "style_name": "Elegant #2",
+            "fonts": {
+              "header_font": "Prata",
+              "text_font": "Source Sans Pro"
+            },
+            "colors": {
+              "background_color": "#F8F8F8",
+              "secondary_background_color": "#EBE7E7",
+              "text_color": "#0F1B27",
+              "secondary_text_color": "#0F1B27",
+              "link_color": "#0F1B27",
+              "link_hover": "#8A5A5A",
+              "border_color": "#DBD1D1"
+            }
+          },
+          {
+            "style_name": "Elegant #3",
+            "fonts": {
+              "header_font": "Fraunces",
+              "text_font": "Poppins"
+            },
+            "colors": {
+              "background_color": "#F5F4EE",
+              "secondary_background_color": "#F1DBCE",
+              "text_color": "#262522",
+              "secondary_text_color": "#7C3C17",
+              "link_color": "#262522",
+              "link_hover": "#7C3C17",
+              "border_color": "#F1DBCE"
+            }
+          }
+        ]
+      },
+      {
+        "group_name": "Playful",
+        "styles": [
+          {
+            "style_name": "Playful #1",
+            "fonts": {
+              "header_font": "Concert One",
+              "text_font": "Concert One"
+            },
+            "colors": {
+              "background_color": "#FFFFFF",
+              "secondary_background_color": "#F6FF20",
+              "text_color": "#000000",
+              "secondary_text_color": "#000000",
+              "link_color": "#000000",
+              "link_hover": "#F90081",
+              "border_color": "#22FFF8"
+            }
+          }
+        ]
       }
     ]
   },
@@ -63,8 +155,8 @@
     },
     {
       "variable": "secondary_text_color",
-      "label": "Text Accent",
-      "default": "#222222"
+      "label": "Secondary Text",
+      "default": "#e30ea7"
     },
     {
       "variable": "link_color",
@@ -74,7 +166,7 @@
     {
       "variable": "link_hover",
       "label": "Link Hover",
-      "default": "#0B019B"
+      "default": "#e30ea7"
     },
     {
       "variable": "border_color",
@@ -88,7 +180,6 @@
     "title_background_color": "{{ background_color }}",
     "title_font": "{{ header_font }}",
     "background_color": "{{ background_color }}",
-    "background_image": "{{ background_image }}",
     "body_font": "{{ text_font }}",
     "step_background_color":"{{ background_color }}",
     "step_border_color":"{{ border_color }}",
@@ -190,7 +281,7 @@
         ["Fit to square", "contain"],
         ["Crop to square", "cover"]
       ],
-      "default": "default",
+      "default": "cover",
       "description": "Sets the display of images in the product grid"
     },
     {
@@ -221,7 +312,7 @@
       "variable": "show_inventory_bars",
       "label": "Show inventory bars",
       "type": "boolean",
-      "default": true,
+      "default": false,
       "description": "Shows a product's inventory amounts (when using inventory tracking)",
       "requires": "inventory"
     },
@@ -236,7 +327,7 @@
       "variable": "share_buttons",
       "label": "Show social buttons",
       "type": "boolean",
-      "default": true,
+      "default": false,
       "description": "Adds Facebook, Twitter, and Pinterest buttons to Product pages"
     },
     {
@@ -307,7 +398,7 @@
         ["Medium", "4px"],
         ["Large", "8px"]
       ],
-      "default": "4px",
+      "default": "0",
       "description": "Controls the rounded corner style on images and other site elements"
     },
     {

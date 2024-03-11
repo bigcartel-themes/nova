@@ -1,16 +1,5 @@
 <h1 class="page-title">{% if page.full_url contains "search=" %}Search results{% else %}{{ page.name }}{% endif %}</h1>
 
-{% if categories.active != blank %}
-  <div class="category-list">
-    <ul>
-      <li><a href="/products">All products</a></li>
-      {% for category in categories.active %}
-        <li>{{ category | link_to }}</li>
-      {% endfor %}
-    </ul>
-  </div>
-{% endif %}
-
 {% paginate products from products.current by theme.products_per_page %}
   {% if products != blank %}
     <div class="product-list-container">

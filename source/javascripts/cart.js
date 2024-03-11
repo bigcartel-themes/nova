@@ -66,11 +66,13 @@ updateCartCounts = (cart) => {
   const item_count = cart.item_count;
 
   const cartCountElements = document.querySelectorAll('.cart-value');
+  const cartCountHiddenElement = document.querySelector('.cart-num-items-hidden');
   const cartSubtotal = document.querySelector('.cart-subtotal__amount');
 
   cartCountElements.forEach((element) => {
     htmlHighlight(element,item_count)
   });
+  cartCountHiddenElement.innerHTML = Format.pluralize(item_count, 'item', 'items');
 
   if (cartSubtotal) { htmlHighlight(cartSubtotal, sub_total); }
 

@@ -1,0 +1,114 @@
+.header-navigation
+  padding-bottom: 48px
+  margin-bottom: 48px
+
+  @media screen and (max-width: $break-small)
+    display: none
+
+.header-pages
+  display: flex
+  column-gap: 32px
+  row-gap: 4px
+  flex-wrap: wrap
+  position: relative
+  list-style: none
+  margin: 0
+  padding: 0
+  text-align: center
+  flex-direction: row
+  justify-content: center
+
+  li
+    a
+      color: var(--text-color)
+
+      &:hover
+        color: var(--link-hover-color)
+
+.category-nav
+  position: relative
+
+.header-page-link
+  a, .category-nav-heading
+    display: flex
+    position: relative
+    align-items: center
+    gap: 8px
+    outline-offset: 4px
+    border-radius: 0
+
+  .category-nav-arrow
+    width: 12px
+
+  @media (hover: hover)
+    a:hover
+      text-decoration: underline
+
+    .category-nav-heading:hover
+      color: var(--link-hover-color)
+
+      .category-nav-page
+        text-underline-offset: 4px
+        text-decoration: underline
+
+.category-dropdown
+  +transform-origin(100% 0%)
+  +transform(scaleY(0.75))
+  background: var(--background-color)
+  border-radius: var(--border-radius)
+  border: 1px solid var(--text-color)
+  left: -20px
+  margin: 0 auto
+  min-width: 250px
+  opacity: 0
+  overflow-y: scroll
+  padding: 10px 15px
+  font-size: 1rem
+  position: absolute
+  text-align: left
+  visibility: hidden
+  height: auto
+  max-height: 50vh
+  z-index: 3
+  top: calc(100% + 4px)
+  scrollbar-width: thin
+  scrollbar-color: #{"rgba(var(--text-color-rgb),.5)"} transparent
+  scrollbar-gutter: stable
+  box-shadow: var(--menu-box-shadow)
+
+  &[aria-hidden="false"]
+    transition: transform 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.1s ease-out
+    +transform(scale(1))
+    transition-delay: 0s
+    opacity: 1
+    visibility: visible
+
+  &::-webkit-scrollbar
+    height: .375rem
+    width: .75rem
+
+  &::-webkit-scrollbar-track
+    background-color: transparent
+
+  &::-webkit-scrollbar-thumb
+    border-radius: .375rem
+    border: 3px solid transparent
+    background-color: #{"rgba(var(--text-color-rgb),.5)"}
+    background-clip: content-box
+
+.dropdown-list
+  list-style: none
+  margin: 0
+  padding: 0
+  position: relative
+  z-index: 4
+
+  li
+    display: block
+
+    a
+      display: block
+      padding: 6px 8px
+
+      &:hover
+        text-decoration: underline

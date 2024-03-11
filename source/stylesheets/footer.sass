@@ -17,9 +17,15 @@ footer
     padding-top: 48px
     padding-bottom: 48px
     gap: 48px
+    width: 100%
 
 .footer-nav
+
   &--links
+    width: 100%
+    border-top: 1px solid var(--border-color)
+    padding-top: 48px
+
     ul
       display: flex
       align-items: center
@@ -30,6 +36,9 @@ footer
 
       a
         display: block
+
+        &:hover
+          color: var(--link-hover-color)
 
       @media screen and (max-width: $break-small)
         flex-direction: column

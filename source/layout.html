@@ -20,12 +20,25 @@
         </button>
       </div>
     {% endif %}
-    <header id="site_header">
+    <header class="header">
       <div class="wrapper top-nav">
+        <div class="header-mobile-menu">
+          <button class="open-mobile-navigation">
+            <svg aria-hidden="true" viewBox="0 0 100 114" width="22" height="22">
+              <rect y="15" width="100" height="12" rx="8"></rect>
+              <rect y="51" width="100" height="12" rx="8"></rect>
+              <rect y="87" width="100" height="12" rx="8"></rect>
+            </svg>
+          </button>
+        </div>
         <div class="header-logo {% if theme.image != blank %}image{% else %}text{% endif %}">
-          <a href="/" title="{{ store.name | escape }}">
+          <a href="/" class="store-link" title="{{ store.name | escape }}">
             {% if theme.image != blank %}
-              <img alt="{{ store.name }} Home" src="{{ theme.images.image.url | constrain: '416', '132' }}" srcset="{{ theme.images.image.url | constrain: '416', '132' }} 2x, {{ theme.images.image.url | constrain: '208', '66' }} 1x">
+              <img
+                class="store-logo"
+                alt="{{ store.name }} Home"
+                src="{{ theme.images.image.url | constrain: '600', '200' }}"
+                srcset="{{ theme.images.image.url | constrain: '600', '200' }} 2x, {{ theme.images.image.url | constrain: '300', '100' }} 1x">
             {% else %}
               {{ store.name }}
             {% endif %}
@@ -40,10 +53,13 @@
               </svg>
             </button>
           {% endif %}
-          <a class="cart-link" href="/cart" aria-label="View cart, {{ cart.item_count | pluralize: 'Item', 'Items' }}">
+          <a class="cart-link" href="/cart">
             <svg aria-hidden="true" fill="currentColor" viewBox="0 0 27.06 23.04">
               <path d="M10.45 19.24c-1.07 0-1.91.84-1.91 1.9s.84 1.9 1.91 1.9 1.9-.83 1.9-1.9-.84-1.9-1.9-1.9ZM25.98 2.85H6.84l-.22-1.49C6.5.46 6.17 0 4.98 0H.87C.4 0 0 .41 0 .88s.4.89.87.89h3.96l1.88 12.87c.25 1.66 1.12 2.71 2.82 2.71h13.68c.46 0 .86-.38.86-.88s-.4-.88-.86-.88H9.73c-.67 0-1.08-.47-1.18-1.18l-.18-1.23h14.86c1.71 0 2.59-1.05 2.84-2.73l.94-6.2c.02-.15.05-.34.05-.45 0-.56-.42-.95-1.07-.95Zm-1.76 7.38c-.09.73-.48 1.18-1.17 1.18H8.1l-1-6.8h17.95l-.83 5.61Zm-2.81 9.01a1.9 1.9 0 1 0 0 3.8c1.05 0 1.91-.83 1.91-1.9s-.84-1.9-1.91-1.9Z"/>
             </svg>
+            <span class="cart-value" aria-hidden="true">{{ cart.item_count }}</span>
+            <span class="visually-hidden">View cart</span>
+            <span class="cart-num-items-hidden visually-hidden" aria-live="polite" aria-atomic="true">{{ cart.item_count | pluralize: 'item', 'items' }}</span>
           </a>
         </nav>
       </div>
@@ -51,13 +67,34 @@
 
     <div id="site_content">
       <div class="wrapper">
-        <nav id="nav_primary" class="has-border">
-          <ul>
-            <li><a href="/products">{{ pages.products.name }}</a></li>
+        <nav class="header-navigation has-border" aria-label="Primary">
+          <ul class="header-pages">
+            <li class="header-page-link">
+              {% if categories.active != blank %}
+                <div class="category-nav header-category-nav">
+                  <button class="category-nav-heading" aria-label="Open category navigation" aria-controls="header-dropdown" aria-expanded="false">
+                    <div class="category-nav-page">Shop</div>
+                    <svg aria-hidden="true" fill="currentColor" class="category-nav-arrow" viewBox="0 0 15 7.6" enable-background="new 0 0 15 7.6"><path d="M15 1.1l-7.5 6.5-7.5-6.3 1-1.2 6.5 5.5 6.5-5.6z"/></svg>
+                  </button>
+                  <div class="category-dropdown" id="header-dropdown" aria-hidden="true">
+                    {% if categories.active != blank %}
+                      <ul class="dropdown-list categories-list">
+                        <li><a href="/products">All products</a></li>
+                        {% for category in categories.active %}
+                          <li>{{ category | link_to }}</li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </div>
+                </div>
+              {% else %}
+                <a href="/products">{{ pages.products.name }}</a>
+              {% endif %}
+            </li>
             {% for page in pages.all limit: theme.nav_items %}
-              <li>{{ page | link_to }}</li>
+              <li class="header-page-link">{{ page | link_to }}</li>
             {% endfor %}
-            <li><a href="/contact">{{ pages.contact.name }}</a></li>
+            <li class="header-page-link"><a href="/contact">Contact</a></li>
           </ul>
         </nav>
         <main id="main">
@@ -156,8 +193,8 @@
               <label class="search-modal__label" for="search-input">Search products</label>
               <input class="search-modal__input" id="search-input" name="search" type="search" autocomplete="off" />
               <button type="submit" class="search-modal__submit" aria-label="Submit search form">
-                <svg class="search-modal__submit-icon" aria-hidden="true" fill="currentColor" width="16" height="16" viewBox="0 0.5 19.99 20.03">
-                  <path d="M16.25 8.625C16.25 10.4219 15.6641 12.1016 14.6875 13.4297L19.6094 18.3906C20.1172 18.8594 20.1172 19.6797 19.6094 20.1484C19.1406 20.6562 18.3203 20.6562 17.8516 20.1484L12.8906 15.1875C11.5625 16.2031 9.88281 16.75 8.125 16.75C3.63281 16.75 0 13.1172 0 8.625C0 4.17188 3.63281 0.5 8.125 0.5C12.5781 0.5 16.25 4.17188 16.25 8.625ZM8.125 14.25C10.1172 14.25 11.9531 13.1953 12.9688 11.4375C13.9844 9.71875 13.9844 7.57031 12.9688 5.8125C11.9531 4.09375 10.1172 3 8.125 3C6.09375 3 4.25781 4.09375 3.24219 5.8125C2.22656 7.57031 2.22656 9.71875 3.24219 11.4375C4.25781 13.1953 6.09375 14.25 8.125 14.25Z"></path>
+                <svg class="search-modal__submit-icon" aria-hidden="true" fill="currentColor" viewBox="0 0 22.91 23.12">
+                  <path d="M0 9.35c0 5.16 4.2 9.35 9.35 9.35 2.04 0 3.9-.66 5.44-1.76l5.77 5.78c.27.27.62.4 1 .4.8 0 1.35-.6 1.35-1.38 0-.38-.14-.71-.39-.96l-5.73-5.77c1.21-1.57 1.92-3.53 1.92-5.66C18.7 4.2 14.51 0 9.35 0S0 4.2 0 9.35Zm2 0C2 5.3 5.29 2 9.35 2s7.35 3.29 7.35 7.35-3.29 7.35-7.35 7.35S2 13.41 2 9.35Z" class="cls-1"/>
                 </svg>
               </button>
             </form>
@@ -175,6 +212,7 @@
       const themeColors = {
         backgroundColor: '{{ theme.background_color }}',
         textColor: '{{ theme.text_color }}',
+        borderColor: '{{ theme.border_color }}',
       }
     </script>
     {% if theme.announcement_message_text != blank %}

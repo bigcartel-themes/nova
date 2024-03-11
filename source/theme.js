@@ -7,3 +7,4 @@
 //= require javascripts/home-carousel
 //= require javascripts/product
 //= require javascripts/search
+//= require javascripts/navigation
