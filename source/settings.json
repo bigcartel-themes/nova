@@ -1,6 +1,6 @@
 {
   "name": "Nova",
-  "version": "1.4.13",
+  "version": "1.4.29",
   "images": [
     {
       "variable": "image",
@@ -12,12 +12,7 @@
     {
       "variable": "slideshow",
       "label": "Slideshow",
-      "description": "1300px by 450px images recommended",
-      "defaults": [
-        "slide1.jpg",
-        "slide2.jpg",
-        "slide3.jpg"
-      ]
+      "description": "1300px by 450px images recommended"
     }
   ],
   "preset_styles": {
