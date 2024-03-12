@@ -96,7 +96,6 @@ function disableSelectOption(select_option, type) {
   }
 }
 
-
 const shareButton = document.querySelector(".product-share-launch");
 const handleWebShare = () => {
   const title = document.title;
