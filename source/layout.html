@@ -91,7 +91,7 @@
             {% for page in pages.all limit: theme.nav_items %}
               <li class="header-page-link">{{ page | link_to }}</li>
             {% endfor %}
-            <li class="header-page-link"><a href="/contact">Contact</a></li>
+            <li class="header-page-link"><a href="/contact">{{ pages.contact.name }}</a></li>
           </ul>
         </div>
       </nav>
