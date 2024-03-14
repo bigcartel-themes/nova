@@ -231,7 +231,7 @@ button.button, a.button, div.button
       font-size: 1.3rem
 
   &.image
-    height: 100px
+    height: 90px
 
     @media screen and (max-width: $break-medium)
       height: 80px
@@ -375,3 +375,11 @@ h1.page-title
   padding: 0
   position: absolute
   width: 1px
+
+.blur-up
+  transition: filter .2s
+  filter: blur(5px)
+  transform: translate3d(0, 0, 0)
+
+  &.lazyloaded
+    filter: blur(0)
