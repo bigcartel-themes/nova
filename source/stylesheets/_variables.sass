@@ -1,0 +1,34 @@
+\:root
+  --background-color: #{'{{ theme.background_color }}'}
+  --secondary-background-color: #{'{{ theme.secondary_background_color }}'}
+  --text-color: #{'{{ theme.text_color }}'}
+  --secondary-text-color: #{'{{ theme.secondary_text_color }}'}
+  --link-color: #{'{{ theme.link_color }}'}
+  --link-hover-color: #{'{{ theme.link_hover }}'}
+  --border-color: #{'{{ theme.border_color }}'}
+  --border-color-light: #{'rgba(var(--border-color-rgb), .3)'}
+
+  --button-background-color: var(--background-color)
+  --button-text-color: var(--text-color)
+
+  --announcement-background-color: var(--secondary-background-color)
+  --announcement-text-color: var(--text-color)
+
+  --product-status-background-color: var(--secondary-background-color)
+  --product-status-text-color: var(--text-color)
+
+  --error-background-color: #950f1e
+  --error-text-color: #FFFFFF
+
+  --header-font: #{'{{ theme.header_font | font_family }}'}
+  --text-font: #{'{{ theme.text_font | font_family }}'}
+
+  --border-radius: #{'{{ theme.border_radius }}'}
+  --border-radius-sm: 2px
+  --spacing-unit: 16px
+
+$break-extra-large: 1200px
+$break-large: 945px
+$break-medium: 800px
+$break-small: 668px
+$break-extra-small: 500px

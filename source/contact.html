@@ -1,36 +1,46 @@
-<header id="content_header">
-  <h1>Contact</h1>
-</header>
+<h1 class="page-title">{{ page.name }}</h1>
 
-<section id="page_body">
-  {% if contact.sent %}
-  <p id="thank_you" class="message">Your message has been sent and we will try to respond within 24 business hours.</p>
-  {% else %}
-  <form id="contact_form" method="post" accept-charset="utf8" action="/contact">
-    <ul>
-      <li>
-        <label for="name">Your name</label>
+{% if errors != blank %}
+  <div class="message-banner message-banner--errors message-banner--centered">
+    {% for error in errors %}
+      <div>{{ error }}</div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+{% if contact.sent %}
+  <div class="message-banner message-banner--no-bg message-banner--centered">Thanks! Your message has been sent and we'll get back to you soon.</div>
+{% else %}
+  <form method="post" action="/contact" class="contact-form">
+    <div class="contact-form-block contact-name">
+      <label class="contact-label" for="name">Name</label>
+      <div class="input-holder">
         {{ contact | contact_input: 'name' }}
-      </li>
-      <li>
-        <label for="email">Your email</label>
+      </div>
+    </div>
+    <div class="contact-form-block contact-email">
+      <label class="contact-label" for="email">Email</label>
+      <div class="input-holder">
         {{ contact | contact_input: 'email' }}
-      </li>
-      <li>
-        <label for="subject">Subject</label>
+      </div>
+    </div>
+    <div class="contact-form-block contact-subject">
+      <label class="contact-label" for="subject">Subject</label>
+      <div class="input-holder">
         {{ contact | contact_input: 'subject' }}
-      </li>
-      <li id="contact_message">
-        <label for="message">Message</label>
+      </div>
+    </div>
+    <div class="contact-form-block contact-message">
+      <label class="contact-label" for="message">Message</label>
+      <div class="input-holder">
         {{ contact | contact_input: 'message' }}
-      </li>
-      <li class="recaptcha_note">
-        {{ contact.recaptcha }}
-      </li>
-    </ul>
-
-    <input name="_utf8" type="hidden" value="&#x2713;" />
-    <button id="contact_button" type="submit" name="submit" class="button">Send</button>
+      </div>
+    </div>
+    <div class="contact-form-block contact-send">
+      <button class="button button--centered" type="submit" name="submit">Send message</button>
+    </div>
+    <div class="contact-form-block recaptcha-note">
+      <p>{{ contact.recaptcha }}</p>
+    </div>
   </form>
-  {% endif %}
-</section>
+{% endif %}

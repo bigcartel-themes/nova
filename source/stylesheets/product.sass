@@ -1,0 +1,187 @@
+.product-container
+  display: grid
+  grid-template-columns: 1fr 400px
+  column-gap: 48px
+  row-gap: 40px
+
+  @media screen and (max-width: $break-large)
+    grid-template-columns: 1fr 330px
+    column-gap: 32px
+
+  @media screen and (max-width: $break-medium)
+    grid-template-columns: minmax(0, 1fr)
+
+.reset-selection-button-container
+  text-align: center
+  width: 100%
+
+  button.reset-selection-button
+    display: none
+
+.product-form
+  width: 100%
+
+  button
+    max-width: 100%
+
+  @media screen and (max-width: $break-large)
+    max-width: 100%
+
+.product-selects
+  margin-bottom: 20px
+
+.product-option-groups
+  display: flex
+  flex-direction: column
+  gap: 16px
+
+.product-detail
+  display: flex
+  flex-direction: column
+  row-gap: 36px
+
+  &__header
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    gap: 4px
+
+    h1
+      margin: 0
+      text-align: left
+
+  &__status
+    text-transform: uppercase
+    font-size: .825rem
+    line-height: normal
+    font-weight: 500
+    display: inline-block
+    padding: 4px 6px
+    margin-left: 8px
+    background: var(--product-status-background-color)
+    color: var(--product-status-text-color)
+    border-radius: var(--border-radius)
+    letter-spacing: 1.1px
+
+  &__pricing
+    display: flex
+    align-items: center
+    font-size: 1.2em
+
+  &__description
+
+    p
+      margin: revert
+
+    &>:first-child
+      margin-top: 0
+
+    &>:last-child
+      margin-bottom: 0
+
+    ol, ul
+      margin: 1em
+
+    ul
+      list-style: disc
+
+    ol
+      list-style: decimal
+
+    a
+      text-decoration: underline
+
+#instant-checkout-button
+  margin-top: 12px
+
+.product-inventory
+  margin-top: 16px
+
+.product-inventory-header
+  border-bottom: 1px solid var(--border-color)
+  padding-bottom: 4px
+  margin-bottom: 16px
+  text-align: center
+  font-weight: bold
+
+.inventory-bars
+  font-family: var(--secondary-font)
+  font-size: .875em
+  display: flex
+  flex-direction: column
+  gap: 12px
+
+  .inventory-option
+    display: flex
+    gap: 4px
+    flex-direction: column
+
+    &__caption
+      gap: 8px
+      display: flex
+
+    &__in-stock
+      margin-left: auto
+
+    &__bar
+      border-radius: var(--border-radius)
+      overflow: hidden
+      background-color: var(--border-color-light)
+      height: 4px
+      position: relative
+      width: 100%
+
+    &__percentage
+      background-color: var(--secondary-text-color)
+      height: 100%
+      position: absolute
+
+.product-detail__share
+  color: var(--primary-text-color)
+  position: relative
+
+  .product-share-launch
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 6px
+
+    &:hover
+      color: var(--link-hover-color)
+
+      span
+        text-decoration: underline
+        text-underline-offset: 4px
+
+    svg
+      height: 22px
+      width: 22px
+      fill: currentColor
+
+  .product-share-buttons
+    display: none
+    gap: 16px
+    position: absolute
+    background: var(--background-color)
+    border: 2px solid var(--border-color)
+    top: calc(100% + 4px)
+    padding: 12px
+    font-size: .925em
+    flex-direction: column
+
+    li a
+      color: var(--primary-text-color)
+      display: flex
+      gap: 12px
+      align-items: center
+
+    &[aria-hidden="false"]
+      display: flex
+
+    a:hover
+      color: var(--link-hover-color)
+
+    svg
+      fill: currentColor
+      height: 16px
+      width: 16px

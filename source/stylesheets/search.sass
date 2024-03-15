@@ -1,0 +1,96 @@
+.search-modal
+  opacity: 0
+  visibility: hidden
+  position: fixed
+  z-index: 999
+  width: 100vw
+  height: 100vh
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  background-color: #{"rgba(var(--background-color-rgb),.8)"}
+  transition: opacity 0.2s ease, visibility 0.2s ease
+
+  &[aria-hidden="false"]
+    opacity: 1
+    visibility: visible
+
+  &__content
+    background-color: var(--background-color)
+    border-bottom: 1px solid var(--border-color)
+    text-align: center
+    display: grid
+    grid-template-rows: 1fr
+    width: 100%
+
+  &__wrapper
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    padding: 32px
+    max-width: 800px
+    position: relative
+    margin: 0 auto
+    width: 100%
+
+  &__form
+    display: grid
+    grid-template-columns: 1fr
+    column-gap: 16px
+    row-gap: 8px
+    width: 100%
+
+  &__input
+    grid-row: 2/2
+    grid-column: 1/1
+    border-radius: var(--border-radius)
+    background: var(--background-color)
+    border: 1px solid var(--text-color)
+    font-weight: normal
+    width: 100%
+    font-size: 1em
+    height: 48px
+    padding: 8px
+
+  &__submit
+    grid-row: 2/2
+    grid-column: 2/2
+    padding: 0
+    height: 48px
+    width: 48px
+    display: flex
+    align-items: center
+    justify-content: center
+    border: 2px solid var(--button-text-color)
+
+
+    &-icon
+      height: 20px
+      width: 20px
+
+    &:hover
+      border: 2px solid var(--link-hover-color)
+      color: var(--link-hover-color)
+
+  &__close
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 0
+    font-size: 4em
+    cursor: pointer
+    width: 48px
+    height: 48px
+    margin-left: auto
+
+    &:hover
+      color: var(--link-hover-color)
+
+    &-icon
+      height: 20px
+      width: 20px
+
+  &__label
+    text-align: left

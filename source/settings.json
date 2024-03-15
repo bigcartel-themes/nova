@@ -1,25 +1,125 @@
 {
   "name": "Nova",
-  "version": "1.4.12",
+  "version": "2.0.0",
   "images": [
     {
       "variable": "image",
       "label": "Header image",
-      "description": "Transparent background recommended"
-    },
-    {
-      "variable": "background_image",
-      "label": "Background Image",
-      "description": "Adds a repeating background image"
+      "description": "Transparent background recommended, up to 300 by 100px"
     }
   ],
   "image_sets": [
     {
       "variable": "slideshow",
       "label": "Slideshow",
-      "description": "Replaces products on Home page"
+      "description": "1300px by 450px images recommended"
     }
   ],
+  "preset_styles": {
+    "preview": {
+      "title_font": "header_font",
+      "body_font": "text_font",
+      "text_color": "text_color",
+      "background_color": "background_color"
+    },
+    "presets": [
+      {
+        "group_name": "Classic",
+        "styles": [
+          {
+            "style_name": "Classic #1",
+            "fonts": {
+              "header_font": "Lato",
+              "text_font": "Lato"
+            },
+            "colors": {
+              "background_color": "#FFFFFF",
+              "secondary_background_color": "#ECECEC",
+              "text_color": "#111111",
+              "secondary_text_color": "#222222",
+              "link_color": "#1201FF",
+              "link_hover": "#0B019B",
+              "border_color": "#777777"
+            }
+          }
+        ]
+      },
+      {
+        "group_name": "Elegant",
+        "styles": [
+          {
+            "style_name": "Elegant #1",
+            "fonts": {
+              "header_font": "Marcellus",
+              "text_font": "Inter"
+            },
+            "colors": {
+              "background_color": "#141415",
+              "secondary_background_color": "#141415",
+              "text_color": "#F8F8F8",
+              "secondary_text_color": "#F8F8F8",
+              "link_color": "#F8F8F8",
+              "link_hover": "#AEAEAE",
+              "border_color": "#4F4F4F"
+            }
+          },
+          {
+            "style_name": "Elegant #2",
+            "fonts": {
+              "header_font": "Prata",
+              "text_font": "Source Sans Pro"
+            },
+            "colors": {
+              "background_color": "#F8F8F8",
+              "secondary_background_color": "#EBE7E7",
+              "text_color": "#0F1B27",
+              "secondary_text_color": "#0F1B27",
+              "link_color": "#0F1B27",
+              "link_hover": "#8A5A5A",
+              "border_color": "#DBD1D1"
+            }
+          },
+          {
+            "style_name": "Elegant #3",
+            "fonts": {
+              "header_font": "Fraunces",
+              "text_font": "Poppins"
+            },
+            "colors": {
+              "background_color": "#F5F4EE",
+              "secondary_background_color": "#F1DBCE",
+              "text_color": "#262522",
+              "secondary_text_color": "#7C3C17",
+              "link_color": "#262522",
+              "link_hover": "#7C3C17",
+              "border_color": "#F1DBCE"
+            }
+          }
+        ]
+      },
+      {
+        "group_name": "Playful",
+        "styles": [
+          {
+            "style_name": "Playful #1",
+            "fonts": {
+              "header_font": "Concert One",
+              "text_font": "Concert One"
+            },
+            "colors": {
+              "background_color": "#FFFFFF",
+              "secondary_background_color": "#F6FF20",
+              "text_color": "#000000",
+              "secondary_text_color": "#000000",
+              "link_color": "#000000",
+              "link_hover": "#F90081",
+              "border_color": "#22FFF8"
+            }
+          }
+        ]
+      }
+    ]
+  },
   "fonts": [
     {
       "variable": "header_font",
@@ -39,8 +139,8 @@
       "default": "#FFFFFF"
     },
     {
-      "variable": "background_secondary_color",
-      "label": "Background Accent",
+      "variable": "secondary_background_color",
+      "label": "Secondary Background",
       "default": "#ECECEC"
     },
     {
@@ -49,8 +149,8 @@
       "default": "#111111"
     },
     {
-      "variable": "text_secondary_color",
-      "label": "Text Accent",
+      "variable": "secondary_text_color",
+      "label": "Secondary Text",
       "default": "#222222"
     },
     {
@@ -67,11 +167,6 @@
       "variable": "border_color",
       "label": "Borders",
       "default": "#777777"
-    },
-    {
-      "variable": "error_color",
-      "label": "Errors",
-      "default": "#B11A2A"
     }
   ],
   "checkout": {
@@ -80,12 +175,11 @@
     "title_background_color": "{{ background_color }}",
     "title_font": "{{ header_font }}",
     "background_color": "{{ background_color }}",
-    "background_image": "{{ background_image }}",
     "body_font": "{{ text_font }}",
     "step_background_color":"{{ background_color }}",
     "step_border_color":"{{ border_color }}",
     "step_header_color":"{{ text_color }}",
-    "step_inactive_header_color":" {{ text_secondary_color }}",
+    "step_inactive_header_color":" {{ secondary_text_color }}",
     "step_header_font":"{{ header_font }}",
     "content_color":"{{ text_color }}",
     "content_background_color":"{{ background_color }}",
@@ -103,7 +197,7 @@
     "input_error_background_color": "#ffffff",
     "input_border_radius":"0px",
     "input_font":"{{ text_font }}",
-    "button_color":"{{ text_secondary_color }}",
+    "button_color":"{{ secondary_text_color }}",
     "button_border_width":"1px",
     "button_border_radius":"0px",
     "button_hover_color":"{{ link_hover }}",
@@ -121,42 +215,93 @@
   },
   "options": [
     {
+      "variable": "announcement_message_text",
+      "label": "Announcement text",
+      "type": "text",
+      "description": "Displays an announcement message on the top of every page"
+    },
+    {
+      "variable": "maintenance_message",
+      "label": "Maintenance mode message",
+      "type": "text",
+      "description": "A message visitors see when your shop is in Maintenance Mode",
+      "default": "We're working on our shop right now.<br /><br />Please check back soon."
+    },
+    {
       "variable": "welcome_text",
       "label": "Welcome text",
       "type": "text",
       "description": "Welcome text on the Home page"
     },
     {
+      "variable": "featured_header",
+      "label": "Featured header",
+      "type": "text",
+      "description": "Featured products header on the Home page",
+      "default": "Featured"
+    },
+    {
       "variable": "featured_products",
       "label": "Featured products",
       "type": "select",
-      "options": "1..100",
-      "default": 3,
-      "description": "The number of products shown on the Home page"
+      "options": "0..100",
+      "default": 12,
+      "description": "The number of products displayed on the Home page"
     },
     {
       "variable": "featured_order",
       "label": "Featured products order",
       "type": "select",
-      "options": "product_orders",
-      "default": "newest",
+      "options": [
+        ["Regular", "regular"],
+        ["Top Selling", "sales"],
+        ["Newest", "newest"]
+      ],
+      "default": "regular",
       "description": "The order of products on the Home page"
+    },
+    {
+      "variable": "all_products_button_text",
+      "label": "All products button text",
+      "type": "text",
+      "description": "Displays underneath featured products, links to your Products page",
+      "default": "All Products"
+    },
+    {
+      "variable": "grid_image_style",
+      "label": "Product grid image style",
+      "type": "select",
+      "options": [
+        ["Normal", "default"],
+        ["Fit to square", "contain"],
+        ["Crop to square", "cover"]
+      ],
+      "default": "default",
+      "description": "Sets the display of images in the product grid"
+    },
+    {
+      "variable": "max_products_per_row",
+      "label": "Maximum products per row",
+      "type": "select",
+      "options": "1..4",
+      "default": 4,
+      "description": "The maximum number of products displayed per row on larger screens"
+    },
+    {
+      "variable": "max_products_per_row_mobile",
+      "label": "Maximum products per row (mobile)",
+      "type": "select",
+      "options": "1..2",
+      "default": 2,
+      "description": "The number of products displayed per row on smaller screens"
     },
     {
       "variable": "products_per_page",
       "label": "Products per page",
       "type": "select",
       "options": "1..100",
-      "default": 8,
+      "default": 48,
       "description": "The number of products shown at a time on the Products page"
-    },
-		{
-      "variable": "product_list_layout",
-      "label": "Product List Layout",
-      "type": "select",
-      "options": [["Stacked", "stacked"], ["Grid", "masonry"]],
-      "default": "masonry",
-      "description": "The arrangement of your products on the Products pages"
     },
     {
       "variable": "show_inventory_bars",
@@ -170,15 +315,46 @@
       "variable": "show_search",
       "label": "Show search",
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Shows the product search area"
     },
   	{
       "variable": "share_buttons",
-      "label": "Show social buttons",
+      "label": "Show product share button",
       "type": "boolean",
       "default": false,
-      "description": "Adds Facebook, Twitter, and Pinterest buttons to Product pages"
+      "description": "Adds a Share button to your Product page after the description"
+    },
+    {
+      "variable": "product_image_zoom",
+      "label": "Enable product image zoom",
+      "type": "boolean",
+      "default": true,
+      "description": "Click to open a larger version of the Product page image"
+    },
+    {
+      "variable": "desktop_product_page_images",
+      "label": "Desktop product page images",
+      "type": "select",
+      "options": [
+        ["Thumbnails", "thumbnails"],
+        ["Carousel", "carousel"],
+        ["Stacked 2 column", "two-column"],
+        ["Stacked full width", "stacked"]
+      ],
+      "default": "carousel",
+      "description": "Sets the display of the Product page gallery"
+    },
+    {
+      "variable": "mobile_product_page_images",
+      "label": "Mobile product page image carousel",
+      "type": "select",
+      "options": [
+        ["Show thumbnails", "show-thumbnails"],
+        ["Hide thumbnails", "hide-thumbnails"]
+      ],
+      "default": "show-thumbnails",
+      "description": "Choose to hide or show thumbnails on the mobile Product page carousel"
     },
     {
       "variable": "show_sold_out_product_options",
@@ -187,6 +363,14 @@
       "default": true,
       "description": "Shows sold out product options in the Product page dropdowns",
       "requires": "inventory"
+    },
+    {
+      "variable": "nav_items",
+      "label": "Navigation items",
+      "type": "select",
+      "options": "0..4",
+      "default": 2,
+      "description": "The number of custom page links show in the main navigation"
     },
     {
       "variable": "money_format",
@@ -200,34 +384,71 @@
       "description": "Sets the display of prices in your shop"
     },
     {
-      "variable": "twitter_url",
-      "label": "Twitter URL",
-      "type": "text",
-      "description": "Ex: http://twitter.com/bigcartel"
-    },
-    {
-      "variable": "facebook_url",
-      "label": "Facebook URL",
-      "type": "text",
-      "description": "Ex: http://facebook.com/bigcartel"
-    },
-    {
-      "variable": "tumblr_url",
-      "label": "Tumblr URL",
-      "type": "text",
-      "description": "Ex: http://bigcartel.tumblr.com"
+      "variable": "border_radius",
+      "label": "Rounded corners",
+      "type": "select",
+      "options": [
+        ["Off", "0"],
+        ["Small", "2px"],
+        ["Medium", "4px"],
+        ["Large", "8px"]
+      ],
+      "default": "0",
+      "description": "Controls the rounded corner style on images and other site elements"
     },
     {
       "variable": "instagram_url",
       "label": "Instagram URL",
       "type": "text",
-      "description": "Ex: http://instagram.com/bigcartel"
+      "description": "Ex: https://instagram.com/bigcartel"
+    },
+    {
+      "variable": "tiktok_url",
+      "label": "TikTok URL",
+      "type": "text",
+      "description": "Ex: https://tiktok.com/@bigcartelofficial"
+    },
+    {
+      "variable": "twitter_url",
+      "label": "Twitter URL",
+      "type": "text",
+      "description": "Ex: https://twitter.com/bigcartel"
+    },
+    {
+      "variable": "facebook_url",
+      "label": "Facebook URL",
+      "type": "text",
+      "description": "Ex: https://facebook.com/bigcartel"
+    },
+    {
+      "variable": "snapchat_url",
+      "label": "Snapchat URL",
+      "type": "text",
+      "description": "Ex: https://snapchat.com/add/bigcartel"
     },
     {
       "variable": "pinterest_url",
       "label": "Pinterest URL",
       "type": "text",
-      "description": "Ex: http://pinterest.com/bigcartel"
+      "description": "Ex: https://pinterest.com/big_cartel"
+    },
+    {
+      "variable": "youtube_url",
+      "label": "YouTube URL",
+      "type": "text",
+      "description": "Ex: https://youtube.com/@BigCartelDotCom"
+    },
+    {
+      "variable": "tumblr_url",
+      "label": "Tumblr URL",
+      "type": "text",
+      "description": "Ex: https://bigcartel.tumblr.com"
+    },
+    {
+      "variable": "bandcamp_url",
+      "label": "Bandcamp URL",
+      "type": "text",
+      "description": "Ex: https://bigcartel.bandcamp.com"
     }
   ]
 }

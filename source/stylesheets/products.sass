@@ -1,0 +1,166 @@
+.product-list-container
+  margin-bottom: 40px
+
+.product-list-container + .pagination
+  margin-top: 80px
+
+.product-list
+  --gap: calc(var(--spacing-unit) * 4)
+  --row-gap: 48px
+  --columns: #{"{{ theme.max_products_per_row }}"}
+  --spacing-unit: 8px
+  display: flex
+  flex-wrap: wrap
+  justify-content: flex-start
+  margin: var(--spacing-unit) 0 0
+  gap: var(--gap)
+  row-gap: var(--row-gap)
+  margin-top: 36px
+
+  &--center
+    justify-content: center
+
+  @media screen and (max-width: $break-large)
+    --columns: calc(#{"{{ theme.max_products_per_row }}"} - 1)
+
+  @media screen and (max-width: $break-small)
+    --columns: #{"{{ theme.max_products_per_row_mobile }}"}
+    --gap: calc(var(--spacing-unit) * 2)
+    justify-content: flex-start
+    row-gap: 24px
+
+.product-list-thumb
+  position: relative
+  text-decoration: none
+  width: calc((100% / var(--columns)) - var(--gap) + (var(--gap) / var(--columns)))
+
+a.product-list-link
+  color: var(--text-color)
+  text-decoration: none
+  outline-offset: 4px
+  position: relative
+
+  @media (hover: hover)
+    &:hover
+      color: var(--link-hover-color)
+
+      .product-list-thumb-name
+        text-decoration: underline
+
+.product-list-image-container
+  border-radius: var(--border-radius)
+  margin: 0
+  overflow: hidden
+  padding-bottom: 100%
+  position: relative
+  width: 100%
+
+  &-default
+    padding-bottom: 0
+
+.product-list-image
+  border-radius: var(--border-radius)
+  transform: translate3d(0, 0, 0)
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  transition: transform 0.3s ease-in-out
+
+  &.grid-default
+    position: relative
+
+  &.grid-cover
+    object-fit: cover
+
+  &.grid-contain
+    object-fit: contain
+
+.product-list-thumb-status
+  background: var(--product-status-background-color)
+  border-radius: var(--border-radius)
+  color: var(--product-status-text-color)
+  top: 12px
+  right: 12px
+  font-size: .875rem
+  line-height: 1em
+  letter-spacing: 1.12px
+  font-weight: 500
+  position: absolute
+  text-transform: uppercase
+  padding: 6px
+
+.product-list-thumb-info
+  line-height: normal
+  padding: 16px 0 0
+  position: relative
+  text-align: center
+  display: grid
+  gap: 8px
+
+  .product-list-thumb-status
+    display: none
+
+.product-list-thumb-name
+  font-size: 1.1rem
+  word-break: break-word
+  font-weight: 500
+
+  @media screen and (max-width: $break-small)
+    font-size: 1rem
+
+.product-list-thumb-price
+  font-size: .975rem
+
+.pagination
+  display: flex
+  align-items: center
+  justify-content: center
+  color: var(--text-color)
+  position: relative
+  text-align: center
+  width: 100%
+  gap: 24px
+  line-height: 2em
+
+  .page-link
+    display: flex
+    align-items: center
+    gap: 12px
+    padding: 0 8px
+
+    &.disabled
+      display: none
+
+    svg
+      width: 10px
+      height: 16px
+
+  .previous, .next
+    display: none
+
+.page-numbers
+  display: flex
+  gap: 24px
+
+  .current
+    color: var(--secondary-text-color)
+    font-weight: 500
+    text-underline-offset: 4px
+    text-decoration: underline
+
+  > a, span
+    padding: 0 8px
+
+.pagination-arrow
+  display: block
+  fill: currentColor
+  height: 17px
+  width: 17px
+
+  &.prev-arrow
+    margin-right: auto
+
+  &.next-arrow
+    margin-left: auto

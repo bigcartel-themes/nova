@@ -1,0 +1,95 @@
+.home-tagline
+  color: var(--secondary-text-color)
+  font-family: var(--header-font)
+  font-size: 1.5em
+  padding: 48px 0
+  margin: 0 auto 80px
+  max-width: 680px
+  position: relative
+  text-align: center
+  width: 100%
+
+  @media screen and (max-width: $break-small)
+    margin-bottom: 60px
+    padding: 32px 0
+    font-size: 1.25em
+
+  &:after, &:before
+    content: ""
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+    height: 1px
+    width: 200px
+    background: var(--border-color)
+
+  &:before
+    top: -1px
+
+  &:after
+    bottom: 0
+
+\:root
+  --pagination-background: transparent
+  --pagination-page-background: var(--secondary-text-color)
+  --pagination-active-page: var(--text-color)
+
+.home-slideshow
+  margin-bottom: 96px
+
+  @media screen and (max-width: $break-small)
+    margin-bottom: 64px
+
+  .splide__track
+    display: grid
+    place-items: center
+    align-items: center
+
+  .splide__list
+    grid-area: 1/1
+    width: 100%
+
+  .slideshow-image
+    border-radius: var(--border-radius)
+    width: 100%
+
+  .splide__arrow
+    border-radius: var(--border-radius)
+    width: 2em
+    height: 4em
+
+  .splide__slide
+    width: 100%
+
+  .splide__pagination
+    z-index: 1
+    background: var(--pagination-background)
+    border-radius: 18px
+    display: inline-flex
+    position: absolute
+    height: 24px
+    margin-top: 8px
+    bottom: auto
+    align-items: center
+    justify-content: center
+    transform: translateX(-50%)
+    left: 50%
+    padding: 4px 8px
+    gap: 2px
+    right: auto
+
+    li
+      display: flex
+
+    .splide__pagination__page
+      opacity: 1
+      background: var(--pagination-page-background)
+      height: 10px
+      width: 10px
+
+      &.is-active
+        background: var(--pagination-active-page)
+        transform: scale(1.1)
+
+a.all-products-button
+  margin-top: 48px

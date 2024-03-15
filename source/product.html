@@ -1,127 +1,227 @@
-<header id="content_header">
-  <h1>{{ product.name }}</h1>
-</header>
+{% assign product_status = '' %}
+{% case product.status %}
+	{% when 'active' %}
+		{% if product.on_sale %}{% assign product_status = 'On sale' %}{% endif %}
+	{% when 'sold-out' %}
+		{% assign product_status = 'Sold out' %}
+	{% when 'coming-soon' %}
+		{% assign product_status = 'Coming soon' %}
+{% endcase %}
 
-<section class="product_images galy">
-  <div class="spinner"></div>
-  <ul class="slides">
-    {% for image in product.images %}
-    <li {% if forloop.last %}class="solo"{% endif %}>
-	  	<img src="{{ image | product_image_url | constrain: '1000'}}" alt="Image of {{ product.name | escape }}" />
-    </li>
-    {% endfor %}
-  </ul>
-</section>
-
-<section class="product_info {{ product.status }}">
-  <section class="product_price">
-	  {% case product.status %}
-	  {% when 'active' %}
-	  <h3 class="price">
-      {% if product.on_sale %}<span class="on_sale">On sale!</span>{% endif %}
-      {% if product.variable_pricing %}
-        {{ product.min_price | money: theme.money_format }} - {{ product.max_price | money: theme.money_format }}
+<div class="product-container">
+  <div class="product-images desktop-{{ theme.desktop_product_page_images }} mobile-{{ theme.mobile_product_page_images }}" data-total-images="{{ product.images.size }}">
+    {% if product.images.size > 1 %}
+      <div class="splide product-carousel" role="group" aria-label="{{ product.name | escape }} images">
+        <div class="splide__track">
+          <div class="splide__list">
+            {% for image in product.images %}
+              {% assign image_width = image.width | times: 1.0 %}
+              {% assign image_height = image.height | times: 1.0 %}
+              {% assign aspect_ratio = image_width | divided_by: image_height %}
+              <div class="splide__slide">
+                {% if theme.product_image_zoom %}
+                  <a aria-label="Open image {{ forloop.index }} in image viewer" class="zoom-image-container gallery-link" href="{{ image | product_image_url | constrain: 2000 }}" data-pswp-width="{{ image_width | times: 2 }}" data-pswp-height="{{ image_height | times: 2 }}" >
+                {% else %}
+                  <div class="zoom-image-container">
+                {% endif %}
+                  <img
+                    alt="Image {{ forloop.index }} of {{ product.name | escape }}"
+                    class="product-image lazyload"
+                    {% if forloop.index == 1 %}fetchpriority="high"{% else %}loading="lazy"{% endif %}
+                    src="{{ image | product_image_url | constrain: 200 }}"
+                    data-srcset="
+                      {{ image | product_image_url | constrain: 400 }} 400w,
+                      {{ image | product_image_url | constrain: 700 }} 700w,
+                      {{ image | product_image_url | constrain: 1000 }} 1000w,
+                      {{ image | product_image_url | constrain: 1400 }} 1400w,
+                      {{ image | product_image_url | constrain: 2000 }} 2000w,
+                    "
+                    width="{{ image.height | times: aspect_ratio }}"
+                    height="{{ image.height }}"
+                    data-sizes="auto"
+                  >
+                {% if theme.product_image_zoom %}</a>{% else %}</div>{% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% if product.images.size > 5 %}
+          <div class="overlay-image-counter">
+            <span class="current-slide-number">1</span>&nbsp;/&nbsp;{{ product.images.size }}
+          </div>
+        {% endif %}
+      </div>
+      <div class="product-thumbnails-buttons-container">
+        <button aria-label="Slide left" aria-controls="carousel-thumbnail" class="thumb-scroller thumb-scroller--left" disabled data-direction="left">
+          <svg aria-hidden="true" viewBox="0 0 15 7.6" enable-background="new 0 0 15 7.6"><path d="M15 1.1l-7.5 6.5-7.5-6.3 1-1.2 6.5 5.5 6.5-5.6z"/></svg>
+        </button>
+        <ul class="product-thumbnails--list{% if product.images.size == 5 %} mobile-overflow{% endif %}{% if product.images.size > 5 %} is-overflow{% endif %}" id="carousel-thumbnail">
+          {% for image in product.images %}
+            <li class="product-thumbnails--item">
+              <button class="product-thumbnails--change-slide" type="button" tabindex="0" aria-label="View image {{ forloop.index }} of {{ product.images.size }}">
+                <img
+                  alt=""
+                  class="lazyload"
+                  src="{{ image | product_image_url | constrain: 150 }}"
+                  data-srcset="
+                    {{ image | product_image_url | constrain: 250 }} 250w,
+                    {{ image | product_image_url | constrain: 300 }} 300w
+                  "
+                  data-sizes="auto"
+                >
+              </button>
+            </li>
+          {% endfor %}
+        </ul>
+        <button aria-label="Slide right" aria-controls="carousel-thumbnail" class="thumb-scroller thumb-scroller--right" data-direction="right">
+          <svg aria-hidden="true" viewBox="0 0 15 7.6" enable-background="new 0 0 15 7.6"><path d="M15 1.1l-7.5 6.5-7.5-6.3 1-1.2 6.5 5.5 6.5-5.6z"/></svg>
+        </button>
+      </div>
+      <div class="mobile-buttons-indicator">
+        <button aria-label="View previous image" class="change-slide change-slide--left previous-slide">
+          <svg fill="currentColor" aria-hidden="true" viewBox="0 0 15 7.6" enable-background="new 0 0 15 7.6"><path d="M15 1.1l-7.5 6.5-7.5-6.3 1-1.2 6.5 5.5 6.5-5.6z"/></svg>
+        </button>
+        <div><span class="current-slide-number">1</span> of {{ product.images.size }}</div>
+        <button aria-label="View next image" class="change-slide change-slide--right next-slide">
+          <svg fill="currentColor" aria-hidden="true" viewBox="0 0 15 7.6" enable-background="new 0 0 15 7.6"><path d="M15 1.1l-7.5 6.5-7.5-6.3 1-1.2 6.5 5.5 6.5-5.6z"/></svg>
+        </button>
+      </div>
+    {% else %}
+      {% assign image_width = product.image.width | times: 1.0 %}
+      {% assign image_height = product.image.height | times: 1.0 %}
+      {% if theme.product_image_zoom %}
+        <a aria-label="Open image of {{ product.name | escape }} in image viewer" class="zoom-image-container gallery-link" href="{{ product.image | product_image_url | constrain: 2000 }}" data-pswp-width="{{ image_width | times: 2 }}" data-pswp-height="{{ image_height | times: 2 }}" >
       {% else %}
-        {{ product.default_price | money: theme.money_format }}
+        <div class="zoom-image-container">
       {% endif %}
-    </h3>
-	  {% when 'sold-out' %}
-	  <h3>Sold out</h3>
-	  {% when 'coming-soon' %}
-	  <h3>Coming soon</h3>
-	  {% endcase %}
-  </section>
+        <img
+          alt="{{ product.name | escape }}"
+          class="blur-up product-image lazyload"
+          fetchpriority="high"
+          src="{{ product.image | product_image_url | constrain: 200 }}"
+          data-srcset="
+            {{ product.image | product_image_url | constrain: 400 }} 400w,
+            {{ product.image | product_image_url | constrain: 700 }} 700w,
+            {{ product.image | product_image_url | constrain: 1000 }} 1000w,
+            {{ product.image | product_image_url | constrain: 1400 }} 1400w,
+            {{ product.image | product_image_url | constrain: 2000 }} 2000w,
+          "
+          data-sizes="auto"
+        >
+      {% if theme.product_image_zoom %}</a>{% else %}</div>{% endif %}
+    {% endif %}
+  </div>
 
-	{% if theme.share_buttons %}
-    {% capture tweet_string %}{{ product.name }} - {{ store.name }} {{ page.full_url }}{% endcapture %}
-    {% assign tweet_string = tweet_string | url_encode %}
-    <section id="product_sharing">
-      <a href="">Share</a>
-      <ul>
-        <li><a href="#" id="close_sharing">Close</a></li>
-        <li><a target="_blank" href="https://twitter.com/intent/tweet?text={{ tweet_string }}">Twitter</a></li>
-        <li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{store.url}}{{product.url}}">Facebook</a></li>
-        <li><a target="_blank" href="http://pinterest.com/pin/create/button/?url={{store.url}}{{product.url}}&media={{ product.images.first.url }}">Pinterest</a></li>
-      </ul>
-    </section>
-	{% endif %}
-
-  <section id="product_options">
-    {% case product.status %}
-      {% when 'active' %}
-        <form method="post" class="product-form {% if theme.show_sold_out_product_options %}show-sold-out{% else %}hide-sold-out{% endif %}" action="/cart" accept-charset="utf8">
-          <input type="hidden" name="utf8" value='✓'>
-          {% if product.has_default_option %}
-            {{ product.option | hidden_option_input }}
-          {% else %}
+  <section class="product-detail">
+    <div class="product-detail__header">
+      {% capture product_pricing %}
+        {% if product.variable_pricing %}
+          {{ product.min_price | money: theme.money_format }} - {{ product.max_price | money: theme.money_format }}
+        {% else %}
+          {{ product.default_price | money: theme.money_format }}
+        {% endif %}
+      {% endcapture %}
+      <h1 class="page-title page-title--left product-detail__title">{{ product.name }}</h1>
+      <div class="product-detail__pricing">{{ product_pricing }} {% if product_status != blank %}<div class="product-detail__status">{{ product_status }}</div>{% endif %}</div>
+    </div>
+    {% if product.status == 'active' %}
+      <form method="post" class="product-form {% if theme.show_sold_out_product_options %}show-sold-out{% else %}hide-sold-out{% endif %}" action="/cart" accept-charset="utf8">
+        <input type="hidden" name="utf8" value='✓'>
+        {% if product.has_default_option %}
+          {{ product.option | hidden_option_input }}
+        {% else %}
+          <div class="product-selects">
             {% if product.has_option_groups %}
-              <div class="product_option_groups">
+              <div class="product-option-groups">
                 <input id="option" name="cart[add][id]" type="hidden" value="0">
                 {% for option_group in product.option_groups %}
                   <div class="select">
-                    <select data-unavailable-text="(Unavailable)" data-sold-text="(Sold out)" data-group-id="{{ option_group.id }}" data-group-name="{{ option_group.name | escape }}" class="product_option_group" name="option_group[{{ option_group.id }}]" aria-label="Select {{ option_group.name | escape }}">
-                      <option value="0" disabled="disabled" selected>Select {{ option_group.name }}</option>
+                    <select data-unavailable-text="(Unavailable)" data-sold-text="(Sold out)" data-group-id="{{ option_group.id }}" data-group-name="{{ option_group.name | escape }}" class="product_option_group" name="option_group[{{ option_group.id }}]" aria-label="Select {{ option_group.name | escape }}" required>
+                      <option value="" disabled="disabled" selected>Select {{ option_group.name }}</option>
                       {% for value in option_group.values %}
                         <option value="{{ value.id }}" data-name="{{ value.name | escape }}">{{ value.name }}</option>
                       {% endfor %}
                     </select>
-                    <svg  version="1.1" id="Layer_1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="531.74" height="460.5" viewBox="0 0 531.74 460.5" overflow="visible" enable-background="new 0 0 531.74 460.5" xml:space="preserve"><polygon stroke="#000000" points="530.874,0.5 265.87,459.5 0.866,0.5 "/></svg>
+                    <svg aria-hidden="true" fill="currentColor" class="category-nav-arrow" viewBox="0 0 15 7.6" enable-background="new 0 0 15 7.6"><path d="M15 1.1l-7.5 6.5-7.5-6.3 1-1.2 6.5 5.5 6.5-5.6z"/></svg>
                   </div>
                 {% endfor %}
               </div>
             {% else %}
               <div class="select">
-                <select class="product_option_select" id="option" name="cart[add][id]" aria-label="Select variant">
-                  <option value="0" disabled="disabled" selected>Select variant</option>
+                <select class="product-option-select" id="option" name="cart[add][id]" aria-label="Select variant" required>
+                  <option value="" disabled="disabled" selected>Select variant</option>
                   {% for option in product.options %}
                     <option value="{{ option.id }}" data-price="{{ option.price }}"{% if option.sold_out %} disabled="disabled" disabled-type="sold-out"{% endif %}>{{ option.name }} {% if option.sold_out %} (Sold out){% endif %}</option>
                   {% endfor %}
                 </select>
-                <svg  version="1.1" id="Layer_1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="531.74" height="460.5" viewBox="0 0 531.74 460.5" overflow="visible" enable-background="new 0 0 531.74 460.5" xml:space="preserve"><polygon stroke="#000000" points="530.874,0.5 265.87,459.5 0.866,0.5 "/></svg>
+                <svg aria-hidden="true" fill="currentColor" class="category-nav-arrow" viewBox="0 0 15 7.6" enable-background="new 0 0 15 7.6"><path d="M15 1.1l-7.5 6.5-7.5-6.3 1-1.2 6.5 5.5 6.5-5.6z"/></svg>
               </div>
             {% endif %}
-          {% endif %}
-          <button class="button add-to-cart-button" name="submit" type="submit" title="Add to Cart" data-add-title="Add to Cart" data-sold-title="Sold out"{% if product.has_default_option %}{% else %}disabled="disabled"{% endif %}>Add to Cart</button>
-          {{ store | instant_checkout_button: 'dark', '44px' }}
-          {% if product.has_option_groups %}
-            <div class="reset-selection-button-container">
-              <button class="button minimal-button reset-selection-button" title="Reset selection" type="reset">Reset selection</button>
-            </div>
-          {% endif %}
-        </form>
-    {% endcase %}
-  </section>
-</section>
+          </div>
+        {% endif %}
+        <button class="button add-to-cart-button" name="submit" type="submit" data-add-title="Add to cart" data-sold-title="Sold out">Add to cart</button>
+        {{ store | instant_checkout_button: 'dark', '44px' }}
+        {% if product.has_option_groups %}
+          <div class="reset-selection-button-container">
+            <button class="button button--minimal reset-selection-button" type="reset">Reset selection</button>
+          </div>
+        {% endif %}
+      </form>
+    {% endif %}
+    {% if product.description != blank %}
+      <div class="product-detail__description">{{ product.description | paragraphs }}</div>
+    {% endif %}
 
-<section id="page_body">
-  {% if product.description != blank %}
-  <div class="product_description">
-    {{ product.description | paragraphs }}
-  </div>
-  {% endif %}
-
-  {% if theme.show_inventory_bars %}
-    {% case product.status %}
-      {% when 'active' %}
-        <section class="product_inventory">
-        	<ul>
+    {% if product.status == 'active' %}
+      {% if theme.show_inventory_bars %}
+        <div class="product-inventory">
+        	<div class="product-inventory-header">Availability</div>
+        	<ul class="inventory-bars">
             {% for option in product.options %}
-        		<li>
-        	  	<div class="bar"><span class="bar fill" style="width:{{ option.inventory }}%;"></span></div>
-        	  	<h3>
-        	  	  {% if product.has_default_option %}{{ product.name }}{% else %}{{ option.name }}{% endif %}
-        	  	  <span>{% if option.sold_out %}Sold Out{% else %}{{ option.quantity }} in stock{% endif %}</span>
-        	  	</h3>
+        		<li class="inventory-option">
+        		  <div class="inventory-option__caption">
+                {% unless product.has_default_option %}<div class="inventory-option__name">{{ option.name }}</div>{% endunless %}
+                <div class="inventory-option__in-stock">{{ option.quantity }} in stock</div>
+              </div>
+        			<div class="inventory-option__bar">
+        			  <span class="inventory-option__percentage" style="width:{{ option.inventory }}%;"></span>
+        			</div>
         		</li>
         		{% endfor %}
         	</ul>
-        </section>
-    {% endcase %}
-  {% endif %}
-</section>
+        </div>
+      {% endif %}
+    {% endif %}
 
-<nav id="pagination">
-  <ul>
-  {% if product.previous_product != blank %}<li id="pag_prev"><a href="{{ product.previous_product.url }}" class="button">Previous</a></li>{% endif %}{% if product.next_product != blank %}<li id="pag_next"><a href="{{ product.next_product.url }}" class="button">Next</a></li>{% endif %}
-  </ul>
-</nav>
+    {% if theme.share_buttons %}
+      <div class="product-detail__share">
+        <button class="product-share-launch">
+          <svg aria-hidden="true" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="m8.5 4c.27614 0 .5.22386.5.5 0 .24545778-.17687704.4496079-.41012499.49194425l-.08987501.00805575h-3c-.77969882 0-1.420449.59488554-1.49313345 1.35553954l-.00686655.14446046v8c0 .7796706.59488554 1.4204457 1.35553954 1.4931332l.14446046.0068668h8c.7796706 0 1.4204457-.5949121 1.4931332-1.3555442l.0068668-.1444558v-1c0-.2761.2239-.5.5-.5.2454222 0 .4496.1769086.4919429.4101355l.0080571.0898645v1c0 1.325472-1.0315469 2.4100378-2.3356256 2.4946823l-.1643744.0053177h-8c-1.3254816 0-2.41003853-1.0315469-2.49468231-2.3356256l-.00531769-.1643744v-8c0-1.3254816 1.03153766-2.41003853 2.33562452-2.49468231l.16437548-.00531769zm4.768-.89136.0617.05301 4.4971 4.42118c.2099.20633.229.53775.0573.76685l-.0572.06544-4.4971 4.42258c-.3378.3322-.8869.1189-.9469-.3338l-.0053-.0823v-2.0955l-.2577.0232c-1.8003.1924-3.52574 1.0235-5.18729 2.5071-.38943.3478-.99194.019-.92789-.5063.49872-4.09021 2.58567-6.34463 6.14828-6.62742l.2246-.01511v-2.12975c0-.47977.5302-.73818.8904-.46918z" /></svg>
+          <span>Share <span class="visually-hidden">this product</span></span>
+        </button>
+        <ul id="product-share-buttons" class="product-share-buttons" aria-hidden="true">
+          <li class="social-twitter">
+            {% capture tweet_string %}{{ product.name }} - {{ store.name }} {{ page.full_url }}{% endcapture %}
+            {% assign tweet_string = tweet_string | url_encode %}
+            <a title="Tweet" href="https://twitter.com/intent/tweet?text={{ tweet_string }}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=no,scrollbars=no,height=400,width=600');return false;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 150.857 612 490.298"><path d="M606 209c-22.2 9.7-46 16.4-70.8 19.4 25.4-15.3 45-39.6 54-68.5-23.7 14-50 24-78 30-22.5-24-54.4-39-89.8-39-68 0-123 55-123 123 0 9.3 1 19 3 28-102.2-5-192.8-54-253.4-129-11 18.3-17 39.5-17 62.2 0 43 21.5 81 54.6 103-20.2-.6-39.2-6-55.8-15.4v2c0 60 42.3 110 98.6 121.2-10.4 3-21.3 4.6-32.5 4.6-8 0-16-1-23-2.5 15 49.3 61 85 115 86-42 33.3-96 53-153 53-10 0-20-.5-30-1.7 55 35 119.5 55.5 189 55.5 226.3 0 350-188.5 350-352 0-5.5 0-10.8-.3-16 24-17.6 45-39.4 61.4-64z"/></svg>
+              <span>Twitter</span>
+            </a>
+          </li>
+          <li class="social-facebook">
+            <a title="Share on Facebook" href="https://www.facebook.com/sharer/sharer.php?u={{store.url}}{{product.url}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=no,scrollbars=no,height=400,width=600');return false;">
+              <svg class="facebook-icon" height="36" width="36" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="5 5 19.91 20"><path d="M23.9 5H6.1C5.5 5 5 5.5 5 6.1v17.7c0 .7.5 1.2 1.1 1.2h9.5v-7.7H13v-3h2.6V12c0-2.6 1.6-4 3.9-4 1.1 0 2 .1 2.3.1v2.7h-1.6c-1.2 0-1.5.6-1.5 1.5v1.9h3l-.4 3h-2.6V25h5.1c.6 0 1.1-.5 1.1-1.1V6.1c.1-.6-.4-1.1-1-1.1z"></path></svg>
+              <span>Facebook</span>
+            </a>
+          </li>
+          <li class="social-pinterest">
+            <a title="Pin" tabindex="-1" data-pin-custom="true" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{ page.full_url }}&media={{ product.images.first.url }}&description={{ product.description | escape | truncate: 200 }}">
+              <svg class="pinterest-icon" height="36" width="36" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"></path></svg>
+              <span>Pinterest</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    {% endif %}
+  </section>
+</div>
