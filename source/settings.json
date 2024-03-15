@@ -276,7 +276,7 @@
         ["Fit to square", "contain"],
         ["Crop to square", "cover"]
       ],
-      "default": "cover",
+      "default": "default",
       "description": "Sets the display of images in the product grid"
     },
     {
