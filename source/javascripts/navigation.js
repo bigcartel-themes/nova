@@ -61,7 +61,7 @@ const sidebarNavigation = document.getElementById('mobile-navigation');
 
 function toggleSidebarNavigation() {
   setHeaderBottomPosition();
-  document.body.classList.toggle('no-scroll');
+  document.body.classList.toggle('overlay-open');
   const isButtonExpanded = toggleMenuButton.getAttribute('aria-expanded') === 'true';
   const isMenuHidden = sidebarNavigation.getAttribute('aria-hidden') === 'true';
   toggleMenuButton.setAttribute('aria-expanded', isButtonExpanded ? 'false' : 'true');
