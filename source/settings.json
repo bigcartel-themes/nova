@@ -318,13 +318,6 @@
       "default": true,
       "description": "Shows the product search area"
     },
-  	{
-      "variable": "share_buttons",
-      "label": "Show product share button",
-      "type": "boolean",
-      "default": false,
-      "description": "Adds a Share button to your Product page after the description"
-    },
     {
       "variable": "product_image_zoom",
       "label": "Enable product image zoom",
