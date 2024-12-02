@@ -8,7 +8,7 @@
     {{ head_content }}
     <style>.preloader * { opacity: 0; }.transition-preloader * { transition: none !important }</style>
   </head>
-  <body id="{{ page.permalink }}" class="{{ page.category }} {% if page.permalink == 'home' and theme.welcome_text != blank %} has-tagline{% endif %} preloader transition-preloader">
+  <body id="{{ page.permalink }}" class="{{ page.category }} {% if page.permalink == 'home' and theme.welcome_text != blank %} has-tagline{% endif %} preloader transition-preloader" data-bc-page-type="{% if page.category == 'custom' %}custom{% else %}{{ page.permalink }}{% endif %}">
     <a class="skip-link" href="#main">Skip to main content</a>
     {% if theme.announcement_message_text != blank %}
       <div aria-label="Announcement message" class="announcement-message">
@@ -20,7 +20,7 @@
         </button>
       </div>
     {% endif %}
-    <header class="header has-border">
+    <header class="header has-border" data-bc-hook="header">
       <div class="wrapper top-nav">
         <div class="header-mobile-menu">
           <button class="open-mobile-navigation" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-navigation">
@@ -114,7 +114,7 @@
       </div>
     </div>
 
-    <footer class="footer">
+    <footer class="footer" data-bc-hook="footer">
     	<div class="wrapper wrapper--footer">
     		<nav class="footer-nav--links" aria-label="Secondary">
           <ul>
