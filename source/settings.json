@@ -1,11 +1,11 @@
 {
   "name": "Nova",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "images": [
     {
       "variable": "image",
       "label": "Header image",
-      "description": "Transparent background recommended, up to 300 by 100px"
+      "description": "Recommend transparent background and 3:1 aspect ratio"
     }
   ],
   "image_sets": [
@@ -226,6 +226,19 @@
       "type": "text",
       "description": "A message visitors see when your shop is in Maintenance Mode",
       "default": "We're working on our shop right now.<br /><br />Please check back soon."
+    },
+    {
+      "variable": "header_logo_image_height",
+      "label": "Header logo image height",
+      "type": "select",
+      "options": [
+        ["Small", "80"],
+        ["Medium", "100"],
+        ["Large", "130"],
+        ["Extra Large", "160"]
+      ],
+      "default": "100",
+      "description": "Controls the maximum height of your header logo"
     },
     {
       "variable": "welcome_text",

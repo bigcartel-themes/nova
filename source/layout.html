@@ -34,11 +34,14 @@
         <div class="header-logo {% if theme.image != blank %}image{% else %}text{% endif %}">
           <a href="/" class="store-link" title="{{ store.name | escape }}">
             {% if theme.image != blank %}
-              <img
+            {% assign header_logo_image_height_1x = theme.header_logo_image_height %}
+            {% assign header_logo_image_height_2x = header_logo_image_height_1x | times: 2 %}
+              <img 
                 class="store-logo"
                 alt="{{ store.name }} Home"
-                src="{{ theme.images.image.url | constrain: '600', '200' }}"
-                srcset="{{ theme.images.image.url | constrain: '600', '200' }} 2x, {{ theme.images.image.url | constrain: '300', '100' }} 1x">
+                src="{{ theme.images.image.url | constrain: '', logo_image_height_1x }}"
+                srcset="{{ theme.images.image.url | constrain: '', header_logo_image_height_1x }}, {{ theme.images.image.url | constrain: '', header_logo_image_height_2x }} 2x"
+              >
             {% else %}
               {{ store.name }}
             {% endif %}
