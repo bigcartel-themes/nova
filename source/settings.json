@@ -19,7 +19,7 @@
     "preview": {
       "title_font": "header_font",
       "body_font": "text_font",
-      "text_color": "text_color",
+      "text_color": "primary_text_color",
       "background_color": "background_color"
     },
     "presets": [
@@ -35,10 +35,10 @@
             "colors": {
               "background_color": "#FFFFFF",
               "secondary_background_color": "#ECECEC",
-              "text_color": "#111111",
+              "primary_text_color": "#111111",
               "secondary_text_color": "#222222",
-              "link_color": "#1201FF",
-              "link_hover": "#0B019B",
+              "link_text_color": "#1201FF",
+              "link_hover_color": "#0B019B",
               "border_color": "#777777"
             }
           }
@@ -56,10 +56,10 @@
             "colors": {
               "background_color": "#141415",
               "secondary_background_color": "#141415",
-              "text_color": "#F8F8F8",
+              "primary_text_color": "#F8F8F8",
               "secondary_text_color": "#F8F8F8",
-              "link_color": "#F8F8F8",
-              "link_hover": "#AEAEAE",
+              "link_text_color": "#F8F8F8",
+              "link_hover_color": "#AEAEAE",
               "border_color": "#4F4F4F"
             }
           },
@@ -72,10 +72,10 @@
             "colors": {
               "background_color": "#F8F8F8",
               "secondary_background_color": "#EBE7E7",
-              "text_color": "#0F1B27",
+              "primary_text_color": "#0F1B27",
               "secondary_text_color": "#0F1B27",
-              "link_color": "#0F1B27",
-              "link_hover": "#8A5A5A",
+              "link_text_color": "#0F1B27",
+              "link_hover_color": "#8A5A5A",
               "border_color": "#DBD1D1"
             }
           },
@@ -88,10 +88,10 @@
             "colors": {
               "background_color": "#F5F4EE",
               "secondary_background_color": "#F1DBCE",
-              "text_color": "#262522",
+              "primary_text_color": "#262522",
               "secondary_text_color": "#7C3C17",
-              "link_color": "#262522",
-              "link_hover": "#7C3C17",
+              "link_text_color": "#262522",
+              "link_hover_color": "#7C3C17",
               "border_color": "#F1DBCE"
             }
           }
@@ -109,10 +109,10 @@
             "colors": {
               "background_color": "#FFFFFF",
               "secondary_background_color": "#F6FF20",
-              "text_color": "#000000",
+              "primary_text_color": "#000000",
               "secondary_text_color": "#000000",
-              "link_color": "#000000",
-              "link_hover": "#F90081",
+              "link_text_color": "#000000",
+              "link_hover_color": "#F90081",
               "border_color": "#22FFF8"
             }
           }
@@ -144,8 +144,8 @@
       "default": "#ECECEC"
     },
     {
-      "variable": "text_color",
-      "label": "Text",
+      "variable": "primary_text_color",
+      "label": "Primary Text",
       "default": "#111111"
     },
     {
@@ -154,12 +154,12 @@
       "default": "#222222"
     },
     {
-      "variable": "link_color",
+      "variable": "link_text_color",
       "label": "Links",
       "default": "#1201FF"
     },
     {
-      "variable": "link_hover",
+      "variable": "link_hover_color",
       "label": "Link Hover",
       "default": "#0B019B"
     },
@@ -171,21 +171,21 @@
   ],
   "checkout": {
     "header_image": "{{ image }}",
-    "title_color": "{{ text_color }}",
+    "title_color": "{{ primary_text_color }}",
     "title_background_color": "{{ background_color }}",
     "title_font": "{{ header_font }}",
     "background_color": "{{ background_color }}",
     "body_font": "{{ text_font }}",
     "step_background_color":"{{ background_color }}",
     "step_border_color":"{{ border_color }}",
-    "step_header_color":"{{ text_color }}",
+    "step_header_color":"{{ primary_text_color }}",
     "step_inactive_header_color":" {{ secondary_text_color }}",
     "step_header_font":"{{ header_font }}",
-    "content_color":"{{ text_color }}",
+    "content_color":"{{ primary_text_color }}",
     "content_background_color":"{{ background_color }}",
     "content_border_color":"{{ border_color }}",
     "content_header_background_color":"{{ background_color }}",
-    "content_header_color":"{{ text_color }}",
+    "content_header_color":"{{ primary_text_color }}",
     "input_focus_color": "#000000",
     "input_focus_background_color": "#ffffff",
     "input_focus_border_color": "#bfbfbf",
@@ -200,18 +200,18 @@
     "button_color":"{{ secondary_text_color }}",
     "button_border_width":"1px",
     "button_border_radius":"0px",
-    "button_hover_color":"{{ link_hover }}",
+    "button_hover_color":"{{ link_hover_color }}",
     "button_background_color":"transparent",
     "button_hover_background_color":"transparent",
     "button_border_color":"{{ border_color }}",
-    "button_hover_border_color":"{{ link_hover }}",
-    "link_color":"{{ link_color }}",
-    "link_hover_color":"{{ link_hover }}",
+    "button_hover_border_color":"{{ link_hover_color }}",
+    "link_color":"{{ link_text_color }}",
+    "link_hover_color":"{{ link_hover_color }}",
     "summary_submit_background_color":"{{ background_color }}",
     "summary_item_border_color":"{{ border_color }}",
     "summary_item_list_border_color":"{{ border_color }}",
     "summary_item_list_border_width":"1px",
-    "summary_color":"{{ text_color }}"
+    "summary_color":"{{ primary_text_color }}"
   },
   "options": [
     {
