@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6
   line-height: 1.4em
 
 a
-  color: var(--text-color)
+  color: var(--link-text-color)
   text-decoration: none
   cursor: pointer
   text-underline-offset: 4px
@@ -231,13 +231,16 @@ button.button, a.button, div.button
       font-size: 1.3rem
 
   &.image
-    height: 90px
+    height: calc(var(--header-logo-image-height) * 1px)
 
     @media screen and (max-width: $break-medium)
-      height: 80px
+      // Min 80px, Max 100px
+      height: clamp(80px, calc(var(--header-logo-image-height) * 0.8 * 1px), 100px)
 
     @media screen and (max-width: $break-small)
-      height: 64px
+      // Min 64px, Max 75px
+      height: clamp(64px, calc(var(--header-logo-image-height) * 0.64 * 1px), 75px)
+
 
     img
       max-width: 300px

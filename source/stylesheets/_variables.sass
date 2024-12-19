@@ -1,10 +1,10 @@
 \:root
   --background-color: #{'{{ theme.background_color }}'}
   --secondary-background-color: #{'{{ theme.secondary_background_color }}'}
-  --text-color: #{'{{ theme.text_color }}'}
+  --text-color: #{'{{ theme.primary_text_color }}'}
   --secondary-text-color: #{'{{ theme.secondary_text_color }}'}
-  --link-color: #{'{{ theme.link_color }}'}
-  --link-hover-color: #{'{{ theme.link_hover }}'}
+  --link-text-color: #{'{{ theme.link_text_color }}'}
+  --link-hover-color: #{'{{ theme.link_hover_color }}'}
   --border-color: #{'{{ theme.border_color }}'}
   --border-color-light: #{'rgba(var(--border-color-rgb), .3)'}
 
@@ -19,6 +19,8 @@
 
   --error-background-color: #950f1e
   --error-text-color: #FFFFFF
+
+  --header-logo-image-height: #{'{{ theme.header_logo_image_height }}'}
 
   --header-font: #{'{{ theme.header_font | font_family }}'}
   --text-font: #{'{{ theme.text_font | font_family }}'}
