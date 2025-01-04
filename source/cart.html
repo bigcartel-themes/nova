@@ -65,6 +65,9 @@
           <div class="cart-submit">
             <button type="submit" name="checkout" class="button button--checkout">Checkout</button>
             <a class="button button--minimal" href="/products">Continue Shopping</a>
+            {% if cart.shareable_link %}
+              <a href="{{ cart.shareable_link }}" class="button button--minimal copy-cart-link" data-clipboard-text="{{ cart.shareable_link }}">Share this cart</a>
+            {% endif %}
           </div>
         </div>
       </div>
