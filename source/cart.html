@@ -9,8 +9,8 @@
   {% endif %}
   {% if cart.items == blank %}
     <div class="cart-empty">
-      <div class="message-banner message-banner--no-bg message-banner--centered message-banner--empty-cart">Your cart is empty! Sounds like a good time to start shopping.</div>
-      <a href="/products" class="button">Shop now</a>
+      <div class="message-banner message-banner--no-bg message-banner--centered message-banner--empty-cart">Your cart is empty!</div>
+      <a href="/" class="button">Shop now</a>
     </div>
   {% else %}
     <form method="post" id="cart_form" class="cart-form" action="/cart" accept-charset="utf8">
