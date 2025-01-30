@@ -41,6 +41,38 @@
               "link_hover_color": "#0B019B",
               "border_color": "#777777"
             }
+          },
+          {
+            "style_name": "Classic #2",
+            "fonts": {
+              "header_font": "Libre Baskerville",
+              "text_font": "Source Sans Pro"
+            },
+            "colors": {
+              "background_color": "#FFFFFF",
+              "secondary_background_color": "#F5F5F5",
+              "primary_text_color": "#2C3338",
+              "secondary_text_color": "#4F5963",
+              "link_text_color": "#1A5F7A",
+              "link_hover_color": "#0D2B36",
+              "border_color": "#D1D5DB"
+            }
+          },
+          {
+            "style_name": "Classic #3",
+            "fonts": {
+              "header_font": "PT Serif",
+              "text_font": "PT Sans"
+            },
+            "colors": {
+              "background_color": "#2C353D",
+              "secondary_background_color": "#374249",
+              "primary_text_color": "#FFFFFF",
+              "secondary_text_color": "#B8C4CF",
+              "link_text_color": "#9DCCFF",
+              "link_hover_color": "#FFFFFF",
+              "border_color": "#4A545C"
+            }
           }
         ]
       },
@@ -114,6 +146,38 @@
               "link_text_color": "#000000",
               "link_hover_color": "#F90081",
               "border_color": "#22FFF8"
+            }
+          },
+          {
+            "style_name": "Playful #2",
+            "fonts": {
+              "header_font": "Chewy",
+              "text_font": "DM Sans"
+            },
+            "colors": {
+              "background_color": "#FF6B6B",
+              "secondary_background_color": "#4ECDC4",
+              "primary_text_color": "#FFFFFF",
+              "secondary_text_color": "#2C3E50",
+              "link_text_color": "#FFE66D",
+              "link_hover_color": "#FFFFFF",
+              "border_color": "#FFE66D"
+            }
+          },
+          {
+            "style_name": "Playful #3",
+            "fonts": {
+              "header_font": "Sour Gummy",
+              "text_font": "Quicksand"
+            },
+            "colors": {
+              "background_color": "#B8E1FF",
+              "secondary_background_color": "#FFB8E6",
+              "primary_text_color": "#2D3436",
+              "secondary_text_color": "#2D3436",
+              "link_text_color": "#9B51E0",
+              "link_hover_color": "#6B21A8",
+              "border_color": "#FFE0A4"
             }
           }
         ]
