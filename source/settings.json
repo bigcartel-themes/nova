@@ -265,7 +265,10 @@
         ["Fastest", 3000]
       ],
       "default": 4000,
-      "description": "Controls how quickly slides advance in the auto-playing slideshow"
+      "description": "Controls how quickly slides advance in the auto-playing slideshow",
+      "requires": [
+        "homepage_slideshow_autoplay eq true"
+      ]
     },
     {
       "variable": "featured_header",
@@ -286,12 +289,8 @@
       "variable": "featured_order",
       "label": "Featured products order",
       "type": "select",
-      "options": [
-        ["Regular", "regular"],
-        ["Top Selling", "sales"],
-        ["Newest", "newest"]
-      ],
-      "default": "regular",
+      "options": "product_orders",
+      "default": "position",
       "description": "The order of products on the Home page"
     },
     {
